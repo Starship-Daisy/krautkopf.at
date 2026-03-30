@@ -1,0 +1,40 @@
+/* 02-base.css - Die Aktivierung der Tokens */
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: var(--font-serif); /* Edle Grundschrift */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-headline);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Links im Text */
+a {
+    color: var(--text-accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    border-bottom: 1px solid var(--text-accent);
+    opacity: 0.8;
+}
+
+/* Container-Standard (falls genutzt) */
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}

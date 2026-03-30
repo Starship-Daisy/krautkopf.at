@@ -1,0 +1,71 @@
+/* 1. Grund-Layout für Desktop (breite Bildschirme) */
+.content-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.content-left {
+    flex: 2;
+    min-width: 0; /* Verhindert, dass Bilder das Layout sprengen */
+}
+
+.blog-sidebar {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+    /* Das "Roll-Fenster" nur auf Desktop fixieren */
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-stack {
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+/* 2. RESPONSIVE ANPASSUNG (Handy & Tablet) */
+@media (max-width: 900px) {
+    .content-layout {
+        flex-direction: column; /* Stapelt Spalten untereinander */
+    }
+
+    .content-left {
+        width: 100%;
+    }
+
+    .blog-sidebar {
+        width: 100%;
+        position: static; /* Klebt nicht mehr am Rand */
+        height: auto;     /* Fenster ist so hoch wie der Inhalt */
+        border-left: none;
+        border-top: 2px solid var(--color-border);
+        padding-left: 0;
+        padding-top: 30px;
+    }
+
+    .blog-stack {
+        overflow-y: visible; /* Auf dem Handy rollt die ganze Seite, kein extra Fenster */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* 02-base.css */
+
+/* ... deine bisherigen Body- & Font-Regeln ... */
+
+/* Responsive Bilder-Grundregel */
+img {
+    max-width: 100%;    /* Bild wird nie breiter als sein Container */
+    height: auto;       /* Behält das Seitenverhältnis bei, damit nichts verzerrt */
+    display: block;     /* Verhindert kleine Abstände unter dem Bild */
+}
+
+/* Optional: Ein schöner Standard für Figure-Elemente */
+figure {
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildnachweis | Krautkopf.at</title>
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <style>
+        :root {
+            --accent-color: #4CAF50; 
+            --bg-color: #f9fbf9;
+            --text-dark: #2d3436;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .celebration-wrapper {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 25px;
+        }
+
+        .credit-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .credit-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .credit-header p {
+            font-size: 1.2rem;
+            color: #636e72;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .credit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .credit-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .credit-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .credit-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #636e72;
+            margin-bottom: 25px;
+        }
+
+        .card-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .platform-tag {
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #b2bec3;
+            border: 1px solid #dfe6e9;
+            padding: 5px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .credit-footer {
+            text-align: center;
+            margin-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        .back-button {
+            display: inline-block;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 25px;
+            border: 2px solid var(--text-dark);
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: var(--text-dark);
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .credit-header h1 { font-size: 2rem; }
+            .credit-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="celebration-wrapper">
+        <header class="credit-header">
+            <h1>Galerie der Dankbarkeit</h1>
+            <p>Ein Blick auf die Künstler, deren Bilder diesen Blog zum Leben erwecken.</p>
+        </header>
+
+        <section class="credit-grid">
+            <article class="credit-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600&auto=format&fit=crop" alt="Waldweg">
+                </div>
+                <div class="card-content">
+                    <h3>Nebeliger Waldweg</h3>
+                    <p>Eingefangen von <br><strong><a href="https://unsplash.com/@sebastian_unrau" target="_blank">Sebastian Unrau</a></strong></p>
+                    <span class="platform-tag">Unsplash</span>
+                </div>
+            </article>
+
+            <article class="credit-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1469827160215-9d29e96e72f4?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Green Leaf Tree under blue sky">
+                </div>
+                <div class="card-content">
+                    <h3>Green Leaf Tree under blue sky</h3>
+                    <p>Eingefangen von <br><strong><a href="https://unsplash.com/de/@johnmarkarnold" target="_blank">Jeff King</a></strong></p>
+                    <span class="platform-tag">Unsplash</span>
+                </div>
+            </article>
+        </section>
+
+        <footer class="credit-footer">
+            <a href="blog-test.html" class="back-button">← Zurück zum Blog</a>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+@import url('https://fonts.bunny.net/css?family=caramel:400|permanent-marker:400|playfair-display:600,600i,900,900i');
+
+:root {
+    /* 1. Die Farb-Palette (Die Rohstoffe) */
+    --color-bg: #fdfcf8;           /* Cremeweiß */
+    --color-text: #2c3e50;         /* Anthrazit */
+    --color-accent-green: #3d5a44;  /* Krautgrün */
+    --color-soft-green: #e8f0e6;    /* Salbeigrau/grün */
+    --color-border: #e0ddd5;       /* Weiches Greige */
+
+    /* 2. Funktionale Zuweisung (Was wird wo genutzt?) */
+    /* Hier nutzen wir jetzt die Farben von oben */
+    --bg-page: var(--color-bg);
+    --text-main: var(--color-text);
+    --text-headline: var(--color-accent-green);
+    --text-accent: var(--color-accent-green);
+    
+    /* 3. Schriften */
+    --font-hand: 'Caramel', cursive;
+    --font-serif: 'Playfair Display', serif;
+    --font-marker: 'Permanent Marker', cursive;
+    --font-sans: 'Helvetica Neue', Arial, sans-serif;
+
+    /* 4. Abstände & Rundungen */
+    --radius-main: 15px;
+    --shadow-soft: 0 4px 15px rgba(0,0,0,0.05);
+}

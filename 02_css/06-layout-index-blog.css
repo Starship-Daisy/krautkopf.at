@@ -1,0 +1,124 @@
+/* Datei 5: 02_css/06-layout-index-blog.css */
+
+header {
+    display: flex;
+    flex-direction: column; /* Stapelt Text und Logo übereinander */
+    align-items: center;    /* Zentriert beide horizontal */
+    text-align: center;     /* Zentriert den Text im h1 */
+    padding: 3rem 1rem;     /* Etwas Luft nach oben und unten */
+}
+
+.kraut-wrapper {
+    margin-top: 1rem;       /* Abstand zwischen Schriftzug und Logo */
+    display: flex;
+    justify-content: center; /* Sicherungskopie für das SVG selbst */
+}
+
+.kraut-svg {
+    display: block;         /* Verhindert kleine Abstände unter dem Bild */
+    margin: 0 auto;         /* Klassische Zentrierung */
+}
+
+/* Wir hängen den .main-wrapper davor, um die Spezifität zu erhöhen */
+.main-wrapper .blog-feed {
+    padding: 5rem 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Durch "body .blog-grid" wird die Regel stärker als einfache Klassen */
+body .blog-grid {
+    display: grid !important; /* Erzwingt Grid, falls Datei 3 Flexbox will */
+    gap: 1.5rem;
+    grid-template-columns: 1fr; /* Mobile */
+}
+
+/* Mittlere Bildschirme (Tablets) */
+@media (min-width: 768px) {
+    body .blog-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* Große Bildschirme (Desktop) */
+@media (min-width: 1200px) {
+    body .blog-grid {
+        grid-template-columns: repeat(5, 1fr) !important;
+    }
+}
+
+/* Die Karten-Spezifität erhöhen */
+.main-wrapper .blog-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border); /* Nutzt dein Token aus Datei 1 */
+    background: #fff;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+
+/* Grundlegende Container-Einstellungen */
+.blog-feed {
+    padding: 4rem 1rem;
+    max-width: 1400px; /* Erlaubt genug Platz für 5 Karten */
+    margin: 0 auto;
+}
+
+.blog-feed-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Das Herzstück: Das Grid */
+.blog-grid {
+    display: grid;
+    gap: 1.5rem;
+    /* Standard für kleine Bildschirme (Mobile): 1 Spalte */
+    grid-template-columns: 1fr;
+}
+
+/* Mittlere Bildschirme (Tablets): 3 Spalten */
+@media (min-width: 768px) {
+    .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Große Bildschirme (Desktop): 5 Spalten */
+@media (min-width: 1200px) {
+    .blog-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* Styling der einzelnen Karten (Konsistenz-Check) */
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color, #eee);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #fff;
+    height: 100%; /* Sorgt dafür, dass alle Karten gleich hoch sind */
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.blog-card .date {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.blog-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}

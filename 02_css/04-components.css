@@ -1,0 +1,154 @@
+/* Das große Bild oben */
+.featured-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-main);
+}
+
+/* Die Blog-Karten rechts */
+.blog-card {
+    background: var(--color-white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-soft);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Der Zitat-Bereich */
+
+
+/* Der "Klebestreifen" (Tixo-Effekt) */
+.quote-section {
+    position: relative;
+    background-color: #ffffff;
+    padding: 3rem 2rem;
+    
+    /* Breite und Zentrierung */
+    width: 90%;            /* Flexibel für Mobile */
+    max-width: 650px;      /* Begrenzung für Desktop */
+    margin: 6rem auto;     /* 'auto' links/rechts zentriert den Block im Browser */
+    
+    /* Der Zettel-Look */
+    border: 1px solid var(--color-border);
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.02);
+    
+    /* Drehung fixieren */
+    transform: rotate(-1.5deg); 
+    
+    /* Inhalt im Zettel zentrieren */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* Verhindert, dass der Zettel durch die Drehung links rausragt */
+    left: 0;
+    right: 0;
+
+.quote-section {
+    position: relative;        /* Wichtig für den Klebestreifen oben */
+    background-color: #ffffff;
+    padding: 3rem 2rem;
+    max-width: 650px;          /* Verhindert, dass der Zettel zu breit wird */
+    margin: 6rem auto;         /* Viel Platz nach oben und unten */
+
+
+}
+
+.quote-section {
+    text-align: center;
+    margin: 4rem 0;
+    display: flex;          /* Aktiviert das Flex-Layout */
+    flex-direction: column; /* Stapelt die Elemente untereinander */
+    align-items: center;    /* Zentriert sie horizontal */
+}
+
+.quote-top {
+    font-family: var(--font-serif);
+    /*font-family: var(--font-hand);*/
+    font-size: 2.6rem;
+    /*color: var(--text-accent);*/
+    color: var(--text-accent);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.quote-middle {
+    font-family: var(--font-serif);
+    /*font-style: italic;*/
+    font-size: 2.8rem;
+    color: var(--text-accent);
+    display: block;         /* Wichtig, damit das <span> sich wie eine Zeile verhält */
+    line-height: 0.75;
+    margin: 0.5rem 0;
+}
+
+.quote-bottom {
+    font-family: var(--font-marker);
+    font-size: 3.5rem;
+    color: var(--color-red);
+    display: block;
+    transform: rotate(-2deg); /* Der leichte Knick */
+    line-height: 1.2;
+    margin-top: 1rem;
+}
+/* Das sorgt dafür, dass der Text nicht am Rand klebt und gut lesbar ist */
+.legal-content {
+    text-align: left;        /* Text schön linksbündig */
+    max-width: 700px;        /* Textzeilen nicht zu lang machen (liest sich besser) */
+    margin: 40px auto;       /* Abstand nach oben/unten und mittig */
+    line-height: 1.6;        /* Mehr Platz zwischen den Zeilen */
+}
+
+.legal-content h2 {
+    margin-top: 30px;        /* Abstand über den Zwischenüberschriften */
+    color: var(--text-accent); /* Nutzt dein Krautkopf-Grün */
+}
+
+/* Der äußere Kasten des Footers */
+.main-footer {
+    background-color: #f9f9f9; /* Ein ganz helles Grau */
+    padding: 3rem 1rem;
+    margin-top: 4rem;          /* Abstand zum Text darüber */
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-family: var(--font-sans); /* Nutzt deine Standardschrift */
+}
+
+/* Der Bereich für die Links */
+.footer-nav {
+    margin: 1.5rem 0;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: var(--text-accent); /* Dein Krautkopf-Grün */
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Der "Zurück zur Startseite" Link */
+.back-home {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #888;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.back-home:hover {
+    color: var(--text-main);
+}
