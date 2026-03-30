@@ -7,20 +7,16 @@ on:
 
 jobs:
   web-deploy:
-    name: Dateien hochladen
     runs-on: ubuntu-latest
     steps:
-      - name: Code von GitHub holen
+      - name: Code holen
         uses: actions/checkout@v4
 
-      - name: FTP Upload ausführen
+      - name: FTP Upload
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Absolut einfachster Modus für Free-Hosts:
-          protocol: ftp
-          port: 21
-          # Wir löschen alle "modernen" Extras:
-          log-level: verbose
+          # Das ist die wichtigste Zeile:
+          server-dir: ./www/
