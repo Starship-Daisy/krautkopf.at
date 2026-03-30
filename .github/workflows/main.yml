@@ -19,4 +19,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ./
+        # Hier erzwingen wir den passiven Modus und ignorieren SSL-Fehler (falls vorhanden)
+        protocol: ftp
+        port: 21
