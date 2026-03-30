@@ -19,10 +19,9 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./www/
-          # HIER DIE WICHTIGEN ÄNDERUNGEN:
           protocol: ftp
           port: 21
-          # Wir sagen dem Roboter: Bitte KEINE Verschlüsselung versuchen
+          # HIER DIE RETTUNG:
+          force-ipv4: true
+          # Wir bleiben bei 'loose', um SSL-Probleme zu vermeiden
           security: loose
-          # Und wir geben ihm mehr Zeit für den Data Socket
-          timeout: 60000
