@@ -11,15 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Code von GitHub holen
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: FTP Upload ausführen
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          # Absolut einfachster Modus für Free-Hosts:
           protocol: ftp
           port: 21
-          # Falls Domaintechnik ein spezielles Verzeichnis will:
-          # server-dir: ./html/
+          # Wir löschen alle "modernen" Extras:
+          log-level: verbose
