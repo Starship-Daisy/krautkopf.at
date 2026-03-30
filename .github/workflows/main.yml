@@ -19,6 +19,10 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./www/
-          # Zwinge den Roboter in den passiven Modus:
+          # HIER DIE WICHTIGEN ÄNDERUNGEN:
           protocol: ftp
           port: 21
+          # Wir sagen dem Roboter: Bitte KEINE Verschlüsselung versuchen
+          security: loose
+          # Und wir geben ihm mehr Zeit für den Data Socket
+          timeout: 60000
