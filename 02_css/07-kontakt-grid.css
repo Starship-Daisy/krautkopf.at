@@ -90,34 +90,3 @@
     gap: 50px;
   }
 }
-.main-footer {
-    /* GLEICHE BREITE WIE GRID */
-    max-width: 1000px;    /* Muss exakt der Wert aus .contact-grid sein */
-    margin: 80px auto 40px auto; /* Zentriert den Footer (oben 80px Abstand) */
-    
-    /* INNENABSTAND & OPTIK */
-    padding: 40px 20px;   /* Etwas Luft nach innen */
-    border-top: 1px solid #eee; /* Optionale feine Trennlinie */
-    
-    /* TEXTAUSRICHTUNG */
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* Zentriert die Links untereinander */
-}
-
-.footer-nav {
-    display: flex;
-    gap: 20px;            /* Abstand zwischen Impressum, Datenschutz etc. */
-    margin-bottom: 20px;
-}
-
-.footer-nav a, .back-link {
-    text-decoration: none;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-.footer-nav a:hover, .back-link:hover {
-    color: #000;
-    text-decoration: underline;
-}
