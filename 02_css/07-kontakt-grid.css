@@ -33,48 +33,6 @@
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px; /* Der Abstand ZWISCHEN Text und Formular */
-    max-width: 900px; /* Kleinerer Wert = mehr Abstand zu den Seitenrändern */
-    margin: 0 auto;   /* Zentriert das Grid auf der Seite */
-    padding: 0 40px;  /* Sicherheitsabstand für mobile Geräte */
-}
-.main-footer {
-    margin-top: 100px;    /* Abstand zum Kontakt-Grid */
-    padding: 60px 20px;   /* Innenabstand für Luft nach oben/unten */
-    border-top: 1px solid #eee; /* Eine ganz feine Trennlinie */
-    text-align: center;   /* Alles im Footer zentrieren */
-}
-.footer-nav {
-    margin-bottom: 30px;  /* Abstand zum unteren Copyright-Teil */
-}
-
-.footer-nav a {
-    text-decoration: none;
-    color: #666;
-    font-size: 0.85rem;
-    margin: 0 15px;       /* Abstand zwischen den einzelnen Links */
-    transition: color 0.3s ease;
-}
-
-.footer-nav a:hover {
-    color: #556b2f;       /* Das Krautkopf-Grün beim Drüberfahren */
-}
-.back-link {
-    display: inline-block;
-    margin-top: 20px;
-    font-family: 'Courier Prime', monospace; /* Dein Typewriter-Look */
-    font-size: 0.9rem;
-    color: #333;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-.contact-grid {
-    display: grid;
     grid-template-columns: 1fr 1fr; /* Zwei Spalten */
     
     /* ABSTAND ZU DEN SEITEN: */
