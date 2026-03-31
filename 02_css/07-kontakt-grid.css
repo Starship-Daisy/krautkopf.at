@@ -1,3 +1,36 @@
+/* 1. Import ganz oben in der Datei */
+@import url('https://fonts.bunny.net/css?family=courier-prime:400');
+
+/* 2. Zuweisung an die Eingabefelder */
+.contact-form input, 
+.contact-form textarea {
+    font-family: 'Courier Prime', monospace;
+    font-size: 1.1rem;
+    color: #1a1a1a; /* Ein sattes, fast-schwarzes Anthrazit */
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+    padding: 10px 0;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+/* 3. Der Effekt beim Klicken (Fokus) */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-bottom: 1px solid #556b2f; /* Ein dezentes Krautkopf-Grün */
+    outline: none;
+}
+
+/* 4. Damit auch die Labels harmonieren */
+.input-group label {
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Zwei gleich große Spalten */
@@ -47,30 +80,4 @@
     grid-template-columns: 1fr; /* Auf dem Handy nur eine Spalte */
     gap: 50px;
   }
-}
-/* 1. Die Schriftart importieren */
-@import url(https://fonts.bunny.net/css?family=courier-prime:400);
-
-/* 2. Die Schrift auf die Eingabefelder anwenden */
-.contact-form input, 
-.contact-form textarea {
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.1rem;
-    color: #2c3e50; /* Ein schönes, dunkles Tintenblau oder Anthrazit */
-    letter-spacing: -0.5px; /* Macht es noch ein bisschen "getippter" */
-}
-
-/* Optional: Auch die Labels in Typewriter, falls gewünscht */
-.input-group label {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    opacity: 0.7;
-}
-
-/* Der Effekt, wenn man tippt */
-.contact-form input:focus, 
-.contact-form textarea:focus {
-    color: #000; /* Text wird beim Tippen tiefschwarz */
-    outline: none;
 }
