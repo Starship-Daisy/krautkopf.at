@@ -48,3 +48,29 @@
     gap: 50px;
   }
 }
+/* 1. Die Schriftart importieren */
+@import url('https://fonts.bunny.net/css?family=cutive-mono:400');
+
+/* 2. Die Schrift auf die Eingabefelder anwenden */
+.contact-form input, 
+.contact-form textarea {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 1.1rem;
+    color: #2c3e50; /* Ein schönes, dunkles Tintenblau oder Anthrazit */
+    letter-spacing: -0.5px; /* Macht es noch ein bisschen "getippter" */
+}
+
+/* Optional: Auch die Labels in Typewriter, falls gewünscht */
+.input-group label {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Der Effekt, wenn man tippt */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    color: #000; /* Text wird beim Tippen tiefschwarz */
+    outline: none;
+}
