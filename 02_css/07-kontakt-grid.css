@@ -81,3 +81,12 @@
     gap: 50px;
   }
 }
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px; /* Der Abstand ZWISCHEN Text und Formular */
+    max-width: 900px; /* Kleinerer Wert = mehr Abstand zu den Seitenrändern */
+    margin: 0 auto;   /* Zentriert das Grid auf der Seite */
+    padding: 0 40px;  /* Sicherheitsabstand für mobile Geräte */
+}
