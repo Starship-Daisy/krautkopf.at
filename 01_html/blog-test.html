@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krautkopf - Blog Test</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="../02_css/01-design-tokens.css">
+    <link rel="stylesheet" href="../02_css/02-base.css">
+    <link rel="stylesheet" href="../02_css/03-layout-blog.css">
+    <link rel="stylesheet" href="../02_css/04-components.css">
+    <link rel="stylesheet" href="../02_css/05-layout-responsive.css">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <header>
+            <h1><a href="../index.html" style="text-decoration: none; color: inherit;">krautkopf.at</a></h1>
+    </header>
+
+    <div class="content-layout" style="display: flex; gap: 40px; align-items: flex-start;">
+        
+        <main class="content-left" style="flex: 2;">
+            
+            <section class="quote-section">
+                <p class="quote-top">Frisch gepflückt</p>
+                <span class="quote-middle">Gedanken über das</span>
+                <span class="quote-bottom">Wesentliche.</span>
+            </section>
+
+        <figure class="featured-image-figure" style="margin: 30px 0;">
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=800&auto=format&fit=crop" 
+                    class="featured-image" 
+                    alt="Waldweg im Nebel" 
+                    style="width: 100%; height: auto; border-radius: 8px;">
+    
+                <figcaption class="photo-credit" style="font-size: 0.8rem; opacity: 0.7; margin-top: 10px;">
+                    Foto von <a href="https://unsplash.com/@sebastian_unrau">Sebastian Unrau</a> auf <a href="https://unsplash.com">Unsplash</a>
+                </figcaption>
+        </figure>
+            <article class="main-article">
+                <h2>Willkommen im Garten</h2>
+                <p>Hier links ist Platz für deinen Haupttext. Die rechte Seite bleibt als Chronik fixiert oder scrollt mit, während du hier liest.</p>
+                <p>Im Weinviertel beginnt die Saison dieses Jahr besonders früh. Der Boden ist schon warm genug für die erste Aussaat...</p>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar" style="flex: 1; border-left: 1px solid #eee; padding-left: 30px;">
+            <h2 class="blog-feed-title">Chronik</h2>
+            <div class="blog-stack">
+                
+ <a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">10. März 2026</span>
+    <h3>Schnittgut-Management</h3>
+    <p style="font-size: 0.9rem;">Die Obstbäume sind versorgt. Das Reisig nutzen wir heuer als natürliche Beeteinfassung.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">05. März 2026</span>
+    <h3>Anzucht auf der Fensterbank</h3>
+    <p style="font-size: 0.9rem;">Die Tomaten-Sämlinge strecken ihre Köpfe Richtung Licht. Es wird eng im Wohnzimmer.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">28. Februar 2026</span>
+    <h3>Erste Schneeglöckchen</h3>
+    <p style="font-size: 0.9rem;">Ein Meer aus Weiß unter der alten Eiche. Der Winter verabschiedet sich leise.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">22. Februar 2026</span>
+    <h3>Vogelhaus-Inventur</h3>
+    <p style="font-size: 0.9rem;">Viel Betrieb am Futterhaus. Die Meisen sind heuer besonders früh auf Reviersuche.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">14. Februar 2026</span>
+    <h3>Valentinstag im Keller</h3>
+    <p style="font-size: 0.9rem;">Kartoffeln sortieren statt Blumen kaufen. Die Vorräte halten sich dank der kühlen Temperaturen prächtig.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">02. Februar 2026</span>
+    <h3>Lichtmess-Tradition</h3>
+    <p style="font-size: 0.9rem;">Die Tage werden spürbar länger. Zeit, die Gartenplanung für das restliche Jahr zu finalisieren.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">25. Januar 2026</span>
+    <h3>Frostmuster am Glas</h3>
+    <p style="font-size: 0.9rem;">Minus 8 Grad heute Nacht. Die Natur erstarrt in wunderschönen Eiskristallen am Küchenfenster.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">18. Januar 2026</span>
+    <h3>Dörrobst-Snack</h3>
+    <p style="font-size: 0.9rem;">Die getrockneten Apfelspalten vom Herbst sind der perfekte Begleiter für kalte Winternachmittage.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">10. Januar 2026</span>
+    <h3>Saatgut-Bestellung</h3>
+    <p style="font-size: 0.9rem;">Kataloge wälzen und von alten Sorten träumen. Heuer probieren wir lila Karotten aus.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">01. Januar 2026</span>
+    <h3>Neujahr im Garten</h3>
+    <p style="font-size: 0.9rem;">Ein stiller Rundgang durch den schlafenden Garten. Alles ruht, um bald wieder zu erwachen.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">20. Dezember 2025</span>
+    <h3>Wintersonnenwende</h3>
+    <p style="font-size: 0.9rem;">Das Licht kehrt zurück. Wir feiern den kürzesten Tag mit einem kleinen Feuer im Garten.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">12. Dezember 2025</span>
+    <h3>Quittenbrot fertig</h3>
+    <p style="font-size: 0.9rem;">Die letzte Ernte ist verarbeitet. Das Quittenbrot duftet herrlich nach Gewürzen und Herbst.</p>
+</a>
+
+<a href="#" class="blog-card" style="display: block; text-decoration: none; color: inherit; margin-bottom: 30px;">
+    <span class="date" style="font-size: 0.8rem; color: var(--text-green);">01. Dezember 2025</span>
+    <h3>Frostfeste Kübel</h3>
+    <p style="font-size: 0.9rem;">Alles ist eingepackt
+
+            </div>
+        </aside>
+
+    </div> <footer class="main-footer" style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee;">
+            <nav class="footer-nav">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="credits.html">Credits</a>
+            </nav>
+        <p>&copy; 2026 krautkopf.at</p>
+    </footer>
+
+</div> </body>
+</html>
