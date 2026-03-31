@@ -45,6 +45,8 @@
 }
 
 .contact-section {
+    padding-top: 100px; /* Ändere diesen Wert, bis es dir gefällt (z.B. 150px) */
+    padding-bottom: 50px; /* Ein bisschen Abstand nach unten schadet auch nicht */
     padding-left: 10%;   /* 10% des Bildschirms bleiben links leer */
     padding-right: 10%;  /* 10% des Bildschirms bleiben rechts leer */
 }
