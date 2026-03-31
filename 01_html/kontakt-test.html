@@ -1,9 +1,5 @@
-
-<form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form">
-    <div style="display:none;">
-      <input type="text" name="_gotcha" value="" />
-    </div>
-
+<!DOCTYPE html>
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,29 +14,43 @@
     <link rel="stylesheet" href="../02_css/05-layout-responsive.css">
     <link rel="stylesheet" href="../02_css/07-kontakt-grid.css">
 </head>
+<body>
 
 <section class="contact-section">
   <div class="contact-grid">
+    
     <div class="contact-info">
       <h2>Hallo.</h2>
       <p>Lass uns über dein Projekt sprechen.</p>
       <a href="mailto:hallo@krautkopf.at" class="email-link">hallo@krautkopf.at</a>
     </div>
     
-    <form class="contact-form">
+    <form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form">
+      
+      <div style="display:none;">
+        <input type="text" name="_gotcha" value="" />
+      </div>
+
       <div class="input-group">
-        <input type="text" id="name" required>
+        <input type="text" name="Name" id="name" required>
         <label for="name">Dein Name</label>
       </div>
+
       <div class="input-group">
-        <input type="email" id="email" required>
+        <input type="email" name="Email" id="email" required>
         <label for="email">E-Mail Adresse</label>
       </div>
+
       <div class="input-group">
-        <textarea id="message" rows="4" required></textarea>
+        <textarea name="Nachricht" id="message" rows="4" required></textarea>
         <label for="message">Deine Nachricht</label>
       </div>
+
       <button type="submit">Senden —></button>
     </form>
+
   </div>
 </section>
+
+</body>
+</html>
