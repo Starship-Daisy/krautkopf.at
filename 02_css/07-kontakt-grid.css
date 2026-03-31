@@ -101,6 +101,6 @@
     /* 3. Padding für mobilen Abstand zum Rand */
     padding: 0 20px;
 
-    /* Optional: Falls der Text IM Footer auch zentriert sein soll */
-    text-align: center; 
+    /* Optional: Falls der Text IM Footer auch zentriert sein soll
+    text-align: center;  */
 }
