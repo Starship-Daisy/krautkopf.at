@@ -1,0 +1,34 @@
+/* ==========================================
+   TABLET-BEREICH (ab ca. 768px bis 1024px)
+   ========================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .content-layout {
+        grid-template-columns: 1fr 1fr; /* Zwei gleich große Spalten */
+        gap: 1.5rem;
+    }
+
+    .quote-middle {
+        font-size: 2.2rem; /* Etwas kleiner für Tablets */
+    }
+}
+
+/* ==========================================
+   MOBILE-BEREICH (alles unter 767px)
+   ========================================== */
+@media (max-width: 767px) {
+    .main-wrapper {
+        padding: 20px 15px; /* Weniger Rand am Handy */
+    }
+
+    .content-layout {
+        grid-template-columns: 1fr; /* Alles strikt untereinander */
+    }
+
+    .featured-image {
+        height: 250px; /* Bild nicht zu hoch auf dem kleinen Screen */
+    }
+
+    .quote-bottom {
+        font-size: 2.5rem; /* Riesen-Schrift am Handy verkleinern */
+    }
+}
