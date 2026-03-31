@@ -1,0 +1,50 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Zwei gleich große Spalten */
+  gap: 100px;
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+/* Die "Floating Label" Magie */
+.input-group {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.input-group input, 
+.input-group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 1.1rem;
+}
+
+.input-group label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #999;
+  transition: all 0.3s ease; /* Das lässt das Label gleiten */
+  pointer-events: none;
+}
+
+/* Wenn das Feld fokussiert wird oder Text enthält, wandert das Label hoch */
+.input-group input:focus + label,
+.input-group input:valid + label,
+.input-group textarea:focus + label,
+.input-group textarea:valid + label {
+  top: -20px;
+  font-size: 0.8rem;
+  color: #556b2f; /* Krautkopf-Grün */
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* Auf dem Handy nur eine Spalte */
+    gap: 50px;
+  }
+}
