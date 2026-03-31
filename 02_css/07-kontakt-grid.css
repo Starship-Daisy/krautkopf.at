@@ -32,12 +32,21 @@
 }
 
 .contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Zwei gleich große Spalten */
-  gap: 100px;
-  max-width: 1000px;
-  margin: 100px auto;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Zwei Spalten */
+    
+    /* ABSTAND ZU DEN SEITEN: */
+    max-width: 1000px;    /* Je kleiner dieser Wert, desto mehr Platz ist links/rechts */
+    margin-left: auto;    /* Zentriert das Grid */
+    margin-right: auto;   /* Zentriert das Grid */
+    
+    padding: 0 40px;      /* Sicherheitsabstand, damit es auf Handys nicht am Rand klebt */
+    gap: 80px;            /* Abstand ZWISCHEN den beiden Spalten */
+}
+
+.contact-section {
+    padding-left: 10%;   /* 10% des Bildschirms bleiben links leer */
+    padding-right: 10%;  /* 10% des Bildschirms bleiben rechts leer */
 }
 
 /* Die "Floating Label" Magie */
