@@ -1,0 +1,16 @@
+<aside class="blog-sidebar">
+    <h3>Weitere Beiträge</h3>
+    <div class="blog-stack">
+        <article class="blog-teaser-card">
+            <h4>Einfach machen</h4>
+            <p>Warum Overthinking dein größter Feind ist...</p>
+            <a href="blog-test.html">Jetzt lesen →</a>
+        </article>
+
+        <article class="blog-teaser-card">
+            <h4>Fokus finden</h4>
+            <p>In einer lauten Welt die Konzentration behalten.</p>
+            <a href="#">Bald verfügbar</a>
+        </article>
+    </div>
+</aside>
