@@ -1,16 +1,104 @@
-<aside class="blog-sidebar">
-    <h3>Weitere Beiträge</h3>
-    <div class="blog-stack">
-        <article class="blog-teaser-card">
-            <h4>Einfach machen</h4>
-            <p>Warum Overthinking dein größter Feind ist...</p>
-            <a href="blog-test.html">Jetzt lesen →</a>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hirn-Werkstatt | Einfach machen</title>
+    
+    <link rel="stylesheet" ..href="css/02-base.css">
+    <link rel="stylesheet" ..href="css/03-layout-blog.css">
+    
+    <style>
+        /* Kurzer Fix, damit die Teaser ohne Rahmen gut aussehen */
+        .blog-teaser-card {
+            border: none;
+            background-color: #fcfcfc; /* Sehr helles Grau für Struktur */
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Hirn-Werkstatt</h1>
+        <p>Inspiration, Fokus & Aktion</p>
+    </header>
+
+    <main class="content-layout">
+        
+        <article class="content-left">
+            <header>
+                <h2>Einfach machen: Der Mut zum unperfekten Start</h2>
+                <p class="meta">Veröffentlicht am 3. April 2026</p>
+            </header>
+
+            <figure>
+                <img src="images/start.jpg" alt="Startetappe">
+                <figcaption>Der erste Schritt kostet Überwindung, aber er lohnt sich.</figcaption>
+            </figure>
+
+            <div class="blog-content">
+                <p>Wir leben in einer Welt der unbegrenzten Möglichkeiten – und genau das ist das Problem. Vor lauter Pro-und-Contra-Listen vergessen wir das Wichtigste: <strong>Das Handeln.</strong></p>
+                
+                <h3>Warum wir oft zögern</h3>
+                <p>Der größte Feind des Fortschritts ist nicht das Scheitern, sondern die Angst vor Fehlern. Wir warten auf den perfekten Moment, dabei ist Perfektionismus meistens nur die hübsche Maske unserer Angst.</p>
+
+                <blockquote>
+                    „Der beste Zeitpunkt, einen Baum zu pflanzen, war vor zwanzig Jahren. Der zweitbeste Zeitpunkt ist jetzt.“
+                </blockquote>
+
+                <h3>3 Strategien für den Start</h3>
+                <ul>
+                    <li><strong>Die 5-Sekunden-Regel:</strong> Zähle von 5 runter und fang an.</li>
+                    <li><strong>Done is better than perfect:</strong> Ein fehlerhafter Start ist besser als gar kein Start.</li>
+                    <li><strong>Kleinvieh macht auch Mist:</strong> Zerlege das Ziel in winzige Häppchen.</li>
+                </ul>
+
+                <p>Am Ende bereuen wir selten die Dinge, die wir getan haben. Wir bereuen die Chancen, die wir nicht ergriffen haben. Also: Mach es einfach!</p>
+            </div>
         </article>
 
-        <article class="blog-teaser-card">
-            <h4>Fokus finden</h4>
-            <p>In einer lauten Welt die Konzentration behalten.</p>
-            <a href="#">Bald verfügbar</a>
-        </article>
-    </div>
-</aside>
+        <aside class="blog-sidebar">
+            <h3>Weitere Beiträge</h3>
+            <div class="blog-stack">
+                
+                <div class="blog-teaser-card">
+                    <h4>Einfach machen</h4>
+                    <p>Warum Overthinking dein größter Feind ist und wie du ihn besiegst...</p>
+                    <a href="blog-test.html" class="read-more">Jetzt lesen →</a>
+                </div>
+
+                <div class="blog-teaser-card">
+                    <h4>Fokus finden</h4>
+                    <p>In einer lauten Welt die Konzentration behalten.</p>
+                    <span class="read-more" style="color: gray;">Bald verfügbar</span>
+                </div>
+
+            </div>
+        </aside>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-contact">
+            <a href="mailto:wolfgang@krautkopf.at">wolfgang@krautkopf.at</a>
+        </div>
+        <nav class="footer-nav">
+            <a href="01_html/impressum.html">Impressum</a>
+            <a href="01_html/datenschutz.html">Datenschutz</a>
+            <a href="01_html/kontakt.html">Kontakt</a>
+            <a href="01_html/blog-test.html">blog</a>
+        </nav>
+        <p class="copyright">&copy; 2026 krautkopf.at - Gebaut mit Herz, HTML und CSS.</p>
+    </footer>
+
+</body>
+</html>
