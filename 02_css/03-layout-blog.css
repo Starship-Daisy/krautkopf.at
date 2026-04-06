@@ -3,6 +3,11 @@
     display: flex;
     gap: 40px;
     align-items: flex-start;
+    
+    /* NEU: Begrenzung und Zentrierung */
+    max-width: 1200px;    /* Maximale Breite der gesamten Seite */
+    margin: 40px auto;    /* Zentriert die Box und gibt oben/unten Abstand */
+    padding: 0 20px;      /* Sicherheitsabstand für kleine Bildschirme */
 }
 
 .content-left {
