@@ -45,3 +45,24 @@ a:hover {
     background-color: #fcfcfc; /* Ein ganz leichter Grauton grenzt den Footer ab */
     text-align: center; /* Zentriert den Text und die Links */
 }
+
+.footer-nav {
+    margin-bottom: 20px;
+}
+
+.footer-nav a {
+    margin: 0 15px; /* Abstand zwischen den Links */
+    text-decoration: none;
+    color: #666;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #000; /* Link wird beim Drüberfahren dunkler */
+}
+
+.copyright {
+    color: #999;
+    font-size: 0.8rem;
+}
