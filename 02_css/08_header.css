@@ -1,39 +1,48 @@
+/* 1. Der Haupt-Header Bereich */
 .main-header {
     width: 100%;
-    padding: 40px 0;
-    border-bottom: 0px solid #eee; /* Eine feine Linie zur Trennung */
+    /* Hier steuerst du den Abstand zum allerobersten Rand */
+    padding-top: 15px;    /* Kleiner Wert = näher am oberen Rand */
+    padding-bottom: 20px; 
+    background-color: var(--bg-page);
+    border-bottom: 1px solid #eee;
 }
 
-/* Der Container hält alles auf der linken Seite deiner Inhaltsbreite */
+/* 2. Der Flex-Container (Hält Text und Logo zusammen) */
 .header-flex {
     display: flex;
-    justify-content: flex-start; /* Bleibt links am Rand deines Layouts */
-    align-items: center;        /* Zentriert das Logo vertikal zur Texthöhe */
-    gap: 30px;                  /* Der Abstand zwischen Text und Logo */
-    max-width: 1200px;
-    margin: 0 auto;             /* Zentriert den unsichtbaren Rahmen auf der Seite */
-    padding: 0 20px;
+    justify-content: flex-start; /* Alles beginnt links */
+    align-items: center;        /* Logo und Text vertikal mittig zueinander */
+    gap: 25px;                  /* Abstand zwischen Text und Logo */
+    max-width: 1200px;          /* Gleiche Breite wie dein Blog-Content */
+    margin: 0 auto;             /* Zentriert den Header-Inhalt auf der Seite */
+    padding: 0 20px;            /* Sicherheitsabstand zu den Bildschirmrändern */
 }
 
+/* 3. Text-Styling (Entfernt Browser-Abstände) */
 .header-text {
-    text-align: left;           /* Text bleibt klassisch linksbündig */
+    text-align: left;
 }
 
 .header-text h1 {
-    margin: 0;
+    margin: 0;                 /* GANZ WICHTIG: Löscht den Standard-Sprung nach unten */
+    padding: 0;
     font-size: 2.2rem;
     line-height: 1.1;
+    color: var(--text-main);
 }
 
 .header-text p {
-    margin: 5px 0 0 0;
+    margin: 2px 0 0 0;         /* Minimaler Abstand nach oben zum H1 */
+    padding: 0;
     font-size: 1rem;
-    opacity: 0.7;               /* Macht den Slogan etwas dezenter */
+    opacity: 0.7;
 }
 
+/* 4. Das Logo */
 .kraut-svg {
-    width: 90px;                /* Größe deines Logos */
+    width: 85px;               /* Größe des Logos */
     height: auto;
-    flex-shrink: 0;             /* Verhindert, dass das Logo schrumpft */
-    color: var(--text-main);    /* Übernimmt deine Textfarbe */
+    flex-shrink: 0;            /* Verhindert, dass das Logo gequetscht wird */
+    display: block;            /* Verhindert kleine Abstände unter dem SVG */
 }
