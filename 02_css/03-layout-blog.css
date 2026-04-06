@@ -1,3 +1,10 @@
+/* Nur für den Blog-Bereich */
+.content-layout {
+    background-color: #e1dfd5; /* Reinweiß für den Lese-Fokus */
+    padding: 40px;
+    border-radius: 8px; /* Optional: Schöne abgerundete Ecken */
+}
+
 /* 1. Grund-Layout für Desktop (breite Bildschirme) */
 .content-layout {
     display: flex;
