@@ -41,7 +41,7 @@
     padding: 0;
     font-size: 1rem;
     opacity: 0.7;
-    font-family: var(--font-sans); /* Falls du eine zweite Schriftart hast */
+    font-family: var(--font-serif); /* Falls du eine zweite Schriftart hast */
 }
 
 /* Das Logo (SVG) */
