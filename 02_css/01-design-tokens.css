@@ -2,7 +2,7 @@
 
 :root {
     /* 1. Die Farb-Palette (Die Rohstoffe) */
-    --color-bg: #fdfcf8;           /* Cremeweiß */
+    --color-bg: #F5F5F5;           /* Cremeweiß */
     --color-text: #2c3e50;         /* Anthrazit */
     --color-accent-green: #3d5a44;  /* Krautgrün */
     --color-soft-green: #e8f0e6;    /* Salbeigrau/grün */
