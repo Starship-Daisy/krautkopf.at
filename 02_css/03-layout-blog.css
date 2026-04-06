@@ -11,18 +11,12 @@
 }
 
 .content-left {
-    flex: 2;
-    min-width: 0; /* Verhindert, dass Bilder das Layout sprengen */
+    flex: 3; /* Der Hauptinhalt nimmt 3 Teile des Platzes ein */
 }
 
 .blog-sidebar {
-    flex: 1;
-    position: sticky;
-    top: 20px;
-    /* Das "Roll-Fenster" nur auf Desktop fixieren */
-    height: calc(100vh - 40px);
-    display: flex;
-    flex-direction: column;
+    flex: 1; /* Die Sidebar nimmt 1 Teil des Platzes ein (schmaler) */
+    min-width: 250px; /* Verhindert, dass die Sidebar zu dünn wird */
 }
 
 .blog-stack {
