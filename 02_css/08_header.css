@@ -1,48 +1,53 @@
-/* 1. Der Haupt-Header Bereich */
+/* ==========================================
+   08_HEADER.CSS - Hirn-Werkstatt
+   ========================================== */
+
 .main-header {
     width: 100%;
-    /* Hier steuerst du den Abstand zum allerobersten Rand */
-    padding-top: 15px;    /* Kleiner Wert = näher am oberen Rand */
-    padding-bottom: 20px; 
+    /* Der Abstand zum allerobersten Rand des Browserfensters */
+    padding-top: 10px;    /* Ändere diesen Wert auf 0, wenn es ganz oben kleben soll */
+    padding-bottom: 25px; /* Abstand zur Trennlinie nach unten */
     background-color: var(--bg-page);
     border-bottom: 1px solid #eee;
 }
 
-/* 2. Der Flex-Container (Hält Text und Logo zusammen) */
+/* Der Container sorgt dafür, dass Logo & Text linksbündig zum Content stehen */
 .header-flex {
     display: flex;
-    justify-content: flex-start; /* Alles beginnt links */
-    align-items: center;        /* Logo und Text vertikal mittig zueinander */
+    justify-content: flex-start; /* Startet links */
+    align-items: center;        /* Logo und Text vertikal auf einer Linie */
     gap: 25px;                  /* Abstand zwischen Text und Logo */
-    max-width: 1200px;          /* Gleiche Breite wie dein Blog-Content */
-    margin: 0 auto;             /* Zentriert den Header-Inhalt auf der Seite */
-    padding: 0 20px;            /* Sicherheitsabstand zu den Bildschirmrändern */
+    max-width: 1200px;          /* Gleiche Breite wie dein Blog-Text */
+    margin: 0 auto;             /* Zentriert den unsichtbaren Rahmen auf der Seite */
+    padding: 0 20px;            /* Sicherheitsabstand zum Bildschirmrand */
 }
 
-/* 3. Text-Styling (Entfernt Browser-Abstände) */
+/* Text-Styling */
 .header-text {
     text-align: left;
 }
 
 .header-text h1 {
-    margin: 0;                 /* GANZ WICHTIG: Löscht den Standard-Sprung nach unten */
+    margin: 0;                 /* WICHTIG: Entfernt den Standard-Abstand nach oben */
     padding: 0;
     font-size: 2.2rem;
     line-height: 1.1;
     color: var(--text-main);
+    font-family: var(--font-serif);
 }
 
 .header-text p {
-    margin: 2px 0 0 0;         /* Minimaler Abstand nach oben zum H1 */
+    margin: 4px 0 0 0;         /* Kleiner Abstand nach oben zum Titel */
     padding: 0;
     font-size: 1rem;
     opacity: 0.7;
+    font-family: var(--font-sans); /* Falls du eine zweite Schriftart hast */
 }
 
-/* 4. Das Logo */
+/* Das Logo (SVG) */
 .kraut-svg {
-    width: 85px;               /* Größe des Logos */
+    width: 90px;               /* Hier steuerst du die Größe des Logos */
     height: auto;
-    flex-shrink: 0;            /* Verhindert, dass das Logo gequetscht wird */
-    display: block;            /* Verhindert kleine Abstände unter dem SVG */
+    flex-shrink: 0;            /* Verhindert Verformung */
+    display: block;
 }
