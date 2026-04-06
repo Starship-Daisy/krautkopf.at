@@ -1,5 +1,11 @@
 /* 02-base.css - Die Aktivierung der Tokens */
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 body {
     background-color: var(--bg-page);
     color: var(--text-main);
