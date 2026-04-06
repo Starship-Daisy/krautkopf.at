@@ -1,79 +1,38 @@
-/* Der Container, der Logo und Text hält */
+.main-header {
+    width: 100%;
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Der Container sorgt für die Linksbündigkeit im Seiten-Layout */
 .header-flex {
     display: flex;
-    align-items: center;   /* Richtet Logo und Text vertikal mittig aus */
-    gap: 24px;             /* Der Abstand zwischen Logo und Text */
-    padding: 20px 0;       /* Etwas Luft nach oben und unten */
+    justify-content: flex-start; /* Alles beginnt links */
+    align-items: center;        /* Logo und Text sind vertikal mittig zueinander */
+    gap: 30px;                  /* Abstand zwischen Text und Logo */
+    max-width: 1200px;          /* Gleiche Breite wie dein Blog-Content */
+    margin: 0 auto;             /* Zentriert den gesamten Container auf der Seite */
+    padding: 0 20px;            /* Sicherheitsabstand zum Rand */
 }
 
-/* Das SVG Logo Styling */
-.kraut-svg {
-    width: 100px;          /* Hier kannst du die Größe zentral steuern */
-    height: auto;
-    flex-shrink: 0;        /* Verhindert, dass das Logo gequetscht wird */
-    color: var(--text-main); /* Nutzt deine Textfarbe für die Linien */
-    transition: transform 0.3s ease; /* Kleiner Bonus: Sanfte Bewegung */
+.header-text {
+    text-align: left;           /* Text bleibt linksbündig */
 }
 
-.kraut-svg:hover {
-    transform: rotate(5deg) scale(1.05); /* Interaktion beim Drüberfahren */
-}
-
-/* Text-Anpassung im Header */
 .header-text h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     line-height: 1.1;
 }
 
 .header-text p {
     margin: 5px 0 0 0;
     font-size: 1rem;
-    opacity: 0.8;
-}
-
-
-
-
-
-
-.main-header {
-    width: 100%;
-    padding: 40px 0;
-    background-color: var(--bg-page);
-    border-bottom: 1px solid #eee;
-}
-
-/* Der Container, der alles in die Mitte der Seite schiebt */
-.header-flex {
-    display: flex;
-    justify-content: center; /* Zentriert die Gruppe horizontal auf der Seite */
-    align-items: center;     /* Zentriert Text und Logo vertikal zueinander */
-    gap: 30px;               /* Abstand zwischen Text und Logo */
-    max-width: 1200px;
-    margin: 0 auto;          /* Zentriert den Container selbst */
-}
-
-/* Der Textbereich (links) */
-.header-text {
-    text-align: right;       /* Richtet den Text nach rechts zum Logo hin aus */
-}
-
-.header-text h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-.header-text p {
-    margin: 5px 0 0 0;
-    font-size: 1.1rem;
-    color: var(--text-main);
     opacity: 0.7;
 }
 
-/* Das Logo (rechts) */
 .kraut-svg {
-    width: 100px;
+    width: 90px;                /* Größe des Logos */
     height: auto;
-    flex-shrink: 0;          /* Verhindert Verformung */
+    flex-shrink: 0;             /* Verhindert, dass das Logo schrumpft */
 }
