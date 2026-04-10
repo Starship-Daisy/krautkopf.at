@@ -2,11 +2,11 @@
 
 :root {
     /* 1. Die Farb-Palette (Die Rohstoffe) */
-    --color-bg: #e9e3d5;           /* Hellgrau */
+    --color-bg: #c5c4c2;           /* Hellgrau */
     --color-text: #2c3e50;         /* Anthrazit */
     --color-accent-green: #3d5a44;  /* Krautgrün */
     --color-soft-green: #e8f0e6;    /* Salbeigrau/grün */
-    --color-border: #e0ddd5;       /* Weiches Greige */
+    --color-border: #b7b4ab;       /* Weiches Greige */
 
     /* 2. Funktionale Zuweisung (Was wird wo genutzt?) */
     /* Hier nutzen wir jetzt die Farben von oben */
