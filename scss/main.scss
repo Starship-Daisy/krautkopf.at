@@ -1,11 +1,40 @@
 // --- 1. VARIABLEN ---
-$color-bg: #fdfcf8;      // Ganz helles Naturweiß
-$color-dark: #1a1a1a;    // Fast Schwarz für Text
-$color-accent: #4a5d4e;  // Sanftes Salbeigrün (Natur-Bezug)
-$color-gray: #757575;    // Für Datum und kleine Texte
-$font-serif: 'Georgia', serif;
-$font-sans: 'Inter', -apple-system, sans-serif;
+$color-bg: #fdfcf8;
+$color-dark: #1a1a1a;
+$color-accent: #4a5d4e;
+$color-gray: #757575;
+
+// Hier binden wir die Bunny Fonts ein:
+$font-sans: 'Inter', sans-serif;
+$font-serif: 'Lora', serif;
+
 $max-width: 1100px;
+
+// --- 2. BASIS-EINSTELLUNGEN ---
+body {
+    background-color: $color-bg;
+    color: $color-dark;
+    font-family: $font-sans; // Standard-Text in Inter
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .quote-middle {
+    font-family: $font-serif; // Überschriften & Zitate in Lora
+}
+
+// --- 2. BASIS-EINSTELLUNGEN ---
+body {
+    background-color: $color-bg;
+    color: $color-dark;
+    font-family: $font-sans; // Standard-Text in Inter
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .quote-middle {
+    font-family: $font-serif; // Überschriften & Zitate in Lora
+}
 
 // --- 2. RESET & BASIS ---
 * { box-sizing: border-box; }
