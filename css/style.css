@@ -1,1 +1,63 @@
-body{background-color:red}/*# sourceMappingURL=style.css.map */
+// 1. VARIABLEN (Hier änderst du einmal die Farbe, und alles passt sich an)
+$primary-color: #d4a373;   // Ein schönes Beige/Braun
+$secondary-color: #faedcd; // Hellere Nuance
+$text-color: #333333;
+$bg-color: #fefae0;
+$font-main: 'Helvetica Neue', Arial, sans-serif;
+
+// 2. BASIS-EINSTELLUNGEN
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: $font-main;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+// 3. SCHACHTELUNG (Nesting) - Typisch für SCSS
+header {
+  background-color: $primary-color;
+  padding: 2rem;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    color: white;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  nav {
+    margin-top: 1rem;
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      li {
+        a {
+          text-decoration: none;
+          color: $secondary-color;
+          font-weight: bold;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: white; // &:hover bedeutet "wenn ich mit der Maus drüberfahre"
+          }
+        }
+      }
+    }
+  }
+}
+
+// 4. CONTENT BEREICH
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
