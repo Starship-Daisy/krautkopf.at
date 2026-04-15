@@ -1,2 +1,12 @@
-body { background: #f4f4f4; }
-h1 { color: navy; }
+/* Das ist sauberes SCSS */
+$hauptfarbe: #2c3e50;
+
+body {
+  background-color: #f9f9f9;
+  font-family: sans-serif;
+  
+  h1 {
+    color: $hauptfarbe;
+    text-decoration: underline;
+  }
+}
