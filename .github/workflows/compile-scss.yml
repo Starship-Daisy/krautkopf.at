@@ -1,0 +1,28 @@
+name: SCSS to CSS Compiler
+
+on:
+  push:
+    paths:
+      - 'scss/**/*.scss' # Startet nur, wenn im scss-Ordner was passiert
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 📂 Code holen
+        uses: actions/checkout@v4
+
+      - name: 🛠️ Sass-Programm laden
+        run: npm install -g sass
+
+      - name: ✨ SCSS zu CSS umwandeln
+        run: sass scss/main.scss css/style.css --style=compressed
+
+      - name: 💾 Fertige CSS-Datei in GitHub speichern
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 CSS automatisch aktualisiert"
+          file_pattern: 'css/style.css'
