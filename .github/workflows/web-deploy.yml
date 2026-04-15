@@ -1,57 +1,34 @@
 name: FTP Deploy zu Domaintechnik
 
-
-
 on:
-
   push:
-
     branches:
-
       - main
-
-
+  # Dieser Zusatz sorgt dafür, dass der FTP-Upload auch startet, 
+  # wenn der SCSS-Compiler eine Datei automatisch erstellt hat:
+  workflow_run:
+    workflows: ["SCSS to CSS Compiler"]
+    types:
+      - completed
 
 jobs:
-
   web-deploy:
-
+    name: 🚀 Deploy
     runs-on: ubuntu-latest
-
     steps:
-
-      - name: Code von GitHub holen
-
+      - name: 📂 Code von GitHub holen
         uses: actions/checkout@v4
-
-
-
-      - name: Dateien per FTP übertragen
-
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-
         with:
+          fetch-depth: 0
 
+      - name: 📤 Dateien per FTP übertragen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
           server: ${{ secrets.FTP_SERVER }}
-
           username: ${{ secrets.FTP_USERNAME }}
-
           password: ${{ secrets.FTP_PASSWORD }}
-
           server-dir: ./www/
-
           protocol: ftp
-
           port: 21
-
-          # HIER DIE RETTUNG:
-
           force-ipv4: true
-
-          # Wir bleiben bei 'loose', um SSL-Probleme zu vermeiden
-
           security: loose
-
-
-
-und nicht von css …
