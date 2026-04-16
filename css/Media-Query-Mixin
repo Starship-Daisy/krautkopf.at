@@ -36,65 +36,68 @@ $breakpoints: (
 
 .blog-grid {
   display: grid;
-  gap: 30px;
+  gap: 25px;
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
 
-  // Standard: 1 Spalte (Mobile Portrait)
+  // 1. STANDARD (Mobile Hochformat): 1 Spalte
   grid-template-columns: 1fr;
 
-  // Querformat Handy: 2 Spalten (Sieht attraktiver aus)
+  // 2. QUERFORMAT (Landscape Mobile): STRIKT 2 SPALTEN
   @include landscape-mobile {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 20px; // Etwas kompakterer Abstand
+    padding: 20px;
   }
 
-  // Tablet & Desktop: Automatisch (min. 300px breit)
+  // 3. TABLET / DESKTOP (Breiter als 768px): 3 oder mehr Spalten
   @include respond-to("medium") {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
   }
 
   .blog-card {
     display: flex;
     flex-direction: column;
     background: #fff;
-    padding: 30px;
+    padding: 25px;
     border: 1px solid #eee;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
-    height: 100%; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; // Alle Karten in einer Reihe sind gleich hoch
+
+    .date {
+      font-size: 0.75rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
 
     h3 {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       line-height: 1.3;
-      margin: 10px 0;
+      margin: 0 0 10px 0;
       font-family: 'Lora', serif;
     }
 
     p {
       font-size: 0.95rem;
       color: #555;
-      max-width: 45ch; // Die "Bremse" für die Textbreite
-      margin-bottom: 0;
-    }
-
-    .date {
-      font-size: 0.75rem;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin: 0;
+      // Die magische Grenze für die Lesbarkeit:
+      max-width: 45ch; 
     }
 
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-      border-color: #ccc;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-color: #ddd;
     }
   }
 }
-
 
 
 
