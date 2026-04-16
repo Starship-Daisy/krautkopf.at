@@ -1,0 +1,144 @@
+// Definition der Breakpoints
+$breakpoints: (
+  "medium": 768px,
+  "large":  1024px,
+  "xlarge": 1440px
+);
+
+@mixin respond-to($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$breakpoint} existiert nicht.";
+  }
+}
+
+@mixin landscape-mobile {
+  @media screen and (max-device-width: 932px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+.header {
+  height: 80px; // Standard Mobile
+  display: flex;
+  align-items: center;
+
+  // 1. Anpassung für Tablet/Desktop (Breite)
+  @include respond-to("medium") {
+    height: 100px;
+    padding: 0 40px;
+  }
+
+  // 2. Anpassung für Handy quer (Höhe sparen!)
+  @include landscape-mobile {
+    height: 50px; // Viel flacher, damit mehr Platz für den Content bleibt
+    background-color: #eee; // Nur als visueller Test
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 40vh;
+  padding: 20px;
+  
+  // Gemeinsame Basis für Text und Bild
+  &__content, &__visual {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+
+    @include landscape-mobile {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Alle Querformat-Anpassungen an einem Ort
+  @include landscape-mobile {
+    min-height: auto;
+    padding: 10px 0;
+    flex-direction: row; 
+    gap: 20px;
+    align-items: stretch; 
+
+    &__visual {
+      border-left: 1px solid rgba(0,0,0,0.1);
+    }
+  }
+
+  // Optional: Desktop-Anpassung
+  @include respond-to("medium") {
+    min-height: 60vh;
+    padding: 40px;
+    
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column; // Standard: Untereinander (Mobile)
+  padding: 20px;
+
+  @include respond-to("medium") {
+    flex-direction: row; // Ab Tablet: Nebeneinander
+    padding: 50px;
+  }
+
+  @include respond-to("large") {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// 1. Spezifische Variablen für den Hero-Bereich
+$hero-bg-color: #f4f4f4;
+$hero-text-color: #333;
+
+.hero {
+  background-color: $hero-bg-color;
+  color: $hero-text-color;
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh; // Nimmt mindestens 40% der Bildschirmhöhe ein
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+  }
+
+  // Hier nutzen wir wieder dein Mixin für den Desktop
+  @include respond-to("medium") {
+    padding: 100px 50px;
+    min-height: 60vh;
+    
+    &__title {
+      font-size: 4rem; // Größerer Text auf großen Bildschirmen
+    }
+  }
+}
+
