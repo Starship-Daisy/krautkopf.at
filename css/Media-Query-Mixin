@@ -1,3 +1,5 @@
+@use "sass:map"; // WICHTIG: Das lädt das Karten-Modul
+
 // Definition der Breakpoints
 $breakpoints: (
   "medium": 768px,
