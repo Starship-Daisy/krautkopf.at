@@ -1,0 +1,70 @@
+/* Generelle Basis-Styles */
+* { box-sizing: border-box; }
+
+body {
+  background-color: #fdfcf8;
+  color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: "Lora", serif; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Blog Feed Grid */
+.blog-feed {
+  padding: 5rem 0;
+}
+
+.blog-grid {
+  display: grid;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 20px;
+  grid-template-columns: 1fr; /* Standard: 1 Spalte */
+}
+
+/* Querformat am Handy (2 Spalten) */
+@media screen and (max-width: 932px) and (orientation: landscape) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (Automatisches Grid) */
+@media (min-width: 768px) {
+  .blog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* Die Blog Karten */
+.blog-card {
+  background: #fff;
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  border-color: #4a5d4e;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.blog-card .date {
+  font-size: 0.8rem;
+  color: #757575;
+  text-transform: uppercase;
+}
