@@ -1,107 +1,34 @@
-@use "sass:map"; // WICHTIG: Das lädt das Karten-Modul
-
-// ==========================================
-// 1. DAS FUNDAMENT (Variablen & Werkzeuge)
-// ==========================================
+// Einfache Variablen ohne Module
 $brand-primary: #4a5d4e;
-$text-dark: #1a1a1a;
-$text-light: #757575;
 $bg-cream: #fdfcf8;
 
-$breakpoints: (
-  "medium": 768px,
-  "large":  1100px
-);
-
-@mixin respond-to($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
-  @if $value {
-    @media (min-width: $value) { @content; }
-  }
+// Mixins ohne 'map-get' (manuelle Abfrage)
+@mixin respond-to-medium {
+  @media (min-width: 768px) { @content; }
 }
 
 @mixin landscape-mobile {
-  @media screen and (max-width: 932px) and (orientation: landscape) {
-    @content;
-  }
+  @media screen and (max-width: 932px) and (orientation: landscape) { @content; }
 }
 
-// ==========================================
-// 2. BASIS-STYLES
-// ==========================================
-* { box-sizing: border-box; }
-
+// Basis
 body {
   background-color: $bg-cream;
-  color: $text-dark;
-  font-family: "Inter", sans-serif;
+  color: #1a1a1a;
   margin: 0;
-  line-height: 1.6;
 }
 
-h1, h2, h3 { font-family: "Lora", serif; }
+// Blog Grid
+.blog-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; // 1 Spalte Standard
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-// ==========================================
-// 3. BLOG FEED (Die Problemzone)
-// ==========================================
-.blog-feed {
-  padding: 5rem 0;
-  
-  .blog-feed-title {
-    text-align: center;
-    margin-bottom: 3rem;
+  @include landscape-mobile {
+    grid-template-columns: 1fr 1fr; // 2 Spalten Querformat
   }
 
-  .blog-grid {
-    display: grid;
-    gap: 30px;
-    margin: 0 auto;
-    max-width: 1100px;
-    padding: 0 20px;
-
-    // Standard: 1 Spalte (Mobile Portrait)
-    grid-template-columns: 1fr;
-
-    // Querformat am Handy: ECHTE 2 Spalten
-    @include landscape-mobile {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    // Ab Tablet/Desktop: Automatisches Grid
-    @include respond-to("medium") {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-  }
-
-  .blog-card {
-    background: #fff;
-    padding: 30px;
-    border: 1px solid rgba(0,0,0,0.05);
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-
-    &:hover {
-      transform: translateY(-5px);
-      border-color: $brand-primary;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .date {
-      font-size: 0.8rem;
-      color: $text-light;
-      text-transform: uppercase;
-    }
-
-    h3 { margin: 15px 0; font-size: 1.3rem; }
-    p { font-size: 0.95rem; color: #4d4d4d; max-width: 45ch; }
+  @include respond-to-medium {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
