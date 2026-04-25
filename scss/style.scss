@@ -1,70 +1,142 @@
-/* Generelle Basis-Styles */
-* { box-sizing: border-box; }
+// 1. VARIABLEN (Zentraler Ankerpunkt)
+$color-bg: #fdfcf8;
+$color-text: #1a1a1a;
+$color-accent: #4a5d4e; // Dein "Kraut"-Grün
+$color-muted: #757575;
+$font-main: 'Inter', sans-serif;
+$font-heading: 'Lora', serif;
+$container-width: 1100px;
+
+// 2. RESET & BASIS
+* { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  background-color: #fdfcf8;
-  color: #1a1a1a;
-  font-family: "Inter", sans-serif;
-  margin: 0;
+  background-color: $color-bg;
+  color: $color-text;
+  font-family: $font-main;
   line-height: 1.6;
 }
 
-h1, h2, h3 { font-family: "Lora", serif; }
+h1, h2, h3 { 
+  font-family: $font-heading; 
+  line-height: 1.2;
+}
 
 .container {
-  max-width: 1100px;
+  max-width: $container-width;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Blog Feed Grid */
+// 3. HEADER & SVG
+.main-header {
+  padding: 4rem 0;
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+.kraut-svg {
+  width: 80px;
+  height: 80px;
+  color: $color-accent;
+}
+
+// 4. SECTIONS (Quote & Intro)
+.quote-section {
+  text-align: center;
+  padding: 5rem 20px;
+  font-family: $font-heading;
+  
+  .quote-middle {
+    display: block;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 10px 0;
+    color: $color-accent;
+  }
+}
+
+// 5. BLOG GRID (Das Herzstück)
 .blog-feed {
   padding: 5rem 0;
-}
+  
+  .blog-feed-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
 
-.blog-grid {
-  display: grid;
-  gap: 30px;
-  margin: 0 auto;
-  max-width: 1100px;
-  padding: 0 20px;
-  grid-template-columns: 1fr; /* Standard: 1 Spalte */
-}
-
-/* Querformat am Handy (2 Spalten) */
-@media screen and (max-width: 932px) and (orientation: landscape) {
   .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    gap: 30px;
+    padding: 0 20px;
+    max-width: $container-width;
+    margin: 0 auto;
+    
+    // Mobile First: 1 Spalte
+    grid-template-columns: 1fr;
+
+    // Tablet & Desktop: Automatisches Auffüllen
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+    
+    // Spezialfall: Querformat Handy
+    @media screen and (max-width: 932px) and (orientation: landscape) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
-/* Desktop (Automatisches Grid) */
-@media (min-width: 768px) {
-  .blog-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-
-/* Die Blog Karten */
 .blog-card {
-  background: #fff;
-  padding: 30px;
+  background: white;
+  padding: 2rem;
   border: 1px solid rgba(0,0,0,0.05);
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $color-accent;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: $color-muted;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  h3 { margin-bottom: 15px; }
 }
 
-.blog-card:hover {
-  transform: translateY(-5px);
-  border-color: #4a5d4e;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.blog-card .date {
-  font-size: 0.8rem;
-  color: #757575;
-  text-transform: uppercase;
+// 6. FOOTER
+.main-footer {
+  padding: 4rem 20px;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  
+  .footer-nav {
+    margin: 20px 0;
+    a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: $color-text;
+      &:hover { color: $color-accent; }
+    }
+  }
 }
