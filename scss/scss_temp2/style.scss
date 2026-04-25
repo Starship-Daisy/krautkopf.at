@@ -1,3 +1,10 @@
+// Ganz oben in der Datei:
+@import url('https://fonts.bunny.net/css?family=inter:400,500,700|lora:400,700,400i');
+
+// Deine Variablen bleiben gleich:
+$font-main: 'Inter', sans-serif;
+$font-heading: 'Lora', serif;
+
 /* Generelle Basis-Styles */
 * { box-sizing: border-box; }
 
