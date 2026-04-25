@@ -169,3 +169,64 @@ h1, h2, h3, .quote-section {
     color: #999;
   }
 }
+
+// Layout für die Garten-Werkstatt (Zweispaltig)
+.blog-layout-wrapper {
+  display: flex;
+  gap: 60px;
+  padding: 4rem 20px;
+  align-items: flex-start;
+
+  @media (max-width: 900px) {
+    flex-direction: column; // Auf dem Handy untereinander
+  }
+}
+
+.content-left {
+  flex: 2;
+  
+  .featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px; // Etwas dezenter
+    filter: grayscale(10%) contrast(105%); // Passt zum Werkstatt-Look
+  }
+}
+
+.blog-sidebar {
+  flex: 1;
+  position: sticky;
+  top: 20px; // Die Chronik bleibt beim Scrollen oben "kleben"
+  border-left: 1px solid rgba(0,0,0,0.05);
+  padding-left: 40px;
+
+  @media (max-width: 900px) {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 4rem;
+  }
+
+  .blog-feed-title {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+// Sidebar Karten (etwas kleiner als auf der Startseite)
+.blog-stack .blog-card {
+  padding: 1.5rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  
+  &:hover {
+    background: transparent;
+    border-color: $brand-primary;
+    transform: none; // Keine Bewegung
+  }
+  
+  h3 { font-size: 1.1rem; }
+}
