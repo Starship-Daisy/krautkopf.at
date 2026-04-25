@@ -140,3 +140,9 @@ h1, h2, h3 {
     }
   }
 }
+
+.kraut-svg {
+  width: 100px;
+  height: 100px;
+  color: $brand-primary; // Hier greift die Variable!
+}
