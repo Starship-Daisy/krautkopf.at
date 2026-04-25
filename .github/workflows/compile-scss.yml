@@ -15,14 +15,17 @@ jobs:
       - name: 📂 Code holen
         uses: actions/checkout@v4
 
-      - name: 🛠️ Sass-Programm laden
-        run: npm install -g sass
+      - name: 🛠️ Sass installieren
+        run: sudo npm install -g sass
 
       - name: ✨ SCSS zu CSS umwandeln
-        run: sass scss/style.scss css/style.css --style=compressed
+        # Hier stellen wir sicher, dass der Ordner existiert und Sass Fehler meldet
+        run: |
+          mkdir -p css
+          sass scss/style.scss css/style.css --style=expanded --no-source-map
 
-      - name: 💾 Fertige CSS-Datei in GitHub speichern
+      - name: 💾 CSS-Datei committen
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 CSS automatisch aktualisiert"
+          commit_message: "🤖 CSS automatisch generiert"
           file_pattern: 'css/style.css'
