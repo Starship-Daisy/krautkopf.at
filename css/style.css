@@ -117,8 +117,8 @@ h3 {
 .quote-paper {
   display: inline-block;
   background-color: #f4f1ea;
-  background-image: linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: linear-gradient(90deg, transparent 85%, rgba(255, 0, 0, 0.3) 85%, rgba(255, 0, 0, 0.3) 86%, transparent 86%), linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
   padding: 2rem 4rem 4rem 1rem;
   position: relative;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
@@ -149,7 +149,7 @@ h3 {
   line-height: 1.1;
   color: #4a5d4e;
   margin: 0 0 1rem 0;
-  padding-right: 2rem;
+  padding-right: 18%;
   transform: rotate(0.8deg);
 }
 .quote-text-wrapper .quote-bottom {
