@@ -1,94 +1,75 @@
 // ==========================================
-// 02-QUOTES.SCSS (Karierter Zettel-Effekt)
+// 02-QUOTES.SCSS (Vollständiges Update)
 // ==========================================
 
 .quote-section {
   padding: $space-xl 0;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center; // Zentriert den Zettel horizontal auf der Seite
   width: 100%;
-  background-color: lighten($brand-light, 2%);
+  background-color: rgba($brand-primary, 0.08); // Der Kontrast-Hintergrund
 }
 
-.quote-section {
-  padding: $space-xl 0;
-  background-color: #e6e1d7; // Ein klares Hellgrau
+.quote-paper {
+  display: inline-block; // Zettel zieht sich am Text zusammen
+  background-color: #fff;
   
-  // --- KARO-MUSTER ---
-  // Zwei Verläufe erzeugen die horizontalen und vertikalen Linien
+  // Das Karo-Muster
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px; // Die Größe der Karos
+  background-size: 18px 18px;
   
-  padding: $space-xl $space-xl;
-  max-width: $text-measure;
-  margin: 0 auto;
+  padding: $space-l $space-xl;
   position: relative;
-  
-  // Leichter Schatten für Tiefe
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  box-shadow: 3px 6px 18px rgba(0, 0, 0, 0.06);
+  transform: rotate(-1.5deg); // Die charmante Schräglage
 
-  // Die obere Reißkante
-  &::before {
+  // Obere und untere Reißkante (Zacken)
+  &::before, &::after {
     content: '';
     position: absolute;
-    top: -10px;
     left: 0;
     width: 100%;
     height: 10px;
-    background: 
-      linear-gradient(135deg, #fff 25%, transparent 25%),
-      linear-gradient(225deg, #fff 25%, transparent 25%);
-    background-size: 20px 20px;
+    background-size: 20px 10px;
   }
-
-  // Die untere Reißkante
+  &::before {
+    top: -10px;
+    background-image: linear-gradient(135deg, #fff 25%, transparent 25%), 
+                      linear-gradient(225deg, #fff 25%, transparent 25%);
+  }
   &::after {
-    content: '';
-    position: absolute;
     bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background: 
-      linear-gradient(45deg, #fff 25%, transparent 25%),
-      linear-gradient(315deg, #fff 25%, transparent 25%);
-    background-size: 20px 20px;
+    background-image: linear-gradient(45deg, #fff 25%, transparent 25%), 
+                      linear-gradient(315deg, #fff 25%, transparent 25%);
   }
 }
 
 .quote-text-wrapper {
+  text-align: left; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: $space-xs;
-  position: relative; // Sorgt dafür, dass der Text über dem Karomuster liegt
+  align-items: flex-start; // Textinhalt linksbündig auf dem Zettel
 
   .quote-top, 
   .quote-bottom {
     font-family: $font-main;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: $text-muted;
+    opacity: 0.5;
   }
 
   .quote-middle {
-    font-family: $font-heading;
-    font-size: clamp(1.4rem, 4vw, 1.8rem); 
+    font-family: $font-note; // Gesteuert über _01-variables.scss
+    font-size: clamp(2rem, 5vw, 2.8rem); 
+    line-height: 1;
     color: $brand-primary;
-    font-style: italic;
-    font-weight: 500;
-    margin: $space-m auto;
-    max-width: 650px;
-    line-height: 1.4;
+    margin: $space-s 0;
+    padding-right: $space-l;
+    
+    // Leichte Korrektur, damit die Handschrift nicht "umfällt"
+    transform: rotate(0.5deg); 
   }
-}
-
-.quote-paper {
-  // ... restlicher Code
-  transform: rotate(-0.5deg); // Ganz subtile Drehung für den "hingeworfen"-Look
 }

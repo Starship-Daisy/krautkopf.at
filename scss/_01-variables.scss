@@ -11,9 +11,10 @@ $text-dark:     #1a1a1a;
 $text-muted:    #555;
 $border-color:  rgba(0, 0, 0, 0.08);
 
-// ✍️ TYPOGRAFIE (SCHRIFTEN & GRÖSSEN)
+// TYPOGRAFIE
 $font-main:     'Inter', sans-serif;
 $font-heading:  'Lora', serif;
+$font-note:     'Reenie Beanie', cursive; // Die neue Variable für Notizen 📝
 
 $font-size-base:  1rem;       // Standard (16px)
 $font-size-h1:    2.5rem;
