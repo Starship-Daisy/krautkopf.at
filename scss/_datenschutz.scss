@@ -2,6 +2,88 @@
 // LAYOUT FÜR RECHTLICHE INHALTE (Datenschutz/Impressum)
 // ==========================================
 
+// ==========================================
+// DATENSCHUTZ & RECHTLICHES
+// ==========================================
+
+.legal-header {
+  padding: 4rem 0 2rem;
+  
+  .back-to-home {
+    font-family: $font-main;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0; // Wichtig, um Browser-Standards zu resetten
+
+    a {
+      text-decoration: none !important; // Erzwingt das Verschwinden der Linie
+      color: rgba(0, 0, 0, 0.4); // Direktes Grau, falls Variable klemmt
+      transition: all 0.4s ease;
+      display: inline-flex;
+      align-items: center;
+
+      &::before {
+        content: '←';
+        margin-right: 12px;
+        opacity: 0.5;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: $brand-primary !important; // Hier nutzen wir deine Variable
+        opacity: 1;
+        
+        &::before {
+          transform: translateX(-3px);
+        }
+      }
+    }
+  }
+}
+
+.legal-content {
+  max-width: $text-measure;
+  margin: 4rem auto 8rem;
+  padding: 0 20px;
+  line-height: 1.8;
+
+  h1 {
+    font-family: $font-heading;
+    font-size: 2.5rem;
+    color: $brand-primary; // Hier kommt die Farbe ins Spiel!
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 1.4rem;
+    color: $brand-primary; // Die Gliederung in Grün
+    margin: 3rem 0 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 5px;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: $text-dark;
+
+    strong {
+      color: $brand-primary; // Wichtige Begriffe in Grün
+      font-weight: 600;
+    }
+
+    a {
+      color: $brand-accent;
+      text-decoration: underline;
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+  }
+}
+
 .legal-content {
   max-width: $text-measure; // Nutzt deine 750px Variable für perfekte Lesbarkeit
   margin: 4rem auto 8rem;   // Zentriert die Seite und gibt Luft nach unten
