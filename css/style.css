@@ -117,8 +117,9 @@ h3 {
   background-color: white;
 }
 
-.quote-paper {
-  background-color: #fff;
+.quote-section {
+  padding: 4rem 0;
+  background-color: #c7b891;
   background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 20px 20px;
   padding: 4rem 4rem;
@@ -127,7 +128,7 @@ h3 {
   position: relative;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
 }
-.quote-paper::before {
+.quote-section::before {
   content: "";
   position: absolute;
   top: -10px;
@@ -137,7 +138,7 @@ h3 {
   background: linear-gradient(135deg, #fff 25%, transparent 25%), linear-gradient(225deg, #fff 25%, transparent 25%);
   background-size: 20px 20px;
 }
-.quote-paper::after {
+.quote-section::after {
   content: "";
   position: absolute;
   bottom: -10px;
