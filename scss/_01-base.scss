@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $brand-light;
+  color: $text-dark;
+  font-family: $font-main;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: $font-heading;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 30px;
+}

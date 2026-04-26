@@ -1,0 +1,18 @@
+.main-footer {
+  padding: 5rem 0 3rem;
+  text-align: center;
+  border-top: 1px solid $border-color;
+  
+  .footer-nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: $text-dark;
+    &:hover { color: $brand-primary; }
+  }
+  
+  .copyright { 
+    font-size: 0.85rem; 
+    color: #999; 
+    margin-top: 2rem; 
+  }
+}

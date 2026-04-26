@@ -1,0 +1,16 @@
+// Der Header, der nur auf der Startseite so aussieht
+.main-header {
+  padding: 4rem 0;
+  
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+}
+
+.kraut-svg {
+  width: 80px;
+  color: $brand-primary;
+}

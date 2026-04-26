@@ -1,68 +1,17 @@
-// 1. Grundlagen (Variablen, Schriften, Reset)
-@import 'variables';
-@import 'base';
+// ==========================================
+// 01 - FUNDAMENT (Globale Basis)
+// ==========================================
+@import '01-variables';   // Deine Farben, Schriften, Maße
+@import '01-base';        // Reset, Body, Container
 
-// 2. Seiten-Module (Hierarchie)
-@import 'index';       // Deine neue Datei!
-@import 'werkstatt';
-@import 'datenschutz';
+// ==========================================
+// 02 - KOMPONENTEN (Wiederkehrende Bausteine)
+// ==========================================
+@import '02-components';  // Footer, Buttons, Navigation, Cards
 
-// 3. Übergreifende Komponenten (Footer, Buttons)
-@import 'components';
-
-// 3. GLOBALER BASIS-CODE
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: $brand-light;
-  color: $text-dark;
-  font-family: $font-main;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3 {
-  font-family: $font-heading;
-}
-
-.container {
-  max-width: $container-width;
-  margin: 0 auto;
-  padding: 0 30px;
-}
-
-// Globaler Header
-.main-header {
-  padding: 4rem 0;
-  .header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-  }
-}
-
-.kraut-svg {
-  width: 80px;
-  color: $brand-primary;
-}
-
-// Globaler Footer
-.main-footer {
-  padding: 5rem 0 3rem;
-  text-align: center;
-  border-top: 1px solid $border-color;
-  
-  .footer-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: $text-dark;
-    &:hover { color: $brand-primary; }
-  }
-  
-  .copyright { font-size: 0.85rem; color: #999; margin-top: 2rem; }
-}
+// ==========================================
+// 03 - SEITEN-MODULE (Spezifische Layouts)
+// ==========================================
+@import '03-index';       // Alles für die Startseite
+@import '03-werkstatt';   // Alles für die Garten-Werkstatt
+@import '03-datenschutz'; // Alles für Datenschutz & Impressum
