@@ -1,16 +1,73 @@
 // ==========================================
-// 03-BLOG-GRID.SCSS
+// 03-BLOG-GRID.SCSS (Karierter Karten-Look)
 // ==========================================
 
 .blog-section {
   padding: $space-xl 0;
-  background-color: $brand-light;
+  // Wir halten den Hintergrund der Sektion sauber (transparent oder leicht getönt)
+  background-color: transparent; 
 }
 
 .blog-grid {
   display: grid;
-  // Erstellt das Raster
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-  gap: $space-xl; 
-  margin-top: $space-l;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $space-xl;
+}
+
+.blog-card {
+  background-color: #fff;
+  border-radius: 2px; // Fast rechtwinklig für den Papier-Look
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.card-content {
+  padding: $space-l;
+  
+  // DAS KARO-MUSTER FÜR DIE KARTE
+  // Wir machen es noch zarter (0.15 statt 0.3 Deckkraft)
+  background-image: 
+    linear-gradient(rgba(173, 216, 230, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(173, 216, 230, 0.15) 1px, transparent 1px);
+  background-size: 15px 15px; // Etwas kleineres Karo als beim Zettel
+  
+  h3 {
+    font-family: $font-heading;
+    color: $brand-primary;
+    margin-bottom: $space-s;
+    background: #fff; // Text-Schutz: Weißer Hintergrund hinter der Schrift
+    display: inline;
+    box-shadow: 4px 0 0 #fff, -4px 0 0 #fff; // Kleiner Puffer links/rechts
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: $text-main;
+    margin-top: $space-s;
+    line-height: 1.6;
+    // Auch hier: Text leicht schützen, falls die Linien stören
+    background: rgba(255, 255, 255, 0.8); 
+  }
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: $space-m;
+  color: $brand-primary;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
