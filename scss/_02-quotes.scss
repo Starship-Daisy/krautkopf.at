@@ -1,36 +1,31 @@
 // ==========================================
-// 02-QUOTES.SCSS (Comforter Brush Edition)
+// 02-QUOTES.SCSS (Asymmetrisches Design)
 // ==========================================
 
 .quote-section {
   padding: $space-xl 0;
   text-align: center;
   width: 100%;
-  // Einheitlicher Hintergrund für den "Rauschfrei"-Look
   background-color: rgba($brand-primary, 0.1); 
 }
 
 .quote-paper {
-  display: inline-block; // Zettel passt sich dem Inhalt an
+  display: inline-block; // Zettel passt sich dem Text an
+  background-color: #f4f1ea; // Naturpapier
   
-  // DIE PAPIERFARBE: Hellgrau-Gelb (Naturpapier)
-  background-color: #f4f1ea; 
-  
-  // DAS KARO-MUSTER: Zartes Hellblau
+  // Hellblaues Karo
   background-image: 
     linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px),
     linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
   background-size: 20px 20px; 
   
-  // Abstände & Schatten
-  padding: $space-l $space-xl;
+  // DIE ASYMMETRIE (Oben, Rechts, Unten, Links)
+  // Oben wenig, rechts viel, unten viel, links sehr wenig
+  padding: $space-m $space-xl $space-xl $space-s;
+  
   position: relative;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  
-  // Die charakteristische Schräglage
-  transform: rotate(-1.2deg);
-  
-  // Dezenter Rahmen für feine Kanten
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transform: rotate(-1.2deg); // Zettel leicht schräg
   border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
@@ -38,9 +33,35 @@
   text-align: left; 
   display: flex;
   flex-direction: column;
-  align-items: flex-start; // Schiebt den Text innerhalb des Zettels nach links
+  align-items: flex-start;
 
-  .quote-top, 
+  .quote-top {
+    font-family: $font-main;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: $text-muted;
+    opacity: 0.7;
+    background: #f4f1ea; 
+    padding: 0 4px;
+    margin-bottom: $space-s;
+    margin-left: $space-s; // Kleiner Einzug für die Labels
+  }
+
+  .quote-middle {
+    font-family: $font-note; // Comforter Brush
+    font-size: clamp(2.2rem, 5vw, 3.2rem); 
+    line-height: 1.1;
+    color: $brand-primary;
+    
+    // Positionierung auf dem Zettel
+    margin: $space-s 0 $space-m $space-s; 
+    padding-right: $space-l;
+    
+    // Gegendrehung für bessere Lesbarkeit
+    transform: rotate(0.8deg); 
+  }
+
   .quote-bottom {
     font-family: $font-main;
     font-size: 0.6rem;
@@ -48,28 +69,9 @@
     letter-spacing: 0.15em;
     color: $text-muted;
     opacity: 0.7;
-    
-    // Schutz: Hintergrundfarbe des Zettels überdeckt die blauen Linien
     background: #f4f1ea; 
     padding: 0 4px;
-    margin: 0;
-  }
-
-  .quote-middle {
-    // Nutzt die Variable $font-note ('Comforter Brush')
-    font-family: $font-note; 
-    
-    // Da die Comforter Brush sehr fett ist, etwas mehr Platz geben
-    font-size: clamp(2rem, 5vw, 3.2rem); 
-    line-height: 1.2;
-    color: $brand-primary;
-    margin: $space-s 0;
-    padding-right: $space-l;
-    
-    // Leichter Ausgleich der Zetteldrehung
-    transform: rotate(0.8deg); 
-    
-    // Subtiler Effekt für mehr Tiefe des "Pinselstrichs"
-    filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.4));
+    margin-top: auto;
+    margin-left: $space-s;
   }
 }
