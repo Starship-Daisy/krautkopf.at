@@ -145,7 +145,7 @@ h3 {
   margin: 0;
 }
 .quote-text-wrapper .quote-middle {
-  font-family: "Comforter Brush", cursive;
+  font-family: "comforter-brush:400", cursive;
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1.2;
   color: #4a5d4e;
