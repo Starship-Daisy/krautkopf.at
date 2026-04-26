@@ -113,28 +113,69 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   width: 100%;
+  background-color: white;
 }
-.quote-section .quote-top,
-.quote-section .quote-bottom {
+
+.quote-paper {
+  background-color: #fff;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 4rem 4rem;
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+.quote-paper::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(135deg, #fff 25%, transparent 25%), linear-gradient(225deg, #fff 25%, transparent 25%);
+  background-size: 20px 20px;
+}
+.quote-paper::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(45deg, #fff 25%, transparent 25%), linear-gradient(315deg, #fff 25%, transparent 25%);
+  background-size: 20px 20px;
+}
+
+.quote-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
+.quote-text-wrapper .quote-top,
+.quote-text-wrapper .quote-bottom {
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: #555;
-  opacity: 0.8;
 }
-.quote-section .quote-middle {
+.quote-text-wrapper .quote-middle {
   font-family: "Lora", serif;
-  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
   color: #4a5d4e;
   font-style: italic;
-  display: block;
+  font-weight: 500;
   margin: 1rem auto;
-  max-width: 800px;
-  line-height: 1.3;
-  padding: 0 1rem;
+  max-width: 650px;
+  line-height: 1.4;
+}
+
+.quote-paper {
+  transform: rotate(-0.5deg);
 }
 
 .main-footer {
