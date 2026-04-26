@@ -16,7 +16,42 @@
     height: auto;
     border-radius: 2px;
     filter: grayscale(5%) contrast(102%);
-  }
+// --- Hauptbild Bereich ---
+
+.featured-image-figure {
+    margin: 3rem 0; // Platz nach oben und unten
+    width: 100%;
+
+    .featured-image {
+        width: 100%;           // Nutzt den Platz der Spalte
+        max-width: 850px;      // Wird aber nicht riesig
+        
+        // DEIN WUNSCH: Format erzwingen
+        aspect-ratio: 16 / 9;  
+        object-fit: cover;     
+        
+        display: block;
+        margin: 0 auto;        // Zentriert das Bild
+        border-radius: 4px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.05); // Sanfter Schatten
+    }
+
+    .photo-credit {
+        font-size: 0.75rem;
+        margin-top: 0.8rem;
+        text-align: right;
+        opacity: 0.6;
+        font-style: italic;
+        
+        a {
+            color: inherit;
+            text-decoration: underline;
+            &:hover { color: $brand-primary; }
+        }
+    }
+}
+
+}
 
   .main-article {
     margin-top: 3rem;
