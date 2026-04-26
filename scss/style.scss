@@ -3,10 +3,11 @@
 @import '01-base';
 
 // 02 KOMPONENTEN
-@import '02-blog-cards'; // <-- Neu dabei!
+@import '02-blog-cards';
+@import '02-quotes';      // <--- Hier einreihen!
 @import '02-components';
 
 // 03 SEITEN-MODULE
-@import '03-blog-grid';  // Das Layout, das die Cards anordnet
+@import '03-blog-grid';
 @import '03-index';
 @import '03-datenschutz';
