@@ -1,3 +1,7 @@
+// ==========================================
+// 01-BASE.SCSS
+// ==========================================
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,16 +12,22 @@ body {
   background-color: $brand-light;
   color: $text-dark;
   font-family: $font-main;
+  font-size: $font-size-base; // Nutzt die 1rem (16px) Variable ✍️
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
   font-family: $font-heading;
+  color: $brand-primary; // Standardfarbe für Überschriften 🎨
 }
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
 
 .container {
   max-width: $container-width;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 $space-l; // Nutzt die 32px Variable für einheitliche Abstände 📏
 }
