@@ -1,0 +1,92 @@
+// ==========================================
+// LAYOUT FÜR RECHTLICHE INHALTE (Datenschutz/Impressum)
+// ==========================================
+
+.legal-content {
+  max-width: $text-measure; // Nutzt deine 750px Variable für perfekte Lesbarkeit
+  margin: 4rem auto 8rem;   // Zentriert die Seite und gibt Luft nach unten
+  padding: 0 20px;
+  line-height: 1.8;         // Etwas mehr Zeilenabstand für trockene Texte
+
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid $brand-primary;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    margin: 3rem 0 1rem 0;
+    color: $brand-primary;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: $text-dark;
+    
+    // Links innerhalb des Textes
+    a {
+      color: $brand-accent;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+  }
+
+  strong {
+    color: $brand-primary;
+  }
+
+  // Für die Liste deiner Rechte oder Aufzählungen
+  ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+      &::marker {
+        color: $brand-accent;
+      }
+    }
+  }
+}
+
+// Spezieller Footer für die Rechtsseiten
+.main-footer {
+  text-align: center;
+  padding: 4rem 0;
+  background-color: rgba(0,0,0,0.02); // Ganz dezentes Absetzen vom weißen Hintergrund
+  border-top: 1px solid $border-color;
+
+  .footer-contact {
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    
+    .footer-name {
+      display: inline-block;
+      margin-top: 5px;
+      font-weight: 600;
+    }
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: $brand-accent;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+}
