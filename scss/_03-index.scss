@@ -1,16 +1,19 @@
-// Der Header, der nur auf der Startseite so aussieht
+// ==========================================
+// 03-INDEX.SCSS
+// ==========================================
+
 .main-header {
-  padding: 4rem 0;
-  
+  padding: $space-xl 0; // Nutzt jetzt die 64px aus den Variablen 📏
+
   .header-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+    gap: $space-l; // Nutzt die 32px Variable für gleichmäßige Abstände
   }
 }
 
 .kraut-svg {
-  width: 80px;
+  width: 80px; // Hier könnten wir später auch eine Variable wie $logo-size nutzen
   color: $brand-primary;
 }
