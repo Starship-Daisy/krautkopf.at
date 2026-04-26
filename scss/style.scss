@@ -1,11 +1,14 @@
-// 1. FUNDAMENT
+// 1. Grundlagen (Variablen, Schriften, Reset)
 @import 'variables';
+@import 'base';
 
-// 2. SEITEN-MODULE
+// 2. Seiten-Module (Hierarchie)
+@import 'index';       // Deine neue Datei!
 @import 'werkstatt';
-
-// 3. Datenschutz-Modul
 @import 'datenschutz';
+
+// 3. Übergreifende Komponenten (Footer, Buttons)
+@import 'components';
 
 // 3. GLOBALER BASIS-CODE
 * {
