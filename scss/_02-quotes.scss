@@ -57,15 +57,16 @@
     margin: 0;
   }
 
-  .quote-middle {
-    // Gesteuert über $font-note in _01-variables.scss
-    font-family: $font-note; 
-    font-size: clamp(2.2rem, 5vw, 3rem); 
-    line-height: 1.1;
+// In der _02-quotes.scss beim .quote-middle
+.quote-middle {
+  font-family: $font-note;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem); // Etwas kompakter für die kräftige Brush
+  line-height: 1.2;
     color: $brand-primary;
     margin: $space-s 0;
     padding-right: $space-l; // Erzeugt den "Notizrand" rechts
-    
+}
+
     // Gleicht die Zetteldrehung leicht aus, damit es lesbarer bleibt
     transform: rotate(0.5deg); 
   }
