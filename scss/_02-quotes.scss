@@ -1,38 +1,38 @@
 // ==========================================
-// 02-QUOTES.SCSS (Naturpapier & Blau kariert)
+// 02-QUOTES.SCSS
 // ==========================================
 
 .quote-section {
   padding: $space-xl 0;
   text-align: center;
   width: 100%;
-  // Ein etwas dunklerer Hintergrund, damit das helle Papier hervortritt
+  // Hintergrund passend zum einheitlichen Look der Seite
   background-color: rgba($brand-primary, 0.1); 
 }
 
 .quote-paper {
-  display: inline-block;
+  display: inline-block; // Zettel umschließt nur den Text
   
-  // DIE NEUE PAPIERFARBE: Ein helles Grau-Beige (#f4f1ea)
+  // DIE PAPIERFARBE: Hellgrau mit leichtem Gelbeinschlag
   background-color: #f4f1ea; 
   
-  // DAS KARO-MUSTER IN ZARTEM HELLBLAU
-  // Die Linien liegen über der Papierfarbe
+  // DAS KARO-MUSTER: Zartes Hellblau
   background-image: 
     linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px),
     linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
   background-size: 20px 20px; 
   
+  // Innere Abstände
   padding: $space-l $space-xl;
   position: relative;
   
-  // Schatten für die nötige Tiefe
+  // Sauberer Schatten ohne Zacken-Störung
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   
-  // Die leichte Schräglage
+  // Die charakteristische Schräglage
   transform: rotate(-1.2deg);
   
-  // Ein sehr dezenter Rahmen für die Kante
+  // Dezente Kante
   border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
@@ -50,21 +50,23 @@
     letter-spacing: 0.15em;
     color: $text-muted;
     opacity: 0.7;
-    // WICHTIG: Der Hintergrund muss hier jetzt die Papierfarbe haben
+    
+    // Hintergrundfarbe des Zettels, um Linien unter dem Text zu verdecken
     background: #f4f1ea; 
     padding: 0 4px;
     margin: 0;
   }
 
   .quote-middle {
+    // Gesteuert über $font-note in _01-variables.scss
     font-family: $font-note; 
     font-size: clamp(2.2rem, 5vw, 3rem); 
     line-height: 1.1;
     color: $brand-primary;
     margin: $space-s 0;
-    padding-right: $space-l;
+    padding-right: $space-l; // Erzeugt den "Notizrand" rechts
     
-    // Leichte Korrektur gegen die Zettel-Drehung
+    // Gleicht die Zetteldrehung leicht aus, damit es lesbarer bleibt
     transform: rotate(0.5deg); 
   }
 }
