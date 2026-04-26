@@ -1,75 +1,70 @@
 // ==========================================
-// 02-QUOTES.SCSS (Vollständiges Update)
+// 02-QUOTES.SCSS (Naturpapier & Blau kariert)
 // ==========================================
 
 .quote-section {
   padding: $space-xl 0;
-  text-align: center; // Zentriert den Zettel horizontal auf der Seite
+  text-align: center;
   width: 100%;
-  background-color: rgba($brand-primary, 0.08); // Der Kontrast-Hintergrund
+  // Ein etwas dunklerer Hintergrund, damit das helle Papier hervortritt
+  background-color: rgba($brand-primary, 0.1); 
 }
 
 .quote-paper {
-  display: inline-block; // Zettel zieht sich am Text zusammen
-  background-color: #fff;
+  display: inline-block;
   
-  // Das Karo-Muster
+  // DIE NEUE PAPIERFARBE: Ein helles Grau-Beige (#f4f1ea)
+  background-color: #f4f1ea; 
+  
+  // DAS KARO-MUSTER IN ZARTEM HELLBLAU
+  // Die Linien liegen über der Papierfarbe
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 18px 18px;
+    linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px; 
   
   padding: $space-l $space-xl;
   position: relative;
-  box-shadow: 3px 6px 18px rgba(0, 0, 0, 0.06);
-  transform: rotate(-1.5deg); // Die charmante Schräglage
-
-  // Obere und untere Reißkante (Zacken)
-/*  &::before, &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    background-size: 20px 10px;
-  }
-  &::before {
-    top: -10px;
-    background-image: linear-gradient(135deg, #fff 25%, transparent 25%), 
-                      linear-gradient(225deg, #fff 25%, transparent 25%);
-  }
-  &::after {
-    bottom: -10px;
-    background-image: linear-gradient(45deg, #fff 25%, transparent 25%), 
-                      linear-gradient(315deg, #fff 25%, transparent 25%);
-  }
-}*/
+  
+  // Schatten für die nötige Tiefe
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  
+  // Die leichte Schräglage
+  transform: rotate(-1.2deg);
+  
+  // Ein sehr dezenter Rahmen für die Kante
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
 
 .quote-text-wrapper {
   text-align: left; 
   display: flex;
   flex-direction: column;
-  align-items: flex-start; // Textinhalt linksbündig auf dem Zettel
+  align-items: flex-start;
 
   .quote-top, 
   .quote-bottom {
     font-family: $font-main;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: $text-muted;
-    opacity: 0.5;
+    opacity: 0.7;
+    // WICHTIG: Der Hintergrund muss hier jetzt die Papierfarbe haben
+    background: #f4f1ea; 
+    padding: 0 4px;
+    margin: 0;
   }
 
   .quote-middle {
-    font-family: $font-note; // Gesteuert über _01-variables.scss
-    font-size: clamp(2rem, 5vw, 2.8rem); 
-    line-height: 1;
+    font-family: $font-note; 
+    font-size: clamp(2.2rem, 5vw, 3rem); 
+    line-height: 1.1;
     color: $brand-primary;
     margin: $space-s 0;
     padding-right: $space-l;
     
-    // Leichte Korrektur, damit die Handschrift nicht "umfällt"
+    // Leichte Korrektur gegen die Zettel-Drehung
     transform: rotate(0.5deg); 
   }
 }
