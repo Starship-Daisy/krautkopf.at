@@ -1,49 +1,117 @@
+// ==========================================
+// 03-LEGAL.SCSS (Impressum & Datenschutz)
+// ==========================================
+
 .legal-content {
-    max-width: $text-measure; // Nutzt deine 750px Variable für beste Lesbarkeit
-    margin: $space-xl auto;
-    text-align: left;
+  max-width: $text-measure; // Begrenzt auf ca. 750px für optimale Lesbarkeit
+  margin: $space-xl auto;
+  padding: 0 $space-m;
+  text-align: left;
 
-    h1 {
-        margin-bottom: $space-l;
-        color: $brand-primary;
-    }
+  h1 {
+    font-family: $font-heading;
+    font-size: $font-size-h1;
+    color: $brand-primary;
+    margin-bottom: $space-l;
+  }
 
-    h2 {
-        margin-top: $space-l;
-        margin-bottom: $space-s;
-        font-family: $font-heading;
-        font-size: $font-size-h3;
-        color: $brand-primary;
-    }
+  h2 {
+    font-family: $font-heading;
+    font-size: $font-size-h2;
+    color: $brand-primary;
+    margin-top: $space-xl;
+    margin-bottom: $space-m;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: $space-xs;
+  }
 
-    p {
-        line-height: 1.6;
-        color: $text-main;
-        margin-bottom: $space-m;
-    }
+  h3 {
+    font-family: $font-main;
+    font-size: $font-size-h3;
+    color: $text-dark;
+    margin-top: $space-l;
+    margin-bottom: $space-s;
+  }
 
-    .intro-text {
-        font-style: italic;
-        color: $text-muted;
-        margin-bottom: $space-l;
-    }
+  p {
+    font-family: $font-main;
+    font-size: $font-size-base;
+    line-height: 1.7;
+    color: $text-dark;
+    margin-bottom: $space-m;
+  }
 
-    a {
-        color: $brand-primary;
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
+  .intro-text {
+    font-style: italic;
+    color: $text-muted;
+    font-size: 1.1rem;
+    margin-bottom: $space-xl;
+  }
+
+  // Minimalistische Links (E-Mail, Web-URL)
+  .minimal-link {
+    text-decoration: none;
+    color: $text-dark;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.5;
+      text-decoration: none;
     }
+  }
+
+  // Normale Links im Fließtext (z.B. Streitschlichtung)
+  a:not(.minimal-link) {
+    color: $brand-primary;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $brand-accent;
+    }
+  }
+
+  // Layout für Herausgeber & Kontakt (Nebeneinander auf großen Screens)
+  .legal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $space-l;
+    margin-bottom: $space-xl;
+    
+    section {
+      margin: 0;
+    }
+  }
+
+  strong {
+    color: $brand-primary;
+    font-weight: 600;
+  }
 }
 
+// Button-ähnlicher Zurück-Link im Footer-Bereich
 .back-link {
-    display: inline-block;
-    margin-top: $space-m;
-    font-size: $font-size-small;
-    color: $text-muted;
-    text-decoration: none;
-    &:hover {
-        color: $brand-primary;
-    }
+  display: inline-block;
+  margin-top: $space-m;
+  font-size: $font-size-small;
+  color: $text-muted;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $brand-primary;
+    transform: translateX(-3px); // Kleiner visueller Effekt nach links
+  }
+}
+
+// Spezieller Stil für die Blattlinie
+.blattlinie-neutral {
+  padding: $space-m;
+  background-color: rgba($brand-primary, 0.03);
+  border-left: 3px solid $brand-accent;
+  font-style: italic;
 }
