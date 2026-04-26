@@ -12,8 +12,9 @@
   background-color: lighten($brand-light, 2%);
 }
 
-.quote-paper {
-  background-color: #fff; // Papierweiß
+.quote-section {
+  padding: $space-xl 0;
+  background-color: #c7b891; // Ein klares Hellgrau
   
   // --- KARO-MUSTER ---
   // Zwei Verläufe erzeugen die horizontalen und vertikalen Linien
