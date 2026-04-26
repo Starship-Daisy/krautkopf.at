@@ -1,17 +1,12 @@
-// ==========================================
-// 01 - FUNDAMENT (Globale Basis)
-// ==========================================
-@import '01-variables';   // Deine Farben, Schriften, Maße
-@import '01-base';        // Reset, Body, Container
+// 01 FUNDAMENT
+@import '01-variables';
+@import '01-base';
 
-// ==========================================
-// 02 - KOMPONENTEN (Wiederkehrende Bausteine)
-// ==========================================
-@import '02-components';  // Footer, Buttons, Navigation, Cards
+// 02 KOMPONENTEN
+@import '02-blog-cards'; // <-- Neu dabei!
+@import '02-components';
 
-// ==========================================
-// 03 - SEITEN-MODULE (Spezifische Layouts)
-// ==========================================
-@import '03-index';       // Alles für die Startseite
-@import '03-werkstatt';   // Alles für die Garten-Werkstatt
-@import '03-datenschutz'; // Alles für Datenschutz & Impressum
+// 03 SEITEN-MODULE
+@import '03-blog-grid';  // Das Layout, das die Cards anordnet
+@import '03-index';
+@import '03-datenschutz';

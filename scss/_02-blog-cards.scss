@@ -1,0 +1,85 @@
+// ==========================================
+// 02-BLOG-CARDS.SCSS
+// ==========================================
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    
+    .card-image {
+      transform: scale(1.05);
+    }
+  }
+
+  // Bild-Container für den Zoom-Effekt
+  .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: $brand-light;
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  // Text-Inhalt
+  .card-content {
+    padding: $space-l;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    h3 {
+      font-family: $font-heading;
+      font-size: $font-size-h3;
+      color: $brand-primary;
+      margin-bottom: $space-m;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: $font-size-small;
+      color: $text-muted;
+      line-height: 1.6;
+      margin-bottom: $space-l;
+    }
+
+    .card-link {
+      margin-top: auto; // Schiebt den Link immer ganz nach unten
+      font-family: $font-main;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $brand-primary;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+
+      &::after {
+        content: '→';
+        margin-left: $space-s;
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+}
+
+// Pfeil-Animation beim Hover
+.blog-card:hover .card-link::after {
+  transform: translateX(5px);
+}

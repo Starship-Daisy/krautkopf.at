@@ -1,0 +1,16 @@
+// ==========================================
+// 03-BLOG-GRID.SCSS
+// ==========================================
+
+.blog-section {
+  padding: $space-xl 0;
+  background-color: $brand-light;
+}
+
+.blog-grid {
+  display: grid;
+  // Erstellt das Raster
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: $space-xl; 
+  margin-top: $space-l;
+}
