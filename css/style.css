@@ -167,22 +167,40 @@ h3 {
 }
 
 .main-footer {
-  padding: 5rem 0 3rem;
+  padding: 4rem 0 2rem;
   text-align: center;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
-.main-footer .footer-nav a {
-  margin: 0 15px;
+.main-footer .footer-contact {
+  margin-bottom: 1rem;
+}
+.main-footer .footer-contact a {
   text-decoration: none;
   color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.02em;
+  transition: opacity 0.3s ease;
+}
+.main-footer .footer-contact a:hover {
+  opacity: 0.5;
+}
+.main-footer .footer-nav a {
+  margin: 0 0.5rem;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
 }
 .main-footer .footer-nav a:hover {
   color: #4a5d4e;
 }
 .main-footer .copyright {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #999;
   margin-top: 2rem;
+  opacity: 0.6;
 }
 
 .blog-section {
