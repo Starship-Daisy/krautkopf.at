@@ -17,6 +17,34 @@
   border-radius: 2px;
   filter: grayscale(5%) contrast(102%);
 }
+.content-left .featured-image .featured-image-figure {
+  margin: 3rem 0;
+  width: 100%;
+}
+.content-left .featured-image .featured-image-figure .featured-image {
+  width: 100%;
+  max-width: 850px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+.content-left .featured-image .featured-image-figure .photo-credit {
+  font-size: 0.75rem;
+  margin-top: 0.8rem;
+  text-align: right;
+  opacity: 0.6;
+  font-style: italic;
+}
+.content-left .featured-image .featured-image-figure .photo-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+.content-left .featured-image .featured-image-figure .photo-credit a:hover {
+  color: #4a5d4e;
+}
 .content-left .main-article {
   margin-top: 3rem;
   max-width: 750px;
