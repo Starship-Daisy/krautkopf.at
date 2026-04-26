@@ -11,17 +11,11 @@
   }
 }
 
-.content-left .featured-image {
-  width: 100%;
-  height: auto;
-  border-radius: 2px;
-  filter: grayscale(5%) contrast(102%);
-}
-.content-left .featured-image .featured-image-figure {
+.content-left .featured-image-figure {
   margin: 3rem 0;
   width: 100%;
 }
-.content-left .featured-image .featured-image-figure .featured-image {
+.content-left .featured-image-figure .featured-image {
   width: 100%;
   max-width: 850px;
   aspect-ratio: 16/9;
@@ -29,25 +23,32 @@
   display: block;
   margin: 0 auto;
   border-radius: 4px;
+  filter: grayscale(5%) contrast(102%);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
-.content-left .featured-image .featured-image-figure .photo-credit {
+.content-left .featured-image-figure .photo-credit {
   font-size: 0.75rem;
   margin-top: 0.8rem;
   text-align: right;
   opacity: 0.6;
   font-style: italic;
 }
-.content-left .featured-image .featured-image-figure .photo-credit a {
+.content-left .featured-image-figure .photo-credit a {
   color: inherit;
   text-decoration: underline;
 }
-.content-left .featured-image .featured-image-figure .photo-credit a:hover {
+.content-left .featured-image-figure .photo-credit a:hover {
   color: #4a5d4e;
 }
 .content-left .main-article {
   margin-top: 3rem;
   max-width: 750px;
+}
+.content-left .main-article h2 {
+  margin-bottom: 1.5rem;
+}
+.content-left .main-article p {
+  margin-bottom: 1.2rem;
 }
 
 .blog-sidebar {
@@ -55,11 +56,13 @@
   top: 40px;
   border-left: 1px solid rgba(0, 0, 0, 0.08);
   padding-left: 40px;
+  height: fit-content;
 }
 @media (max-width: 1024px) {
   .blog-sidebar {
     border-left: none;
     padding-left: 0;
+    position: static;
   }
 }
 .blog-sidebar .sidebar-title {
@@ -68,6 +71,9 @@
   letter-spacing: 2px;
   margin-bottom: 2rem;
   color: #4a5d4e;
+  border-bottom: 1px solid #4a5d4e;
+  display: inline-block;
+  padding-bottom: 5px;
 }
 
 .sidebar-card {
@@ -87,15 +93,21 @@
 .sidebar-card time {
   font-size: 0.75rem;
   color: #8b9d83;
+  display: block;
+  margin-bottom: 5px;
 }
 .sidebar-card h3 {
   font-size: 1.1rem;
   margin: 5px 0;
+  font-family: "Lora", serif;
 }
 .sidebar-card p {
   font-size: 0.9rem;
   color: #555;
   line-height: 1.4;
+}
+.sidebar-card:last-child {
+  border-bottom: none;
 }
 
 * {
