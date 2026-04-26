@@ -1,12 +1,13 @@
 // ==========================================
-// 02-QUOTES.SCSS (Finaler Look: Mehr Space links)
+// 02-QUOTES.SCSS (Freischwebend & Einheitlich)
 // ==========================================
 
 .quote-section {
   padding: $space-xl 0;
   text-align: center;
   width: 100%;
-  background-color: rgba($brand-primary, 0.1); 
+  // Hintergrund entfernt, damit es sich nahtlos an die Seite anpasst
+  background: transparent; 
 }
 
 .quote-paper {
@@ -23,15 +24,13 @@
   
   background-size: 100% 100%, 20px 20px, 20px 20px; 
   
-  // ABSTÄNDE (Oben, Rechts, Unten, Links)
-  // Oben: $space-l 
-  // Rechts: $space-xl 
-  // Unten: $space-xl 
-  // Links: Erhöht auf $space-xl für mehr Ruhe
+  // Einheitliche, großzügige Abstände
   padding: $space-l $space-xl $space-xl $space-xl;
   
   position: relative;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  // Ein etwas weicherer Schatten, da er jetzt auf dem hellen Seiten-HG liegt
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+  
   transform: rotate(-1.2deg); 
   border: 1px solid rgba(0, 0, 0, 0.03);
 }
@@ -55,13 +54,11 @@
   }
 
   .quote-middle {
-    font-family: $font-note; // Comforter Brush
+    font-family: $font-note; 
     font-size: clamp(2.2rem, 5vw, 3.2rem); 
     line-height: 1.1;
     color: $brand-primary;
     margin: 0 0 $space-m 0; 
-    
-    // Text darf über die Linie laufen
     padding-right: $space-m; 
     
     transform: rotate(0.8deg); 
