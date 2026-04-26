@@ -1,5 +1,5 @@
 // ==========================================
-// 02-QUOTES.SCSS (Optimierte Abstände)
+// 02-QUOTES.SCSS (Mit roter Marginalie rechts)
 // ==========================================
 
 .quote-section {
@@ -11,21 +11,20 @@
 
 .quote-paper {
   display: inline-block;
-  background-color: #f4f1ea; // Naturpapier
+  background-color: #f4f1ea; 
   
-  // Hellblaues Karo
+  // HINTERGRUND-LAYER: 
+  // 1. Die rote vertikale Linie (rechts bei ca. 85%)
+  // 2. Das blaue Karo-Muster
   background-image: 
+    linear-gradient(90deg, transparent 85%, rgba(255, 0, 0, 0.3) 85%, rgba(255, 0, 0, 0.3) 86%, transparent 86%),
     linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px),
     linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
-  background-size: 20px 20px; 
   
-  // NEUE ABSTÄNDE (Oben, Rechts, Unten, Links)
-  // Oben: $space-l (etwas mehr als vorher)
-  // Rechts: $space-xl (großzügig)
-  // Unten: $space-xl (Schwerpunkt unten)
-  // Links: $space-m (mehr Raum als vorher, aber weniger als rechts)
+  // Die Karo-Größe bleibt bei 20px, der rote Strich zieht sich über die ganze Fläche
+  background-size: 100% 100%, 20px 20px, 20px 20px; 
+  
   padding: $space-l $space-xl $space-xl $space-m;
-  
   position: relative;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   transform: rotate(-1.2deg); 
@@ -47,18 +46,18 @@
     opacity: 0.7;
     background: #f4f1ea; 
     padding: 0 4px;
-    margin-bottom: $space-m; // Mehr Platz zum Haupttext
+    margin-bottom: $space-m;
   }
 
   .quote-middle {
-    font-family: $font-note; // Comforter Brush
+    font-family: $font-note; 
     font-size: clamp(2.2rem, 5vw, 3.2rem); 
     line-height: 1.1;
     color: $brand-primary;
-    
-    // Positionierung
     margin: 0 0 $space-m 0; 
-    padding-right: $space-l;
+    
+    // Wichtig: Padding rechts erhöhen, damit der Text nicht über den roten Strich schreibt
+    padding-right: 18%; 
     
     transform: rotate(0.8deg); 
   }
