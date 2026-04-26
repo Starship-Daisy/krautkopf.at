@@ -1,10 +1,9 @@
 // ==========================================
-// 03-BLOG-GRID.SCSS (Karierter Karten-Look)
+// 03-BLOG-GRID.SCSS (Final & Fehlerfrei)
 // ==========================================
 
 .blog-section {
   padding: $space-xl 0;
-  // Wir halten den Hintergrund der Sektion sauber (transparent oder leicht getönt)
   background-color: transparent; 
 }
 
@@ -12,48 +11,67 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: $space-xl;
+  max-width: $container-width; // Nutzt deine Variable
+  margin: 0 auto;
+  padding: 0 $space-m;
 }
 
 .blog-card {
   background-color: #fff;
-  border-radius: 2px; // Fast rechtwinklig für den Papier-Look
+  border-radius: $border-radius; // Nutzt deine Variable (4px)
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid $border-color; // Nutzt deine Variable
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
 .card-content {
   padding: $space-l;
+  flex-grow: 1;
   
-  // DAS KARO-MUSTER FÜR DIE KARTE
-  // Wir machen es noch zarter (0.15 statt 0.3 Deckkraft)
+  // DAS KARO-MUSTER (Sehr dezent hinter dem Text)
   background-image: 
     linear-gradient(rgba(173, 216, 230, 0.15) 1px, transparent 1px),
     linear-gradient(90deg, rgba(173, 216, 230, 0.15) 1px, transparent 1px);
-  background-size: 15px 15px; // Etwas kleineres Karo als beim Zettel
+  background-size: 18px 18px;
   
   h3 {
     font-family: $font-heading;
     color: $brand-primary;
     margin-bottom: $space-s;
-    background: #fff; // Text-Schutz: Weißer Hintergrund hinter der Schrift
+    line-height: 1.3;
+    // Weißer Hintergrund für bessere Lesbarkeit über den Linien
+    background: #fff;
     display: inline;
-    box-shadow: 4px 0 0 #fff, -4px 0 0 #fff; // Kleiner Puffer links/rechts
-    line-height: 1.4;
+    box-shadow: 3px 0 0 #fff, -3px 0 0 #fff; 
   }
 
   p {
-    font-size: 0.95rem;
-    color: $text-main;
-    margin-top: $space-s;
+    font-size: $font-size-small; 
+    color: $text-main; // Diese Variable hast du gerade ergänzt!
+    margin-top: $space-m;
     line-height: 1.6;
-    // Auch hier: Text leicht schützen, falls die Linien stören
-    background: rgba(255, 255, 255, 0.8); 
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2px 0;
   }
 }
 
@@ -63,9 +81,11 @@
   color: $brand-primary;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: $font-size-small;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
+  background: #fff;
+  padding: 0 4px;
 
   &:hover {
     text-decoration: underline;
