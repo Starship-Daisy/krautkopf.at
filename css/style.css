@@ -107,6 +107,36 @@ h3 {
   transform: translateX(5px);
 }
 
+.quote-section {
+  padding: 4rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+.quote-section .quote-top,
+.quote-section .quote-bottom {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #555;
+  opacity: 0.8;
+}
+.quote-section .quote-middle {
+  font-family: "Lora", serif;
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  color: #4a5d4e;
+  font-style: italic;
+  display: block;
+  margin: 1rem auto;
+  max-width: 800px;
+  line-height: 1.3;
+  padding: 0 1rem;
+}
+
 .main-footer {
   padding: 5rem 0 3rem;
   text-align: center;
