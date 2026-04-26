@@ -2,42 +2,26 @@
 // LAYOUT FÜR RECHTLICHE INHALTE (Datenschutz/Impressum)
 // ==========================================
 
-// ==========================================
-// DATENSCHUTZ & RECHTLICHES
-// ==========================================
-
-.legal-header {
+// Nur wenn der Header die Klasse .legal-header hat, gelten diese Regeln
+header.legal-header {
   padding: 4rem 0 2rem;
-  
+  background: transparent; // Verhindert, dass Hintergründe von der Index-Seite übernommen werden
+  border-bottom: none;     // Falls die Index-Seite eine Linie hat
+
   .back-to-home {
     font-family: $font-main;
     font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin: 0; // Wichtig, um Browser-Standards zu resetten
+    margin: 0;
 
     a {
-      text-decoration: none !important; // Erzwingt das Verschwinden der Linie
-      color: rgba(0, 0, 0, 0.4); // Direktes Grau, falls Variable klemmt
-      transition: all 0.4s ease;
-      display: inline-flex;
-      align-items: center;
-
-      &::before {
-        content: '←';
-        margin-right: 12px;
-        opacity: 0.5;
-        transition: transform 0.3s ease;
-      }
-
+      text-decoration: none !important;
+      color: rgba(0, 0, 0, 0.4);
+      
       &:hover {
-        color: $brand-primary !important; // Hier nutzen wir deine Variable
-        opacity: 1;
-        
-        &::before {
-          transform: translateX(-3px);
-        }
+        color: $brand-primary !important;
       }
     }
   }
