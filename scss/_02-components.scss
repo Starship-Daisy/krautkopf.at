@@ -1,18 +1,47 @@
 .main-footer {
-  padding: 5rem 0 3rem;
+  padding: $space-xl 0 $space-l;
   text-align: center;
   border-top: 1px solid $border-color;
   
-  .footer-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: $text-dark;
-    &:hover { color: $brand-primary; }
+  // Die E-Mail-Adresse
+  .footer-contact {
+    margin-bottom: $space-m;
+
+    a {
+      text-decoration: none;
+      color: $text-dark;
+      font-family: $font-main;
+      letter-spacing: 0.02em;
+      transition: opacity 0.3s ease;
+
+      // Sieht aus wie Text, reagiert aber sanft beim Drüberfahren
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  // Die Navigations-Links (Impressum/Datenschutz)
+  .footer-nav {
+    a {
+      margin: 0 $space-s;
+      text-decoration: none;
+      color: $text-muted; // Etwas dezenter als die E-Mail
+      font-size: $font-size-small;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+
+      &:hover { 
+        color: $brand-primary; 
+      }
+    }
   }
   
   .copyright { 
-    font-size: 0.85rem; 
+    font-size: $font-size-small; 
     color: #999; 
-    margin-top: 2rem; 
+    margin-top: $space-l;
+    opacity: 0.6;
   }
 }
