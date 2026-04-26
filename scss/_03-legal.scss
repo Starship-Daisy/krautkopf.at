@@ -1,0 +1,49 @@
+.legal-content {
+    max-width: $text-measure; // Nutzt deine 750px Variable für beste Lesbarkeit
+    margin: $space-xl auto;
+    text-align: left;
+
+    h1 {
+        margin-bottom: $space-l;
+        color: $brand-primary;
+    }
+
+    h2 {
+        margin-top: $space-l;
+        margin-bottom: $space-s;
+        font-family: $font-heading;
+        font-size: $font-size-h3;
+        color: $brand-primary;
+    }
+
+    p {
+        line-height: 1.6;
+        color: $text-main;
+        margin-bottom: $space-m;
+    }
+
+    .intro-text {
+        font-style: italic;
+        color: $text-muted;
+        margin-bottom: $space-l;
+    }
+
+    a {
+        color: $brand-primary;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: $space-m;
+    font-size: $font-size-small;
+    color: $text-muted;
+    text-decoration: none;
+    &:hover {
+        color: $brand-primary;
+    }
+}
