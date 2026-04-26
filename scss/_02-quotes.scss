@@ -1,5 +1,5 @@
 // ==========================================
-// 02-QUOTES.SCSS (Asymmetrisches Design)
+// 02-QUOTES.SCSS (Optimierte Abstände)
 // ==========================================
 
 .quote-section {
@@ -10,7 +10,7 @@
 }
 
 .quote-paper {
-  display: inline-block; // Zettel passt sich dem Text an
+  display: inline-block;
   background-color: #f4f1ea; // Naturpapier
   
   // Hellblaues Karo
@@ -19,13 +19,16 @@
     linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
   background-size: 20px 20px; 
   
-  // DIE ASYMMETRIE (Oben, Rechts, Unten, Links)
-  // Oben wenig, rechts viel, unten viel, links sehr wenig
-  padding: $space-m $space-xl $space-xl $space-s;
+  // NEUE ABSTÄNDE (Oben, Rechts, Unten, Links)
+  // Oben: $space-l (etwas mehr als vorher)
+  // Rechts: $space-xl (großzügig)
+  // Unten: $space-xl (Schwerpunkt unten)
+  // Links: $space-m (mehr Raum als vorher, aber weniger als rechts)
+  padding: $space-l $space-xl $space-xl $space-m;
   
   position: relative;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  transform: rotate(-1.2deg); // Zettel leicht schräg
+  transform: rotate(-1.2deg); 
   border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
@@ -44,8 +47,7 @@
     opacity: 0.7;
     background: #f4f1ea; 
     padding: 0 4px;
-    margin-bottom: $space-s;
-    margin-left: $space-s; // Kleiner Einzug für die Labels
+    margin-bottom: $space-m; // Mehr Platz zum Haupttext
   }
 
   .quote-middle {
@@ -54,11 +56,10 @@
     line-height: 1.1;
     color: $brand-primary;
     
-    // Positionierung auf dem Zettel
-    margin: $space-s 0 $space-m $space-s; 
+    // Positionierung
+    margin: 0 0 $space-m 0; 
     padding-right: $space-l;
     
-    // Gegendrehung für bessere Lesbarkeit
     transform: rotate(0.8deg); 
   }
 
@@ -72,6 +73,5 @@
     background: #f4f1ea; 
     padding: 0 4px;
     margin-top: auto;
-    margin-left: $space-s;
   }
 }
