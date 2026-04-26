@@ -1,16 +1,10 @@
-// 1. VARIABLEN
-$brand-primary: #4a5d4e;
-$brand-light: #fdfcf8;
-$text-dark: #1a1a1a;
-$text-muted: #555;
+// 1. FUNDAMENT
+@import 'variables';
 
-$font-main: 'Inter', sans-serif;
-$font-heading: 'Lora', serif;
+// 2. SEITEN-MODULE
+@import 'werkstatt';
 
-$container-width: 1100px;
-$text-measure: 750px; // Die ideale Breite für Lesbarkeit
-
-// 2. BASIS & RESET
+// 3. GLOBALER BASIS-CODE
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,208 +19,44 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, .quote-section {
+h1, h2, h3 {
   font-family: $font-heading;
 }
 
 .container {
   max-width: $container-width;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
-// 3. HEADER
+// Globaler Header
 .main-header {
   padding: 4rem 0;
-  
   .header-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 30px;
   }
 }
 
 .kraut-svg {
   width: 80px;
-  height: auto;
   color: $brand-primary;
 }
 
-// 4. QUOTE SECTION
-.quote-section {
-  text-align: center;
-  padding: 6rem 20px;
-  
-  .quote-middle {
-    display: block;
-    font-size: 1.8rem;
-    font-style: italic;
-    color: $brand-primary;
-    margin: 15px 0;
-  }
-}
-
-// 5. SITE INTRO (Hier fixen wir die Textbreite)
-.site-intro {
-  padding: 4rem 0;
-
-  .intro-content {
-    max-width: $text-measure; 
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .lead-text {
-    font-size: 1.25rem;
-    margin-top: 1.5rem;
-    color: $text-muted;
-  }
-}
-
-// MISSION GRID
-.mission-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 50px;
-  margin-top: 5rem;
-  text-align: left;
-
-  .mission-item {
-    h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      padding-bottom: 0.5rem;
-    }
-  }
-}
-
-// 6. BLOG FEED
-.blog-feed {
-  padding: 6rem 0;
-  
-  .blog-feed-title {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .blog-grid {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: 1fr;
-
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    }
-  }
-}
-
-.blog-card {
-  background: #fff;
-  padding: 2.5rem;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid rgba(0,0,0,0.05);
-  /*transition: all 0.3s ease;*/
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-color: $brand-primary;
-  }
-
-  .date {
-    font-size: 0.8rem;
-    color: #888;
-    margin-bottom: 1rem;
-  }
-}
-
-// 7. FOOTER
+// Globaler Footer
 .main-footer {
   padding: 5rem 0 3rem;
   text-align: center;
-  border-top: 1px solid rgba(0,0,0,0.05);
-
-  .footer-nav {
-    margin: 2rem 0;
-    a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: $text-dark;
-      font-weight: 500;
-      &:hover { color: $brand-primary; }
-    }
+  border-top: 1px solid $border-color;
+  
+  .footer-nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: $text-dark;
+    &:hover { color: $brand-primary; }
   }
   
-  .copyright {
-    font-size: 0.85rem;
-    color: #999;
-  }
-}
-
-// Layout für die Garten-Werkstatt (Zweispaltig)
-.blog-layout-wrapper {
-  display: flex;
-  gap: 60px;
-  padding: 4rem 20px;
-  align-items: flex-start;
-
-  @media (max-width: 900px) {
-    flex-direction: column; // Auf dem Handy untereinander
-  }
-}
-
-.content-left {
-  flex: 2;
-  
-  .featured-image {
-    width: 100%;
-    height: auto;
-    border-radius: 4px; // Etwas dezenter
-    filter: grayscale(10%) contrast(105%); // Passt zum Werkstatt-Look
-  }
-}
-
-.blog-sidebar {
-  flex: 1;
-  position: sticky;
-  top: 20px; // Die Chronik bleibt beim Scrollen oben "kleben"
-  border-left: 1px solid rgba(0,0,0,0.05);
-  padding-left: 40px;
-
-  @media (max-width: 900px) {
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    padding-top: 4rem;
-  }
-
-  .blog-feed-title {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-}
-
-// Sidebar Karten (etwas kleiner als auf der Startseite)
-.blog-stack .blog-card {
-  padding: 1.5rem 0;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  
-  &:hover {
-    background: transparent;
-    border-color: $brand-primary;
-    transform: none; // Keine Bewegung
-  }
-  
-  h3 { font-size: 1.1rem; }
+  .copyright { font-size: 0.85rem; color: #999; margin-top: 2rem; }
 }
