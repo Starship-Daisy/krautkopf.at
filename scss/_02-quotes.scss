@@ -1,19 +1,19 @@
 // ==========================================
-// 02-QUOTES.SCSS
+// 02-QUOTES.SCSS (Comforter Brush Edition)
 // ==========================================
 
 .quote-section {
   padding: $space-xl 0;
   text-align: center;
   width: 100%;
-  // Hintergrund passend zum einheitlichen Look der Seite
+  // Einheitlicher Hintergrund für den "Rauschfrei"-Look
   background-color: rgba($brand-primary, 0.1); 
 }
 
 .quote-paper {
-  display: inline-block; // Zettel umschließt nur den Text
+  display: inline-block; // Zettel passt sich dem Inhalt an
   
-  // DIE PAPIERFARBE: Hellgrau mit leichtem Gelbeinschlag
+  // DIE PAPIERFARBE: Hellgrau-Gelb (Naturpapier)
   background-color: #f4f1ea; 
   
   // DAS KARO-MUSTER: Zartes Hellblau
@@ -22,17 +22,15 @@
     linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
   background-size: 20px 20px; 
   
-  // Innere Abstände
+  // Abstände & Schatten
   padding: $space-l $space-xl;
   position: relative;
-  
-  // Sauberer Schatten ohne Zacken-Störung
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   
   // Die charakteristische Schräglage
   transform: rotate(-1.2deg);
   
-  // Dezente Kante
+  // Dezenter Rahmen für feine Kanten
   border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
@@ -40,7 +38,7 @@
   text-align: left; 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; // Schiebt den Text innerhalb des Zettels nach links
 
   .quote-top, 
   .quote-bottom {
@@ -51,23 +49,27 @@
     color: $text-muted;
     opacity: 0.7;
     
-    // Hintergrundfarbe des Zettels, um Linien unter dem Text zu verdecken
+    // Schutz: Hintergrundfarbe des Zettels überdeckt die blauen Linien
     background: #f4f1ea; 
     padding: 0 4px;
     margin: 0;
   }
 
-// In der _02-quotes.scss beim .quote-middle
-.quote-middle {
-  font-family: $font-note;
-  font-size: clamp(1.8rem, 4.5vw, 2.5rem); // Etwas kompakter für die kräftige Brush
-  line-height: 1.2;
+  .quote-middle {
+    // Nutzt die Variable $font-note ('Comforter Brush')
+    font-family: $font-note; 
+    
+    // Da die Comforter Brush sehr fett ist, etwas mehr Platz geben
+    font-size: clamp(2rem, 5vw, 3.2rem); 
+    line-height: 1.2;
     color: $brand-primary;
     margin: $space-s 0;
-    padding-right: $space-l; // Erzeugt den "Notizrand" rechts
-}
-
-    // Gleicht die Zetteldrehung leicht aus, damit es lesbarer bleibt
-    transform: rotate(0.5deg); 
+    padding-right: $space-l;
+    
+    // Leichter Ausgleich der Zetteldrehung
+    transform: rotate(0.8deg); 
+    
+    // Subtiler Effekt für mehr Tiefe des "Pinselstrichs"
+    filter: drop-shadow(1px 1px 0px rgba(255,255,255,0.4));
   }
 }
