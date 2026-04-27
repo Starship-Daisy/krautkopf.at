@@ -66,25 +66,62 @@ h4.back-to-home,
     }
 }
 
-.footer-nav {
+// ==========================================
+// FOOTER STYLING (UNIFIED LOOK)
+// ==========================================
+
+.main-footer {
+  padding: $space-xl 0 $space-l; // Nutzt dein Spacing-System
+  border-top: 1px solid $border-color;
+  margin-top: $space-xl;
+  text-align: center; // Zentriert alle Inhalte im Footer
+
+  .footer-contact {
+    margin-bottom: $space-m;
+
     a {
-        font-family: $font-main;
-        font-weight: 400 !important; 
-        font-size: $font-size-small; 
-        opacity: 0.6;
-        text-transform: none !important;
-        text-decoration: none;
-        color: $brand-primary;
-        transition: opacity 0.3s ease;
-        margin-right: $space-m;
+      font-family: $font-main;
+      font-size: $font-size-small;
+      color: $brand-primary !important;
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
 
-        &:hover {
-            opacity: 1;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
+      &:hover {
+        opacity: 1;
+      }
     }
-}
+  }
 
+  .footer-nav {
+    margin-bottom: $space-m;
+
+    a {
+      display: inline-block;
+      font-family: $font-main;
+      font-weight: 400 !important;   // Zartes Schriftgewicht
+      font-size: $font-size-small;   // 0.875rem
+      color: $brand-primary !important; // Gleiche Farbe wie Header
+      text-transform: none !important; // Keine erzwungene Kleinschreibung
+      text-decoration: none;
+      opacity: 0.6;                  // Gleiche Zartheit wie Header
+      transition: opacity 0.3s ease;
+      
+      // Abstand zwischen den Links
+      &:not(:last-child) {
+        margin-right: $space-m;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .copyright {
+    font-size: $font-size-small;
+    color: $text-muted;
+    opacity: 0.5;
+    margin-top: $space-m;
+  }
+}
