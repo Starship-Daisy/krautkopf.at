@@ -50,26 +50,41 @@ h3 { font-size: $font-size-h3; }
   }
 }
 
-// Das hier erzwingt den Look überall, egal in welchem Header
 h4.back-to-home, 
 .back-to-home a {
-    font-family: 'Inter', sans-serif !important;
+    font-family: $font-main !important;
     font-weight: 400 !important; 
     font-size: 0.85rem !important;
     opacity: 0.6;
-    text-transform: none; // Falls es im Header groß geschrieben wird
+    text-transform: none !important;
+    text-decoration: none;
+    color: $brand-primary;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home-Werkstatt | krautkopf.at</title>
-    
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=inter:400,600|lora:400,700|reenie-beanie:400" rel="stylesheet" />
-    <link href="https://fonts.bunny.net/css?family=comforter-brush:400" rel="stylesheet" />
-    
-    <link rel="stylesheet" href="css/style.css">
-</head>
+.footer-nav {
+    a {
+        font-family: $font-main;
+        font-weight: 400 !important; 
+        font-size: $font-size-small; 
+        opacity: 0.6;
+        text-transform: none !important;
+        text-decoration: none;
+        color: $brand-primary;
+        transition: opacity 0.3s ease;
+        margin-right: $space-m;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
