@@ -49,3 +49,13 @@ h3 { font-size: $font-size-h3; }
     }
   }
 }
+
+// Das hier erzwingt den Look überall, egal in welchem Header
+h4.back-to-home, 
+.back-to-home a {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important; 
+    font-size: 0.85rem !important;
+    opacity: 0.6;
+    text-transform: none; // Falls es im Header groß geschrieben wird
+}
