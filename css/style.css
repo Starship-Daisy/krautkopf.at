@@ -37,6 +37,22 @@ h3 {
   padding: 0 2rem;
 }
 
+.back-to-home {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.back-to-home a {
+  text-decoration: none;
+  color: #4a5d4e;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.back-to-home a:hover {
+  opacity: 1;
+}
+
 .blog-card {
   display: flex;
   flex-direction: column;
