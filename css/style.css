@@ -59,7 +59,32 @@ h4.back-to-home,
   font-weight: 400 !important;
   font-size: 0.85rem !important;
   opacity: 0.6;
-  text-transform: none;
+  text-transform: none !important;
+  text-decoration: none;
+  color: #4a5d4e;
+  transition: opacity 0.3s ease;
+}
+h4.back-to-home:hover,
+.back-to-home a:hover {
+  opacity: 1;
+}
+
+.footer-nav a {
+  font-family: "Inter", sans-serif;
+  font-weight: 400 !important;
+  font-size: 0.875rem;
+  opacity: 0.6;
+  text-transform: none !important;
+  text-decoration: none;
+  color: #4a5d4e;
+  transition: opacity 0.3s ease;
+  margin-right: 1rem;
+}
+.footer-nav a:hover {
+  opacity: 1;
+}
+.footer-nav a:last-child {
+  margin-right: 0;
 }
 
 .blog-card {
