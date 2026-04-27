@@ -5,7 +5,7 @@
     --color-bg: #c5c4c2;           /* Hellgrau */
     --color-text: #2c3e50;         /* Anthrazit */
     --color-accent-green: #3d5a44;  /* Krautgrün */
-    --color-soft-green: #e8f0e6;    /* Salbeigrau/grün */
+    --color-soft-green: hsl(109, 52%, 82%);    /* Salbeigrau/grün */
     --color-border: #b7b4ab;       /* Weiches Greige */
 
     /* 2. Funktionale Zuweisung (Was wird wo genutzt?) */
