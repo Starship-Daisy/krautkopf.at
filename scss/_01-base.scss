@@ -31,3 +31,21 @@ h3 { font-size: $font-size-h3; }
   margin: 0 auto;
   padding: 0 $space-l; // Nutzt die 32px Variable für einheitliche Abstände 📏
 }
+
+.back-to-home {
+  font-weight: 400; // Überschreibt das Standard-Fett des h4
+  margin-bottom: $space-m; // Ein bisschen Abstand nach unten
+
+  a {
+    text-decoration: none;
+    color: $brand-primary; // Oder $text-muted, wenn es unauffälliger sein soll
+    font-family: $font-main; // Inter
+    font-size: $font-size-small; // 0.875rem (wie im Footer)
+    opacity: 0.6; // Das macht den "zarten" Effekt
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
