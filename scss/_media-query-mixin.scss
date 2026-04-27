@@ -1,0 +1,207 @@
+@use "sass:map"; // WICHTIG: Das lädt das Karten-Modul
+
+// Definition der Breakpoints
+$breakpoints: (
+  "medium": 768px,
+  "large":  1024px,
+  "xlarge": 1440px
+);
+
+@mixin respond-to($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+  
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$breakpoint} existiert nicht.";
+  }
+}
+
+@mixin landscape-mobile {
+  @media screen and (max-device-width: 932px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+.header {
+  height: 80px; // Standard Mobile
+  display: flex;
+  align-items: center;
+
+  // 1. Anpassung für Tablet/Desktop (Breite)
+  @include respond-to("medium") {
+    height: 100px;
+    padding: 0 40px;
+  }
+  }
+
+.blog-grid {
+  display: grid;
+  gap: 25px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  // 1. STANDARD (Mobile Hochformat): 1 Spalte
+  grid-template-columns: 1fr;
+
+  // 2. QUERFORMAT (Landscape Mobile): STRIKT 2 SPALTEN
+  @include landscape-mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; // Etwas kompakterer Abstand
+    padding: 20px;
+  }
+
+  // 3. TABLET / DESKTOP (Breiter als 768px): 3 oder mehr Spalten
+  @include respond-to("medium") {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 25px;
+    border: 1px solid #eee;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; // Alle Karten in einer Reihe sind gleich hoch
+
+    .date {
+      font-size: 0.75rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      line-height: 1.3;
+      margin: 0 0 10px 0;
+      font-family: 'Lora', serif;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0;
+      // Die magische Grenze für die Lesbarkeit:
+      max-width: 45ch; 
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-color: #ddd;
+    }
+  }
+}
+
+
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 40vh;
+  padding: 20px;
+  
+  // Gemeinsame Basis für Text und Bild
+  &__content, &__visual {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+
+    @include landscape-mobile {
+      font-size: 1.5rem;
+    }
+  }
+
+  // Alle Querformat-Anpassungen an einem Ort
+  @include landscape-mobile {
+    min-height: auto;
+    padding: 10px 0;
+    flex-direction: row; 
+    gap: 20px;
+    align-items: stretch; 
+
+    &__visual {
+      border-left: 1px solid rgba(0,0,0,0.1);
+    }
+  }
+
+  // Optional: Desktop-Anpassung
+  @include respond-to("medium") {
+    min-height: 60vh;
+    padding: 40px;
+    
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column; // Standard: Untereinander (Mobile)
+  padding: 20px;
+
+  @include respond-to("medium") {
+    flex-direction: row; // Ab Tablet: Nebeneinander
+    padding: 50px;
+  }
+
+  @include respond-to("large") {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// 1. Spezifische Variablen für den Hero-Bereich
+$hero-bg-color: #f4f4f4;
+$hero-text-color: #333;
+
+.hero {
+  background-color: $hero-bg-color;
+  color: $hero-text-color;
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh; // Nimmt mindestens 40% der Bildschirmhöhe ein
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 600px;
+  }
+
+  // Hier nutzen wir wieder dein Mixin für den Desktop
+  @include respond-to("medium") {
+    padding: 100px 50px;
+    min-height: 60vh;
+    
+    &__title {
+      font-size: 4rem; // Größerer Text auf großen Bildschirmen
+    }
+  }
+}
+
