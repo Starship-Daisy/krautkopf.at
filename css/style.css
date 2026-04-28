@@ -325,7 +325,7 @@ h4.back-to-home:hover,
 .card-content {
   padding: 2rem;
   flex-grow: 1;
-  background-image: linear-gradient(rgba(173, 216, 230, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.15) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(173, 216, 230, 0.15) 1px, transparent 1, 5x), linear-gradient(90deg, rgba(173, 216, 230, 0.15) 1, 5px, transparent 1px);
   background-size: 18px 18px;
 }
 .card-content h3 {
