@@ -50,8 +50,8 @@
   
   // DAS KARO-MUSTER (Sehr dezent hinter dem Text)
   background-image: 
-    linear-gradient(rgba(173, 216, 230, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(173, 216, 230, 0.15) 1px, transparent 1px);
+    linear-gradient(rgba(173, 216, 230, 0.15) 1px, transparent 1,5x),
+    linear-gradient(90deg, rgba(173, 216, 230, 0.15) 1,5px, transparent 1px);
   background-size: 18px 18px;
   
   h3 {
