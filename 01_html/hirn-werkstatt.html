@@ -13,7 +13,7 @@
 <body>
     <div class="main-wrapper">
         
-        <header class="main-header hero">
+        <header class="hero">
             <div class="container hero__content">
                 <div class="header-text">
                     <h4 class="back-to-home">
@@ -35,65 +35,58 @@
 
         <main class="container">
             
-            <article class="blog-main-content" style="flex: 2; padding-right: 20px;">
-                <figure class="card-image-wrapper" style="height: auto; margin-bottom: 2rem;">
-                    <div style="background: #eee; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center;">
-                        <span style="opacity: 0.3;">Beitragsbild</span>
-                    </div>
-                    <figcaption style="font-style: italic; margin-top: 0.5rem; font-size: 0.9rem;">
-                        Der erste Schritt kostet Überwindung, aber er lohnt sich.
-                    </figcaption>
-                </figure>
-
+            <article class="blog-main-content" style="flex: 2; padding-right: 40px;">
                 <div class="blog-content">
-                    <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;">
-                        Wir leben in einer Welt der unbegrenzten Möglichkeiten – und genau das ist das Problem.
+                    <p class="lead" style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 2rem; color: #444;">
+                        Wir leben in einer Welt der unbegrenzten Möglichkeiten – und genau das ist das Problem. Vor lauter Pro-und-Contra-Listen vergessen wir das Wichtigste: <strong>Das Handeln.</strong>
                     </p>
                     
                     <h3>Warum wir oft zögern</h3>
-                    <p>Der größte Feind des Fortschritts ist nicht das Scheitern, sondern die Angst vor Fehlern. Perfektionismus ist meistens nur die hübsche Maske unserer Angst.</p>
+                    <p>Der größte Feind des Fortschritts ist nicht das Scheitern, sondern die Angst vor Fehlern. Wir warten auf den perfekten Moment, dabei ist Perfektionismus meistens nur die hübsche Maske unserer Angst.</p>
 
                     <blockquote class="accent-quote">
-                        <p>„Der beste Zeitpunkt, einen Baum zu pflanzen, war vor zwanzig Jahren. Der zweitbeste Zeitpunkt ist jetzt.“</p>
+                        „Der beste Zeitpunkt, einen Baum zu pflanzen, war vor zwanzig Jahren. Der zweitbeste Zeitpunkt ist jetzt.“
                     </blockquote>
 
                     <h3>3 Strategien für den Start</h3>
-                    <ul class="styled-list" style="margin: 1.5rem 0; padding-left: 1.2rem;">
+                    <ul style="margin: 1.5rem 0; padding-left: 1.5rem; line-height: 2;">
                         <li><strong>Die 5-Sekunden-Regel:</strong> Zähle von 5 runter und fang an.</li>
                         <li><strong>Done is better than perfect:</strong> Ein fehlerhafter Start ist besser als gar kein Start.</li>
                         <li><strong>Kleinvieh macht auch Mist:</strong> Zerlege das Ziel in winzige Häppchen.</li>
                     </ul>
 
-                    <p>Am Ende bereuen wir selten die Dinge, die wir getan haben. Also: Mach es einfach!</p>
+                    <p>Am Ende bereuen wir selten die Dinge, die wir getan haben. Wir bereuen die Chancen, die wir nicht ergriffen haben. Also: Mach es einfach!</p>
                 </div>
             </article>
 
             <aside class="blog-sidebar" style="flex: 1;">
-                <h3 style="font-size: 1.2rem; margin-bottom: 1rem;">Weitere Beiträge</h3>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Weitere Beiträge</h3>
+                
                 <div class="blog-stack">
-                    
-                    <a href="#" class="blog-card" style="text-decoration: none; margin-bottom: 1rem;">
+                    <div class="blog-card">
                         <div class="card-content">
                             <span class="date">Strategie</span>
                             <h3>Fokus finden</h3>
                             <p>In einer lauten Welt die Konzentration behalten.</p>
-                        </div>
-                    </a>
-
-                    <div class="blog-card" style="opacity: 0.6;">
-                        <div class="card-content">
-                            <span class="date">Demnächst</span>
-                            <h3>Digital Minimalism</h3>
-                            <p>Warum weniger scrollen mehr Leben bedeutet.</p>
+                            <a href="#" class="card-link">Jetzt lesen</a>
                         </div>
                     </div>
 
+                    <div class="blog-card" style="opacity: 0.5; cursor: not-allowed; margin-top: 1.5rem;">
+                        <div class="card-content">
+                            <span class="date">In Arbeit</span>
+                            <h3>Minimalismus</h3>
+                            <p>Wie du Platz im Kopf schaffst.</p>
+                        </div>
+                    </div>
                 </div>
             </aside>
+
         </main>
 
         <footer class="main-footer">
-            <div class="container" style="display: block;"> <div class="footer-contact">
+            <div class="container" style="display: block; text-align: center;"> 
+                <div class="footer-contact">
                     <a href="mailto:wolfgang@krautkopf.at">wolfgang@krautkopf.at</a>
                 </div>
                 <nav class="footer-nav">
@@ -101,9 +94,10 @@
                     <a href="datenschutz.html">Datenschutz</a>
                     <a href="kontakt.html">Kontakt</a>
                 </nav>
-                <p class="copyright">&copy; 2026 krautkopf.at - Gebaut mit Herz, HTML und CSS.</p>
+                <p class="copyright">&copy; 2026 krautkopf.at - Gebaut mit Herz, HTML und SCSS.</p>
             </div>
         </footer>
+
     </div>
 </body>
 </html>
