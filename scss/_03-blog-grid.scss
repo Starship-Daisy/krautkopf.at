@@ -61,10 +61,16 @@
     color: $brand-primary;
     margin-bottom: $space-s;
     line-height: 1.3;
-    // Weißer Hintergrund für bessere Lesbarkeit über den Linien
+  /*  // Weißer Hintergrund für bessere Lesbarkeit über den Linien
     background: #f4f1ea;
     display: inline;
     box-shadow: 3px 0 0 #fff, -3px 0 0 #fff; 
+  }
+      // Hintergrund soll transparent sein
+  h3 {*/
+    background: transparent; // Der Balken verschwindet
+    box-shadow: none;        // Der seitliche Puffer verschwindet
+    display: inline;         // Beibehalten für den Zeilenumbruch-Look
   }
 
   p {
