@@ -2,37 +2,78 @@
 // @import "01-variables";
 // @import "01-base";
 
+// ==========================================
+// 03-BLOG-DETAIL (Fokussiert & Stylish)
+// ==========================================
+
 .blog-detail {
-    max-width: $text-measure; // Nutzt deine 750px für optimale Lesbarkeit 📖
+    // Nutzt deine Variable für die perfekte Lesebreite
+    max-width: $text-measure; 
     margin: $space-xl auto;
+    padding: 0 $space-m;
 
     .article-body {
+        
+        // Der "Lead"-Absatz als emotionaler Einstieg
         .lead {
-            font-family: $font-heading;
-            font-size: 1.4rem;
+            font-family: $font-heading; // Lora
+            font-size: 1.5rem;
             color: $brand-primary;
-            margin-bottom: $space-l;
             line-height: 1.4;
+            margin-bottom: $space-xl;
+            font-style: italic;
+            border-left: 2px solid $brand-accent;
+            padding-left: $space-m;
         }
 
         .article-text {
+            // Der Haupttext
             p {
-                margin-bottom: $space-m;
+                margin-bottom: $space-l;
                 color: $text-main;
+                font-size: 1.05rem;
+                line-height: 1.7;
+
+                // Initialbuchstabe (Drop Cap)
+                &:first-of-type::first-letter {
+                    font-family: $font-heading;
+                    font-size: 3.5rem;
+                    float: left;
+                    line-height: 1;
+                    padding-right: 10px;
+                    color: $brand-primary;
+                }
             }
 
             h3 {
-                margin: $space-l 0 $space-m;
+                margin: $space-xl 0 $space-m;
                 font-family: $font-heading;
+                font-size: $font-size-h2;
+                color: $brand-primary;
+                // Dezente Unterstreichung für Struktur
+                border-bottom: 1px solid $border-color;
+                padding-bottom: $space-xs;
             }
 
+            // Deine Liste ohne Hover, aber mit Stil
             ul {
-                margin: $space-m 0 $space-l $space-m;
-                
+                list-style: none;
+                margin: $space-l 0 $space-l $space-m;
+                padding: 0;
+
                 li {
-                    margin-bottom: $space-s;
+                    margin-bottom: $space-m;
+                    padding-left: $space-l;
+                    position: relative;
                     color: $text-main;
                     
+                    &::before {
+                        content: "—"; // Eleganter Strich statt Punkt
+                        position: absolute;
+                        left: 0;
+                        color: $brand-accent;
+                    }
+
                     strong {
                         color: $brand-primary;
                     }
@@ -42,40 +83,26 @@
     }
 }
 
-// Spezielle Anpassung für die Quote auf dieser Seite
-.quote-section {
-    margin: $space-xl 0;
-    
-    .quote-paper {
-        // Wir verstärken hier den handschriftlichen Charakter
-        max-width: 90%;
-        
-        .quote-middle {
-            // clamp ist super für responsive Typography
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-        }
-    }
-}
-
-// Hero-Anpassung für die Blog-Detailseite
+// Deine Hero-Sektion für die Detailseite (Zentriert & Schlank)
 .hero {
-    background-color: transparent; // Wir nutzen den Brand-Light Background vom Body
-    border-bottom: 1px solid $border-color;
+    text-align: center;
+    padding: $space-xl 0;
+    background-color: transparent; // Nutzt den hellen Hintergrund der Base
     
     &__title {
+        font-family: $font-heading;
+        font-size: $font-size-h1;
         color: $brand-primary;
-        max-width: $container-width;
+        margin-bottom: $space-s;
     }
 
     &__subtitle {
         font-family: $font-main;
+        font-size: $font-size-small;
         color: $text-muted;
-    }
-}
-
-// Responsive Feinschliff
-@include respond-to("medium") {
-    .blog-detail {
-        padding: 0 $space-l;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        max-width: 500px;
+        margin: 0 auto;
     }
 }
