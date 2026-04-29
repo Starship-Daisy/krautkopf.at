@@ -349,8 +349,11 @@ h4.back-to-home:hover,
   color: #1a1a1a;
   margin-top: 1rem;
   line-height: 1.6;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 2px 0;
+  background: transparent;
+  box-shadow: none;
+  display: inline;
+  /*    background: rgba(255, 255, 255, 0.7);
+      padding: 2px 0;*/
 }
 
 .card-link {
@@ -362,8 +365,11 @@ h4.back-to-home:hover,
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: #fff;
-  padding: 0 4px;
+  background: transparent;
+  box-shadow: none;
+  display: inline;
+  /*background: #fff;
+  padding: 0 4px;*/
 }
 .card-link:hover {
   text-decoration: underline;
