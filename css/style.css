@@ -333,9 +333,16 @@ h4.back-to-home:hover,
   color: #4a5d4e;
   margin-bottom: 0.5rem;
   line-height: 1.3;
-  background: #f4f1ea;
+  /*  // Weißer Hintergrund für bessere Lesbarkeit über den Linien
+    background: #f4f1ea;
+    display: inline;
+    box-shadow: 3px 0 0 #fff, -3px 0 0 #fff; 
+  }
+      // Hintergrund soll transparent sein
+  h3 {*/
+  background: transparent;
+  box-shadow: none;
   display: inline;
-  box-shadow: 3px 0 0 #fff, -3px 0 0 #fff;
 }
 .card-content p {
   font-size: 0.875rem;
