@@ -1,0 +1,81 @@
+// Importiere hier deine Variablen/Base falls nötig
+// @import "01-variables";
+// @import "01-base";
+
+.blog-detail {
+    max-width: $text-measure; // Nutzt deine 750px für optimale Lesbarkeit 📖
+    margin: $space-xl auto;
+
+    .article-body {
+        .lead {
+            font-family: $font-heading;
+            font-size: 1.4rem;
+            color: $brand-primary;
+            margin-bottom: $space-l;
+            line-height: 1.4;
+        }
+
+        .article-text {
+            p {
+                margin-bottom: $space-m;
+                color: $text-main;
+            }
+
+            h3 {
+                margin: $space-l 0 $space-m;
+                font-family: $font-heading;
+            }
+
+            ul {
+                margin: $space-m 0 $space-l $space-m;
+                
+                li {
+                    margin-bottom: $space-s;
+                    color: $text-main;
+                    
+                    strong {
+                        color: $brand-primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Spezielle Anpassung für die Quote auf dieser Seite
+.quote-section {
+    margin: $space-xl 0;
+    
+    .quote-paper {
+        // Wir verstärken hier den handschriftlichen Charakter
+        max-width: 90%;
+        
+        .quote-middle {
+            // clamp ist super für responsive Typography
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+        }
+    }
+}
+
+// Hero-Anpassung für die Blog-Detailseite
+.hero {
+    background-color: transparent; // Wir nutzen den Brand-Light Background vom Body
+    border-bottom: 1px solid $border-color;
+    
+    &__title {
+        color: $brand-primary;
+        max-width: $container-width;
+    }
+
+    &__subtitle {
+        font-family: $font-main;
+        color: $text-muted;
+    }
+}
+
+// Responsive Feinschliff
+@include respond-to("medium") {
+    .blog-detail {
+        padding: 0 $space-l;
+    }
+}
