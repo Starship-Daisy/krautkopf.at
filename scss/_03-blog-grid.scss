@@ -78,8 +78,12 @@
     color: $text-main; // Diese Variable hast du gerade ergänzt!
     margin-top: $space-m;
     line-height: 1.6;
-    background: rgba(255, 255, 255, 0.7);
-    padding: 2px 0;
+      // Hintergrund soll transparent sein
+    background: transparent; // Der Balken verschwindet
+    box-shadow: none;        // Der seitliche Puffer verschwindet
+    display: inline;         // Beibehalten für den Zeilenumbruch-Look
+/*    background: rgba(255, 255, 255, 0.7);
+    padding: 2px 0;*/
   }
 }
 
@@ -92,8 +96,14 @@
   font-size: $font-size-small;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  background: #fff;
-  padding: 0 4px;
+  
+      // Hintergrund soll transparent sein
+    background: transparent; // Der Balken verschwindet
+    box-shadow: none;        // Der seitliche Puffer verschwindet
+    display: inline;         // Beibehalten für den Zeilenumbruch-Look
+  
+  /*background: #fff;
+  padding: 0 4px;*/
 
   &:hover {
     text-decoration: underline;
