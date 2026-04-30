@@ -2,7 +2,7 @@
 // 02-QUOTES.SCSS (Freischwebend & Einheitlich)
 // ==========================================
 
-@use '02-quotes' as *;
+@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
 
 .quote-section {
   padding: $space-xl 0;
