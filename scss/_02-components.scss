@@ -2,6 +2,7 @@
 // 02-COMPONENTS.SCSS (Freischwebend & Einheitlich)
 // ==========================================
 
+@use '02-components' as *;
 
 .main-footer {
   padding: $space-xl 0 $space-l;

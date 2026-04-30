@@ -2,6 +2,8 @@
 // 02-QUOTES.SCSS (Freischwebend & Einheitlich)
 // ==========================================
 
+@use '02-quotes' as *;
+
 .quote-section {
   padding: $space-xl 0;
   text-align: center;

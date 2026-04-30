@@ -2,6 +2,8 @@
 // 01-VARIABLES.SCSS
 // ==========================================
 
+@use '01-variables' as *;
+
 // 🎨 FARBEN (BRAND & UI)
 $brand-primary: #4a5d4e;
 $brand-accent:  #8b9d83;

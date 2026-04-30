@@ -1,13 +1,12 @@
-// Importiere hier deine Variablen/Base falls nötig
-// @import "01-variables";
-// @import "01-base";
+// ==========================================
+// _03-BLOG-DETAILS.SCSS
+// ==========================================
 
-// ==========================================
-// 03-BLOG-DETAIL (Fokussiert & Stylish)
-// ==========================================
+// WICHTIG: Lade die Variablen direkt am Anfang der Datei
+@use '01-variables' as *;
 
 .blog-detail {
-    // Nutzt deine Variable für die perfekte Lesebreite
+    // Strikte Begrenzung auf deine 750px Lesebreite 📖
     max-width: $text-measure; 
     margin: $space-xl auto;
     padding: 0 $space-m;
@@ -34,7 +33,7 @@
                 font-size: 1.05rem;
                 line-height: 1.7;
 
-                // Initialbuchstabe (Drop Cap)
+                // Initialbuchstabe (Drop Cap) für den allerersten Buchstaben
                 &:first-of-type::first-letter {
                     font-family: $font-heading;
                     font-size: 3.5rem;
@@ -55,7 +54,7 @@
                 padding-bottom: $space-xs;
             }
 
-            // Deine Liste ohne Hover, aber mit Stil
+            // Deine Liste: Stilvoll mit Gedankenstrichen
             ul {
                 list-style: none;
                 margin: $space-l 0 $space-l $space-m;
@@ -83,11 +82,11 @@
     }
 }
 
-// Deine Hero-Sektion für die Detailseite (Zentriert & Schlank)
+// Hero-Anpassung für die Detailseite (Zentriert & Schlank)
 .hero {
     text-align: center;
     padding: $space-xl 0;
-    background-color: transparent; // Nutzt den hellen Hintergrund der Base
+    background-color: transparent; 
     
     &__title {
         font-family: $font-heading;

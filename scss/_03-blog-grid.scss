@@ -2,6 +2,8 @@
 // 03-BLOG-GRID.SCSS (Final & Fehlerfrei)
 // ==========================================
 
+@use '03-blog-grid' as *;
+
 .blog-section {
   padding: $space-xl 0;
   background-color: transparent; 

@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '01-variables' as *;
+
+$breakpoints: (
+  "medium": 768px,
+  "large":  1024px,
+  "xlarge": 1440px
+);
+
+@mixin respond-to($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+  @if $value {
+    @media (min-width: $value) { @content; }
+  }
+}
+
+@mixin landscape-mobile {
+  @media screen and (max-device-width: 932px) and (orientation: landscape) {
+    @content;
+  }
+}

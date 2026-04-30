@@ -2,6 +2,8 @@
 // 02-BLOG-CARDS.SCSS
 // ==========================================
 
+@use '02-blog-cards' as *;
+
 .blog-card {
   display: flex;
   flex-direction: column;
