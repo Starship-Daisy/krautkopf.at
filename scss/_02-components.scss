@@ -2,7 +2,7 @@
 // 02-COMPONENTS.SCSS (Freischwebend & Einheitlich)
 // ==========================================
 
-@use '02-components' as *;
+@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
 
 .main-footer {
   padding: $space-xl 0 $space-l;
