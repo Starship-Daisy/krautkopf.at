@@ -2,7 +2,7 @@
 // 02-BLOG-CARDS.SCSS
 // ==========================================
 
-@use '02-blog-cards' as *;
+@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
 
 .blog-card {
   display: flex;
