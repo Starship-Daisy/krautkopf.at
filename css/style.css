@@ -146,6 +146,15 @@ h4.back-to-home:hover,
 .main-footer .footer-nav a:hover {
   color: #4a5d4e;
 }
+.main-footer .header {
+  padding: 2rem 0;
+  width: 100%;
+}
+.main-footer .header .container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .main-footer .copyright {
   font-size: 0.875rem;
   color: #999;
