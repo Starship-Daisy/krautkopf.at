@@ -157,7 +157,8 @@ h4.back-to-home:hover,
   width: 80px;
   height: auto;
   display: block;
-  margin: 2rem auto;
+  margin: 0 auto 0 0;
+  /*margin: $space-l auto; // Zentriert das Logo mit Abstand*/
   color: #4a5d4e;
 }
 .kraut-svg .kraut-huelle {
