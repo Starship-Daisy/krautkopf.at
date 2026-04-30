@@ -2,7 +2,7 @@
 // 03-BLOG-GRID.SCSS (Final & Fehlerfrei)
 // ==========================================
 
-@use '03-blog-grid' as *;
+@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
 
 .blog-section {
   padding: $space-xl 0;
