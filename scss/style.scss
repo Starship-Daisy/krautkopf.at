@@ -1,11 +1,8 @@
 // style.scss
 
-// 1. Variablen und Mixins laden (Diese müssen als erstes kommen)
 @use '01-variables' as *;
-
-// 2. Alle anderen Module laden
-@use '01-base';
-@use '02-blog-cards';
-@use '02-quotes';
-@use '02-components';
-@use '03-blog-details'; // Achte darauf, dass die Datei im Ordner _03-blog-details.scss heißt
+@use '01-base' as *;         // Füge "as *" hinzu
+@use '02-blog-cards' as *;   // Füge "as *" hinzu
+@use '02-quotes' as *;       // Füge "as *" hinzu
+@use '02-components' as *;   // Füge "as *" hinzu
+@use '03-blog-details' as *; // Füge "as *" hinzu
