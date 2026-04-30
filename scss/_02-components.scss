@@ -58,7 +58,8 @@
     width: 80px;           // Regelt die Größe
     height: auto;
     display: block;
-    margin: $space-l auto; // Zentriert das Logo mit Abstand
+    margin: 0 auto 0 0;
+    /*margin: $space-l auto; // Zentriert das Logo mit Abstand*/
     color: $brand-primary; // Gibt dem Logo deine grüne Farbe
 
     .kraut-huelle {
