@@ -1,8 +1,18 @@
 // style.scss
 
+// 1. Variablen (Das Fundament)
 @use '01-variables' as *;
+
+// 2. Basis-Styles (Body, Links, Container)
 @use '01-base' as *;
-@use '02-blog-cards' as *;
-@use '02-quotes' as *;
+
+// 3. Komponenten (Dinge, die überall vorkommen)
 @use '02-components' as *;
+@use '02-quotes' as *;
+
+// 4. Index-Seite (Das Grid und die Karten)
+@use '02-blog-cards' as *;
+@use '03-blog-grid' as *; // <--- WICHTIG: Das Grid für die Index-Seite
+
+// 5. Detail-Seite (Spezifisches für den Blog-Artikel)
 @use '03-blog-details' as *;
