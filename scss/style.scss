@@ -1,8 +1,8 @@
 // style.scss
 
 @use '01-variables' as *;
-@use '01-base' as *;         // Füge "as *" hinzu
-@use '02-blog-cards' as *;   // Füge "as *" hinzu
-@use '02-quotes' as *;       // Füge "as *" hinzu
-@use '02-components' as *;   // Füge "as *" hinzu
-@use '03-blog-details' as *; // Füge "as *" hinzu
+@use '01-base' as *;
+@use '02-blog-cards' as *;
+@use '02-quotes' as *;
+@use '02-components' as *;
+@use '03-blog-details' as *;
