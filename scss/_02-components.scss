@@ -44,6 +44,21 @@
     }
   }
   
+// ==========================================
+// HEADER STYLING
+// ==========================================
+
+.header {
+  padding: $space-l 0; // Gibt dem Logo oben und unten etwas Luft
+  width: 100%;
+  
+  .container {
+    display: flex;
+    justify-content: flex-start; // Zwingt alles im Container nach links
+    align-items: center;
+  }
+}
+
   .copyright { 
     font-size: $font-size-small; 
     color: #999; 
@@ -78,3 +93,4 @@
         color: $brand-accent;
     }
 }
+
