@@ -1,15 +1,11 @@
-// 01 FUNDAMENT
-@import '01-variables';
-@import '01-base';
+// style.scss
 
-// 02 KOMPONENTEN
-@import '02-blog-cards';
-@import '02-quotes';      // <--- Hier einreihen!
-@import '02-components';
+// 1. Variablen und Mixins laden (Diese müssen als erstes kommen)
+@use '01-variables' as *;
 
-// 03 SEITEN-MODULE
-@import '03-blog-grid';
-@import '03-blog-details';
-@import '03-index';
-@import '03-datenschutz';
-@import '03-legal';
+// 2. Alle anderen Module laden
+@use '01-base';
+@use '02-blog-cards';
+@use '02-quotes';
+@use '02-components';
+@use '03-blog-details'; // Achte darauf, dass die Datei im Ordner _03-blog-details.scss heißt
