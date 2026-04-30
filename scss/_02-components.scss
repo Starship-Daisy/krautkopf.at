@@ -51,3 +51,29 @@
     opacity: 0.6;
   }
 }
+
+// Ganz unten in _02-components.scss einfügen:
+
+.kraut-svg {
+    width: 80px;           // Regelt die Größe
+    height: auto;
+    display: block;
+    margin: $space-l auto; // Zentriert das Logo mit Abstand
+    color: $brand-primary; // Gibt dem Logo deine grüne Farbe
+
+    .kraut-huelle {
+        stroke-width: 2px;
+    }
+
+    .kraut-ader {
+        stroke-width: 1px;
+        opacity: 0.7;      // Macht die inneren Linien feiner
+    }
+
+    // Ein kleiner Bonus: Sanfter Effekt beim Drüberfahren
+    transition: transform 0.3s ease;
+    &:hover {
+        transform: scale(1.05);
+        color: $brand-accent;
+    }
+}
