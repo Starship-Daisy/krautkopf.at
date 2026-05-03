@@ -5,17 +5,15 @@
 // ==========================================
 
 .header {
-  // 1. Wert: OBEN | 2. Wert: RECHTS/LINKS | 3. Wert: UNTEN
-  padding: 80px $space-m; // 80px sorgt für ordentlich Abstand zum Browser-Rand
-  width: 100%;
-  border-bottom: 1px solid $border-color;
-
+  // EXTREMER TEST-ABSTAND
+  padding-top: 150px !important; 
+  background-color: #f0f0f0; // Falls du eine Hintergrundfarbe siehst, wissen wir, wo der Header ist
+  
   .container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // Falls der Container selbst am Rand klebt, gib ihm ein horizontales Padding:
-    padding: 0 $space-m; 
+    border: 1px solid red; // Nur zum Testen: Zeigt dir die Grenzen des Containers
   }
 }
 
