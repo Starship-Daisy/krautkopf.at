@@ -222,7 +222,7 @@ h4.back-to-home:hover,
   margin-bottom: 1rem;
 }
 .quote-text-wrapper .quote-middle {
-  font-family: "Comforter Brush", cursive;
+  font-family: "Comforter Brush", cursive !important;
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   line-height: 1.1;
   color: #4a5d4e;
