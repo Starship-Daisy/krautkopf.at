@@ -45,61 +45,82 @@
   }
 
 // ==========================================
-// HEADER STYLING
+// HEADER
 // ==========================================
-
 .header {
-  // Wir erhöhen das obere Padding etwas mehr als das untere, 
-  // damit der Retour-Link Luft zum Atmen hat.
-  padding: $space-xl 0 $space-l 0; 
+  padding: $space-xl 0 $space-l; // Viel Platz nach oben
   width: 100%;
   border-bottom: 1px solid $border-color;
 
   .container {
     display: flex;
-    flex-direction: column;    // Stapelt Inhalte (Link oben, Logo darunter)
-    align-items: flex-start;   // Alles linksbündig
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
-// Speziell für den "Zurück"-Link
-.back-to-home {
-  margin-bottom: $space-m;    // Abstand zum Logo/Titel darunter
-  
-  a {
-    text-decoration: none;
-    font-family: $font-main;
-    font-size: $font-size-small;
-    color: $text-muted;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
+// ==========================================
+// LOGO & TEXT
+// ==========================================
+.logo-area {
+  display: flex;
+  align-items: center;
+  margin-top: $space-s;
+}
 
-    &:hover {
-      opacity: 1;
-      color: $brand-primary;
-    }
+.kraut-svg {
+  width: 60px;
+  height: auto;
+  display: block;
+  margin-right: $space-m;
+  color: $brand-primary;
+
+  .kraut-huelle { stroke-width: 2px; }
+  .kraut-ader { stroke-width: 1px; opacity: 0.7; }
+
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+    color: $brand-accent;
   }
 }
 
-// Header-Text Gruppe (Titel & Untertitel)
 .header-text {
-  margin-top: $space-xs; // Minimaler Feinjustierungs-Abstand zum Logo
-  
+  display: flex;
+  flex-direction: column;
+
   .site-title {
-    display: block;
-    font-family: $font-main;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: $text-muted;
   }
-  
   .site-tagline {
     font-family: $font-heading;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: $brand-primary;
     margin: 0;
+  }
+}
+
+// ==========================================
+// FOOTER
+// ==========================================
+.main-footer {
+  padding: $space-xl 0;
+  text-align: center;
+  border-top: 1px solid $border-color;
+
+  .footer-contact {
+    margin-bottom: $space-m;
+    a { text-decoration: none; color: $text-dark; }
+  }
+
+  .copyright { 
+    font-size: $font-size-small; 
+    color: #999; 
+    margin-top: $space-l;
+    opacity: 0.6;
   }
 }
 
