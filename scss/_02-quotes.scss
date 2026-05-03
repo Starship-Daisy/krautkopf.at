@@ -56,7 +56,7 @@
   }
 
   .quote-middle {
-    font-family: $font-note; 
+    font-family: $font-note !important; 
     font-size: clamp(2.2rem, 5vw, 3.2rem); 
     line-height: 1.1;
     color: $brand-primary;
