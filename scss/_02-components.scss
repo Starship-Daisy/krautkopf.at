@@ -1,54 +1,11 @@
-// ==========================================
-// 02-COMPONENTS.SCSS (Freischwebend & Einheitlich)
-// ==========================================
-
-@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
-
-.main-footer {
-  padding: $space-xl 0 $space-l;
-  text-align: center;
-  border-top: 1px solid $border-color;
-  
-  // Die E-Mail-Adresse
-  .footer-contact {
-    margin-bottom: $space-m;
-
-    a {
-      text-decoration: none;
-      color: $text-dark;
-      font-family: $font-main;
-      letter-spacing: 0.02em;
-      transition: opacity 0.3s ease;
-
-      // Sieht aus wie Text, reagiert aber sanft beim Drüberfahren
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  // Die Navigations-Links (Impressum/Datenschutz)
-  .footer-nav {
-    a {
-      margin: 0 $space-s;
-      text-decoration: none;
-      color: $text-muted; // Etwas dezenter als die E-Mail
-      font-size: $font-size-small;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: color 0.3s ease;
-
-      &:hover { 
-        color: $brand-primary; 
-      }
-    }
-  }
+@use '01-variables' as *;
 
 // ==========================================
-// HEADER
+// 1. HEADER (Der Bereich ganz oben)
 // ==========================================
 .header {
-  padding: $space-xl 0 $space-l; // Viel Platz nach oben
+  // Erhöhe das erste Maß (Padding-Top), falls es noch zu weit oben klebt
+  padding: $space-xl 0 $space-l; 
   width: 100%;
   border-bottom: 1px solid $border-color;
 
@@ -59,8 +16,21 @@
   }
 }
 
+// Falls du eine Klasse für den "Zurück"-Link hast:
+.back-link {
+  margin-bottom: $space-m;
+  display: inline-block;
+  text-decoration: none;
+  font-size: $font-size-small;
+  color: $text-muted;
+  
+  &:hover {
+    color: $brand-primary;
+  }
+}
+
 // ==========================================
-// LOGO & TEXT
+// 2. LOGO & TEXT AREA (Das Gespann)
 // ==========================================
 .logo-area {
   display: flex;
@@ -104,50 +74,38 @@
 }
 
 // ==========================================
-// FOOTER
+// 3. FOOTER (Ganz unten)
 // ==========================================
 .main-footer {
-  padding: $space-xl 0;
+  padding: $space-xl 0 $space-l;
   text-align: center;
   border-top: 1px solid $border-color;
+  margin-top: $space-xl;
 
   .footer-contact {
     margin-bottom: $space-m;
-    a { text-decoration: none; color: $text-dark; }
+    a {
+      text-decoration: none;
+      color: $text-dark;
+      transition: opacity 0.3s;
+      &:hover { opacity: 0.5; }
+    }
+  }
+
+  .footer-nav {
+    margin-bottom: $space-m;
+    a {
+      margin: 0 $space-s;
+      text-decoration: none;
+      color: $text-muted;
+      font-size: $font-size-small;
+      &:hover { color: $brand-primary; }
+    }
   }
 
   .copyright { 
     font-size: $font-size-small; 
     color: #999; 
-    margin-top: $space-l;
     opacity: 0.6;
   }
-}
-
-// Ganz unten in _02-components.scss einfügen:
-
-.kraut-svg {
-    width: 80px;           // Regelt die Größe
-    height: auto;
-    display: block;
-    margin: 0 auto 0 0;
-    /*margin: $space-l auto; // Zentriert das Logo mit Abstand*/
-    color: $brand-primary; // Gibt dem Logo deine grüne Farbe
-
-    .kraut-huelle {
-        stroke-width: 2px;
-    }
-
-    .kraut-ader {
-        stroke-width: 1px;
-        opacity: 0.7;      // Macht die inneren Linien feiner
-    }
-
-    // Ein kleiner Bonus: Sanfter Effekt beim Drüberfahren
-    transition: transform 0.3s ease;
-    &:hover {
-        transform: scale(1.05);
-        color: $brand-accent;
-    }
-}
 }
