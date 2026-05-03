@@ -43,27 +43,63 @@
       }
     }
   }
-  
+
 // ==========================================
 // HEADER STYLING
 // ==========================================
 
 .header {
-  padding: $space-l 0; // Gibt dem Logo oben und unten etwas Luft
+  // Wir erhöhen das obere Padding etwas mehr als das untere, 
+  // damit der Retour-Link Luft zum Atmen hat.
+  padding: $space-xl 0 $space-l 0; 
   width: 100%;
-  
+  border-bottom: 1px solid $border-color;
+
   .container {
     display: flex;
-    justify-content: flex-start; // Zwingt alles im Container nach links
-    align-items: center;
+    flex-direction: column;    // Stapelt Inhalte (Link oben, Logo darunter)
+    align-items: flex-start;   // Alles linksbündig
+    justify-content: center;
   }
 }
 
-  .copyright { 
-    font-size: $font-size-small; 
-    color: #999; 
-    margin-top: $space-l;
+// Speziell für den "Zurück"-Link
+.back-to-home {
+  margin-bottom: $space-m;    // Abstand zum Logo/Titel darunter
+  
+  a {
+    text-decoration: none;
+    font-family: $font-main;
+    font-size: $font-size-small;
+    color: $text-muted;
     opacity: 0.6;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      color: $brand-primary;
+    }
+  }
+}
+
+// Header-Text Gruppe (Titel & Untertitel)
+.header-text {
+  margin-top: $space-xs; // Minimaler Feinjustierungs-Abstand zum Logo
+  
+  .site-title {
+    display: block;
+    font-family: $font-main;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $text-muted;
+  }
+  
+  .site-tagline {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    color: $brand-primary;
+    margin: 0;
   }
 }
 
