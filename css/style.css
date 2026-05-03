@@ -147,22 +147,76 @@ h4.back-to-home:hover,
   color: #4a5d4e;
 }
 .main-footer .header {
-  padding: 2rem 0;
+  padding: 4rem 0 2rem;
   width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 .main-footer .header .container {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.main-footer .copyright {
+.main-footer .logo-area {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.main-footer .kraut-svg {
+  width: 60px;
+  height: auto;
+  display: block;
+  margin-right: 1rem;
+  color: #4a5d4e;
+}
+.main-footer .kraut-svg .kraut-huelle {
+  stroke-width: 2px;
+}
+.main-footer .kraut-svg .kraut-ader {
+  stroke-width: 1px;
+  opacity: 0.7;
+}
+.main-footer .kraut-svg {
+  transition: transform 0.3s ease;
+}
+.main-footer .kraut-svg:hover {
+  transform: scale(1.05);
+  color: #8b9d83;
+}
+.main-footer .header-text {
+  display: flex;
+  flex-direction: column;
+}
+.main-footer .header-text .site-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #757a70;
+}
+.main-footer .header-text .site-tagline {
+  font-family: "Lora", serif;
+  font-size: 1.3rem;
+  color: #4a5d4e;
+  margin: 0;
+}
+.main-footer .main-footer {
+  padding: 4rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.main-footer .main-footer .footer-contact {
+  margin-bottom: 1rem;
+}
+.main-footer .main-footer .footer-contact a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+.main-footer .main-footer .copyright {
   font-size: 0.875rem;
   color: #999;
   margin-top: 2rem;
   opacity: 0.6;
 }
-
-.kraut-svg {
+.main-footer .kraut-svg {
   width: 80px;
   height: auto;
   display: block;
@@ -170,17 +224,17 @@ h4.back-to-home:hover,
   /*margin: $space-l auto; // Zentriert das Logo mit Abstand*/
   color: #4a5d4e;
 }
-.kraut-svg .kraut-huelle {
+.main-footer .kraut-svg .kraut-huelle {
   stroke-width: 2px;
 }
-.kraut-svg .kraut-ader {
+.main-footer .kraut-svg .kraut-ader {
   stroke-width: 1px;
   opacity: 0.7;
 }
-.kraut-svg {
+.main-footer .kraut-svg {
   transition: transform 0.3s ease;
 }
-.kraut-svg:hover {
+.main-footer .kraut-svg:hover {
   transform: scale(1.05);
   color: #8b9d83;
 }
