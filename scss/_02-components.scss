@@ -3,9 +3,10 @@
 // ==========================================
 // 1. HEADER (Der Bereich ganz oben)
 // ==========================================
+
 .header {
-  // Erhöhe das erste Maß (Padding-Top), falls es noch zu weit oben klebt
-  padding: $space-xl 5 $space-l; 
+  // 1. Wert: OBEN | 2. Wert: RECHTS/LINKS | 3. Wert: UNTEN
+  padding: 80px 0 $space-l; // 80px sorgt für ordentlich Abstand zum Browser-Rand
   width: 100%;
   border-bottom: 1px solid $border-color;
 
@@ -13,6 +14,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    // Falls der Container selbst am Rand klebt, gib ihm ein horizontales Padding:
+    padding: 0 $space-m; 
   }
 }
 
