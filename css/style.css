@@ -9,11 +9,6 @@ html {
   overflow-y: scroll;
 }
 
-.header {
-  display: flow-root;
-  padding-top: 60px;
-}
-
 body {
   background-color: #fdfcf8;
   color: #1a1a1a;
