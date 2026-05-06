@@ -1,20 +1,65 @@
 @use '01-variables' as *;
 
 // ==========================================
-// 1. HEADER (Der Bereich ganz oben)
+// EINHEITLICHER HEADER
 // ==========================================
 
-.header {
-  // EXTREMER TEST-ABSTAND
-  padding-top: 150px !important; 
-  background-color: #f0f0f0; // Falls du eine Hintergrundfarbe siehst, wissen wir, wo der Header ist
-  
-  .container {
+.main-header {
+  padding: 80px 0 40px; // Fixer Abstand nach oben
+  width: 100%;
+  background-color: transparent; // Oder deine Hintergrundfarbe
+  border-bottom: 1px solid $border-color;
+
+  .container.header-flex {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 1px solid red; // Nur zum Testen: Zeigt dir die Grenzen des Containers
+    justify-content: space-between;
+    align-items: center;
   }
+}
+
+.header-text {
+  // Hier erzwingen wir die Konsistenz
+  .back-to-home {
+    margin-bottom: 4px;
+    
+    a {
+      // Nutze REM statt EM, damit die Größe nicht von Eltern-Elementen abhängt
+      font-family: $font-main;
+      font-size: 0.75rem !important; 
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      color: $text-muted;
+      display: inline-block;
+      line-height: 1;
+
+      &:hover {
+        color: $brand-primary;
+      }
+    }
+  }
+
+  h1 {
+    font-family: $font-heading;
+    font-size: 2.2rem; // Fixe Größe für alle Seiten
+    margin: 0;
+    line-height: 1.1;
+    color: $brand-primary;
+  }
+
+  p {
+    margin: 4px 0 0;
+    font-family: $font-main;
+    font-size: 1rem;
+    color: $text-muted;
+  }
+}
+
+.kraut-svg {
+  width: 80px;  // Fixe Breite
+  height: 80px; // Fixe Höhe
+  flex-shrink: 0; // Verhindert, dass das Logo auf kleinen Bildschirmen gequetscht wird
+  color: $brand-primary;
 }
 
 // Falls du eine Klasse für den "Zurück"-Link hast:
