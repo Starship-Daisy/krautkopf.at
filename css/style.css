@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 .header {
   display: flow-root;
   padding-top: 60px;
