@@ -17,6 +17,12 @@
   }
 }
 
+.container {
+  max-width: $container-width; // Die 1100px aus deinen Variablen
+  margin: 0 auto;              // Zentriert den Kasten
+  padding: 0 $space-l;         // Sicherheitsabstand zu den Rändern (32px)
+}
+
 .header-text {
   // Hier erzwingen wir die Konsistenz
   .back-to-home {

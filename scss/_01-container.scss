@@ -1,0 +1,18 @@
+@use '01-variables' as *;
+
+// 1. Der allgemeine Container (Das Fundament)
+// Er sorgt dafür, dass dein Inhalt auf ALLEN Seiten mittig sitzt.
+.container {
+  max-width: $container-width; // Nutzt deine 1100px
+  margin: 0 auto;              // Der magische Befehl für die Zentrierung!
+  padding: 0 $space-l;         // Platz zu den Seitenrändern (32px)
+  width: 100%;
+}
+
+// 2. Die spezielle Anordnung im Header
+// Er sorgt dafür, dass im Header Text links und Logo rechts steht.
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
