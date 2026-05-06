@@ -14,12 +14,6 @@ html {
   overflow-y: scroll; // Zeigt immer einen (ggf. leeren) Scrollbalken-Platzhalter
 }
 
-.header {
-  display: flow-root; // Verhindert Margin-Collapsing
-  padding-top: 60px;  // Dein gewünschter Abstand nach oben
-}
-
-
 body {
   background-color: $brand-light;
   color: $text-dark;
