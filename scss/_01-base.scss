@@ -10,6 +10,12 @@
   padding: 0;
 }
 
+.header {
+  display: flow-root; // Verhindert Margin-Collapsing
+  padding-top: 60px;  // Dein gewünschter Abstand nach oben
+}
+
+
 body {
   background-color: $brand-light;
   color: $text-dark;
@@ -32,7 +38,11 @@ h3 { font-size: $font-size-h3; }
   max-width: $container-width;
   margin: 0 auto;
   padding: 0 $space-l; // Nutzt die 32px Variable für einheitliche Abstände 📏
-}
+// Dein bestehender Code...
+    display: flex;
+    flex-direction: column;
+  }
+
 
 .back-to-home {
   font-weight: 400; // Überschreibt das Standard-Fett des h4
