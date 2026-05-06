@@ -134,6 +134,12 @@ h4.back-to-home:hover,
   align-items: center;
 }
 
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .header-text .back-to-home {
   margin-bottom: 4px;
 }
