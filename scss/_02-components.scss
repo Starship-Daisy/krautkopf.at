@@ -34,6 +34,31 @@
   }
 }
 
+// --- HIER KOMMT DEIN NEUER TEXT-BLOCK HINEIN ---
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Zentriert h1 und p zueinander
+
+  h1 {
+    font-family: $font-heading;
+    font-size: 2.6rem;
+    color: $text-dark;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  p {
+    font-family: $font-ink; // Bilbo
+    font-size: 2.2rem;      // Bilbo darf im Header ruhig groß sein
+    color: $brand-ink;      // Dein Tintenblau
+    margin: -8px 0 0 0;     // Rückt die Handschrift näher ans H1
+    opacity: 0.95;
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
 .header-right {
   // Bleibt leer, sorgt aber durch "1fr" dafür, dass die Mitte auch wirklich mittig bleibt
 }
