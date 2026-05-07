@@ -130,7 +130,7 @@ h4.back-to-home:hover,
 .main-header .header-grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  align-items: center;
+  align-items: start;
   gap: 1rem;
 }
 
@@ -514,4 +514,116 @@ h4.back-to-home:hover,
   letter-spacing: 0.1em;
   max-width: 500px;
   margin: 0 auto;
+}
+
+.blog-layout-wrapper {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 80px;
+  padding: 4rem 0;
+}
+@media (max-width: 1024px) {
+  .blog-layout-wrapper {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.content-left .featured-image-figure {
+  margin: 3rem 0;
+  width: 100%;
+}
+.content-left .featured-image-figure .featured-image {
+  width: 100%;
+  max-width: 850px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+  filter: grayscale(5%) contrast(102%);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+.content-left .featured-image-figure .photo-credit {
+  font-size: 0.75rem;
+  margin-top: 0.8rem;
+  text-align: right;
+  opacity: 0.6;
+  font-style: italic;
+}
+.content-left .featured-image-figure .photo-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+.content-left .featured-image-figure .photo-credit a:hover {
+  color: #4a5d4e;
+}
+.content-left .main-article {
+  margin-top: 3rem;
+  max-width: 750px;
+}
+.content-left .main-article h2 {
+  margin-bottom: 1.5rem;
+}
+.content-left .main-article p {
+  margin-bottom: 1.2rem;
+}
+
+.blog-sidebar {
+  position: sticky;
+  top: 40px;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  padding-left: 40px;
+  height: fit-content;
+}
+@media (max-width: 1024px) {
+  .blog-sidebar {
+    border-left: none;
+    padding-left: 0;
+    position: static;
+  }
+}
+.blog-sidebar .sidebar-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  color: #4a5d4e;
+  border-bottom: 1px solid #4a5d4e;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.sidebar-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: padding-left 0.3s ease;
+}
+.sidebar-card:hover {
+  padding-left: 8px;
+}
+.sidebar-card:hover h3 {
+  color: #8b9d83;
+}
+.sidebar-card time {
+  font-size: 0.75rem;
+  color: #8b9d83;
+  display: block;
+  margin-bottom: 5px;
+}
+.sidebar-card h3 {
+  font-size: 1.1rem;
+  margin: 5px 0;
+  font-family: "Lora", serif;
+}
+.sidebar-card p {
+  font-size: 0.9rem;
+  color: #757a70;
+  line-height: 1.4;
+}
+.sidebar-card:last-child {
+  border-bottom: none;
 }
