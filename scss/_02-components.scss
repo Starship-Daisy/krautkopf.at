@@ -1,106 +1,70 @@
 @use '01-variables' as *;
 
-// ==========================================
-// 1. LAYOUT GRUNDLAGEN
-// ==========================================
-
-.container {
-  max-width: $container-width;
-  margin: 0 auto;
-  padding: 0 $space-l;
-  width: 100%;
-}
-
-// ==========================================
-// 2. DER HEADER
-// ==========================================
-
 .main-header {
-  padding: 100px 0 60px; // Mehr Luft nach oben wirkt edler
+  padding: 80px 0 60px;
   width: 100%;
-  background-color: transparent;
-  // Korrigierter Border: Entweder Farbe ODER transparent, nicht beides
-  border-bottom: 1px solid $border-color; 
+  border-bottom: 1px solid $border-color;
 
-  .container {
-    display: flex;
-    flex-direction: column; // Alles untereinander stapeln
-    align-items: flex-start; // Alles nach links ausrichten
-    gap: $space-l; // Abstand zwischen den Elementen
+  .header-grid {
+    display: grid;
+    // Drei Spalten: Links und Rechts gleich groß (1fr), Mitte passt sich an (auto)
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center; // Vertikal zentrieren
+    gap: $space-m;
   }
 }
 
-.back-to-home {
-  a {
-    font-family: $font-main;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    text-decoration: none;
-    color: $text-muted;
-    display: inline-block;
-    line-height: 1;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: $brand-primary;
-    }
-  }
-}
-
-.brand-wrapper {
+// Ausrichtung der Inhalte innerhalb der Spalten
+.header-left {
   display: flex;
-  flex-direction: column; // Logo über dem Text
-  align-items: flex-start;
-  gap: $space-m;
+  justify-content: flex-start;
 }
 
-//krautkopf logo!
+.header-center {
+  display: flex;
+  justify-content: center;
+  text-align: center; // Text innerhalb der Mitte zentrieren
 
+  .brand-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; // Logo über den Text mittig ausrichten
+    gap: $space-s;
+  }
+}
+
+.header-right {
+  // Bleibt leer, sorgt aber durch "1fr" dafür, dass die Mitte auch wirklich mittig bleibt
+}
+
+// Deine bewährten Styles für Logo und Text bleiben gleich...
 .kraut-logo-icon {
-  width: 60px;
-  height: 60px;
-  display: block; 
-  
-  // Die Hintergrundfarbe ist das, was man am Ende sieht
-  background-color: $brand-primary; 
-
-  // Wir nutzen die "Interpolation" #{} um sicherzugehen, 
-  // dass der lange String aus den Variablen korrekt als URL erkannt wird
+  width: 50px; // Etwas kleiner für die Zentrierung
+  height: 50px;
+  display: block;
+  background-color: $brand-primary;
   -webkit-mask-image: url('#{$logo-svg-data}');
   mask-image: url('#{$logo-svg-data}');
-  
   -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-position: left center;
-  mask-position: left center;
+  mask-position: center;
+  transition: transform 0.3s ease;
 
-  transition: transform 0.3s ease, background-color 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-    background-color: $brand-accent;
-  }
+  &:hover { transform: scale(1.05); }
 }
-
 
 .header-text {
   h1 {
     font-family: $font-heading;
-    font-size: 2.8rem; // Schön präsent
+    font-size: 2.2rem;
     margin: 0;
-    line-height: 1.1;
     color: $text-dark;
-    letter-spacing: -0.02em;
   }
-
   p {
-    margin: $space-xs 0 0;
-    font-family: $font-note; // Deine Handschrift-Font
-    font-size: 1.4rem;
+    font-family: $font-note;
+    font-size: 1.2rem;
     color: $brand-accent;
+    margin: 0;
   }
 }
 
