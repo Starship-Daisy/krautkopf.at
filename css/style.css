@@ -164,26 +164,24 @@ h4.back-to-home:hover,
   gap: 1rem;
 }
 
-.kraut-svg {
+.kraut-logo-icon {
   width: 60px;
-  height: auto;
-  color: #4a5d4e;
-  transition: transform 0.3s ease, color 0.3s ease;
+  height: 60px;
+  display: block;
+  background-color: #4a5d4e;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 20 C30 20 10 35 10 55 C10 80 30 90 50 90 C70 90 90 80 90 55 C90 35 70 20 50 20 Z' fill='none' stroke='black' stroke-width='2'/%3E%3Cpath d='M50 20 Q50 50 20 55 M50 20 Q50 50 80 55' fill='none' stroke='black' stroke-width='1'/%3E%3Cpath d='M22 72 Q50 85 78 72' fill='none' stroke='black' stroke-width='1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 20 C30 20 10 35 10 55 C10 80 30 90 50 90 C70 90 90 80 90 55 C90 35 70 20 50 20 Z' fill='none' stroke='black' stroke-width='2'/%3E%3Cpath d='M50 20 Q50 50 20 55 M50 20 Q50 50 80 55' fill='none' stroke='black' stroke-width='1'/%3E%3Cpath d='M22 72 Q50 85 78 72' fill='none' stroke='black' stroke-width='1'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
-.kraut-svg .kraut-huelle {
-  stroke-width: 1.5px;
-  fill: none;
-  stroke: currentColor;
-}
-.kraut-svg .kraut-ader {
-  stroke-width: 1px;
-  opacity: 0.6;
-  fill: none;
-  stroke: currentColor;
-}
-.kraut-svg:hover {
+.kraut-logo-icon:hover {
   transform: scale(1.05);
-  color: #8b9d83;
+  background-color: #8b9d83;
 }
 
 .header-text h1 {
