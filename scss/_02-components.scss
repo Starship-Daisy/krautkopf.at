@@ -1,106 +1,70 @@
 @use '01-variables' as *;
 
 // ==========================================
-// EINHEITLICHER HEADER
+// 1. LAYOUT GRUNDLAGEN
+// ==========================================
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $space-l;
+  width: 100%;
+}
+
+// ==========================================
+// 2. DER HEADER
 // ==========================================
 
 .main-header {
-  padding: 80px 0 40px; // Fixer Abstand nach oben
+  padding: 100px 0 60px; // Mehr Luft nach oben wirkt edler
   width: 100%;
-  background-color: transparent; // Oder deine Hintergrundfarbe
-  border-bottom: 1px solid $border-color transparent;
+  background-color: transparent;
+  // Korrigierter Border: Entweder Farbe ODER transparent, nicht beides
+  border-bottom: 1px solid $border-color; 
 
-  .container.header-flex {
+  .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; // Alles untereinander stapeln
+    align-items: flex-start; // Alles nach links ausrichten
+    gap: $space-l; // Abstand zwischen den Elementen
   }
 }
 
-.container {
-  max-width: $container-width; // Die 1100px aus deinen Variablen
-  margin: 0 auto;              // Zentriert den Kasten
-  padding: 0 $space-l;         // Sicherheitsabstand zu den Rändern (32px)
-}
+.back-to-home {
+  a {
+    font-family: $font-main;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    color: $text-muted;
+    display: inline-block;
+    line-height: 1;
+    transition: color 0.3s ease;
 
-.header-text {
-  // Hier erzwingen wir die Konsistenz
-  .back-to-home {
-    margin-bottom: 4px;
-    
-    a {
-      // Nutze REM statt EM, damit die Größe nicht von Eltern-Elementen abhängt
-      font-family: $font-main;
-      font-size: 0.75rem !important; 
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      color: $text-muted;
-      display: inline-block;
-      line-height: 1;
-
-      &:hover {
-        color: $brand-primary;
-      }
+    &:hover {
+      color: $brand-primary;
     }
   }
-
-  h1 {
-    font-family: $font-heading;
-    font-size: 2.2rem; // Fixe Größe für alle Seiten
-    margin: 0;
-    line-height: 1.1;
-    color: $brand-primary;
-  }
-
-  p {
-    margin: 4px 0 0;
-    font-family: $font-main;
-    font-size: 1rem;
-    color: $text-muted;
-  }
 }
 
-.kraut-svg {
-  width: 80px;  // Fixe Breite
-  height: 80px; // Fixe Höhe
-  flex-shrink: 0; // Verhindert, dass das Logo auf kleinen Bildschirmen gequetscht wird
-  color: $brand-primary;
-}
-
-// Falls du eine Klasse für den "Zurück"-Link hast:
-.back-link {
-  margin-bottom: $space-m;
-  display: inline-block;
-  text-decoration: none;
-  font-size: $font-size-small;
-  color: $text-muted;
-  
-  &:hover {
-    color: $brand-primary;
-  }
-}
-
-// ==========================================
-// 2. LOGO & TEXT AREA (Das Gespann)
-// ==========================================
-.logo-area {
+.brand-wrapper {
   display: flex;
-  align-items: center;
-  margin-top: $space-s;
+  flex-direction: column; // Logo über dem Text
+  align-items: flex-start;
+  gap: $space-m;
 }
 
 .kraut-svg {
-  width: 60px;
+  width: 60px; // Etwas kleiner für den neuen Look
   height: auto;
-  display: block;
-  margin-right: $space-m;
   color: $brand-primary;
+  transition: transform 0.3s ease, color 0.3s ease;
 
-  .kraut-huelle { stroke-width: 2px; }
-  .kraut-ader { stroke-width: 1px; opacity: 0.7; }
+  // Innere Pfade des SVGs stylen
+  .kraut-huelle { stroke-width: 1.5px; fill: none; stroke: currentColor; }
+  .kraut-ader { stroke-width: 1px; opacity: 0.6; fill: none; stroke: currentColor; }
 
-  transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.05);
     color: $brand-accent;
@@ -108,26 +72,27 @@
 }
 
 .header-text {
-  display: flex;
-  flex-direction: column;
-
-  .site-title {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: $text-muted;
-  }
-  .site-tagline {
+  h1 {
     font-family: $font-heading;
-    font-size: 1.3rem;
-    color: $brand-primary;
+    font-size: 2.8rem; // Schön präsent
     margin: 0;
+    line-height: 1.1;
+    color: $text-dark;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: $space-xs 0 0;
+    font-family: $font-note; // Deine Handschrift-Font
+    font-size: 1.4rem;
+    color: $brand-accent;
   }
 }
 
 // ==========================================
-// 3. FOOTER (Ganz unten)
+// 3. FOOTER
 // ==========================================
+
 .main-footer {
   padding: $space-xl 0 $space-l;
   text-align: center;
@@ -157,7 +122,7 @@
 
   .copyright { 
     font-size: $font-size-small; 
-    color: #999; 
+    color: $text-muted; 
     opacity: 0.6;
   }
 }
