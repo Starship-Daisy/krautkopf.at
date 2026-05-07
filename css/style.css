@@ -15,7 +15,7 @@ h1, h2, h3, h4 {
 }
 
 .text-ink {
-  font-family: "Bilbo", cursive;
+  font-family: "Bilbo", handwriting;
   font-size: 1.8rem;
   color: #2c3e50;
   line-height: 1;
@@ -213,7 +213,7 @@ h4.back-to-home:hover,
   color: #1a1a1a;
 }
 .header-text p {
-  font-family: "Bilbo", cursive;
+  font-family: "Bilbo", handwriting;
   font-size: 1.8rem;
   color: #2c3e50;
   margin: -8px 0 0;
