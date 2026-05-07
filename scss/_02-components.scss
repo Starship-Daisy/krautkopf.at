@@ -55,18 +55,21 @@
 
 .header-text {
   h1 {
-    font-family: $font-heading;
-    font-size: 2.2rem;
+    // font-family: $font-heading; // Kannst du weglassen, wenn es in typography.scss für h1 definiert ist
+    font-size: 2.5rem;         // Ein Stück größer für mehr Präsenz
     margin: 0;
+    line-height: 1.1;
     color: $text-dark;
   }
+
   p {
-    font-family: $font-note;
-    font-size: 1.2rem;
-    color: $brand-ink;
-    margin: 0;
-    opacity: 0.9;            // Macht die Tinte "echter"
-    letter-spacing: 0.02em;
+    font-family: $font-ink;    // Umstellung auf Bonheur Royale
+    font-size: 1.8rem;         // Schreibschriften brauchen mehr Größe, um lesbar zu sein
+    color: $brand-ink;         // Dein neues "Alte Tinte" Blau
+    margin: -8px 0 0;          // Rückt die Handschrift näher an das H1
+    opacity: 0.95;
+    letter-spacing: 0.01em;
+    font-weight: 400;
   }
 }
 

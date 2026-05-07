@@ -1,0 +1,64 @@
+// _01-typography.scss
+@use '01-variables' as *;
+
+// ==========================================
+// 1. FONT-FAMILIEN DEFINITIONEN
+// ==========================================
+
+$font-main:     'Inter', sans-serif;
+$font-heading:  'Lora', serif;
+$font-note:     'Comforter Brush', cursive; // Dein Backup (Pinsel-Stil)
+$font-ink:      'Bonheur Royale', cursive;  // Dein neuer Standard (Feine Tinte)
+
+// ==========================================
+// 2. BASIS-TYPOGRAFIE
+// ==========================================
+
+body {
+  font-family: $font-main;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $text-main;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-heading;
+  font-weight: 700;
+  color: $text-dark;
+  margin-bottom: $space-m;
+}
+
+// ==========================================
+// 3. HANDSCHRIFT-KLASSEN (Utilities)
+// ==========================================
+
+// Die neue, feine Tinte (Bonheur Royale)
+.text-ink {
+  font-family: $font-ink;
+  font-size: 1.8rem;
+  color: $brand-ink; // Das neue "Alte Tinte" Blau
+  line-height: 1;
+  font-style: normal;
+}
+
+// Das Backup (Comforter Brush) - falls es mal "robuster" sein soll
+.text-note {
+  font-family: $font-note;
+  font-size: 1.5rem;
+  color: $brand-accent;
+  line-height: 1.2;
+}
+
+// ==========================================
+// 4. WEITERE TEXT-KOMPONENTEN
+// ==========================================
+
+.eyebrow {
+  font-family: $font-main;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: $brand-accent;
+  font-weight: 700;
+}
