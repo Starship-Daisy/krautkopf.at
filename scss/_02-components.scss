@@ -9,7 +9,7 @@
     display: grid;
     // Drei Spalten: Links und Rechts gleich groß (1fr), Mitte passt sich an (auto)
     grid-template-columns: 1fr auto 1fr; 
-    align-items: center; // Vertikal zentrieren
+    align-items: start; // Vertikal zentrieren
     gap: $space-m;
   }
 }

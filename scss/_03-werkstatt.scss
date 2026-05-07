@@ -2,6 +2,8 @@
 // LAYOUT DER GARTEN-WERKSTATT
 // ==========================================
 
+@use '01-variables' as *;
+
 .blog-layout-wrapper {
   display: grid;
   grid-template-columns: 1.8fr 1fr;
