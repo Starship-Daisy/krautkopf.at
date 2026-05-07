@@ -122,115 +122,83 @@ h4.back-to-home:hover,
   margin-top: 1rem;
 }
 
-.main-header {
-  padding: 80px 0 40px;
-  width: 100%;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) transparent;
-}
-.main-header .container.header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
 }
 
-.header-text .back-to-home {
-  margin-bottom: 4px;
+.main-header {
+  padding: 100px 0 60px;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-.header-text .back-to-home a {
+.main-header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.back-to-home a {
   font-family: "Inter", sans-serif;
-  font-size: 0.75rem !important;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-decoration: none;
   color: #757a70;
   display: inline-block;
   line-height: 1;
+  transition: color 0.3s ease;
 }
-.header-text .back-to-home a:hover {
-  color: #4a5d4e;
-}
-.header-text h1 {
-  font-family: "Lora", serif;
-  font-size: 2.2rem;
-  margin: 0;
-  line-height: 1.1;
-  color: #4a5d4e;
-}
-.header-text p {
-  margin: 4px 0 0;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  color: #757a70;
-}
-
-.kraut-svg {
-  width: 80px;
-  height: 80px;
-  flex-shrink: 0;
+.back-to-home a:hover {
   color: #4a5d4e;
 }
 
-.back-link {
-  margin-bottom: 1rem;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 0.875rem;
-  color: #757a70;
-}
-.back-link:hover {
-  color: #4a5d4e;
-}
-
-.logo-area {
+.brand-wrapper {
   display: flex;
-  align-items: center;
-  margin-top: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .kraut-svg {
   width: 60px;
   height: auto;
-  display: block;
-  margin-right: 1rem;
   color: #4a5d4e;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 .kraut-svg .kraut-huelle {
-  stroke-width: 2px;
+  stroke-width: 1.5px;
+  fill: none;
+  stroke: currentColor;
 }
 .kraut-svg .kraut-ader {
   stroke-width: 1px;
-  opacity: 0.7;
-}
-.kraut-svg {
-  transition: transform 0.3s ease;
+  opacity: 0.6;
+  fill: none;
+  stroke: currentColor;
 }
 .kraut-svg:hover {
   transform: scale(1.05);
   color: #8b9d83;
 }
 
-.header-text {
-  display: flex;
-  flex-direction: column;
-}
-.header-text .site-title {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #757a70;
-}
-.header-text .site-tagline {
+.header-text h1 {
   font-family: "Lora", serif;
-  font-size: 1.3rem;
-  color: #4a5d4e;
+  font-size: 2.8rem;
   margin: 0;
+  line-height: 1.1;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+.header-text p {
+  margin: 0.25rem 0 0;
+  font-family: "Comforter Brush", cursive;
+  font-size: 1.4rem;
+  color: #8b9d83;
 }
 
 .main-footer {
@@ -264,7 +232,7 @@ h4.back-to-home:hover,
 }
 .main-footer .copyright {
   font-size: 0.875rem;
-  color: #999;
+  color: #757a70;
   opacity: 0.6;
 }
 
