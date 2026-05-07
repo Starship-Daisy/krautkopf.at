@@ -55,21 +55,36 @@
   gap: $space-m;
 }
 
-.kraut-svg {
-  width: 60px; // Etwas kleiner für den neuen Look
-  height: auto;
-  color: $brand-primary;
-  transition: transform 0.3s ease, color 0.3s ease;
+//krautkopf logo!
 
-  // Innere Pfade des SVGs stylen
-  .kraut-huelle { stroke-width: 1.5px; fill: none; stroke: currentColor; }
-  .kraut-ader { stroke-width: 1px; opacity: 0.6; fill: none; stroke: currentColor; }
+.kraut-logo-icon {
+  width: 60px;
+  height: 60px;
+  display: block; 
+  
+  // Die Hintergrundfarbe ist das, was man am Ende sieht
+  background-color: $brand-primary; 
+
+  // Wir nutzen die "Interpolation" #{} um sicherzugehen, 
+  // dass der lange String aus den Variablen korrekt als URL erkannt wird
+  -webkit-mask-image: url('#{$logo-svg-data}');
+  mask-image: url('#{$logo-svg-data}');
+  
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: left center;
+  mask-position: left center;
+
+  transition: transform 0.3s ease, background-color 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
-    color: $brand-accent;
+    background-color: $brand-accent;
   }
 }
+
 
 .header-text {
   h1 {
