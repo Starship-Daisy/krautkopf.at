@@ -7,11 +7,12 @@
 @use 'media-query-mixin' as *;
 
 .legal-content {
-    // Breite deckeln und zentrieren
-    max-width: $text-measure; 
-    margin: $space-xl auto;   // Zentriert die Box (oben/unten Abstand, links/rechts auto)
-    padding: 0 $space-m;      // Puffer für mobile Geräte
-    text-align: left;
+    background-color: rgba(red, 0.1) !important; // Macht den Hintergrund zart rot
+    border: 2px solid red !important;           // Roter Rahmen
+    
+    max-width: 700px !important;                 // Harte Grenze zum Testen
+    margin: 0 auto !important;                   // Zentrierung erzwingen
+    display: block !important;
 
     .legal-intro {
         margin-bottom: $space-xl;
