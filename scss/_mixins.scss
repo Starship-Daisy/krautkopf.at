@@ -1,19 +1,38 @@
-@use 'sass:map';
-@use '01-variables' as *;
+// _01-mixins.scss
+@use "sass:map";
 
+// ==========================================
+// BREAKPOINT REGISTER
+// Hier definieren wir die Schwellenwerte für die Geräte
+// ==========================================
 $breakpoints: (
-  "medium": 768px,
-  "large":  1024px,
-  "xlarge": 1440px
+  "mobile-large": 480px,
+  "tablet":       768px,   // Medium
+  "desktop":      1024px,  // Large
+  "desktop-wide": 1440px   // XLarge
 );
 
-@mixin respond-to($breakpoint) {
-  $value: map.get($breakpoints, $breakpoint);
+// ==========================================
+// DAS HAUPT-WERKZEUG: respond-to
+// Anwendung: @include respond-to("tablet") { ... }
+// ==========================================
+@mixin respond-to($name) {
+  // Wir holen den Pixel-Wert aus dem Register oben
+  $value: map.get($breakpoints, $name);
+  
   @if $value {
-    @media (min-width: $value) { @content; }
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Hoppla! Der Breakpoint '#{$name}' existiert nicht in deinem Register.";
   }
 }
 
+// ==========================================
+// SPEZIAL-MIXIN: Handy Querformat
+// Anwendung: @include landscape-mobile { ... }
+// ==========================================
 @mixin landscape-mobile {
   @media screen and (max-device-width: 932px) and (orientation: landscape) {
     @content;
