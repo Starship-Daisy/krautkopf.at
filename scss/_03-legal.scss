@@ -4,12 +4,18 @@
 
 @use '01-variables' as *;
 @use '01-typography' as *;
+@use 'media-query-mixin' as *; // <--- Hier war der Namens-Fehler!
 
 .legal-content {
-  max-width: $text-measure; // Begrenzt auf ca. 750px für optimale Lesbarkeit
+  max-width: $text-measure; 
   margin: $space-xl auto;
   padding: 0 $space-m;
-  text-align: left;
+  
+  // Jetzt findet er auch das Mixin wieder:
+  @include respond-to("medium") {
+    padding: 0 $space-l;
+  }
+}
 
   h1 {
     font-family: $font-heading;
