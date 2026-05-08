@@ -4,123 +4,119 @@
 
 @use '01-variables' as *;
 @use '01-typography' as *;
-@use 'media-query-mixin' as *; // <--- Hier war der Namens-Fehler!
+@use 'media-query-mixin' as *;
 
 .legal-content {
-  max-width: $text-measure; 
-  margin: $space-xl auto;
-  padding: 0 $space-m;
-  
-  // Jetzt findet er auch das Mixin wieder:
-  @include respond-to("medium") {
-    padding: 0 $space-l;
-  }
+    max-width: $text-measure; // ca. 750px
+    margin: $space-xl auto;
+    padding: 0 $space-m;
+
+    .legal-intro {
+        margin-bottom: $space-xl;
+        border-left: 3px solid $brand-accent;
+        padding-left: $space-m;
+
+        .eyebrow {
+            font-family: $font-main;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: $brand-accent;
+            font-weight: 700;
+            margin-bottom: $space-xs;
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: $text-muted;
+        }
+    }
+
+    .legal-section {
+        margin-bottom: $space-xl;
+
+        .section-number {
+            font-family: $font-main;
+            font-size: 0.7rem;
+            color: $brand-accent;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-family: $font-heading;
+            font-size: 1.75rem;
+            color: $brand-primary;
+            margin-bottom: $space-s;
+        }
+
+        p {
+            font-family: $font-copy; // Nutzt 'Open Sans'
+            font-size: $font-size-base;
+            line-height: 1.8;
+            color: $text-main;
+            
+            strong {
+                color: $brand-primary;
+                font-weight: 600;
+            }
+
+            a {
+                color: $brand-primary;
+                text-decoration: underline;
+                &:hover { color: $brand-accent; }
+            }
+        }
+    }
 }
 
-  h1 {
-    font-family: $font-heading;
-    font-size: $font-size-h1;
-    color: $brand-primary;
-    margin-bottom: $space-l;
-  }
-
-  h2 {
-    font-family: $font-heading;
-    font-size: $font-size-h2;
-    color: $brand-primary;
-    margin-top: $space-xl;
-    margin-bottom: $space-m;
-    border-bottom: 1px solid $border-color;
-    padding-bottom: $space-xs;
-  }
-
-  h3 {
-    font-family: $font-main;
-    font-size: $font-size-h3;
-    color: $text-dark;
-    margin-top: $space-l;
-    margin-bottom: $space-s;
-  }
-
-  p {
-    font-family: $font-copy;
-    font-size: $font-size-base;
-    line-height: 1.7;
-    color: $text-dark;
-    margin-bottom: $space-m;
-  }
-
-  .intro-text {
-    font-style: italic;
-    color: $text-muted;
-    font-size: 1.1rem;
-    margin-bottom: $space-xl;
-  }
-
-  // Minimalistische Links (E-Mail, Web-URL)
-  .minimal-link {
-    text-decoration: none;
-    color: $text-dark;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-
-    &:hover {
-      opacity: 0.5;
-      text-decoration: none;
-    }
-  }
-
-  // Normale Links im Fließtext (z.B. Streitschlichtung)
-  a:not(.minimal-link) {
-    color: $brand-primary;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: $brand-accent;
-    }
-  }
-
-  // Layout für Herausgeber & Kontakt (Nebeneinander auf großen Screens)
-  .legal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: $space-l;
-    margin-bottom: $space-xl;
-    
-    section {
-      margin: 0;
-    }
-  }
-
-  strong {
-    color: $brand-primary;
-    font-weight: 600;
-  }
-}
-
-// Button-ähnlicher Zurück-Link im Footer-Bereich
-.back-link {
-  display: inline-block;
-  margin-top: $space-m;
-  font-size: $font-size-small;
-  color: $text-muted;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: $brand-primary;
-    transform: translateX(-3px); // Kleiner visueller Effekt nach links
-  }
-}
-
-// Spezieller Stil für die Blattlinie
 .blattlinie-neutral {
-  padding: $space-m;
-  background-color: rgba($brand-primary, 0.03);
-  border-left: 3px solid $brand-accent;
-  font-style: italic;
-}  
+    background-color: rgba($brand-primary, 0.03);
+    padding: $space-l;
+    border-radius: 4px;
+    margin-top: $space-xl;
+
+    h6 {
+        font-family: $font-main;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: $brand-primary;
+        margin-bottom: $space-s;
+    }
+
+    p {
+        font-size: 0.9rem;
+        font-style: italic;
+        line-height: 1.6;
+    }
+}
+
+// Footer Anpassungen
+.main-footer {
+    text-align: center;
+    padding: $space-xl 0;
+    border-top: 1px solid $border-color;
+
+    .footer-name {
+        font-family: $font-heading;
+        font-size: 1.2rem;
+        color: $brand-primary;
+    }
+
+    .footer-nav {
+        margin: $space-l 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: $space-m;
+
+        a {
+            text-decoration: none;
+            color: $text-muted;
+            font-size: 0.9rem;
+            &:hover { color: $brand-primary; }
+        }
+    }
+}
