@@ -2,6 +2,9 @@
 // 03-INDEX.SCSS
 // ==========================================
 
+@use '01-variables' as *;
+@use '01-typography' as *;
+
 .main-header {
   padding: $space-xl 0; // Nutzt jetzt die 64px aus den Variablen 📏
 

@@ -2,6 +2,9 @@
 // 03-LEGAL.SCSS (Impressum & Datenschutz)
 // ==========================================
 
+@use '01-variables' as *;
+@use '01-typography' as *;
+
 .legal-content {
   max-width: $text-measure; // Begrenzt auf ca. 750px für optimale Lesbarkeit
   margin: $space-xl auto;
