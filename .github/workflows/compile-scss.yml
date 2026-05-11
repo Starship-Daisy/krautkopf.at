@@ -3,7 +3,7 @@ name: SCSS to CSS Compiler
 on:
   push:
     paths:
-      - 'scss/**/*.scss' # Startet nur, wenn im scss-Ordner was passiert
+      - 'scss/**/*.scss'
 
 jobs:
   build:
@@ -14,12 +14,13 @@ jobs:
     steps:
       - name: 📂 Code holen
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Hier gehört es hin, damit Git die Historie kennt
 
       - name: 🛠️ Sass installieren
         run: sudo npm install -g sass
 
       - name: ✨ SCSS zu CSS umwandeln
-        # Hier stellen wir sicher, dass der Ordner existiert und Sass Fehler meldet
         run: |
           mkdir -p css
           sass scss/style.scss css/style.css --style=expanded --no-source-map
@@ -29,7 +30,3 @@ jobs:
         with:
           commit_message: "🤖 CSS automatisch generiert"
           file_pattern: 'css/style.css'
-
-          - uses: actions/checkout@v4
-  with:
-    fetch-depth: 0 # Holt die gesamte Historie, um Merges zu ermöglichen
