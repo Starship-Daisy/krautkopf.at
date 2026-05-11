@@ -82,42 +82,21 @@
 
 
 
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 14px;
-  background-color: rgba($brand-primary, 0.05); // Ganz zarter Hintergrund
-  border: 1px solid rgba($brand-primary, 0.1);
-  border-radius: 30px;
-  margin-top: 15px; // Abstand zum Text oben
+// In deiner _03-home.scss oder _02-components.scss
+.hero-status {
+    padding: $space-xl 0; // Viel Platz nach oben und unten
+    text-align: center;   // Zentriert den Tag und den Text
+    background-color: transparent; // Oder ein ganz zartes Grau/Grün
 
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background-color: #2ecc71; // Ein frisches "Aktiv"-Grün
-    border-radius: 50%;
-    position: relative;
-
-    // Der pulsierende Effekt
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: #2ecc71;
-      border-radius: 50%;
-      animation: pulse-green 2s infinite;
+    .status-subtext {
+        margin-top: $space-m;
+        font-family: $font-main;
+        color: $text-muted;
+        font-size: 1rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
-  }
-
-  .status-text {
-    font-family: $font-main;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: $brand-primary;
-    letter-spacing: 0.02em;
-  }
 }
 
 // Die Animation für den Punkt
