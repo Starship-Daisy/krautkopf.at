@@ -768,8 +768,8 @@ h4.back-to-home:hover,
   display: block;
   margin-bottom: 5px;
 }
-.legal-content .legal-section h4 {
-  font-family: "Lora", serif;
+.legal-content .legal-section h2 {
+  font-family: "Open Sans", sans-serif;
   font-size: 1.75rem;
   color: #4a5d4e;
   margin-bottom: 0.5rem;
