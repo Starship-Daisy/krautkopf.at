@@ -1,0 +1,19 @@
+.availability-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    background-color: rgba($brand-accent, 0.1);
+    color: $brand-primary;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    &::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background-color: #2ecc71; // Ein pulsierendes Grün
+        border-radius: 50%;
+    }
+}
