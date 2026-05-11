@@ -108,3 +108,35 @@
         margin: 0 auto;
     }
 }
+
+.article-references {
+    margin-top: $space-xl;
+    padding-top: $space-l;
+    border-top: 1px solid $border-color;
+
+    h3 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: $brand-accent;
+        margin-bottom: $space-m;
+    }
+
+    .reference-list {
+        font-size: 0.95rem;
+        font-style: italic;
+        color: $text-muted;
+        
+        li {
+            line-height: 1.5;
+            margin-bottom: $space-s;
+        }
+    }
+}
+
+// Für die kompakte Variante
+.separator {
+    color: $brand-accent;
+    margin: 0 $space-xs;
+    font-weight: 300;
+}
