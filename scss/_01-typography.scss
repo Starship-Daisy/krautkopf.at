@@ -64,3 +64,19 @@ h1, h2, h3, h4 {
   color: $brand-accent;
   font-weight: 700;
 }
+
+.text-index {
+    font-family: $font-main; // Meist Serifenlose für Klarheit
+    font-size: 0.75em;       // Kleiner als der Basistext
+    line-height: 0;          // Verhindert, dass der Zeilenabstand des Absatzes aufspringt
+    vertical-align: super;   // Schiebt die Schrift nach oben
+    font-weight: 700;        // Etwas fetter, damit es trotz der Größe lesbar bleibt
+    color: $brand-accent;    // Optional: Deine Akzentfarbe für Querverweise
+    text-decoration: none;   // Falls es ein Link ist
+    padding-left: 1px;       // Minimaler Abstand zum vorherigen Wort
+
+    &:hover {
+        color: darken($brand-accent, 15%);
+        text-decoration: underline;
+    }
+}
