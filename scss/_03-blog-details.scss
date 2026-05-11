@@ -5,6 +5,8 @@
 // WICHTIG: Lade die Variablen direkt am Anfang der Datei
 
 @use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
+@use '01-typography' as *;
+@use 'media-query-mixin' as *;
 
 .blog-detail {
     // Strikte Begrenzung auf deine 750px Lesebreite 📖

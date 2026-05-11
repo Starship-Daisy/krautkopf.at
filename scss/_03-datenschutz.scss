@@ -4,6 +4,7 @@
 
 @use '01-variables' as *;
 @use '01-typography' as *;
+@use 'media-query-mixin' as *;
 
 // Nur wenn der Header die Klasse .legal-header hat, gelten diese Regeln
 header.legal-header {
