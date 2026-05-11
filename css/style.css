@@ -38,6 +38,21 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
+.text-index {
+  font-family: "Inter", sans-serif;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: super;
+  font-weight: 700;
+  color: #8b9d83;
+  text-decoration: none;
+  padding-left: 1px;
+}
+.text-index:hover {
+  color: rgb(100.9864864865, 118.1351351351, 93.3648648649);
+  text-decoration: underline;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
