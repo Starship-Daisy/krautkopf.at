@@ -29,3 +29,7 @@ jobs:
         with:
           commit_message: "🤖 CSS automatisch generiert"
           file_pattern: 'css/style.css'
+
+          - uses: actions/checkout@v4
+  with:
+    fetch-depth: 0 # Holt die gesamte Historie, um Merges zu ermöglichen
