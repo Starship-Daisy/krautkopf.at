@@ -634,6 +634,34 @@ h4.back-to-home:hover,
   margin: 0 auto;
 }
 
+.article-references {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.article-references h3 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8b9d83;
+  margin-bottom: 1rem;
+}
+.article-references .reference-list {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #757a70;
+}
+.article-references .reference-list li {
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.separator {
+  color: #8b9d83;
+  margin: 0 0.25rem;
+  font-weight: 300;
+}
+
 .blog-layout-wrapper {
   display: grid;
   grid-template-columns: 1.8fr 1fr;
