@@ -695,8 +695,8 @@ h4.back-to-home:hover,
 }
 
 .legal-content {
-  background-color: rgba(255, 0, 0, 0.1) !important;
-  border: 2px solid red !important;
+  /*background-color: rgba(red, 0.1) !important; // Macht den Hintergrund zart rot
+  border: 2px solid red !important;           // Roter Rahmen*/
   max-width: 700px !important;
   margin: 0 auto !important;
   display: block !important;
