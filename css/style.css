@@ -927,3 +927,70 @@ h4.back-to-home:hover,
 .main-footer .footer-nav a:hover {
   color: #4a5d4e;
 }
+
+.credit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.credit-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+.credit-card .card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.618/1;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.credit-card .card-image-wrapper .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.credit-card:hover .card-image {
+  transform: scale(1.03);
+}
+.credit-card .card-content {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.credit-card .card-content .platform-tag {
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8b9d83;
+  margin-bottom: 0.25rem;
+}
+.credit-card .card-content h3 {
+  font-family: "Lora", serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: #4a5d4e;
+  line-height: 1.3;
+}
+.credit-card .card-content p {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  margin-top: auto;
+}
+.credit-card .card-content p a {
+  color: #4a5d4e;
+  text-decoration: underline;
+  text-decoration-color: rgba(139, 157, 131, 0.4);
+  transition: text-decoration-color 0.3s;
+}
+.credit-card .card-content p a:hover {
+  text-decoration-color: #8b9d83;
+  color: #8b9d83;
+}
