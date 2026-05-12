@@ -1,114 +1,58 @@
 // ==========================================
-// _03-BLOG-CARDS.SCSS
+// _03-BLOG-GRID.SCSS
 // ==========================================
 
 
-@use 'sass:color';
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// 1. HAUPT-LAYOUT
-.blog-detail {
-    max-width: $text-measure; 
-    margin: $space-xl auto;
-    padding: 0 $space-m;
+// 1. DER RAHMEN (Zentriert das Ganze auf der Seite)
+.blog-section {
+    max-width: 1150px; // Maximale Breite des gesamten Blocks
+    margin: 60px auto; // Zentriert den Block und gibt Abstand nach oben/unten
+    padding: 0 30px;   // Sicherheitsabstand zum Bildschirmrand
+}
 
-    .article-body {
-        .lead {
-            font-family: $font-heading;
-            font-size: 1.5rem;
-            color: $brand-primary;
-            line-height: 1.4;
-            margin-bottom: $space-xl;
-            font-style: italic;
-            border-left: 2px solid $brand-accent;
-            padding-left: $space-m;
-        }
+// 2. DAS GRID (3 Karten nebeneinander)
+.blog-grid {
+    display: grid;
+    // Erzwingt genau 3 Spalten auf Desktop
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; // Großer Abstand zwischen den Karten
 
-        .article-text {
-            p {
-                margin-top: $space-l;
-                margin-bottom: $space-l;
-                color: $text-main;
-                font-size: 1.05rem;
-                line-height: 1.7;
+    // Tablet-Ansicht (2 Karten)
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-                &:first-of-type::first-letter {
-                    font-family: $font-heading;
-                    font-size: 3.5rem;
-                    float: left;
-                    line-height: 1;
-                    padding-right: 10px;
-                    color: $brand-primary;
-                }
-            }
-
-            h3 {
-                margin: $space-xl 0 $space-m;
-                font-family: $font-heading;
-                font-size: $font-size-h2;
-                color: $brand-primary;
-                border-bottom: 1px solid $border-color;
-                padding-bottom: $space-xs;
-            }
-
-            ul {
-                list-style: none;
-                margin: $space-l 0 $space-l $space-m;
-                padding: 0;
-
-                li {
-                    margin-bottom: $space-m;
-                    padding-left: $space-l;
-                    position: relative;
-                    color: $text-main;
-                    
-                    &::before {
-                        content: "—";
-                        position: absolute;
-                        left: 0;
-                        color: $brand-accent;
-                    }
-                    strong { color: $brand-primary; }
-                }
-            }
-        }
+    // Handy-Ansicht (1 Karte)
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
     }
 }
 
-// 2. PANORAMA-BILD (REFERENCE)
-.article-references {
-    margin: $space-xl 0;
-    padding-top: $space-l;
-    border-top: 1px solid $border-color;
-
-    .references-title {
-        font-family: $font-main;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: $brand-accent;
-        margin-bottom: $space-m;
-    }
-}
-
-.reference-vertical {
+// 3. DIE KARTE IM NOTIZ-STIL
+.blog-card {
     display: flex;
     flex-direction: column;
-    gap: $space-s;
+    height: 100%;
+    text-decoration: none;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border-radius: 2px;
+    overflow: hidden;
 
-    .featured-image-panorama {
+    &:hover {
+        transform: translateY(-8px) rotate(0.5deg);
+    }
+
+    .card-image-wrapper {
         width: 100%;
-        aspect-ratio: 3 / 1; 
+        aspect-ratio: 16 / 10;
         overflow: hidden;
-        border-radius: 2px;
-        background-color: $brand-accent;
 
-        @media (max-width: 768px) {
-            aspect-ratio: 16 / 9; 
-        }
-
-        .ref-img {
+        .card-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -116,15 +60,49 @@
         }
     }
 
-    .reference-text {
-        .image-caption {
-            font-size: 0.85rem;
-            color: $text-muted;
-            font-style: italic;
-            text-align: right;
+    // DAS KARIERTE TEXTFELD
+    .card-content {
+        padding: 30px;
+        position: relative;
+        flex-grow: 1;
+        background-color: #fdfdfd; // Ein Papier-Weiß
+        
+        // Das Karomuster (Blau-Graue Linien)
+        background-image: 
+            linear-gradient(rgba(180, 200, 220, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(180, 200, 220, 0.3) 1px, transparent 1px);
+        background-size: 25px 25px; // Karo-Größe
 
-            @media (max-width: 768px) {
-                text-align: left;
+        // DIE ROTE KORREKTURLINIE
+        &::before {
+            content: '';
+            position: absolute;
+            left: 28px; 
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: rgba(220, 50, 50, 0.5); 
+            z-index: 1;
+        }
+
+        .notebook-text {
+            padding-left: 25px; // Text rückt rechts neben die rote Linie
+            position: relative;
+            z-index: 2;
+
+            h3 {
+                font-family: $font-heading;
+                font-size: 1.25rem;
+                color: $brand-primary;
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+
+            p {
+                font-size: 0.95rem;
+                color: $text-main;
+                line-height: 1.6;
+                margin: 0;
             }
         }
     }
