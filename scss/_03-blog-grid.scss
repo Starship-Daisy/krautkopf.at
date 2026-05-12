@@ -6,104 +6,78 @@
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// 1. DER RAHMEN (Zentriert das Ganze auf der Seite)
-.blog-section {
-    max-width: 1150px; // Maximale Breite des gesamten Blocks
-    margin: 60px auto; // Zentriert den Block und gibt Abstand nach oben/unten
-    padding: 0 30px;   // Sicherheitsabstand zum Bildschirmrand
-}
-
-// 2. DAS GRID (3 Karten nebeneinander)
+// Das Grid: Zwingt die Karten nebeneinander
 .blog-grid {
-    display: grid;
-    // Erzwingt genau 3 Spalten auf Desktop
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 40px; // Großer Abstand zwischen den Karten
+  display: grid;
+  // Hier passiert die Magie: 3 Spalten mit Abstand
+  grid-template-columns: repeat(3, 1fr); 
+  gap: $space-xl; 
+  max-width: 1100px; // Verhindert das Auslaufen zum Blattrand
+  margin: $space-xl auto;
+  padding: 0 $space-m;
 
-    // Tablet-Ansicht (2 Karten)
-    @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    // Handy-Ansicht (1 Karte)
-    @media (max-width: 700px) {
-        grid-template-columns: 1fr;
-    }
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-// 3. DIE KARTE IM NOTIZ-STIL
 .blog-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    background: #ffffff;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-    border-radius: 2px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px) rotate(1deg);
+  }
+
+  .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: none; // Schließt bündig an den Zettel an
 
-    &:hover {
-        transform: translateY(-8px) rotate(0.5deg);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // DEIN QUOTE-SECTION STYLE FÜR DIE KARTE
+  .card-content {
+    background-color: #fdfdfd;
+    position: relative;
+    padding: $space-l $space-l $space-l calc(#{$space-l} + 15px);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    flex-grow: 1;
+
+    // DEIN KARO-CODE
+    background-image: 
+      linear-gradient(90deg, transparent 15%, rgba(255, 0, 0, 0.2) 15%, rgba(255, 0, 0, 0.2) calc(15% + 1px), transparent calc(15% + 1px)),
+      linear-gradient(rgba(173, 216, 230, 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(173, 216, 230, 0.2) 1px, transparent 1px);
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+
+    h3 {
+      font-family: $font-heading;
+      font-size: 1.2rem;
+      color: $text-ink;
+      margin-bottom: $space-s;
+      line-height: 1.2;
     }
 
-    .card-image-wrapper {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        overflow: hidden;
-
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+    p {
+      font-family: $font-main;
+      font-size: 0.9rem;
+      color: $text-main;
+      line-height: 1.5;
     }
-
-    // DAS KARIERTE TEXTFELD
-    .card-content {
-        padding: 30px;
-        position: relative;
-        flex-grow: 1;
-        background-color: #fdfdfd; // Ein Papier-Weiß
-        
-        // Das Karomuster (Blau-Graue Linien)
-        background-image: 
-            linear-gradient(rgba(180, 200, 220, 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(180, 200, 220, 0.3) 1px, transparent 1px);
-        background-size: 25px 25px; // Karo-Größe
-
-        // DIE ROTE KORREKTURLINIE
-        &::before {
-            content: '';
-            position: absolute;
-            left: 28px; 
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: rgba(220, 50, 50, 0.5); 
-            z-index: 1;
-        }
-
-        .notebook-text {
-            padding-left: 25px; // Text rückt rechts neben die rote Linie
-            position: relative;
-            z-index: 2;
-
-            h3 {
-                font-family: $font-heading;
-                font-size: 1.25rem;
-                color: $brand-primary;
-                margin-bottom: 15px;
-                line-height: 1.2;
-            }
-
-            p {
-                font-size: 0.95rem;
-                color: $text-main;
-                line-height: 1.6;
-                margin: 0;
-            }
-        }
-    }
+  }
 }
