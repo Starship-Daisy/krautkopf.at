@@ -2,7 +2,7 @@
 // 02-BLOG-CARDS.SCSS
 // ==========================================
 
-@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
+/*@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
 @use '01-typography' as *;
 @use 'media-query-mixin' as *;
 
@@ -87,3 +87,4 @@
 .blog-card:hover .card-link::after {
   transform: translateX(5px);
 }
+*/

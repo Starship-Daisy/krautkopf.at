@@ -1,16 +1,13 @@
 // ==========================================
 // _03-BLOG-GRID.SCSS
 // ==========================================
-
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// 1. Das Grid-System
-// ==========================================
 .blog-grid {
     display: grid;
-    // Automatische Spalten: Mindestens 280px, maximal gleichmäßige Verteilung
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    // Sorgt für 2-3 Spalten auf Desktop, 1 auf Mobile
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: $space-l;
     margin: $space-xl 0;
     width: 100%;
@@ -21,23 +18,32 @@
     }
 }
 
-// 2. Die Blog-Karte
-// ==========================================
 .blog-card {
     display: flex;
     flex-direction: column;
     height: 100%;
-    text-decoration: none; // Falls die ganze Karte ein Link ist
-    background: transparent;
+    text-decoration: none;
+    color: inherit;
     transition: transform 0.3s ease;
 
-    // Bild-Bereich
+    &:hover {
+        transform: translateY(-5px);
+        
+        .card-image {
+            transform: scale(1.05);
+        }
+        
+        h3 {
+            color: $brand-accent;
+        }
+    }
+
     .card-image-wrapper {
         width: 100%;
-        aspect-ratio: 1.618 / 1; // Goldener Schnitt
+        aspect-ratio: 16 / 9; // Modernes Breitbild-Format für die Karten
         overflow: hidden;
         border-radius: 2px;
-        background-color: $border-color; // Fallback Farbe
+        background-color: $border-color;
 
         .card-image {
             width: 100%;
@@ -48,14 +54,6 @@
         }
     }
 
-    // Hover-Effekt auf das Bild
-    &:hover {
-        .card-image {
-            transform: scale(1.05);
-        }
-    }
-
-    // Text-Bereich
     .card-content {
         padding: $space-m 0;
         display: flex;
@@ -66,7 +64,7 @@
             font-family: $font-heading;
             font-size: 1.25rem;
             color: $brand-primary;
-            margin-bottom: $space-xs;
+            margin: $space-s 0 $space-xs;
             line-height: 1.3;
             transition: color 0.3s ease;
         }
@@ -76,43 +74,20 @@
             line-height: 1.5;
             color: $text-main;
             margin-bottom: $space-m;
-            flex-grow: 1; // Schiebt den "Mehr lesen" Link nach unten
         }
 
-        // Der "Mehr lesen" Link
         .card-link {
-            font-family: $font-main;
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-weight: 700;
             color: $brand-accent;
-            text-decoration: none;
-            display: inline-block;
-            align-self: flex-start;
-
+            margin-top: auto; // Klebt unten
+            
             &::after {
-                content: "";
-                display: block;
-                width: 30px;
-                height: 2px;
-                background-color: $brand-accent;
-                margin-top: 4px;
-                transition: width 0.3s ease;
+                content: " →";
+                transition: margin-left 0.3s ease;
             }
         }
-
-        &:hover .card-link::after {
-            width: 100%;
-        }
-    }
-}
-
-// 3. Spezielle Titel-Links (falls im HTML genutzt)
-// ==========================================
-.card-title-link {
-    text-decoration: none;
-    &:hover h3 {
-        color: $brand-accent;
     }
 }
