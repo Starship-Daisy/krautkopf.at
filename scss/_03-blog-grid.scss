@@ -94,14 +94,25 @@ a.blog-card,
 }
 
 .card-content {
-    // 1. Symmetrisches Grund-Padding
-    padding: 30px !important; 
+    // 1. Padding links verringern, um dem Text mehr Raum nach links zu geben
+    padding: 30px 30px 30px 20px !important; 
     
-    position: relative;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; // Zentriert die Kind-Elemente (h3, p) horizontal
+    // ... restlicher Code (Flexbox etc.) bleibt ...
+    align-items: flex-start; // Richtet den Inhalt linksbündig aus statt mittig
+
+    h3, p {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 260px; // Etwas breiter für mehr Schreibfläche
+        
+        // 2. TEXT-AUSRICHTUNG
+        text-align: left; 
+        
+        // 3. POSITIONIERUNG:
+        margin-left: 0;      // Klebt jetzt am linken Padding
+        margin-right: auto;  // Schiebt den überschüssigen Platz nach rechts
+    }
     
     background-color: $brand-paper !important;
 
