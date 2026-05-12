@@ -1,8 +1,19 @@
-// ==========================================
-// 03-BLOG-GRID.SCSS (Final & Fehlerfrei)
-// ==========================================
+// 1. ZUERST DIE IMPORTE
+@use '01-variables' as *;
+@use 'media-query-mixin' as *; // Falls du das nutzt
 
-@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
+// 2. DANN DER CODE
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $space-l;
+}   
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // Eine Spalte auf dem Handy
+        gap: $space-m;
+    }
+ 
+    // ... restlicher Code
 
 .blog-section {
   padding: $space-xl 0;
@@ -110,21 +121,6 @@
   &:hover {
     text-decoration: underline;
   }
-}
-
-@use '01-variables' as *;
-
-.blog-grid {
-    display: grid;
-    // Der "Zauberstab" für Responsiveness:
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: $space-l;
-    margin-top: $space-l;
-
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr; // Eine Spalte auf dem Handy
-        gap: $space-m;
-    }
 }
 
 // Damit die Bilder in den Cards nicht das Layout sprengen
