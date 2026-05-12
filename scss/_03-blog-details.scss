@@ -212,14 +212,12 @@
         margin-bottom: $space-m;
     }
 
-    .reference-flex {
-        display: flex;
-        gap: $space-l;
-        align-items: center; 
-
         @media (max-width: 768px) {
             flex-direction: column;
             align-items: flex-start;
+            // Auf dem Handy ist der Abstand zwischen Bild und Text oft zu groß, 
+            // hier kannst du ihn wieder etwas verringern:
+            gap: $space-m; 
         }
     }
 
@@ -243,11 +241,13 @@
 
     .reference-text {
         flex: 1;
+    
         .image-caption {
+            // Falls du den Text innerhalb seiner Box noch weiter schieben willst:
+            margin-top: 0; 
             font-size: 0.9rem;
             line-height: 1.5;
             color: $text-muted;
             font-style: italic;
         }
     }
-}
