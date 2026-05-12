@@ -7,10 +7,15 @@
 @use '01-typography' as *;
 
 .blog-detail {
-    // Strikte Begrenzung auf die Lesebreite
-    max-width: $text-measure; 
-    margin: $space-xl auto;
-    padding: 0 $space-m;
+    max-width: 750px; // Oder dein $text-measure
+    margin: 0 auto;   // Zentriert den Textblock
+    padding: 40px 20px;
+}
+
+.blog-section {
+    padding: 80px 0;
+    background-color: rgba(0,0,0,0.02); // Optional: Ganz leichter Hintergrundbruch zum Text
+}
 
     .article-body {
         
