@@ -916,7 +916,7 @@ h4.back-to-home:hover,
 .blog-card .card-content::before {
   content: "";
   position: absolute;
-  left: 30px;
+  right: 30px;
   top: 0;
   bottom: 0;
   width: 1px;
