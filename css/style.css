@@ -585,6 +585,13 @@ h4.back-to-home:hover,
   padding-right: 10px;
   color: #4a5d4e;
 }
+.blog-detail .article-body .article-text img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 4rem auto;
+  border-radius: 2px;
+}
 .blog-detail .article-body .article-text h3 {
   margin: 4rem 0 1rem;
   font-family: "Lora", serif;
@@ -614,30 +621,8 @@ h4.back-to-home:hover,
   color: #4a5d4e;
 }
 
-.hero {
-  text-align: center;
-  padding: 4rem 0;
-  background-color: transparent;
-}
-.hero__title {
-  font-family: "Lora", serif;
-  font-size: 2.5rem;
-  color: #4a5d4e;
-  margin-bottom: 0.5rem;
-}
-.hero__subtitle {
-  font-family: "Inter", sans-serif;
-  font-size: 0.875rem;
-  color: #757a70;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
 .article-references {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin: 4rem 0;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -655,23 +640,26 @@ h4.back-to-home:hover,
   flex-direction: column;
   gap: 0.5rem;
 }
-
-.featured-image-panorama {
+.reference-vertical .featured-image-panorama {
   width: 100%;
   aspect-ratio: 3/1;
   overflow: hidden;
   border-radius: 2px;
   background-color: #8b9d83;
 }
-.featured-image-panorama .ref-img {
+@media (max-width: 768px) {
+  .reference-vertical .featured-image-panorama {
+    aspect-ratio: 16/9;
+  }
+}
+.reference-vertical .featured-image-panorama .ref-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   object-position: center 60%;
 }
-
-.reference-text .image-caption {
+.reference-vertical .reference-text .image-caption {
   font-size: 0.85rem;
   line-height: 1.4;
   color: #757a70;
@@ -679,114 +667,25 @@ h4.back-to-home:hover,
   margin-top: 0.25rem;
   text-align: right;
 }
+@media (max-width: 768px) {
+  .reference-vertical .reference-text .image-caption {
+    text-align: left;
+  }
+}
+
+.article-references-list {
+  margin: 4rem 0;
+}
+.article-references-list h4 {
+  font-size: 1rem;
+  color: #4a5d4e;
+  margin-bottom: 0.5rem;
+}
 
 .separator {
   color: #8b9d83;
   margin: 0 0.25rem;
   font-weight: 300;
-}
-
-.article-references {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-.article-references .references-title {
-  font-family: "Inter", sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #8b9d83;
-  margin-bottom: 2rem;
-}
-.article-references .reference-flex {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-end;
-}
-@media (max-width: 768px) {
-  .article-references .reference-flex {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-}
-.article-references .reference-image {
-  flex: 0 0 200px;
-}
-.article-references .reference-image .ref-img {
-  width: 100%;
-  height: auto;
-  border-radius: 2px;
-  filter: sepia(10%) contrast(95%);
-}
-.article-references .reference-text {
-  flex: 1;
-  margin-bottom: 5px;
-}
-.article-references .reference-text .image-caption {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #757a70;
-  font-style: italic;
-  margin: 0;
-}
-.article-references .reference-links {
-  font-size: 0.95rem;
-  color: #4a5d4e;
-}
-
-.article-references {
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-.article-references .references-title {
-  font-family: "Inter", sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #8b9d83;
-  margin-bottom: 1rem;
-}
-@media (max-width: 768px) {
-  .article-references {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-}
-
-.featured-image {
-  flex: 0 0 250px;
-  height: 180px;
-  overflow: hidden;
-  position: relative;
-  border-radius: 4px;
-}
-@media (max-width: 768px) {
-  .featured-image {
-    width: 100%;
-    flex: 0 0 auto;
-  }
-}
-.featured-image .ref-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.reference-text {
-  flex: 1;
-}
-.reference-text .image-caption {
-  margin-top: 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #757a70;
-  font-style: italic;
 }
 
 .blog-layout-wrapper {
