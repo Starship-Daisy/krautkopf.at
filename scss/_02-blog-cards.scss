@@ -1,91 +1,91 @@
 // ==========================================
-// _02-BLOG-CARDS-NOTEBOOK.SCSS
+// 02-BLOG-CARDS.SCSS
 // ==========================================
 
-// WICHTIG: Diese Zeilen müssen exakt so ganz oben stehen
-@use '01-variables' as *; 
+@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
 @use '01-typography' as *;
+@use 'media-query-mixin' as *;
 
-.blog-grid {
-    display: grid;
-    // Erzwingt 3-4 Spalten:
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    // Nutzt Variable oder Fallback (1.5rem), falls Variable nicht geladen
-    gap: if(variable-exists(space-l), $space-l, 1.5rem); 
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  text-decoration: none;
 
-.blog-card-notebook {
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    
+    .card-image {
+      transform: scale(1.05);
+    }
+  }
+
+  // Bild-Container für den Zoom-Effekt
+  .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: $brand-light;
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  // Text-Inhalt
+  .card-content {
+    padding: $space-l;
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    background: #fff;
-    border: 1px solid #eee;
-    transition: transform 0.3s ease;
+    flex-grow: 1;
 
-    &:hover {
-        transform: translateY(-5px) rotate(0.5deg);
+    h3 {
+      font-family: $font-heading;
+      font-size: $font-size-h3;
+      color: $brand-primary;
+      margin-bottom: $space-m;
+      line-height: 1.3;
     }
 
-    .card-image-wrapper {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        overflow: hidden;
-        
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    p {
+      font-size: $font-size-small;
+      color: $text-muted;
+      line-height: 1.6;
+      margin-bottom: $space-l;
     }
 
-    .card-content {
-        // Nutzt Variable oder Fallback
-        padding: if(variable-exists(space-l), $space-l, 1.5rem);
-        flex-grow: 1;
-        position: relative;
-        background-color: #fdfdfd;
-        
-        // DAS KARIERTE MUSTER (Hintergrund)
-        background-image: 
-            linear-gradient(rgba(180, 200, 220, 0.2) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(180, 200, 220, 0.2) 1px, transparent 1px);
-        background-size: 20px 20px;
+    .card-link {
+      margin-top: auto; // Schiebt den Link immer ganz nach unten
+      font-family: $font-main;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $brand-primary;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
 
-        // DIE ROTE KORREKTURLINIE
-        &::before {
-            content: '';
-            position: absolute;
-            left: 25px; 
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: rgba(220, 50, 50, 0.4); 
-            z-index: 1;
-        }
-
-        .notebook-text {
-            padding-left: 20px; 
-            position: relative;
-            z-index: 2;
-
-            h3 {
-                // Zugriff auf deine Font-Variable
-                font-family: if(variable-exists(font-heading), $font-heading, serif);
-                font-size: 1.25rem;
-                color: if(variable-exists(brand-primary), $brand-primary, #333);
-                margin-bottom: 10px;
-                line-height: 1.2;
-            }
-
-            p {
-                font-family: if(variable-exists(font-main), $font-main, sans-serif);
-                font-size: 0.9rem;
-                color: #555;
-                line-height: 1.6;
-            }
-        }
+      &::after {
+        content: '→';
+        margin-left: $space-s;
+        transition: transform 0.3s ease;
+      }
     }
+  }
 }
+
+// Pfeil-Animation beim Hover
+.blog-card:hover .card-link::after {
+  transform: translateX(5px);
+}
+
+
