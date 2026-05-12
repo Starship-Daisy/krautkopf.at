@@ -128,7 +128,7 @@ a.blog-card,
         z-index: 2;
         width: 100%;
         max-width: 240px; // Begrenzt die Breite, damit die Zentrierung wirkt
-        text-align: justify; // BLOCKTEXT
+        text-align: left; 
         hyphens: auto; // Verhindert große Lücken durch Silbentrennung
         margin-left: auto;
         margin-right: auto;
@@ -139,11 +139,11 @@ a.blog-card,
         font-size: 1.25rem;
         color: $brand-primary-light !important;
         margin-bottom: 15px;
-        text-align-last: center; // Die letzte Zeile der Überschrift bleibt mittig
+        text-align-last: left; // Die letzte Zeile der Überschrift bleibt mittig
     }
 
     p {
-        font-family: $font-main;
+        font-family: $font-muted;
         font-size: 0.95rem;
         color: $text-muted !important;
         line-height: 1.6;
