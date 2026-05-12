@@ -938,3 +938,36 @@ h4.back-to-home:hover,
   position: relative;
   z-index: 2;
 }
+
+.card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #c8c8c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card-image-placeholder::after {
+  content: "Werkstatt-Modus";
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+}
+.card-image-placeholder {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.02) 10px, rgba(0, 0, 0, 0.02) 20px);
+}
+
+.blog-card.is-draft {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.8;
+}
+.blog-card.is-draft .card-content {
+  background-image: linear-gradient(rgba(200, 200, 200, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 200, 200, 0.2) 1px, transparent 1px) !important;
+}
