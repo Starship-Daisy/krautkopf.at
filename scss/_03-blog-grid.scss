@@ -42,9 +42,9 @@ a.blog-card,
     transition: transform 0.3s ease;
     color: $text-main; // Standardfarbe setzen
 
-/*    &:hover {
+      &:hover {
         transform: translateY(-5px) rotate(0.5deg);
-    } */
+    } 
 
     .card-image-wrapper {
         width: 100%;
@@ -53,53 +53,44 @@ a.blog-card,
         img { width: 100%; height: 100%; object-fit: cover; display: block; }
     }
 
-    .card-content {
-        padding: 30px 45px 30px 20px !important; 
-        position: relative;
-        flex-grow: 1;
-        background-color: $brand-paper !important;
+.card-content {
+    padding: 30px 45px 30px 20px !important;
+    position: relative;
+    
+    // WICHTIG: Flex-Grow sorgt dafür, dass das Feld den restlichen Platz 
+    // in der Karte ausfüllt, auch wenn wenig Text drin steht.
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
 
-        // KARO-CODE
-        background-image: 
-            linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
-        background-size: 20px 20px !important;
+    background-color: #fdfdfd !important;
 
-        // ROTE LINIE RECHTS
-        &::before {
-            content: '';
-            position: absolute;
-            left: auto !important;
-            right: 30px !important;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: rgba(255, 0, 0, 0.4) !important;
-            z-index: 1;
-        }
-
-        h3 {
-            font-family: $font-heading;
-            font-size: 1.25rem;
-            color: $brand-primary !important; // Deine Markenfarbe
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-            text-decoration: none !important;
-        }
-
-        p {
-            font-family: $font-main;
-            font-size: 0.95rem;
-            color: $text-main !important; // Deine Textfarbe
-            line-height: 1.5;
-            position: relative;
-            z-index: 2;
-            text-decoration: none !important;
-        }
-    }
+    // KARO-MUSTER
+    background-image: 
+        linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    background-repeat: repeat !important; // Stellt sicher, dass es überall kachelt
 }
 
+// SPEZIELLER FIX FÜR DRAFTS
+.blog-card.is-draft {
+    opacity: 0.7;
+    filter: grayscale(0.5);
+    
+    // Wir müssen sicherstellen, dass card-content hier exakt 
+    // die gleichen Karo-Eigenschaften behält
+    .card-content {
+        flex-grow: 1; 
+        background-color: #f5f5f5 !important; // Leicht grauer Zettel für Drafts
+        
+        // Das Karo muss auch hier explizit wiederholt werden
+        background-image: 
+            linear-gradient(rgba(173, 216, 230, 0.2) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(173, 216, 230, 0.2) 1px, transparent 1px) !important;
+        background-size: 20px 20px !important;
+    }
+}
     .card-image-wrapper {
         width: 100%;
         aspect-ratio: 16 / 10;
@@ -147,7 +138,7 @@ a.blog-card,
 
         p {
             font-size: 0.95rem;
-            color: $text-main;
+            color: $text-muted;
             line-height: 1.5;
             position: relative;
             z-index: 2;
