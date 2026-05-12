@@ -910,28 +910,26 @@ a.blog-card:active,
 .blog-card {
   display: flex;
   flex-direction: column;
-  text-decoration: none !important;
+  text-decoration: none;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   height: 100%;
-  transition: transform 0.3s ease;
-  color: #1a1a1a;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transform: none !important;
+  will-change: auto;
+}
+.blog-card:hover {
+  transform: none !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+.blog-card .card-image-wrapper img {
+  transition: none !important;
+  transform: none !important;
 }
 
-&:hover {
-  transform: translateY(-5px) rotate(0.5deg);
-}
-
-.card-image-wrapper {
-  width: 100%;
-  aspect-ratio: 16/10;
-  overflow: hidden;
-}
-.card-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.blog-card.is-draft:hover {
+  transform: none !important;
 }
 
 .card-content {
@@ -940,7 +938,7 @@ a.blog-card:active,
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: #fdfdfd !important;
+  background-color: #f7f4e9 !important;
   background-image: linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
   background-size: 20px 20px !important;
   background-repeat: repeat !important;
@@ -978,7 +976,7 @@ a.blog-card:active,
   padding: 30px 20px 30px 45px !important;
   position: relative;
   flex-grow: 1;
-  background-color: #fdfdfd !important;
+  background-color: #f7f4e9 !important;
   background-image: linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
   background-size: 20px 20px !important;
 }
