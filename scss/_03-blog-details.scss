@@ -221,23 +221,26 @@
         }
     }
 
-    .featured-image {
-        flex: 0 0 250px; // Der Rahmen
-        overflow: hidden;
-        border-radius: 4px;
+.featured-image {
+    flex: 0 0 250px; 
+    height: 180px;        // Gib dem Rahmen eine feste Höhe
+    overflow: hidden;     // WICHTIG: Schneidet alles ab, was über den Rand geht
+    position: relative;   // Anker für das Bild
+    border-radius: 4px;
 
-        @media (max-width: 768px) {
+    @media (max-width: 768px) {
             width: 100%;
             flex: 0 0 auto;
         }
 
-        .ref-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover; 
-        }
+
+    .ref-img {
+        width: 100%;
+        height: 100%;     // Zwingt das Bild auf die Höhe des Rahmens
+        object-fit: cover; // Verhindert Verzerrungen (schneidet die Ränder ab)
+        display: block;
     }
+}
 
     .reference-text {
         flex: 1;
