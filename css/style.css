@@ -637,24 +637,47 @@ h4.back-to-home:hover,
 
 .article-references {
   margin-top: 4rem;
+  margin-bottom: 4rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
-.article-references h3 {
-  font-size: 1.1rem;
+.article-references .references-title {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: #8b9d83;
   margin-bottom: 1rem;
 }
-.article-references .reference-list {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #757a70;
+
+.reference-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.article-references .reference-list li {
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
+
+.featured-image-panorama {
+  width: 100%;
+  aspect-ratio: 3/1;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #8b9d83;
+}
+.featured-image-panorama .ref-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: center 60%;
+}
+
+.reference-text .image-caption {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #757a70;
+  font-style: italic;
+  margin-top: 0.25rem;
+  text-align: right;
 }
 
 .separator {
