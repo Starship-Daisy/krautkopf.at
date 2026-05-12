@@ -195,3 +195,59 @@
         }
     }
 }
+
+// Bildnachweis-Box am Ende des Artikels
+
+.article-references {
+    margin-top: $space-xl;
+    padding-top: $space-l;
+    border-top: 1px solid $border-color;
+
+    .references-title {
+        font-family: $font-main;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: $brand-accent;
+        margin-bottom: $space-m;
+    }
+
+    .reference-flex {
+        display: flex;
+        gap: $space-l;
+        align-items: center; 
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    .featured-image {
+        flex: 0 0 250px; // Der Rahmen
+        overflow: hidden;
+        border-radius: 4px;
+
+        @media (max-width: 768px) {
+            width: 100%;
+            flex: 0 0 auto;
+        }
+
+        .ref-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover; 
+        }
+    }
+
+    .reference-text {
+        flex: 1;
+        .image-caption {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: $text-muted;
+            font-style: italic;
+        }
+    }
+}
