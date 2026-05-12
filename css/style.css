@@ -571,6 +571,7 @@ h4.back-to-home:hover,
   padding-left: 1rem;
 }
 .blog-detail .article-body .article-text p {
+  margin-top: 2rem;
   margin-bottom: 2rem;
   color: #1a1a1a;
   font-size: 1.05rem;
@@ -708,6 +709,7 @@ h4.back-to-home:hover,
 
 .article-references {
   margin-top: 4rem;
+  margin-bottom: 2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
