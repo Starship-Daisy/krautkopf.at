@@ -1,6 +1,23 @@
 @use '01-variables' as *;
 @use '01-typography' as *;
 
+// 1. GLOBALER RESET (Ganz oben in der Datei)
+// Wir zielen auf JEDEN Link ab, der in einem Grid oder einer Karte stecken könnte
+.blog-grid a, 
+a.blog-card, 
+.blog-card a {
+    text-decoration: none !important;
+    border-bottom: none !important; // Manche Themes nutzen Borders statt Underlines
+    color: inherit !important;
+    outline: none;
+
+    &:link, &:visited, &:hover, &:active {
+        text-decoration: none !important;
+        border-bottom: none !important;
+        color: inherit !important;
+    }
+}
+
 // Der Grid-Container
 .blog-grid {
     display: grid !important;
@@ -14,14 +31,74 @@
     @media (max-width: 768px) { grid-template-columns: 1fr !important; }
 }
 
+// 2. DIE BLOG-KARTE
 .blog-card {
     display: flex;
     flex-direction: column;
-    text-decoration: none !important; 
-    color: inherit !important;
+    text-decoration: none !important;
     background: #fff;
     border: 1px solid rgba(0,0,0,0.08);
     height: 100%;
+    transition: transform 0.3s ease;
+    color: $text-main; // Standardfarbe setzen
+
+    &:hover {
+        transform: translateY(-5px) rotate(0.5deg);
+    }
+
+    .card-image-wrapper {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    }
+
+    .card-content {
+        padding: 30px 45px 30px 20px !important; 
+        position: relative;
+        flex-grow: 1;
+        background-color: $brand-paper !important;
+
+        // KARO-CODE
+        background-image: 
+            linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
+        background-size: 20px 20px !important;
+
+        // ROTE LINIE RECHTS
+        &::before {
+            content: '';
+            position: absolute;
+            left: auto !important;
+            right: 30px !important;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: rgba(255, 0, 0, 0.4) !important;
+            z-index: 1;
+        }
+
+        h3 {
+            font-family: $font-heading;
+            font-size: 1.25rem;
+            color: $brand-primary !important; // Deine Markenfarbe
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            text-decoration: none !important;
+        }
+
+        p {
+            font-family: $font-main;
+            font-size: 0.95rem;
+            color: $text-main !important; // Deine Textfarbe
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+            text-decoration: none !important;
+        }
+    }
+}
 
     .card-image-wrapper {
         width: 100%;
