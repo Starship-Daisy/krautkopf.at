@@ -348,7 +348,7 @@ h4.back-to-home:hover,
 
 .quote-paper {
   display: inline-block;
-  background-color: #f4f1ea;
+  background-color: #dfddd6;
   background-image: linear-gradient(90deg, transparent 85%, rgba(255, 0, 0, 0.25) 85%, rgba(255, 0, 0, 0.25) calc(85% + 1px), transparent calc(85% + 1px)), linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
   background-size: 100% 100%, 20px 20px, 20px 20px;
   padding: 2rem 4rem 4rem 4rem;
@@ -800,7 +800,7 @@ h4.back-to-home:hover,
 .blog-card {
   display: flex;
   flex-direction: column;
-  background-color: #f4f1ea;
+  background-color: #dfddd6;
   border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -867,6 +867,28 @@ h4.back-to-home:hover,
   transform: translateX(5px);
 }
 
+.blog-grid a,
+a.blog-card,
+.blog-card a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: inherit !important;
+  outline: none;
+}
+.blog-grid a:link, .blog-grid a:visited, .blog-grid a:hover, .blog-grid a:active,
+a.blog-card:link,
+a.blog-card:visited,
+a.blog-card:hover,
+a.blog-card:active,
+.blog-card a:link,
+.blog-card a:visited,
+.blog-card a:hover,
+.blog-card a:active {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: inherit !important;
+}
+
 .blog-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
@@ -890,10 +912,14 @@ h4.back-to-home:hover,
   display: flex;
   flex-direction: column;
   text-decoration: none !important;
-  color: inherit !important;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   height: 100%;
+  transition: transform 0.3s ease;
+  color: #1a1a1a;
+}
+.blog-card:hover {
+  transform: translateY(-5px) rotate(0.5deg);
 }
 .blog-card .card-image-wrapper {
   width: 100%;
@@ -906,11 +932,62 @@ h4.back-to-home:hover,
   object-fit: cover;
   display: block;
 }
-.blog-card .card-content a {
+.blog-card .card-content {
+  padding: 30px 45px 30px 20px !important;
+  position: relative;
+  flex-grow: 1;
+  background-color: #dfddd6 !important;
+  background-image: linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
+  background-size: 20px 20px !important;
+}
+.blog-card .card-content::before {
+  content: "";
+  position: absolute;
+  left: auto !important;
+  right: 30px !important;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 0, 0, 0.4) !important;
+  z-index: 1;
+}
+.blog-card .card-content h3 {
+  font-family: "Lora", serif;
+  font-size: 1.25rem;
+  color: #4a5d4e !important;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  text-decoration: none !important;
+}
+.blog-card .card-content p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: #1a1a1a !important;
+  line-height: 1.5;
+  position: relative;
+  z-index: 2;
+  text-decoration: none !important;
+}
+
+.card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content a {
   text-decoration: none !important;
   color: inherit !important;
 }
-.blog-card .card-content {
+
+.card-content {
   padding: 30px 20px 30px 45px !important;
   position: relative;
   flex-grow: 1;
@@ -918,7 +995,7 @@ h4.back-to-home:hover,
   background-image: linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
   background-size: 20px 20px !important;
 }
-.blog-card .card-content::before {
+.card-content::before {
   content: "";
   position: absolute;
   right: 30px;
@@ -928,7 +1005,7 @@ h4.back-to-home:hover,
   background-color: rgba(233, 161, 161, 0.4) !important;
   z-index: 1;
 }
-.blog-card .card-content h3 {
+.card-content h3 {
   font-family: "Lora", serif;
   font-size: 1.25rem;
   color: #4a5d4e;
@@ -936,7 +1013,7 @@ h4.back-to-home:hover,
   position: relative;
   z-index: 2;
 }
-.blog-card .card-content p {
+.card-content p {
   font-size: 0.95rem;
   color: #1a1a1a;
   line-height: 1.5;
