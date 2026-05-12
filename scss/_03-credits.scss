@@ -4,52 +4,54 @@
 
 .credit-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // Wir übernehmen die Logik deines Blog-Grids für maximale Konsistenz
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: $space-l;
     margin: $space-xl 0;
 }
 
 .credit-card {
-    background: transparent; // Wir bleiben beim Werkstatt-Stil ohne harte Boxen
-    border: 1px solid $border-color;
-    border-radius: 4px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-
-    &:hover {
-        transform: translateY(-5px);
-        
-        .card-image {
-            transform: scale(1.05);
-        }
-    }
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-bottom: 1px solid transparent; // Optional: dezente Trennung im Werkstatt-Stil
+    transition: all 0.3s ease;
 
     .card-image-wrapper {
-        height: 250px;
+        position: relative;
+        width: 100%;
+        // Der Goldene Schnitt: Breite 1.618 / Höhe 1
+        aspect-ratio: 1.618 / 1; 
         overflow: hidden;
-        
+        border-radius: 2px; // Minimalistische Abrundung
+
         .card-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+    }
+
+    &:hover {
+        .card-image {
+            transform: scale(1.03); // Ganz sanfter Zoom
         }
     }
 
     .card-content {
-        padding: $space-m;
+        padding: $space-m 0; // Kein seitliches Padding, damit es bündig mit dem Bild abschließt
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
 
         .platform-tag {
             font-family: $font-main;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             color: $brand-accent;
-            border: 1px solid rgba($brand-accent, 0.3);
-            padding: 2px 8px;
-            border-radius: 2px;
-            display: inline-block;
-            margin-bottom: $space-s;
+            margin-bottom: $space-xs;
         }
 
         h3 {
@@ -57,29 +59,25 @@
             font-size: 1.2rem;
             margin-bottom: $space-xs;
             color: $brand-primary;
+            line-height: 1.3;
         }
 
         p {
             font-size: 0.9rem;
             color: $text-main;
-            line-height: 1.4;
+            margin-top: auto; // Schiebt den Namen des Künstlers nach unten
 
             a {
                 color: $brand-primary;
                 text-decoration: underline;
-                text-decoration-color: rgba($brand-accent, 0.5);
-                
+                text-decoration-color: rgba($brand-accent, 0.4);
+                transition: text-decoration-color 0.3s;
+
                 &:hover {
+                    text-decoration-color: $brand-accent;
                     color: $brand-accent;
                 }
             }
         }
     }
-}
-
-.credit-footer {
-    text-align: center;
-    margin: $space-xl 0;
-    padding-top: $space-l;
-    border-top: 1px solid $border-color;
 }
