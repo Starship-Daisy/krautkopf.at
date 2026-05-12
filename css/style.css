@@ -679,11 +679,13 @@ h4.back-to-home:hover,
 .article-references .reference-flex {
   display: flex;
   gap: 2rem;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 @media (max-width: 768px) {
   .article-references .reference-flex {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 }
 .article-references .reference-image {
@@ -695,14 +697,18 @@ h4.back-to-home:hover,
   border-radius: 2px;
   filter: sepia(10%) contrast(95%);
 }
+.article-references .reference-text {
+  flex: 1;
+  margin-bottom: 5px;
+}
 .article-references .reference-text .image-caption {
   font-size: 0.9rem;
-  font-style: italic;
+  line-height: 1.5;
   color: #757a70;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  font-style: italic;
+  margin: 0;
 }
-.article-references .reference-text .reference-links {
+.article-references .reference-links {
   font-size: 0.95rem;
   color: #4a5d4e;
 }
