@@ -72,6 +72,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.body-limiter {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
 h1, h2, h3 {
   font-family: "Lora", serif;
   color: #4a5d4e;
