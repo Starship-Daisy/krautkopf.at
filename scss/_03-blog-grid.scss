@@ -35,24 +35,38 @@ a.blog-card,
 .blog-card {
     display: flex;
     flex-direction: column;
-    text-decoration: none !important;
+    text-decoration: none;
     background: #fff;
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     height: 100%;
-    transition: transform 0.3s ease;
-    color: $text-main; // Standardfarbe setzen
+    
+    // Wir entfernen alle Transitions, die mit Transform zu tun haben
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    
+    // Sicherstellen, dass keine Standard-Rotationen aktiv sind
+    transform: none !important;
+    will-change: auto;
+
+    &:hover {
+        // KEINE Bewegung mehr (translate/rotate gelöscht)
+        transform: none !important; 
+        
+        // Statt Bewegung nutzen wir nur eine sanfte optische Tiefe
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        border-color: rgba(0, 0, 0, 0.15);
     }
 
-      &:hover {
-        transform: translateY(-5px) rotate(0.5deg);
-    } 
-
-    .card-image-wrapper {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        overflow: hidden;
-        img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    // Falls das Bild beim Hovern gezoomt hat, schalten wir das auch aus:
+    .card-image-wrapper img {
+        transition: none !important;
+        transform: none !important;
     }
+}
+
+// Auch für die Draft-Karten die Bewegung killen
+.blog-card.is-draft:hover {
+    transform: none !important;
+}
 
 .card-content {
     padding: 30px 45px 30px 20px !important;
@@ -64,7 +78,7 @@ a.blog-card,
     display: flex;
     flex-direction: column;
 
-    background-color: #fdfdfd !important;
+    background-color: $brand-paper !important;
 
     // KARO-MUSTER
     background-image: 
@@ -108,7 +122,7 @@ a.blog-card,
         padding: 30px 20px 30px 45px !important; 
         position: relative;
         flex-grow: 1;
-        background-color: #fdfdfd !important;
+        background-color: $brand-paper !important;
 
         // BLAUES KARO
         background-image: 
