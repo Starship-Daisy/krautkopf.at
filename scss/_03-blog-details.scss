@@ -1,24 +1,14 @@
-// ==========================================
-// _03-BLOG-DETAILS.SCSS
-// ==========================================
-
 @use 'sass:color';
 @use '01-variables' as *;
 @use '01-typography' as *;
 
+// 1. HAUPT-LAYOUT
 .blog-detail {
-    max-width: 750px; // Oder dein $text-measure
-    margin: 0 auto;   // Zentriert den Textblock
-    padding: 40px 20px;
-}
-
-.blog-section {
-    padding: 80px 0;
-    background-color: rgba(0,0,0,0.02); // Optional: Ganz leichter Hintergrundbruch zum Text
-}
+    max-width: $text-measure; 
+    margin: $space-xl auto;
+    padding: 0 $space-m;
 
     .article-body {
-        
         .lead {
             font-family: $font-heading;
             font-size: 1.5rem;
@@ -38,7 +28,6 @@
                 font-size: 1.05rem;
                 line-height: 1.7;
 
-                // Drop Cap für den ersten Buchstaben
                 &:first-of-type::first-letter {
                     font-family: $font-heading;
                     font-size: 3.5rem;
@@ -47,15 +36,6 @@
                     padding-right: 10px;
                     color: $brand-primary;
                 }
-            }
-
-            // In _03-blog-details.scss unter .article-text p
-                img {
-                    max-width: 100%;
-                    height: auto;
-                    display: block;
-                    margin: $space-xl auto;
-                    border-radius: 2px;
             }
 
             h3 {
@@ -67,7 +47,6 @@
                 padding-bottom: $space-xs;
             }
 
-            // Listen-Styling
             ul {
                 list-style: none;
                 margin: $space-l 0 $space-l $space-m;
@@ -85,7 +64,6 @@
                         left: 0;
                         color: $brand-accent;
                     }
-
                     strong { color: $brand-primary; }
                 }
             }
@@ -93,10 +71,7 @@
     }
 }
 
-// ==========================================
-// ARTICLE REFERENCES (PANORAMA-LAYOUT)
-// ==========================================
-
+// 2. PANORAMA-BILD (REFERENCE)
 .article-references {
     margin: $space-xl 0;
     padding-top: $space-l;
@@ -124,7 +99,6 @@
         border-radius: 2px;
         background-color: $brand-accent;
 
-        // Responsive Anpassung für mobile Endgeräte
         @media (max-width: 768px) {
             aspect-ratio: 16 / 9; 
         }
@@ -134,17 +108,14 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            object-position: center 60%; 
         }
     }
 
     .reference-text {
         .image-caption {
             font-size: 0.85rem;
-            line-height: 1.4;
             color: $text-muted;
             font-style: italic;
-            margin-top: $space-xs;
             text-align: right;
 
             @media (max-width: 768px) {
@@ -152,22 +123,4 @@
             }
         }
     }
-}
-
-// Querverweise innerhalb des Textes
-.article-references-list {
-    margin: $space-xl 0;
-    
-    h4 {
-        font-size: 1rem;
-        color: $brand-primary;
-        margin-bottom: $space-s;
-    }
-}
-
-// Hilfsklasse für Inline-Trennzeichen
-.separator {
-    color: $brand-accent;
-    margin: 0 $space-xs;
-    font-weight: 300;
 }
