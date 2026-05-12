@@ -21,7 +21,7 @@
         position: relative;
         width: 100%;
         // Der Goldene Schnitt: Breite 1.618 / Höhe 1
-        aspect-ratio: 1.618 / 1; 
+        aspect-ratio: 1.618 / 1 !important; 
         overflow: hidden;
         border-radius: 2px; // Minimalistische Abrundung
 
