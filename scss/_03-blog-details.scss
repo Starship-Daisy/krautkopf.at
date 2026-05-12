@@ -31,6 +31,7 @@
         .article-text {
             // Der Haupttext
             p {
+                margin-top: $space-l;
                 margin-bottom: $space-l;
                 color: $text-main;
                 font-size: 1.05rem;
@@ -200,6 +201,7 @@
 
 .article-references {
     margin-top: $space-xl;
+    margin-bottom: $space-l; // <--- HIER den Platz nach unten schaffen
     padding-top: $space-l;
     border-top: 1px solid $border-color;
 
