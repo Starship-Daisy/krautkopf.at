@@ -6,49 +6,65 @@
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// Das Grid hält die 3 Karten im Zaum
+// 1. DAS GRID-SYSTEM (Zähmt die Breite)
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); // Exakt 3 nebeneinander
-    gap: 30px;
-    max-width: 1100px;
-    margin: 60px auto;
+    grid-template-columns: repeat(3, 1fr); // Erzwingt 3 Spalten
+    gap: 30px;                             // Abstand zwischen den Karten
+    max-width: 1100px;                     // Verhindert Ausreißen zum Rand
+    margin: 50px auto;                     // Zentriert den Block
+    padding: 0 20px;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr); // Tablet
+    }
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;            // Mobile
+    }
 }
 
+// 2. DIE KARTE (Das Objekt an sich)
 .blog-card {
     display: flex;
     flex-direction: column;
     text-decoration: none;
     background: #fff;
-    border: 1px solid rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; // Alle Karten gleich hoch
 
     &:hover {
         transform: translateY(-5px) rotate(0.5deg);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     .card-image-wrapper {
         width: 100%;
         aspect-ratio: 16 / 10;
         overflow: hidden;
-        img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
     }
 
-    // --- HIER IST DEIN KARIERTER ZETTEL ---
+    // 3. DAS KARIERTE TEXTFELD (DEIN ZETTEL)
     .card-content {
+        padding: 30px 25px 30px 45px; // Mehr Platz links für die rote Linie
         position: relative;
-        padding: 30px 20px 30px 45px; // Mehr Platz links für die Linie
         flex-grow: 1;
-        background-color: #fdfdfd !important;
+        background-color: #fdfdfd;
 
         // BLAUES KARO
         background-image: 
             linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
-        background-size: 20px 20px !important;
+            linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px);
+        background-size: 20px 20px;
 
-        // ROTE MARGINALIE (Links)
+        // ROTE LINIE (Marginalie)
         &::before {
             content: '';
             position: absolute;
@@ -56,27 +72,26 @@
             top: 0;
             bottom: 0;
             width: 1px;
-            background-color: rgba(255, 0, 0, 0.3) !important;
+            background-color: rgba(255, 0, 0, 0.3);
             z-index: 1;
-        }
-
-        h3, p {
-            position: relative;
-            z-index: 2; // Damit der Text ÜBER den Linien liegt
-            margin: 0;
         }
 
         h3 {
             font-family: $font-heading;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: $brand-primary;
             margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
         }
 
         p {
+            font-family: $font-main;
             font-size: 0.95rem;
             color: $text-main;
             line-height: 1.5;
+            position: relative;
+            z-index: 2;
         }
     }
 }
