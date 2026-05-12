@@ -140,3 +140,58 @@
     margin: 0 $space-xs;
     font-weight: 300;
 }
+
+
+// Bilderlayout
+.article-references {
+    margin-top: $space-xl;
+    padding-top: $space-l;
+    border-top: 1px solid $border-color;
+
+    .references-title {
+        font-family: $font-main;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: $brand-accent;
+        margin-bottom: $space-l;
+    }
+
+    .reference-flex {
+        display: flex;
+        gap: $space-l;
+        align-items: flex-start;
+
+        // Auf dem Handy untereinander
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    .reference-image {
+        flex: 0 0 200px; // Bild hat eine feste Breite
+        
+        .ref-img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            filter: sepia(10%) contrast(95%); // Ein leichter Vintage-Look
+        }
+    }
+
+    .reference-text {
+        .image-caption {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: $text-muted;
+            margin-bottom: $space-m;
+            line-height: 1.4;
+        }
+
+        .reference-links {
+            // Greift auf deine Li-Styles mit dem Gedankenstrich zu
+            font-size: 0.95rem;
+            color: $brand-primary;
+        }
+    }
+}
