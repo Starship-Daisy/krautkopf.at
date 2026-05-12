@@ -4,8 +4,6 @@
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-
-
 // 2. Basis-Styles (Body, Links, Container)
 @use '01-base' as *;
 
@@ -13,14 +11,14 @@
 @use '02-components' as *;
 @use '02-quotes' as *;
 
-// 4. Index-Seite (Das Grid und die Karten)
-
-
 // 5. Detail-Seite (Spezifisches für den Blog-Artikel)
 @use '03-blog-details' as *;
 @use '03-werkstatt' as *;
 @use '03-legal' as *;
 @use '03-credits' as *;
 
-// 4. Index-Seite (Das Grid und die Karten)
+// 6. Index-Seite (Das Grid und die Karten)
 @use '02-blog-cards' as *;
+
+
+
