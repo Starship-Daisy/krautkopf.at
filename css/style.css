@@ -945,7 +945,7 @@ h4.back-to-home:hover,
 .credit-card .card-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.618/1;
+  aspect-ratio: 1.618/1 !important;
   overflow: hidden;
   border-radius: 2px;
 }
