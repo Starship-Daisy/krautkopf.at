@@ -84,7 +84,7 @@
     position: relative;
     overflow: hidden;
 
-    // Ein dezentes Muster oder Icon
+/*  // Ein dezentes Muster oder Icon
     &::after {
         content: 'Werkstatt-Modus'; 
         font-family: $font-main;
@@ -105,6 +105,7 @@
         rgba(0, 0, 0, 0.02) 20px
     );
 }
+    */
 
 .blog-card.is-draft {
     cursor: default;
