@@ -34,11 +34,36 @@ a.blog-card,
 // 2. DIE BLOG-KARTE
 .blog-card {
     display: flex;
-    flex-direction: column;
-    text-decoration: none;
+    flex-direction: column; // Bild oben, Text unten
+    overflow: hidden; // Verhindert, dass Inhalte ausbrechen
     background: $brand-paper;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    height: 100%;
+    // ...
+    
+    .card-image-wrapper {
+        position: relative;
+        width: 100%;
+        // Das hier erzwingt die Sichtbarkeit des Bereichs:
+        aspect-ratio: 16 / 10 !important; 
+        background: #eee; // Falls das Bild lädt, sieht man kurz grau
+        z-index: 1; // Bild liegt unten
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            // Sicherstellen, dass kein Filter das Bild unsichtbar macht
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    }
+
+    .card-content {
+        position: relative;
+        z-index: 2; // Der Zettel liegt stabil unter/nach dem Bild
+        flex-grow: 1; 
+        margin-top: 0; // Kein negativer Margin, der das Bild überlappt
+    }    
     
     // Wir entfernen alle Transitions, die mit Transform zu tun haben
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
