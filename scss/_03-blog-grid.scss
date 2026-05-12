@@ -1,139 +1,118 @@
-// 1. ZUERST DIE IMPORTE
-@use '01-variables' as *;
-@use 'media-query-mixin' as *; // Falls du das nutzt
+// ==========================================
+// _03-BLOG-GRID.SCSS
+// ==========================================
 
-// 2. DANN DER CODE
+@use '01-variables' as *;
+@use '01-typography' as *;
+
+// 1. Das Grid-System
+// ==========================================
 .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // Automatische Spalten: Mindestens 280px, maximal gleichmäßige Verteilung
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: $space-l;
-}   
+    margin: $space-xl 0;
+    width: 100%;
+
     @media (max-width: 768px) {
-        grid-template-columns: 1fr; // Eine Spalte auf dem Handy
+        grid-template-columns: 1fr;
         gap: $space-m;
     }
- 
-    // ... restlicher Code
-
-.blog-section {
-  padding: $space-xl 0;
-  background-color: transparent; 
 }
 
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $space-xl;
-  max-width: $container-width; // Nutzt deine Variable
-  margin: 0 auto;
-  padding: 0 $space-m;
-}
-
+// 2. Die Blog-Karte
+// ==========================================
 .blog-card {
-  background-color: #f7f4ee;
-  border-radius: $border-radius; // Nutzt deine Variable (4px)
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid $border-color; // Nutzt deine Variable
-  display: flex;
-  flex-direction: column;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  }
-}
-
-.card-image-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  
-  img {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    object-fit: cover;
-  }
-}
+    text-decoration: none; // Falls die ganze Karte ein Link ist
+    background: transparent;
+    transition: transform 0.3s ease;
 
-.card-content {
-  padding: $space-l;
-  flex-grow: 1;
-  
-  // DAS KARO-MUSTER (Sehr dezent hinter dem Text)
-  background-image: 
-      linear-gradient(90deg, transparent 85%, rgba(255, 0, 0, 0.25) 85%, rgba(255, 0, 0, 0.25) calc(85% + 1px), transparent calc(85% + 1px)),
-      linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
-  
-  background-size: 100% 100%, 20px 20px, 20px 20px; 
-  
-  h3 {
-    font-family: $font-heading;
-    color: $brand-primary;
-    margin-bottom: $space-s;
-    line-height: 1.3;
-  /*  // Weißer Hintergrund für bessere Lesbarkeit über den Linien
-    background: #f4f1ea;
-    display: inline;
-    box-shadow: 3px 0 0 #fff, -3px 0 0 #fff; 
-  }
-      // Hintergrund soll transparent sein
-  h3 {*/
-    background: transparent; // Der Balken verschwindet
-    box-shadow: none;        // Der seitliche Puffer verschwindet
-    display: inline;         // Beibehalten für den Zeilenumbruch-Look
-  }
-
-  p {
-    font-size: $font-size-small; 
-    color: $text-main; // Diese Variable hast du gerade ergänzt!
-    margin-top: $space-m;
-    line-height: 1.6;
-      // Hintergrund soll transparent sein
-    background: transparent; // Der Balken verschwindet
-    box-shadow: none;        // Der seitliche Puffer verschwindet
-    display: inline;         // Beibehalten für den Zeilenumbruch-Look
-/*    background: rgba(255, 255, 255, 0.7);
-    padding: 2px 0;*/
-  }
-}
-
-.card-link {
-  display: inline-block;
-  margin-top: $space-m;
-  color: $brand-primary;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: $font-size-small;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  
-      // Hintergrund soll transparent sein
-    background: transparent; // Der Balken verschwindet
-    box-shadow: none;        // Der seitliche Puffer verschwindet
-    display: inline;         // Beibehalten für den Zeilenumbruch-Look
-  
-  /*background: #fff;
-  padding: 0 4px;*/
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-// Damit die Bilder in den Cards nicht das Layout sprengen
-.card-image-wrapper {
-    width: 100%;
-    aspect-ratio: 1.618 / 1; // Goldener Schnitt für die Vorschau
-    overflow: hidden;
-    border-radius: 2px;
-
-    .card-image {
+    // Bild-Bereich
+    .card-image-wrapper {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+        aspect-ratio: 1.618 / 1; // Goldener Schnitt
+        overflow: hidden;
+        border-radius: 2px;
+        background-color: $border-color; // Fallback Farbe
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+    }
+
+    // Hover-Effekt auf das Bild
+    &:hover {
+        .card-image {
+            transform: scale(1.05);
+        }
+    }
+
+    // Text-Bereich
+    .card-content {
+        padding: $space-m 0;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        h3 {
+            font-family: $font-heading;
+            font-size: 1.25rem;
+            color: $brand-primary;
+            margin-bottom: $space-xs;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: $text-main;
+            margin-bottom: $space-m;
+            flex-grow: 1; // Schiebt den "Mehr lesen" Link nach unten
+        }
+
+        // Der "Mehr lesen" Link
+        .card-link {
+            font-family: $font-main;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: $brand-accent;
+            text-decoration: none;
+            display: inline-block;
+            align-self: flex-start;
+
+            &::after {
+                content: "";
+                display: block;
+                width: 30px;
+                height: 2px;
+                background-color: $brand-accent;
+                margin-top: 4px;
+                transition: width 0.3s ease;
+            }
+        }
+
+        &:hover .card-link::after {
+            width: 100%;
+        }
+    }
+}
+
+// 3. Spezielle Titel-Links (falls im HTML genutzt)
+// ==========================================
+.card-title-link {
+    text-decoration: none;
+    &:hover h3 {
+        color: $brand-accent;
     }
 }
