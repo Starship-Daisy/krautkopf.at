@@ -111,3 +111,33 @@
     text-decoration: underline;
   }
 }
+
+@use '01-variables' as *;
+
+.blog-grid {
+    display: grid;
+    // Der "Zauberstab" für Responsiveness:
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $space-l;
+    margin-top: $space-l;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // Eine Spalte auf dem Handy
+        gap: $space-m;
+    }
+}
+
+// Damit die Bilder in den Cards nicht das Layout sprengen
+.card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1.618 / 1; // Goldener Schnitt für die Vorschau
+    overflow: hidden;
+    border-radius: 2px;
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
