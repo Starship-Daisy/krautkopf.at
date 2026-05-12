@@ -29,6 +29,10 @@
         overflow: hidden;
         img { width: 100%; height: 100%; object-fit: cover; display: block; }
     }
+    .card-content a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
 
     // DAS KARIERTE TEXTFELD
     .card-content {
