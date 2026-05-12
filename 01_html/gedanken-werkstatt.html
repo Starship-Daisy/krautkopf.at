@@ -3,43 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gedanken-Werkstatt – Blog</title>
-            <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-
-            <link rel="preconnect" href="https://fonts.bunny.net">
-            
-            <link href="https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400;|open-sans:300" rel="stylesheet">
-
-            <link rel="stylesheet" href="../css/style.css"> 
+    <title>Gedanken-Werkstatt – Blog</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400;|open-sans:300" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"> 
 </head>
 <body>
 
-<header class="main-header">
-    <div class="container header-grid">
-        
-        <div class="header-left">
-            <div class="back-to-home">
-                <a href="../index.html">krautkopf.at</a>
-            </div>
-        </div>
-
-        <div class="header-center">
-            <div class="brand-wrapper">
-                <div class="kraut-logo-icon"></div> 
-                <div class="header-text">
-                    <h1>Gedanken-Werkstatt</h1>
-                    <p>Inspiration, Fokus & Aktion</p>
+    <header class="main-header">
+        <div class="container header-grid">
+            <div class="header-left">
+                <div class="back-to-home">
+                    <a href="../index.html">krautkopf.at</a>
                 </div>
             </div>
-        </div>
 
-        <div class="header-right">
+            <div class="header-center">
+                <div class="brand-wrapper">
+                    <div class="kraut-logo-icon"></div> 
+                    <div class="header-text">
+                        <h1>Gedanken-Werkstatt</h1>
+                        <p>Inspiration, Fokus & Aktion</p>
+                    </div>
+                </div>
             </div>
-
+            <div class="header-right"></div>
         </div>
-</header>
-  
+    </header>
 
+    <div class="body-limiter">
+        
         <section class="quote-section">
             <div class="quote-paper">
                 <div class="quote-text-wrapper">
@@ -50,46 +44,68 @@
             </div>
         </section>
 
-<div class="body-limiter">
+        <main class="page-wrapper">
+            <section class="hero-minimal">
+                <p class="hero__subtitle">
+                    Der größte Feind des Fortschritts ist nicht das Scheitern, sondern die Stagnation.
+                </p>
+            </section>
 
-<main class="page-wrapper">
-    <section class="hero-minimal">
-        <p class="hero__subtitle">
-            Der größte Feind des Fortschritts ist nicht das Scheitern, sondern die Stagnation.
-        </p>
-    </section>
-
-   <div class="content-narrow">
-        <article class="article-body">
-            <p class="lead">Fortschritt entsteht nicht am Reißbrett, sondern auf der Straße.</p>
-            <div class="article-text">
-                <p>Stagnation ist tückisch, weil sie sich oft wie "Planung" tarnen kann...</p>
-                <h3>Warum das Scheitern dein Freund ist</h3>
-                <p>Ein Fehler liefert Daten. Eine Stagnation liefert nichts.</p>
+            <div class="content-narrow">
+                <article class="article-body">
+                    <p class="lead">Fortschritt entsteht nicht am Reißbrett, sondern auf der Straße.</p>
+                    <div class="article-text">
+                        <p>Stagnation ist tückisch, weil sie sich oft wie "Planung" tarnen kann...</p>
+                        <h3>Warum das Scheitern dein Freund ist</h3>
+                        <p>Ein Fehler liefert Daten. Eine Stagnation liefert nichts.</p>
+                    </div>
+                </article>
             </div>
-        </article>
-    </div>
 
-    <section class="grid-section">
-        <h2 class="section-title">Neueste Gedanken</h2>
-        <div class="blog-grid">
-            <article class="blog-card">
-                <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1487023312653-e9014cce469c?q=80&w=800" class="card-image">
-                </div>
-                <div class="card-content">
-                    <h3>Gehen heißt Denken.</h3>
-                    <p>Warum uns manche Gedanken erst zwischen zwei Schritten begegnen.</p>
-                    <a href="#" class="card-link">Mehr lesen</a>
-                </div>
-            </article>
-            </div>
-    </section>
-</main>
+            <section class="grid-section">
+                <h2 class="section-title">Neueste Gedanken</h2>
+                
+                <div class="blog-grid">
+                    
+                    <article class="blog-card">
+                        <a href="blog-gehen.html" class="card-link-wrapper">
+                            <div class="card-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1487023312653-e9014cce469c?q=80&w=800" class="card-image" alt="Gehen">
+                            </div>
+                            <div class="card-content">
+                                <h3>Gehen heißt Denken.</h3>
+                                <p>Warum uns manche Gedanken erst zwischen zwei Schritten begegnen.</p>
+                            </div>
+                        </a>
+                    </article>
 
-</div>
+                    <article class="blog-card">
+                        <a href="blog-anfangen.html" class="card-link-wrapper">
+                            <div class="card-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800" class="card-image" alt="Schreiben">
+                            </div>
+                            <div class="card-content">
+                                <h3>Die Angst vor dem ersten Wort.</h3>
+                                <p>Wie man die Blockade bricht und einfach die Tinte fließen lässt.</p>
+                            </div>
+                        </a>
+                    </article>
 
-    <footer class="main-footer">
+                    <article class="blog-card">
+                        <a href="blog-fokus.html" class="card-link-wrapper">
+                            <div class="card-image-wrapper">
+                                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=800" class="card-image" alt="Fokus">
+                            </div>
+                            <div class="card-content">
+                                <h3>Fokus im Chaos.</h3>
+                                <p>Die Kunst, das Wesentliche vom Lauten zu unterscheiden.</p>
+                            </div>
+                        </a>
+                    </article>
+
+                </div> </section>
+        </main>
+    </div> <footer class="main-footer">
         <div class="container">
             <div class="footer-contact">
                 <a href="mailto:wolfgang@krautkopf.at">wolfgang@krautkopf.at</a>
