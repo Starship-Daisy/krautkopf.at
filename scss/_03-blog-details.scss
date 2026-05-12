@@ -161,11 +161,14 @@
     .reference-flex {
         display: flex;
         gap: $space-l;
-        align-items: flex-start;
+        // WICHTIG: Ändere 'center' zu 'flex-end'
+        // Das schiebt den Text (und das Bild) an die untere Kante des Rahmens
+            align-items: flex-end;
 
-        // Auf dem Handy untereinander
-        @media (max-width: 768px) {
+    @media (max-width: 768px) {
             flex-direction: column;
+            align-items: flex-start; // Auf dem Handy lieber wieder oben/links starten
+            gap: $space-m;
         }
     }
 
@@ -181,13 +184,19 @@
     }
 
     .reference-text {
-        .image-caption {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: $text-muted;
-            margin-bottom: $space-m;
-            line-height: 1.4;
+        flex: 1;
+        // Optional: Ein kleiner margin-bottom, falls der Text 
+        // nicht ganz auf der Linie kleben soll
+        margin-bottom: 5px; 
+
+    .image-caption {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: $text-muted;
+        font-style: italic;
+        margin: 0; // Entfernt Standardabstände
         }
+    }
 
         .reference-links {
             // Greift auf deine Li-Styles mit dem Gedankenstrich zu
