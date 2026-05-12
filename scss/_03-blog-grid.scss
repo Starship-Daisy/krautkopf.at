@@ -42,9 +42,9 @@ a.blog-card,
     transition: transform 0.3s ease;
     color: $text-main; // Standardfarbe setzen
 
-    &:hover {
+/*    &:hover {
         transform: translateY(-5px) rotate(0.5deg);
-    }
+    } */
 
     .card-image-wrapper {
         width: 100%;
