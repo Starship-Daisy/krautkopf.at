@@ -662,6 +662,50 @@ h4.back-to-home:hover,
   font-weight: 300;
 }
 
+.article-references {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.article-references .references-title {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8b9d83;
+  margin-bottom: 2rem;
+}
+.article-references .reference-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+@media (max-width: 768px) {
+  .article-references .reference-flex {
+    flex-direction: column;
+  }
+}
+.article-references .reference-image {
+  flex: 0 0 200px;
+}
+.article-references .reference-image .ref-img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  filter: sepia(10%) contrast(95%);
+}
+.article-references .reference-text .image-caption {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #757a70;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.article-references .reference-text .reference-links {
+  font-size: 0.95rem;
+  color: #4a5d4e;
+}
+
 .blog-layout-wrapper {
   display: grid;
   grid-template-columns: 1.8fr 1fr;
