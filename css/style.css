@@ -583,13 +583,6 @@ h4.back-to-home:hover,
   padding-right: 10px;
   color: #4a5d4e;
 }
-.blog-detail .article-body .article-text img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 4rem auto;
-  border-radius: 2px;
-}
 .blog-detail .article-body .article-text h3 {
   margin: 4rem 0 1rem;
   font-family: "Lora", serif;
@@ -655,35 +648,17 @@ h4.back-to-home:hover,
   height: 100%;
   object-fit: cover;
   display: block;
-  object-position: center 60%;
 }
 .reference-vertical .reference-text .image-caption {
   font-size: 0.85rem;
-  line-height: 1.4;
   color: #757a70;
   font-style: italic;
-  margin-top: 0.25rem;
   text-align: right;
 }
 @media (max-width: 768px) {
   .reference-vertical .reference-text .image-caption {
     text-align: left;
   }
-}
-
-.article-references-list {
-  margin: 4rem 0;
-}
-.article-references-list h4 {
-  font-size: 1rem;
-  color: #4a5d4e;
-  margin-bottom: 0.5rem;
-}
-
-.separator {
-  color: #8b9d83;
-  margin: 0 0.25rem;
-  font-weight: 300;
 }
 
 .blog-layout-wrapper {
