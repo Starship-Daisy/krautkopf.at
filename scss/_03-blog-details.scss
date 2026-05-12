@@ -140,7 +140,7 @@
     aspect-ratio: 3 / 1; 
     overflow: hidden;
     border-radius: 2px;
-    background-color: $bg-color; // Fallback, falls das Bild lädt
+    background-color: $brand-accent; // Fallback, falls das Bild lädt
 
     .ref-img {
         width: 100%;

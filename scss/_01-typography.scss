@@ -1,4 +1,5 @@
 // _01-typography.scss
+@use 'sass:color'; // Neu hinzufügen
 @use '01-variables' as *;
 
 // ==========================================
@@ -76,7 +77,9 @@ h1, h2, h3, h4 {
     padding-left: 1px;       // Minimaler Abstand zum vorherigen Wort
 
     &:hover {
-        color: darken($brand-accent, 15%);
+        // Alt: color: darken($brand-accent, 15%);
+        // Neu:
+        color: color.adjust($brand-accent, $lightness: -15%);
         text-decoration: underline;
     }
 }
