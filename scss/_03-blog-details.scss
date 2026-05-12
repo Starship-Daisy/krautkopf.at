@@ -2,23 +2,20 @@
 // _03-BLOG-DETAILS.SCSS
 // ==========================================
 
-// WICHTIG: Lade die Variablen direkt am Anfang der Datei
-
-@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
+@use 'sass:color';
+@use '01-variables' as *;
 @use '01-typography' as *;
-@use 'media-query-mixin' as *;
 
 .blog-detail {
-    // Strikte Begrenzung auf deine 750px Lesebreite 📖
+    // Strikte Begrenzung auf die Lesebreite
     max-width: $text-measure; 
     margin: $space-xl auto;
     padding: 0 $space-m;
 
     .article-body {
         
-        // Der "Lead"-Absatz als emotionaler Einstieg
         .lead {
-            font-family: $font-heading; // Lora
+            font-family: $font-heading;
             font-size: 1.5rem;
             color: $brand-primary;
             line-height: 1.4;
@@ -29,7 +26,6 @@
         }
 
         .article-text {
-            // Der Haupttext
             p {
                 margin-top: $space-l;
                 margin-bottom: $space-l;
@@ -37,7 +33,7 @@
                 font-size: 1.05rem;
                 line-height: 1.7;
 
-                // Initialbuchstabe (Drop Cap) für den allerersten Buchstaben
+                // Drop Cap für den ersten Buchstaben
                 &:first-of-type::first-letter {
                     font-family: $font-heading;
                     font-size: 3.5rem;
@@ -48,17 +44,25 @@
                 }
             }
 
+            // In _03-blog-details.scss unter .article-text p
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                    margin: $space-xl auto;
+                    border-radius: 2px;
+            }
+
             h3 {
                 margin: $space-xl 0 $space-m;
                 font-family: $font-heading;
                 font-size: $font-size-h2;
                 color: $brand-primary;
-                // Dezente Unterstreichung für Struktur
                 border-bottom: 1px solid $border-color;
                 padding-bottom: $space-xs;
             }
 
-            // Deine Liste: Stilvoll mit Gedankenstrichen
+            // Listen-Styling
             ul {
                 list-style: none;
                 margin: $space-l 0 $space-l $space-m;
@@ -71,50 +75,25 @@
                     color: $text-main;
                     
                     &::before {
-                        content: "—"; // Eleganter Strich statt Punkt
+                        content: "—";
                         position: absolute;
                         left: 0;
                         color: $brand-accent;
                     }
 
-                    strong {
-                        color: $brand-primary;
-                    }
+                    strong { color: $brand-primary; }
                 }
             }
         }
     }
 }
 
-// Hero-Anpassung für die Detailseite (Zentriert & Schlank)
-.hero {
-    text-align: center;
-    padding: $space-xl 0;
-    background-color: transparent; 
-    
-    &__title {
-        font-family: $font-heading;
-        font-size: $font-size-h1;
-        color: $brand-primary;
-        margin-bottom: $space-s;
-    }
-
-    &__subtitle {
-        font-family: $font-main;
-        font-size: $font-size-small;
-        color: $text-muted;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-}
-
-// ARTICLE REFERENCES
+// ==========================================
+// ARTICLE REFERENCES (PANORAMA-LAYOUT)
+// ==========================================
 
 .article-references {
-    margin-top: $space-xl;
-    margin-bottom: $space-xl;
+    margin: $space-xl 0;
     padding-top: $space-l;
     border-top: 1px solid $border-color;
 
@@ -130,166 +109,60 @@
 
 .reference-vertical {
     display: flex;
-    flex-direction: column; // Bild oben, Text unten
-    gap: $space-s; // Kleiner Abstand zwischen Bild und Bildunterschrift
-}
+    flex-direction: column;
+    gap: $space-s;
 
-.featured-image-panorama {
-    width: 100%;
-    // Super-Horizontal-Format (Kino-Format 21:9 oder flacher)
-    aspect-ratio: 3 / 1; 
-    overflow: hidden;
-    border-radius: 2px;
-    background-color: $brand-accent; // Fallback, falls das Bild lädt
-
-    .ref-img {
+    .featured-image-panorama {
         width: 100%;
-        height: 100%;
-        object-fit: cover; // WICHTIG: Damit das Panorama-Format gefüllt wird
-        display: block;
-        // Optional: Fokus auf die Mitte des Bildes verschieben
-        object-position: center 60%; 
+        aspect-ratio: 3 / 1; 
+        overflow: hidden;
+        border-radius: 2px;
+        background-color: $brand-accent;
+
+        // Responsive Anpassung für mobile Endgeräte
+        @media (max-width: 768px) {
+            aspect-ratio: 16 / 9; 
+        }
+
+        .ref-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            object-position: center 60%; 
+        }
+    }
+
+    .reference-text {
+        .image-caption {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: $text-muted;
+            font-style: italic;
+            margin-top: $space-xs;
+            text-align: right;
+
+            @media (max-width: 768px) {
+                text-align: left;
+            }
+        }
     }
 }
 
-.reference-text {
-    .image-caption {
-        font-size: 0.85rem;
-        line-height: 1.4;
-        color: $text-muted;
-        font-style: italic;
-        margin-top: $space-xs;
-        text-align: right; // Sieht bei Panorama-Bildern oft edler aus
+// Querverweise innerhalb des Textes
+.article-references-list {
+    margin: $space-xl 0;
+    
+    h4 {
+        font-size: 1rem;
+        color: $brand-primary;
+        margin-bottom: $space-s;
     }
 }
 
-// Für die kompakte Variante
+// Hilfsklasse für Inline-Trennzeichen
 .separator {
     color: $brand-accent;
     margin: 0 $space-xs;
     font-weight: 300;
 }
-
-
-// Bilderlayout
-.article-references {
-    margin-top: $space-xl;
-    padding-top: $space-l;
-    border-top: 1px solid $border-color;
-
-    .references-title {
-        font-family: $font-main;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: $brand-accent;
-        margin-bottom: $space-l;
-    }
-
-    .reference-flex {
-        display: flex;
-        gap: $space-l;
-        // WICHTIG: Ändere 'center' zu 'flex-end'
-        // Das schiebt den Text (und das Bild) an die untere Kante des Rahmens
-            align-items: flex-end;
-
-    @media (max-width: 768px) {
-            flex-direction: column;
-            align-items: flex-start; // Auf dem Handy lieber wieder oben/links starten
-            gap: $space-m;
-        }
-    }
-
-    .reference-image {
-        flex: 0 0 200px; // Bild hat eine feste Breite
-        
-        .ref-img {
-            width: 100%;
-            height: auto;
-            border-radius: 2px;
-            filter: sepia(10%) contrast(95%); // Ein leichter Vintage-Look
-        }
-    }
-
-    .reference-text {
-        flex: 1;
-        // Optional: Ein kleiner margin-bottom, falls der Text 
-        // nicht ganz auf der Linie kleben soll
-        margin-bottom: 5px; 
-
-    .image-caption {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: $text-muted;
-        font-style: italic;
-        margin: 0; // Entfernt Standardabstände
-        }
-    }
-
-        .reference-links {
-            // Greift auf deine Li-Styles mit dem Gedankenstrich zu
-            font-size: 0.95rem;
-            color: $brand-primary;
-        }
-    }
-
-
-// Bildnachweis-Box am Ende des Artikels
-
-.article-references {
-    margin-top: $space-xl;
-    margin-bottom: $space-l; // <--- HIER den Platz nach unten schaffen
-    padding-top: $space-l;
-    border-top: 1px solid $border-color;
-
-    .references-title {
-        font-family: $font-main;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: $brand-accent;
-        margin-bottom: $space-m;
-    }
-
-        @media (max-width: 768px) {
-            flex-direction: column;
-            align-items: flex-start;
-            // Auf dem Handy ist der Abstand zwischen Bild und Text oft zu groß, 
-            // hier kannst du ihn wieder etwas verringern:
-            gap: $space-m; 
-        }
-    }
-
-.featured-image {
-    flex: 0 0 250px; 
-    height: 180px;        // Gib dem Rahmen eine feste Höhe
-    overflow: hidden;     // WICHTIG: Schneidet alles ab, was über den Rand geht
-    position: relative;   // Anker für das Bild
-    border-radius: 4px;
-
-    @media (max-width: 768px) {
-            width: 100%;
-            flex: 0 0 auto;
-        }
-
-
-    .ref-img {
-        width: 100%;
-        height: 100%;     // Zwingt das Bild auf die Höhe des Rahmens
-        object-fit: cover; // Verhindert Verzerrungen (schneidet die Ränder ab)
-        display: block;
-    }
-}
-
-    .reference-text {
-        flex: 1;
-    
-        .image-caption {
-            // Falls du den Text innerhalb seiner Box noch weiter schieben willst:
-            margin-top: 0; 
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: $text-muted;
-            font-style: italic;
-        }
-    }
