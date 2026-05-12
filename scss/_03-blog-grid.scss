@@ -94,15 +94,17 @@ a.blog-card,
 }
 
 .card-content {
-    padding: 30px 45px 30px 20px !important;
-    position: relative;
+    // 1. Symmetrisches Padding für echte Zentrierung
+    padding: 30px 25px !important; 
     
-    // WICHTIG: Flex-Grow sorgt dafür, dass das Feld den restlichen Platz 
-    // in der Karte ausfüllt, auch wenn wenig Text drin steht.
-    flex-grow: 1; 
+    position: relative;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-
+    
+    // 2. TEXT HORIZONTAL MITTIG
+    text-align: center; 
+    
     background-color: $brand-paper !important;
 
     // KARO-MUSTER
@@ -110,7 +112,42 @@ a.blog-card,
         linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
         linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
     background-size: 20px 20px !important;
-    background-repeat: repeat !important; // Stellt sicher, dass es überall kachelt
+
+    // ROTE LINIE (Rechts)
+    &::before {
+        content: '';
+        position: absolute;
+        left: auto !important;
+        right: 30px !important; 
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: rgba(255, 0, 0, 0.4) !important;
+        z-index: 1; // Liegt HINTER dem Text
+    }
+
+    h3, p {
+        position: relative;
+        z-index: 2; // Text liegt ÜBER der Linie
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    h3 {
+        font-family: $font-heading;
+        font-size: 1.25rem;
+        color: $brand-primary-light !important;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    p {
+        font-family: $font-main;
+        font-size: 0.95rem;
+        color: $text-muted !important;
+        line-height: 1.6;
+    }
 }
 
 // SPEZIELLER FIX FÜR DRAFTS
