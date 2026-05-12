@@ -2,96 +2,57 @@
 // _03-BLOG-GRID.SCSS
 // ==========================================
 
-
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// 1. DAS GRID-SYSTEM (Zähmt die Breite)
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); // Erzwingt 3 Spalten
-    gap: 30px;                             // Abstand zwischen den Karten
-    max-width: 1100px;                     // Verhindert Ausreißen zum Rand
-    margin: 50px auto;                     // Zentriert den Block
-    padding: 0 20px;
-
-    @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr); // Tablet
+// 1. GRID-FIX: Erzwingt 3 Spalten
+// Wir nutzen hier den Pfad über .grid-section, um sicherzugehen
+.grid-section .blog-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 30px !important;
+    max-width: 1100px;
+    margin: 40px auto;
+    
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;            // Mobile
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr !important;
     }
 }
 
-// 2. DIE KARTE (Das Objekt an sich)
+// 2. KARO-FIX: Erzwingt das Muster
 .blog-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; // Alle Karten gleich hoch
-
-    &:hover {
-        transform: translateY(-5px) rotate(0.5deg);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
-
-    .card-image-wrapper {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        overflow: hidden;
-        
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-    }
-
-    // 3. DAS KARIERTE TEXTFELD (DEIN ZETTEL)
     .card-content {
-        padding: 30px 25px 30px 45px; // Mehr Platz links für die rote Linie
-        position: relative;
-        flex-grow: 1;
-        background-color: #fdfdfd;
-
-        // BLAUES KARO
+        // Zwingt das Karo-Muster
+        background-color: #ffffff !important;
         background-image: 
-            linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px);
-        background-size: 20px 20px;
+            linear-gradient(rgba(173, 216, 230, 0.3) 1.5px, transparent 1.5px),
+            linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1.5px, transparent 1.5px) !important;
+        background-size: 20px 20px !important;
+        background-position: center center;
+        
+        position: relative;
+        padding: 30px 20px 30px 45px !important;
+        border: 1px solid #eee !important;
 
-        // ROTE LINIE (Marginalie)
+        // ROTE LINIE
         &::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: rgba(255, 0, 0, 0.3);
+            content: "" !important;
+            position: absolute !important;
+            left: 30px !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: 1px !important;
+            background-color: rgba(255, 0, 0, 0.3) !important;
+            display: block !important;
             z-index: 1;
         }
 
-        h3 {
-            font-family: $font-heading;
-            font-size: 1.2rem;
-            color: $brand-primary;
-            margin-bottom: 10px;
+        h3, p {
             position: relative;
-            z-index: 2;
-        }
-
-        p {
-            font-family: $font-main;
-            font-size: 0.95rem;
-            color: $text-main;
-            line-height: 1.5;
-            position: relative;
-            z-index: 2;
+            z-index: 2; // Text über die Linien
         }
     }
 }
