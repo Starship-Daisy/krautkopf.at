@@ -110,28 +110,56 @@
     }
 }
 
+// ARTICLE REFERENCES
+
 .article-references {
     margin-top: $space-xl;
+    margin-bottom: $space-xl;
     padding-top: $space-l;
     border-top: 1px solid $border-color;
 
-    h3 {
-        font-size: 1.1rem;
+    .references-title {
+        font-family: $font-main;
+        font-size: 0.85rem;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.15em;
         color: $brand-accent;
         margin-bottom: $space-m;
     }
+}
 
-    .reference-list {
-        font-size: 0.95rem;
-        font-style: italic;
+.reference-vertical {
+    display: flex;
+    flex-direction: column; // Bild oben, Text unten
+    gap: $space-s; // Kleiner Abstand zwischen Bild und Bildunterschrift
+}
+
+.featured-image-panorama {
+    width: 100%;
+    // Super-Horizontal-Format (Kino-Format 21:9 oder flacher)
+    aspect-ratio: 3 / 1; 
+    overflow: hidden;
+    border-radius: 2px;
+    background-color: $bg-color; // Fallback, falls das Bild lädt
+
+    .ref-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // WICHTIG: Damit das Panorama-Format gefüllt wird
+        display: block;
+        // Optional: Fokus auf die Mitte des Bildes verschieben
+        object-position: center 60%; 
+    }
+}
+
+.reference-text {
+    .image-caption {
+        font-size: 0.85rem;
+        line-height: 1.4;
         color: $text-muted;
-        
-        li {
-            line-height: 1.5;
-            margin-bottom: $space-s;
-        }
+        font-style: italic;
+        margin-top: $space-xs;
+        text-align: right; // Sieht bei Panorama-Bildern oft edler aus
     }
 }
 
