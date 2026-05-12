@@ -889,7 +889,8 @@ h4.back-to-home:hover,
 .blog-card {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
+  text-decoration: none !important;
+  color: inherit !important;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   height: 100%;
