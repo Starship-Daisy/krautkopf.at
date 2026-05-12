@@ -706,6 +706,57 @@ h4.back-to-home:hover,
   color: #4a5d4e;
 }
 
+.article-references {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.article-references .references-title {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8b9d83;
+  margin-bottom: 1rem;
+}
+.article-references .reference-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .article-references .reference-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.article-references .featured-image {
+  flex: 0 0 250px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .article-references .featured-image {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
+.article-references .featured-image .ref-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.article-references .reference-text {
+  flex: 1;
+}
+.article-references .reference-text .image-caption {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #757a70;
+  font-style: italic;
+}
+
 .blog-layout-wrapper {
   display: grid;
   grid-template-columns: 1.8fr 1fr;
