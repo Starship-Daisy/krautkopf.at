@@ -719,38 +719,37 @@ h4.back-to-home:hover,
   color: #8b9d83;
   margin-bottom: 1rem;
 }
-.article-references .reference-flex {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-}
 @media (max-width: 768px) {
-  .article-references .reference-flex {
+  .article-references {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
   }
 }
-.article-references .featured-image {
+
+.featured-image {
   flex: 0 0 250px;
   overflow: hidden;
   border-radius: 4px;
 }
 @media (max-width: 768px) {
-  .article-references .featured-image {
+  .featured-image {
     width: 100%;
     flex: 0 0 auto;
   }
 }
-.article-references .featured-image .ref-img {
+.featured-image .ref-img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
 }
-.article-references .reference-text {
+
+.reference-text {
   flex: 1;
 }
-.article-references .reference-text .image-caption {
+.reference-text .image-caption {
+  margin-top: 0;
   font-size: 0.9rem;
   line-height: 1.5;
   color: #757a70;
