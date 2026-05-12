@@ -944,10 +944,9 @@ h4.back-to-home:hover,
 }
 .credit-card .card-image-wrapper {
   position: relative;
-  width: 100% !important;
-  aspect-ratio: 1.618/1 !important;
+  width: 100%;
+  padding-top: 61.8%;
   overflow: hidden;
-  display: block;
 }
 .credit-card .card-image-wrapper .card-image {
   position: absolute;
