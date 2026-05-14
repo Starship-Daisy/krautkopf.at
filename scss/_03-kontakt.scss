@@ -1,7 +1,7 @@
 // ==========================================
-// _03-KONTAKT.SCSS
+// _04-KONTAKT.SCSS
 // Upgrade: Notizblock-Design mit Perforation und Lochung
-// Basierend auf deinem Werkstatt-Look Entwurf
+// Basierend auf deinem HTML-Struktur Entwurf
 // ==========================================
 
 @use '01-variables' as *;
@@ -45,7 +45,7 @@
         max-width: 450px;
     }
 
-    // Anzeige für den aktiven Sound
+    // Anzeige für den aktiven Sound (Grüne Lampe)
     .sound-status {
         margin-top: 40px;
         font-family: 'Courier Prime', monospace;
@@ -66,19 +66,15 @@
     }
 }
 
-// 4. DER "NOTIZBLOCK" (FORMULAR-CONTAINER)
-.notepad-container {
-    max-width: 550px;
-    margin: 0 auto;
-    position: relative;
-}
-
-.notepad-paper {
+// 4. DER "ZETTEL" (DEIN CONTAINER)
+.contact-form-container {
     background-color: $brand-paper;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 110px 50px 60px 50px; // Mehr Platz oben für Lochung
+    padding: 110px 40px 60px 40px; // Oben viel Platz für Lochung
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    max-width: 550px;
+    margin: 0 auto;
 
     // Kariertes Hintergrundmuster (Graph Paper)
     background-image: 
@@ -98,30 +94,27 @@
         z-index: 5;
     }
 
-    // B. DIE LOCHUNG (Zwei gestanzte Löcher)
-    .notepad-holes {
+    // B. DIE LOCHUNG (Pseudo-Elemente für die zwei Löcher)
+    &::before {
+        content: '';
         position: absolute;
         top: 30px;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: center;
-        gap: 180px;
+        left: 50px;
+        width: 22px;
+        height: 22px;
+        background: #f5f5f5; 
+        border-radius: 50%;
+        box-shadow: 
+            inset 3px 3px 5px rgba(0, 0, 0, 0.1),
+            380px 0 0 #f5f5f5, // Das zweite Loch via Shadow versetzt
+            inset 383px 3px 5px rgba(0, 0, 0, 0.1); 
         z-index: 5;
-
-        .hole {
-            width: 22px;
-            height: 22px;
-            background: #f5f5f5; // Hintergrund-Farbe
-            border-radius: 50%;
-            box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.1);
-        }
     }
 
     // C. DIE ROTE LINIE (Marginalspalte)
     .margin-line {
         position: absolute;
-        left: 45px;
+        left: 35px;
         top: 0;
         bottom: 0;
         width: 1px;
@@ -134,7 +127,7 @@
 .contact-form {
     position: relative;
     z-index: 2;
-    padding-left: 25px; // Abstand zur roten Linie
+    padding-left: 20px; // Abstand zur roten Linie
 
     .input-group {
         position: relative;
