@@ -39,55 +39,72 @@
 
     <main class="main-wrapper">
         
-        <section class="contact-section">
-            <div class="contact-grid">
-                
-                <div class="contact-info">
-                    <h1>Schreib mir.</h1>
-                    <p>Jeder Tastenschlag zählt. Ich freue mich auf deine Nachricht in meiner digitalen Werkstatt.</p>
-                    <div style="margin-top: 40px; font-family: 'Courier Prime', monospace; font-size: 0.8rem; color: #999; display: flex; align-items: center; gap: 10px;">
-                        <span style="width: 10px; height: 10px; background: #556b2f; border-radius: 50%; display: inline-block;"></span>
-                        Schreibmaschinen-Sound aktiv
-                    </div>
-                </div>
-
-                <!-- Der neue Notizblock-Container -->
-                <div class="notepad-container">
-                    <div class="notepad-paper">
-                        
-                        <!-- Die Lochung oben -->
-                        <div class="notepad-holes">
-                            <div class="hole"></div>
-                            <div class="hole"></div>
-                        </div>
-
-                        <!-- Die vertikale rote Linie -->
-                        <div class="margin-line"></div>
-
-                        <form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
-                            <div class="input-group">
-                                <input type="text" id="name" name="Name" required autocomplete="off" />
-                                <label for="name">Dein Name</label>
-                            </div>
-
-                            <div class="input-group">
-                                <input type="email" id="email" name="Email" required autocomplete="off" />
-                                <label for="email">Deine E-Mail</label>
-                            </div>
-
-                            <div class="input-group">
-                                <textarea id="message" name="Nachricht" required></textarea>
-                                <label for="message">Deine Nachricht</label>
-                            </div>
-
-                            <button type="submit" class="submit-btn">Abschicken</button>
-                        </form>
-                    </div>
-                </div>
-
-
+<section class="contact-section">
+    <div class="contact-grid">
+        
+        <!-- Linke Spalte: Informationen & Status -->
+        <div class="contact-info">
+            <h1>Schreib mir.</h1>
+            <p>Jeder Tastenschlag zählt. Ich freue mich auf deine Nachricht in meiner digitalen Werkstatt.</p>
+            
+            <!-- Visueller Indikator für den aktiven Sound -->
+            <div style="margin-top: 40px; font-family: 'Courier Prime', monospace; font-size: 0.8rem; color: #999; display: flex; align-items: center; gap: 10px;">
+                <span style="width: 10px; height: 10px; background: #556b2f; border-radius: 50%; display: inline-block; box-shadow: 0 0 5px rgba(85, 107, 47, 0.5);"></span>
+                Schreibmaschinen-Sound aktiv
             </div>
-        </section>
+        </div>
+
+        <!-- Rechte Spalte: Der Notizblock -->
+        <div class="notepad-container">
+            <div class="notepad-paper">
+                
+                <!-- Dekoration: Die Lochung oben -->
+                <div class="notepad-holes">
+                    <div class="hole"></div>
+                    <div class="hole).</div>
+                </div>
+
+                <!-- Dekoration: Die vertikale rote Linie (Marginalspalte) -->
+                <div class="margin-line"></div>
+
+                <!-- Das eigentliche Formular -->
+                <form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
+                    
+                    <!-- FORM-TAXI KONFIGURATION (Versteckte Felder) -->
+                    <div style="display:none;">
+                        <!-- Honeypot gegen Spam -->
+                        <input type="text" name="_gotcha" value="" />
+                        
+                        <!-- Eigener Betreff für die E-Mail, die du erhältst -->
+                        <input type="hidden" name="_subject" value="Neue Nachricht von Krautkopf.at">
+                        
+                        <!-- Optionale Weiterleitung nach dem Absenden (Pfad zu deiner Danke-Seite) -->
+                        <input type="hidden" name="_next" value="https://krautkopf.at/01_html/danke.html">
+                    </div>
+
+                    <!-- EINGABEFELDER -->
+                    <div class="input-group">
+                        <input type="text" id="name" name="Name" required autocomplete="off" />
+                        <label for="name">Dein Name</label>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="email" name="Email" required autocomplete="off" />
+                        <label for="email">Deine E-Mail</label>
+                    </div>
+
+                    <div class="input-group">
+                        <textarea id="message" name="Nachricht" required></textarea>
+                        <label for="message">Deine Nachricht</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Abschicken!</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <footer class="main-footer">
             <nav class="footer-nav">
