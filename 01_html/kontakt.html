@@ -91,52 +91,18 @@
         </footer>
     </main>
 
-    <script>
-        /**
-         * SCHREIBMASCHINEN SOUND SYNTHESIZER
-         * Erzeugt mechanische Klick-Laute beim Tippen
-         */
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-        function playClickSound() {
-            // Audio-Kontext starten (Browser blockieren Autoplay oft)
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-
-            const oscillator = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-
-            // Ein kurzer "Impuls" Sound (wie ein mechanisches Klacken)
-            oscillator.type = 'square';
-            // Wir variieren die Frequenz minimal für einen organischeren Sound
-            oscillator.frequency.setValueAtTime(150 + Math.random() * 50, audioCtx.currentTime);
-            
-            // Die Lautstärke fällt extrem schnell ab (wie ein Klick)
-            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-
-            oscillator.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-
-            oscillator.start();
-            oscillator.stop(audioCtx.currentTime + 0.1);
-        }
-
-        // Alle Eingabefelder im Formular finden
-        const form = document.getElementById('typewriter-form');
-        const inputs = form.querySelectorAll('input, textarea');
-
-        // Event-Listener für jeden Tastendruck hinzufügen
-        inputs.forEach(input => {
-            input.addEventListener('keydown', (e) => {
-                // Nur Töne abspielen, wenn es keine Funktionstasten sind (wie Shift, Alt)
-                if (e.key.length === 1 || e.key === 'Backspace' || e.key === 'Enter') {
-                    playClickSound();
-                }
-            });
-        });
-    </script>
-
+<!-- Integration der iPhone-Soundlogik -->
+    <script src="../js/clicksound.js"></script>
+    
 </body>
 </html>
+
+### Damit der Sound funktioniert, prüfe kurz dein Formular-Tag:
+Das JavaScript in der `clicksound.js` sucht nach einem Element mit der ID `typewriter-form`. 
+Dein Formular-Code sollte also so aussehen:
+
+```html
+
+<form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
+    <!-- Deine Eingabefelder -->
+</form>
