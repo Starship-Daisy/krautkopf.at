@@ -1,0 +1,78 @@
+// ==========================================
+// _05-LEGAL.SCSS
+// Fokus: Vollflächiger Notizblock-Look für 
+// Impressum & Datenschutz
+// ==========================================
+
+@use '01-variables' as *;
+@use '01-typography' as *;
+
+.legal-page {
+    // Der gesamte Hintergrund der Seite bekommt das Papier-Finish
+    background-color: #fdfdfd;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .main-wrapper {
+        flex: 1;
+        position: relative;
+        padding: 80px 40px;
+        max-width: 900px; // Etwas schmaler für bessere Lesbarkeit von langem Text
+        margin: 0 auto;
+        
+        // DAS KOMPLETTE KARO
+        // Wir legen es auf den Wrapper, damit es den Text hinterlegt
+        background-image: 
+            linear-gradient(rgba(173, 216, 230, 0.2) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(173, 216, 230, 0.2) 1px, transparent 1px);
+        background-size: 30px 30px;
+        border-left: 1px solid rgba(0,0,0,0.05);
+        border-right: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 0 50px rgba(0,0,0,0.02);
+    }
+
+    // Die rote Marginal-Linie (typisch für Notizblöcke)
+    .legal-content {
+        position: relative;
+        padding-left: 60px; // Platz für die rote Linie
+        border-left: 1px solid rgba(255, 0, 0, 0.15);
+        margin-left: 20px;
+    }
+
+    h1 {
+        font-family: $font-heading;
+        font-size: 3rem;
+        color: $brand-primary;
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-family: $font-heading;
+        font-size: 1.8rem;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        color: $brand-primary;
+    }
+
+    p, li {
+        font-family: $font-main;
+        line-height: 1.8;
+        color: $text-main;
+        margin-bottom: 20px;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 60px;
+        font-family: 'Courier Prime', monospace;
+        color: $brand-primary;
+        text-decoration: none;
+        border-bottom: 1px solid $brand-primary;
+        padding-bottom: 2px;
+        
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
