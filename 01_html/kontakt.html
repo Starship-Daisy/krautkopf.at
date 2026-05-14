@@ -51,30 +51,40 @@
                     </div>
                 </div>
 
-                <div class="contact-form-container">
-                    <form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
-                        <div style="display:none;">
-                            <input type="text" name="_gotcha" value="" />
+                <!-- Der neue Notizblock-Container -->
+                <div class="notepad-container">
+                    <div class="notepad-paper">
+                        
+                        <!-- Die Lochung oben -->
+                        <div class="notepad-holes">
+                            <div class="hole"></div>
+                            <div class="hole"></div>
                         </div>
 
-                        <div class="input-group">
-                            <input type="text" id="name" name="Name" required />
-                            <label for="name">Dein Name</label>
-                        </div>
+                        <!-- Die vertikale rote Linie -->
+                        <div class="margin-line"></div>
 
-                        <div class="input-group">
-                            <input type="email" id="email" name="Email" required />
-                            <label for="email">Deine E-Mail</label>
-                        </div>
+                        <form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
+                            <div class="input-group">
+                                <input type="text" id="name" name="Name" required autocomplete="off" />
+                                <label for="name">Dein Name</label>
+                            </div>
 
-                        <div class="input-group">
-                            <textarea id="message" name="Nachricht" required></textarea>
-                            <label for="message">Deine Nachricht</label>
-                        </div>
+                            <div class="input-group">
+                                <input type="email" id="email" name="Email" required autocomplete="off" />
+                                <label for="email">Deine E-Mail</label>
+                            </div>
 
-                        <button type="submit" class="submit-btn">Abschicken!</button>
-                    </form>
+                            <div class="input-group">
+                                <textarea id="message" name="Nachricht" required></textarea>
+                                <label for="message">Deine Nachricht</label>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Abschicken</button>
+                        </form>
+                    </div>
                 </div>
+
 
             </div>
         </section>
