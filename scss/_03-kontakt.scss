@@ -1,6 +1,7 @@
 // ==========================================
-// _04-KONTAKT.SCSS
-// Design für die Kontaktseite (Werkstatt-Look)
+// _03-KONTAKT.SCSS
+// Upgrade: Notizblock-Design mit Perforation und Lochung
+// Basierend auf deinem Werkstatt-Look Entwurf
 // ==========================================
 
 @use '01-variables' as *;
@@ -8,150 +9,195 @@
 
 // 1. DER RAHMEN (SEKTION)
 .contact-section {
-padding: 80px 20px;
-max-width: 1100px;
-margin: 0 auto;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 // 2. DAS LAYOUT-GRID
 .contact-grid {
-display: grid;
-grid-template-columns: 1fr 1.2fr; // Info-Text links, Formular rechts
-gap: 60px;
-align-items: start;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; // Info-Text links, Formular rechts
+    gap: 60px;
+    align-items: start;
 
-@media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    gap: 40px;
-}
-
-
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
 // 3. KONTAKT-INFO (TEXT LINKS)
 .contact-info {
-h1 {
-font-family: $font-heading;
-font-size: 3.5rem;
-color: $brand-primary;
-margin-bottom: 20px;
-line-height: 1.1;
+    h1 {
+        font-family: $font-heading;
+        font-size: 3.5rem;
+        color: $brand-primary;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    p {
+        font-family: $font-main;
+        font-size: 1.1rem;
+        color: $text-main;
+        line-height: 1.6;
+        max-width: 450px;
+    }
+
+    // Anzeige für den aktiven Sound
+    .sound-status {
+        margin-top: 40px;
+        font-family: 'Courier Prime', monospace;
+        font-size: 0.8rem;
+        color: #999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #556b2f; // Krautkopf-Grün
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 5px rgba(85, 107, 47, 0.5);
+        }
+    }
 }
 
-p {
-    font-family: $font-main;
-    font-size: 1.1rem;
-    color: $text-main;
-    line-height: 1.6;
-    max-width: 450px;
+// 4. DER "NOTIZBLOCK" (FORMULAR-CONTAINER)
+.notepad-container {
+    max-width: 550px;
+    margin: 0 auto;
+    position: relative;
 }
 
+.notepad-paper {
+    background-color: $brand-paper;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 110px 50px 60px 50px; // Mehr Platz oben für Lochung
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 
-}
+    // Kariertes Hintergrundmuster (Graph Paper)
+    background-image: 
+        linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
+    background-size: 25px 25px;
 
-// 4. DER "ZETTEL" (FORMULAR-CONTAINER)
-.contact-form-container {
-background-color: $brand-paper;
-border: 1px solid rgba(0, 0, 0, 0.08);
-padding: 60px 40px;
-position: relative;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    // A. DIE PERFORATION (Gepunktete Abrisskante)
+    &::after {
+        content: '';
+        position: absolute;
+        top: 75px; 
+        left: 0;
+        right: 0;
+        height: 1px;
+        border-top: 2px dashed rgba(0, 0, 0, 0.12);
+        z-index: 5;
+    }
 
-// Kariertes Hintergrundmuster (Graph Paper)
-background-image: 
-    linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
-background-size: 25px 25px;
+    // B. DIE LOCHUNG (Zwei gestanzte Löcher)
+    .notepad-holes {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 180px;
+        z-index: 5;
 
-// Die rote Korrekturlinie (Marginalspalte)
-&::before {
-    content: '';
-    position: absolute;
-    left: 35px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: rgba(255, 0, 0, 0.25);
-    z-index: 1;
-}
+        .hole {
+            width: 22px;
+            height: 22px;
+            background: #f5f5f5; // Hintergrund-Farbe
+            border-radius: 50%;
+            box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+    }
 
-
+    // C. DIE ROTE LINIE (Marginalspalte)
+    .margin-line {
+        position: absolute;
+        left: 45px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: rgba(255, 0, 0, 0.25);
+        z-index: 1;
+    }
 }
 
 // 5. DAS FORMULAR
 .contact-form {
-position: relative;
-z-index: 2;
-padding-left: 25px; // Platz für die rote Linie
-
-.input-group {
     position: relative;
-    margin-bottom: 40px;
+    z-index: 2;
+    padding-left: 25px; // Abstand zur roten Linie
 
-    label {
-        position: absolute;
-        left: 0;
-        top: 10px;
-        font-family: 'Courier Prime', monospace;
-        font-size: 0.9rem;
-        color: #999;
-        transition: all 0.3s ease;
-        pointer-events: none;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+    .input-group {
+        position: relative;
+        margin-bottom: 40px;
 
-    input, textarea {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #ddd;
-        background: transparent;
-        padding: 10px 0;
-        font-family: 'Courier Prime', monospace;
-        font-size: 1.15rem;
-        color: $brand-primary;
-        outline: none;
-        transition: border-color 0.3s ease;
-
-        &:focus {
-            border-bottom-color: $brand-primary;
+        label {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.9rem;
+            color: #999;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        // Floating Label Logik (Wandert hoch bei Fokus oder Text)
-        &:focus + label,
-        &:valid + label {
-            top: -22px;
-            font-size: 0.75rem;
+        input, textarea {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            background: transparent;
+            padding: 10px 0;
+            font-family: 'Courier Prime', monospace;
+            font-size: 1.15rem;
             color: $brand-primary;
-            letter-spacing: 2px;
+            outline: none;
+            transition: border-color 0.3s ease;
+
+            // Floating Label Logik
+            &:focus + label,
+            &:valid + label {
+                top: -22px;
+                font-size: 0.75rem;
+                color: $brand-primary;
+                letter-spacing: 2px;
+            }
+        }
+
+        textarea {
+            resize: none;
+            min-height: 200px;
+            line-height: 25px; // Exakt am Karo-Raster
         }
     }
 
-    textarea {
-        resize: none;
-        min-height: 150px;
-        line-height: 25px; // Synchronisiert mit dem Karo-Muster
+    .submit-btn {
+        background-color: $brand-primary;
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-family: 'Courier Prime', monospace;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block;
+
+        &:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
     }
-}
-
-.submit-btn {
-    background-color: $brand-primary;
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    font-family: 'Courier Prime', monospace;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-
-    &:hover {
-        background-color: #333;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-}
-
-
 }
