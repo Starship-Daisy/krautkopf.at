@@ -767,9 +767,9 @@ h4.back-to-home:hover,
   color: #4a5d4e;
 }
 .legal-page p, .legal-page li {
-  font-family: "Inter", sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.8;
-  color: #1a1a1a;
+  color: #757a70;
   margin-bottom: 20px;
 }
 .legal-page .back-link {
