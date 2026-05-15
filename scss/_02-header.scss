@@ -1,0 +1,140 @@
+// ==========================================
+// _02-HEADER.SCSS
+// Fokus: Flexibles Header-System mit Mobile-Optimierung
+// Nutzt das neue Media-Query-Mixin System
+// ==========================================
+
+@use 'sass:map';
+@use '01-variables' as *;
+@use '01-typography' as *;
+
+// 1. MEDIA QUERY SYSTEM (MIXINS)
+$breakpoints: (
+  "medium": 768px,
+  "large":  1024px,
+  "xlarge": 1440px
+);
+
+@mixin respond-to($breakpoint) {
+  $value: map.get($breakpoints, $breakpoint);
+  
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint #{$breakpoint} existiert nicht.";
+  }
+}
+
+@mixin landscape-mobile {
+  @media screen and (max-device-width: 932px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// 2. BASIS-STYLES (MOBILE FIRST: Linksbündig & ohne Logo)
+.main-header {
+    padding: 30px 0;
+    background-color: transparent;
+    width: 100%;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    @include respond-to('medium') {
+        padding: 40px 0;
+    }
+}
+
+.header-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; // Standard: Linksbündig
+    position: relative;
+
+    @include respond-to('medium') {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 0;
+    gap: 0;
+
+    .kraut-logo-icon {
+        display: none; // Standard: Logo ausblenden
+        width: 40px;
+        height: 40px;
+        background-color: $brand-primary;
+        mask: url('../assets/icons/logo.svg') no-repeat center;
+        mask-size: contain;
+
+        @include respond-to('medium') {
+            display: block;
+        }
+    }
+
+    .header-text {
+        h1 {
+            font-family: $font-heading;
+            font-size: 2rem;
+            margin: 0;
+            line-height: 1;
+            color: $brand-primary;
+
+            @include respond-to('medium') {
+                font-size: 2.5rem;
+            }
+        }
+
+        p {
+            font-family: 'Comforter Brush', cursive;
+            font-size: 1rem;
+            margin: 2px 0 0 0;
+            color: $brand-accent;
+
+            @include respond-to('medium') {
+                font-size: 1.2rem;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    @include respond-to('medium') {
+        margin: 0 auto;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+// Navigations-Elemente
+.header-left, .header-right {
+    flex: 1;
+    
+    @media (max-width: 767px) {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+.header-right {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.back-to-home a {
+    font-family: 'Permanent Marker', cursive;
+    text-decoration: none;
+    color: $brand-primary;
+    font-size: 1.1rem;
+}

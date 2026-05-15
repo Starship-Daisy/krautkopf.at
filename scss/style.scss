@@ -10,6 +10,7 @@
 // 3. Komponenten (Dinge, die überall vorkommen)
 @use '02-components' as *;
 @use '02-quotes' as *;
+@use '02-header' as *;
 
 // 5. Detail-Seite (Spezifisches für den Blog-Artikel)
 @use '03-blog-details' as *;
