@@ -122,12 +122,12 @@
         position: absolute;
         top: 15px;
         right: -30px;
-        background: $brand-accent; // Oder eine neutrale Farbe wie #999
+        background: $brand-paper; // Oder eine neutrale Farbe wie #999
         color: white;
         padding: 5px 40px;
-        font-family: 'Courier Prime', monospace;
+        font-family: $font-note;
         font-size: 0.7rem;
-        text-transform: uppercase;
+        text-transform: lowercase;
         letter-spacing: 0.1em;
         transform: rotate(45deg);
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -156,11 +156,11 @@
     
     &::after {
         content: 'Notiz folgt';
-        font-family: $font-main;
+        font-family: $font-note;
         font-size: 0.65rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        color: #999;
+        color: $brand-paper;
         border: 1px solid #ddd;
         padding: 4px 12px;
     }
