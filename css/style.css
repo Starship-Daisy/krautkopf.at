@@ -1263,12 +1263,12 @@ h4.back-to-home:hover,
   position: absolute;
   top: 15px;
   right: -30px;
-  background: #8b9d83;
+  background: #f7f4e9;
   color: white;
   padding: 5px 40px;
-  font-family: "Courier Prime", monospace;
+  font-family: "Comforter Brush", cursive;
   font-size: 0.7rem;
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.1em;
   transform: rotate(45deg);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -1292,11 +1292,11 @@ h4.back-to-home:hover,
 }
 .card-image-placeholder::after {
   content: "Notiz folgt";
-  font-family: "Inter", sans-serif;
+  font-family: "Comforter Brush", cursive;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #999;
+  color: #f7f4e9;
   border: 1px solid #ddd;
   padding: 4px 12px;
 }
