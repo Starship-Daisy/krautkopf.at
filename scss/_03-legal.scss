@@ -1,19 +1,29 @@
 // ==========================================
-// 03-LEGAL.SCSS (Impressum & Datenschutz)
+// _03-LEGAL.SCSS
+// Design für Impressum, Datenschutz & Danke
 // ==========================================
 
 @use '01-variables' as *;
 @use '01-typography' as *;
-@use 'media-query-mixin' as *;
 
+// Die äußere Sektion garantiert den Abstand zum Displayrand (Mobile Fix)
+.legal-section, .danke-section {
+    padding: 80px 20px; 
+    width: 100%;
+    box-sizing: border-box;
+
+    @media (max-width: 768px) {
+        padding: 40px 20px;
+    }
+}
+
+// Der Inhalts-Container für optimale Lesebreite
 .legal-content {
-    /*background-color: rgba(red, 0.1) !important; // Macht den Hintergrund zart rot
-    border: 2px solid red !important;           // Roter Rahmen*/
-    
-    max-width: 900px !important;                 // Harte Grenze zum Testen
-    margin: 0 auto !important;                   // Zentrierung erzwingen
+    max-width: 900px !important;
+    margin: 0 auto !important;
     display: block !important;
 
+    // Intro Bereich mit Akzent-Linie
     .legal-intro {
         margin-bottom: $space-xl;
         border-left: 3px solid $brand-accent;
@@ -27,20 +37,23 @@
             color: $brand-accent;
             font-weight: 700;
             margin-bottom: $space-xs;
+            display: block;
         }
 
         p {
+            font-family: $font-heading;
             font-size: 1.25rem;
             line-height: 1.5;
             color: $text-muted;
         }
     }
 
-    .legal-section {
+    // Einzelne Text-Abschnitte
+    .legal-text-block {
         margin-bottom: $space-l;
 
         .section-number {
-            font-family: $font-copy;
+            font-family: $font-main;
             font-size: 0.7rem;
             color: $brand-accent;
             font-weight: 700;
@@ -53,13 +66,15 @@
             font-size: 1.75rem;
             color: $brand-primary;
             margin-bottom: $space-s;
+            line-height: 1.2;
         }
 
         p {
-            font-family: $font-copy; // Nutzt 'Open Sans'
-            font-size: $font-size-base;
+            font-family: $font-main; // Nutzt 'Open Sans' / Main Font
+            font-size: 1.05rem;
             line-height: 1.8;
             color: $text-main;
+            margin-bottom: 1.5rem;
             
             strong {
                 color: $brand-primary;
@@ -70,18 +85,39 @@
                 color: $brand-primary;
                 text-decoration: underline;
                 text-underline-offset: 3px;
+                transition: color 0.3s;
                 &:hover { color: $brand-accent; }
+            }
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            li {
+                margin-bottom: 0.75rem;
+                list-style: none;
+                position: relative;
+                font-family: $font-main;
+                line-height: 1.6;
+
+                &::before {
+                    content: "—";
+                    position: absolute;
+                    left: -1.5rem;
+                    color: $brand-accent;
+                }
             }
         }
     }
 }
 
+// Spezieller Infoblock (Blattlinie)
 .blattlinie-neutral {
     background-color: rgba($brand-primary, 0.03);
     padding: $space-l;
     border-radius: 4px;
     margin: $space-xl auto;
-    max-width: $text-measure; // Damit auch dieser Block nicht ausbricht
+    max-width: 800px;
 
     h6 {
         font-family: $font-main;
@@ -95,14 +131,37 @@
         font-size: 0.9rem;
         font-style: italic;
         line-height: 1.6;
+        margin-bottom: 0;
     }
 }
 
-// Footer Anpassungen
+// Navigation zurück
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 50px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.9rem;
+    color: $brand-primary;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    &::before {
+        content: "←";
+        margin-right: 10px;
+    }
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+// Footer Anpassungen für formale Seiten
 .main-footer {
     text-align: center;
-    padding: $space-xl 0;
-    border-top: 1px solid $border-color;
+    padding: $space-xl 20px;
+    border-top: 1px solid rgba(0,0,0,0.05);
     margin-top: $space-xl;
 
     .footer-name {
