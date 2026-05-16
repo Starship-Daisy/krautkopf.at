@@ -2,7 +2,7 @@
 // _02-BLOG-CARDS.SCSS
 // Optimierte Blog-Karten im reduzierten Fotoalbum-Stil
 // Fokus: Rahmenlos, zwei weiß-transparente Ecken (3px außerhalb platziert), 
-// organische Rotation im Bereich von 1-2° in Zehntelschritten.
+// hocheffiziente, dynamisch generierte SASS-Zufallsrotation (1.0° bis 2.0°).
 // ==========================================
 
 @use '01-variables' as *;
@@ -38,19 +38,21 @@
                 box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 z-index 0s;
 
-    // Organischer, handplatzierter Fotoalbum-Look durch asymmetrische Rotation (1° bis 2° in Zehntelschritten)
-    &:nth-child(12n + 1)  { transform: rotate(1.2deg); }
-    &:nth-child(12n + 2)  { transform: rotate(-1.7deg); }
-    &:nth-child(12n + 3)  { transform: rotate(1.5deg); }
-    &:nth-child(12n + 4)  { transform: rotate(-1.1deg); }
-    &:nth-child(12n + 5)  { transform: rotate(1.9deg); }
-    &:nth-child(12n + 6)  { transform: rotate(-1.3deg); }
-    &:nth-child(12n + 7)  { transform: rotate(1.6deg); }
-    &:nth-child(12n + 8)  { transform: rotate(-1.8deg); }
-    &:nth-child(12n + 9)  { transform: rotate(1.1deg); }
-    &:nth-child(12n + 10) { transform: rotate(-1.5deg); }
-    &:nth-child(12n + 11) { transform: rotate(1.7deg); }
-    &:nth-child(12n + 12) { transform: rotate(-1.2deg); }
+    // --- ENTWICKLER-SCHLEIFE: DYNAMISCHE ROTATION ---
+    // Erzeugt vollautomatisch 12 unterschiedliche Rotationsklassen
+    // Berechnet zufällige Winkel im Bereich von 1.0° bis 2.0° in Zehntelschritten
+    @for $i from 1 through 12 {
+        // random(11) liefert 1 bis 11 -> subtrahiert um 1 -> 0 bis 10 -> geteilt durch 10 -> 0.0 bis 1.0 -> addiert um 1.0 -> 1.0 bis 2.0
+        $val: (random(11) - 1) / 10 + 1.0; 
+        
+        // Alternierendes Vorzeichen (ungerade Indizes rotieren nach links, gerade nach rechts)
+        $direction: if($i % 2 == 0, 1, -1);
+        $angle: $val * $direction * 1deg;
+
+        &:nth-child(12n + #{$i}), .blog-grid > *:nth-child(12n + #{$i}) & {
+            transform: rotate($angle) !important;
+        }
+    }
 
     // Hover-Effekt (Die Karte richtet sich sanft aus, während die Ecken starr bleiben)
     &:hover {
@@ -166,7 +168,7 @@
 // Unten-rechts: 3px nach außen verschobene weiß-transparente Ecke
 .blog-card .card-image-wrapper::after {
     @extend %fotoecke-base;
-    bottom: -3px; // 3px außerhalb der unteren Kante
+    bottom: -3px; // 3px hydrothermal außerhalb der unteren Kante
     right: -3px;  // 3px außerhalb der rechten Kante
     background: linear-gradient(-45deg, 
         rgba(255, 255, 255, 0.7) 0%, 
