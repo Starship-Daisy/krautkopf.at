@@ -1195,14 +1195,41 @@ h4.back-to-home:hover,
   box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), z-index 0s;
 }
-.blog-card:nth-child(even) {
-  transform: rotate(0.8deg);
+.blog-card:nth-child(12n+1) {
+  transform: rotate(1.2deg);
 }
-.blog-card:nth-child(3n) {
-  transform: rotate(-0.6deg);
+.blog-card:nth-child(12n+2) {
+  transform: rotate(-1.7deg);
 }
-.blog-card:nth-child(5n) {
-  transform: rotate(0.4deg);
+.blog-card:nth-child(12n+3) {
+  transform: rotate(1.5deg);
+}
+.blog-card:nth-child(12n+4) {
+  transform: rotate(-1.1deg);
+}
+.blog-card:nth-child(12n+5) {
+  transform: rotate(1.9deg);
+}
+.blog-card:nth-child(12n+6) {
+  transform: rotate(-1.3deg);
+}
+.blog-card:nth-child(12n+7) {
+  transform: rotate(1.6deg);
+}
+.blog-card:nth-child(12n+8) {
+  transform: rotate(-1.8deg);
+}
+.blog-card:nth-child(12n+9) {
+  transform: rotate(1.1deg);
+}
+.blog-card:nth-child(12n+10) {
+  transform: rotate(-1.5deg);
+}
+.blog-card:nth-child(12n+11) {
+  transform: rotate(1.7deg);
+}
+.blog-card:nth-child(12n+12) {
+  transform: rotate(-1.2deg);
 }
 .blog-card:hover {
   transform: scale(1.02) rotate(0deg) !important;
@@ -1212,10 +1239,10 @@ h4.back-to-home:hover,
 .blog-card .card-image-wrapper {
   width: 100%;
   aspect-ratio: 16/10;
-  overflow: hidden;
   background-color: #eee;
   position: relative;
   border: none !important;
+  overflow: visible !important;
 }
 .blog-card .card-image-wrapper img {
   width: 100%;
@@ -1269,8 +1296,8 @@ h4.back-to-home:hover,
 .blog-card .card-image-wrapper::after, .blog-card .card-image-wrapper::before {
   content: "";
   position: absolute;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   z-index: 5;
   pointer-events: none;
   transition: none;
@@ -1278,15 +1305,15 @@ h4.back-to-home:hover,
 }
 
 .blog-card .card-image-wrapper::before {
-  top: 2px;
-  left: 2px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 44%, rgba(255, 255, 255, 0.75) 47%, transparent 49%);
+  top: -3px;
+  left: -3px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.35) 42%, rgba(255, 255, 255, 0.8) 45%, transparent 48%);
 }
 
 .blog-card .card-image-wrapper::after {
-  bottom: 2px;
-  right: 2px;
-  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 44%, rgba(255, 255, 255, 0.75) 47%, transparent 49%);
+  bottom: -3px;
+  right: -3px;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.35) 42%, rgba(255, 255, 255, 0.8) 45%, transparent 48%);
 }
 
 .blog-card.is-teaser {
