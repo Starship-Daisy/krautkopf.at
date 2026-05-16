@@ -209,6 +209,34 @@
             }
         }      
 
+        // --- A. DER SYNCHRONISIERTE GLANZ-EFFEKT ---
+        // Durch die Platzierung DIREKT auf dem Wrapper rotiert der Glanz exakt mit dem Bild mit!
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                115deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 38%,
+                rgba(255, 255, 255, 0.35) 50%,
+                rgba(255, 255, 255, 0) 62%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 300% 100%;
+            background-position: 150% 0;
+            background-repeat: no-repeat; // Verhindert das Vollflächige Weiß-Kacheln des Bildes
+            transition: background-position 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 4; // Über dem Foto, aber UNTER den aufgeklebten Fotoecken
+            pointer-events: none;
+            
+            // Maskiert den Glanz exakt auf die 3px Bildrundung (dreht sich mit)
+            clip-path: inset(0 round 3px); 
+        }
+
 // ==========================================
 // 4. WEISS-TRANSPARENTE FOTOECKEN (DIAGONAL PLATZIERT)
 // Befestigungselemente ragen nun 3px über das Bild hinaus
