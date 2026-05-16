@@ -196,9 +196,9 @@
             &:hover {
                 text-decoration: underline !important;
             }
+        #{"-webkit-box-orient"}: vertical;
         }
-    }
-}
+        
 
 // ==========================================
 // 4. WEISS-TRANSPARENTE FOTOECKEN (DIAGONAL PLATZIERT)
