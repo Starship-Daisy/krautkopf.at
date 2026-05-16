@@ -125,7 +125,7 @@
         background: $brand-paper; // Oder eine neutrale Farbe wie #999
         color: white;
         padding: 5px 40px;
-        font-family: $font-note;
+        font-family: $font-copy;
         font-size: 0.7rem;
         text-transform: lowercase;
         letter-spacing: 0.1em;
@@ -156,7 +156,7 @@
     
     &::after {
         content: 'Notiz folgt';
-        font-family: $font-note;
+        font-family: $font-copy;
         font-size: 0.65rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
