@@ -785,6 +785,7 @@ h4.back-to-home:hover,
   font-size: 1.05rem;
   line-height: 1.8;
   color: #1a1a1a;
+  font-weight: 300;
   margin-bottom: 1.5rem;
 }
 .legal-content .legal-text-block p strong {
@@ -1249,6 +1250,7 @@ h4.back-to-home:hover,
 }
 .blog-card .card-content p {
   font-family: "Open Sans", sans-serif;
+  font-weight: 300;
   font-size: 0.95rem;
   color: #1a1a1a !important;
   line-height: 1.6;
@@ -1268,6 +1270,7 @@ h4.back-to-home:hover,
   color: white;
   padding: 5px 40px;
   font-family: "Open Sans", sans-serif;
+  font-weight: 500;
   font-size: 0.7rem;
   text-transform: lowercase;
   letter-spacing: 0.1em;
