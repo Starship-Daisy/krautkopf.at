@@ -154,13 +154,23 @@
     }
 }
 
-// Text abschneiden nach z.B. 2 Zeilen
+// --- AUTOMATISCHE ABKÜRZUNG DER HEADLINE ---
+        h3 {
+            font-family: $font-heading;
+            font-size: 1.25rem;
+            color: $text-dark !important;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            
+            // Standard-konforme Maskierung für den Sass-Compiler
             display: -webkit-box;
-            -webkit-line-clamp: 2; // Hier die maximale Zeilenanzahl für die Headline eintragen
-            -webkit-box-orient: vertical;  
             overflow: hidden;
             text-overflow: ellipsis;
-        
+            
+            #{"-webkit-line-clamp"}: 2; 
+            #{"-webkit-box-orient"}: vertical;
+        }
+
         p {
             font-family: $font-copy;
             font-size: 0.95rem;
@@ -168,12 +178,13 @@
             line-height: 1.6;
             margin-bottom: $space-m;
             
-            // Optional: Auch den Beschreibungstext abschneiden, damit er nicht in den Link läuft
-            display: unquote("-webkit-box");
-            -webkit-line-clamp: 3; 
-            -webkit-box-orient: vertical;  
+            // Standard-konforme Maskierung für den Beschreibungstext
+            display: -webkit-box;
             overflow: hidden;
             text-overflow: ellipsis;
+            
+            #{"-webkit-line-clamp"}: 3; 
+            #{"-webkit-box-orient"}: vertical;
         }
 
         // --- DER LINK GANZ UNTEN MIT ABSTAND ---
@@ -184,9 +195,9 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             
-            // Das Geheimnis: Schiebt den Link automatisch an das absolute Ende des Textbereichs
+            // Schiebt den Link automatisch an das absolute Ende des Textbereichs
             margin-top: auto !important; 
-            padding-top: 15px; // Der kleine Abstand nach oben zum Text
+            padding-top: 15px; 
             
             position: relative;
             z-index: 2;
@@ -196,9 +207,7 @@
             &:hover {
                 text-decoration: underline !important;
             }
-        #{"-webkit-box-orient"}: vertical;
-        }
-        
+        }      
 
 // ==========================================
 // 4. WEISS-TRANSPARENTE FOTOECKEN (DIAGONAL PLATZIERT)
