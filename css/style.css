@@ -1266,7 +1266,7 @@ h4.back-to-home:hover,
   background: #f7f4e9;
   color: white;
   padding: 5px 40px;
-  font-family: "Comforter Brush", cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.7rem;
   text-transform: lowercase;
   letter-spacing: 0.1em;
@@ -1292,7 +1292,7 @@ h4.back-to-home:hover,
 }
 .card-image-placeholder::after {
   content: "Notiz folgt";
-  font-family: "Comforter Brush", cursive;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
