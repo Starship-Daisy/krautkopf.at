@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400|open-sans:300,400,500,600,700,800|courier-prime:400");
 body {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
