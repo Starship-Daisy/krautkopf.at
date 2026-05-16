@@ -2,7 +2,8 @@
 // _02-BLOG-CARDS.SCSS
 // Optimierte Blog-Karten im reduzierten Fotoalbum-Stil
 // Fokus: Rahmenlos, zwei weiß-transparente Ecken (3px außerhalb platziert), 
-// hocheffiziente, dynamisch generierte SASS-Zufallsrotation (1.0° bis 2.0°).
+// hocheffiziente, dynamisch generierte SASS-Zufallsrotation (1.0° bis 2.0°)
+// angewendet NUR auf den Bildbereich mit 3px runden Ecken.
 // ==========================================
 
 @use '01-variables' as *;
@@ -33,14 +34,15 @@
     padding: 0 !important;     // Kein innerer Passepartout-Abstand, um Rahmenbildung zu vermeiden
     box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
     
-    // Sachte, organische Rotation der Karten im Album-Layout
+    // Sanfte Transition für das Anheben der Karte im Album-Layout
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 z-index 0s;
 
-    // --- ENTWICKLER-SCHLEIFE: DYNAMISCHE ROTATION ---
-    // Erzeugt vollautomatisch 12 unterschiedliche Rotationsklassen
-    // Berechnet zufällige Winkel im Bereich von 1.0° bis 2.0° in Zehntelschritten
+    // --- ENTWICKLER-SCHLEIFE: DYNAMISCHE ROTATION NUR FÜR DIE BILDER ---
+    // Erzeugt vollautomatisch 12 unterschiedliche Rotationsklassen für das Bild-Element.
+    // Berechnet zufällige Winkel im Bereich von 1.0° bis 2.0° in Zehntelschritten.
+    // Die Karte selbst bleibt waagerecht stehen, während sich nur das "eingeklebte" Foto dreht.
     @for $i from 1 through 12 {
         // random(11) liefert 1 bis 11 -> subtrahiert um 1 -> 0 bis 10 -> geteilt durch 10 -> 0.0 bis 1.0 -> addiert um 1.0 -> 1.0 bis 2.0
         $val: (random(11) - 1) / 10 + 1.0; 
@@ -49,16 +51,22 @@
         $direction: if($i % 2 == 0, 1, -1);
         $angle: $val * $direction * 1deg;
 
-        &:nth-child(12n + #{$i}), .blog-grid > *:nth-child(12n + #{$i}) & {
+        &:nth-child(12n + #{$i}) .card-image-wrapper, 
+        .blog-grid > *:nth-child(12n + #{$i}) & .card-image-wrapper {
             transform: rotate($angle) !important;
         }
     }
 
-    // Hover-Effekt (Die Karte richtet sich sanft aus, während die Ecken starr bleiben)
+    // Hover-Effekt (Die Karte hebt sich sachte an, das Foto richtet sich im Rahmen gerade aus)
     &:hover {
-        transform: scale(1.02) rotate(0deg) !important;
+        transform: scale(1.02) !important; // Karte skaliert dezent, rotiert aber nicht
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
         z-index: 10;
+
+        // Das Foto richtet sich bei Interaktion sanft und harmonisch waagerecht aus
+        .card-image-wrapper {
+            transform: rotate(0deg) !important;
+        }
     }
 
     // Visueller Medienbereich (Das eigentliche Foto)
@@ -68,15 +76,20 @@
         background-color: #eee;
         position: relative;
         border: none !important;
+        border-radius: 3px; // Gewünschte abgerundete Ecken von 3px
         
         // WICHTIG: Auf "visible" gestellt, damit die Ecken über den Rand hinausragen können
         overflow: visible !important; 
+
+        // Sanfte Bewegung beim Geraderichten des Bildes
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            border-radius: 3px; // Auch das Bild erhält die 3px Rundung
         }
     }
 
@@ -146,7 +159,7 @@
     height: 28px;
     z-index: 5;
     pointer-events: none;
-    transition: none; // Keine Hover-Bewegung an den Ecken für ein realistisches Halte-Gefühl
+    transition: none; // Keine eigenständige Hover-Bewegung an den Ecken, sie folgen starr dem Bild
     
     // Plastischer Schattenwurf der transparenten Ecken
     filter: drop-shadow(1px 1.5px 1.5px rgba(0, 0, 0, 0.12));
@@ -168,7 +181,7 @@
 // Unten-rechts: 3px nach außen verschobene weiß-transparente Ecke
 .blog-card .card-image-wrapper::after {
     @extend %fotoecke-base;
-    bottom: -3px; // 3px hydrothermal außerhalb der unteren Kante
+    bottom: -3px; // 3px außerhalb der unteren Kante
     right: -3px;  // 3px außerhalb der rechten Kante
     background: linear-gradient(-45deg, 
         rgba(255, 255, 255, 0.7) 0%, 
@@ -191,5 +204,9 @@
     &:hover {
         transform: none !important;
         box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03) !important;
+        
+        .card-image-wrapper {
+            transform: none !important; // Keine Begradigung bei inaktiven Teasern
+        }
     }
 }
