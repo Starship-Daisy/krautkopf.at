@@ -169,7 +169,7 @@
             margin-bottom: $space-m;
             
             // Optional: Auch den Beschreibungstext abschneiden, damit er nicht in den Link läuft
-            display: -webkit-box;
+            display: unquote("-webkit-box");
             -webkit-line-clamp: 3; 
             -webkit-box-orient: vertical;  
             overflow: hidden;
