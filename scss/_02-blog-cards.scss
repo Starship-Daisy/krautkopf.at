@@ -2,7 +2,7 @@
 // _02-BLOG-CARDS.SCSS
 // Optimierte Blog-Karten im reduzierten Fotoalbum-Stil
 // Fokus: Rahmenlos, zwei weiß-transparente Ecken (3px außerhalb platziert), 
-// hocheffiziente, dynamisch generierte SASS-Zufallsrotation (1.0° bis 2.0°)
+// hocheffiziente, dynamisch generierte SASS-Zufallsrotation (0.1° bis 0.2°)
 // angewendet NUR auf den Bildbereich mit 3px runden Ecken.
 // ==========================================
 
@@ -41,11 +41,11 @@
 
     // --- ENTWICKLER-SCHLEIFE: DYNAMISCHE ROTATION NUR FÜR DIE BILDER ---
     // Erzeugt vollautomatisch 12 unterschiedliche Rotationsklassen für das Bild-Element.
-    // Berechnet zufällige Winkel im Bereich von 1.0° bis 2.0° in Zehntelschritten.
-    // Die Karte selbst bleibt waagerecht stehen, während sich nur das "eingeklebte" Foto dreht.
+    // Berechnet minimale, extrem unaufdringliche Zufallswinkel im Bereich von 0.1° bis 0.2°.
+    // Die Karte selbst bleibt waagerecht stehen, während sich nur das "eingeklebte" Foto hauchzart dreht.
     @for $i from 1 through 12 {
-        // random(11) liefert 1 bis 11 -> subtrahiert um 1 -> 0 bis 10 -> geteilt durch 10 -> 0.0 bis 1.0 -> addiert um 1.0 -> 1.0 bis 2.0
-        $val: (random(11) - 1) / 10 + 1.0; 
+        // random(11) liefert 1 bis 11 -> subtrahiert um 1 -> 0 bis 10 -> geteilt durch 100 -> 0.00 bis 0.10 -> addiert um 0.1 -> 0.10 bis 0.20
+        $val: (random(11) - 1) / 100 + 0.1; 
         
         // Alternierendes Vorzeichen (ungerade Indizes rotieren nach links, gerade nach rechts)
         $direction: if($i % 2 == 0, 1, -1);
