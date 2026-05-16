@@ -154,6 +154,52 @@
     }
 }
 
+// Text abschneiden nach z.B. 2 Zeilen
+            display: -webkit-box;
+            -webkit-line-clamp: 2; // Hier die maximale Zeilenanzahl für die Headline eintragen
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            text-overflow: ellipsis;
+        
+        p {
+            font-family: $font-copy;
+            font-size: 0.95rem;
+            color: $text-main !important;
+            line-height: 1.6;
+            margin-bottom: $space-m;
+            
+            // Optional: Auch den Beschreibungstext abschneiden, damit er nicht in den Link läuft
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;  
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        // --- DER LINK GANZ UNTEN MIT ABSTAND ---
+        .card-link {
+            font-family: $font-main;
+            font-size: 0.85rem;
+            color: $brand-accent !important;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            
+            // Das Geheimnis: Schiebt den Link automatisch an das absolute Ende des Textbereichs
+            margin-top: auto !important; 
+            padding-top: 15px; // Der kleine Abstand nach oben zum Text
+            
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            width: fit-content;
+
+            &:hover {
+                text-decoration: underline !important;
+            }
+        }
+    }
+}
+
 // ==========================================
 // 4. WEISS-TRANSPARENTE FOTOECKEN (DIAGONAL PLATZIERT)
 // Befestigungselemente ragen nun 3px über das Bild hinaus
