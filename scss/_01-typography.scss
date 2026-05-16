@@ -3,7 +3,7 @@
 @use '01-variables' as *;
 
 // 2. Externer Schrift-Import (Bunny Fonts - DSGVO-konform)
-@import url('https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400|open-sans:300,400,500,600,700,800|inspiration:400|courier-prime:400');
+@import url('https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400|open-sans:300,400,500,600,700,800|Shalimar:400|courier-prime:400');
 
 // ==========================================
 // 1. FONT-FAMILIEN DEFINITIONEN
@@ -15,6 +15,8 @@ $font-heading:    'Lora', serif;
 $font-note:       'Comforter Brush', cursive; // Dein Backup (Pinsel-Stil)
 $font-ink:        'Praise', handwriting;  // Dein neuer Standard (Feine Tinte)
 $font-sub:        'Alice', serif;
+$font-script:     'Praise', handwriting;
+$font-scrip-blog: 'inspiration', handwriting;
 
 // ==========================================
 // 2. BASIS-TYPOGRAFIE
