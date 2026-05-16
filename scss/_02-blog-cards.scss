@@ -137,9 +137,9 @@
         }
 
         h3 {
-            font-family: $font-heading;
+            font-family: $font-note;
             font-size: 1.25rem;
-            color: $text-dark !important;
+            color: $text-ink !important;
             margin-bottom: 10px;
             line-height: 1.3;
         }
@@ -147,7 +147,7 @@
         p {
             font-family: $font-copy;
             font-size: 0.95rem;
-            color: $text-main !important;
+            color: $text-muted !important;
             line-height: 1.6;
         }
     }
