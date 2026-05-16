@@ -1,13 +1,12 @@
 // ==========================================
-// _02-BLOG-CARDS.SCSS
-// Hier liegt das Design der einzelnen Karte
+// _02-BLOG-CARDS-mit Ecken.SCSS
+// Implementierung des visuellen Konzepts für Blog-Karten im Fotoalbum-Stil
 // ==========================================
 
 @use '01-variables' as *;
 @use '01-typography' as *;
-@use 'media-query-mixin' as *;
 
-// 1. GLOBALER LINK-RESET FÜR KARTEN
+// 1. SYSTEMISCHE RÜCKSETZUNG DER VERLINKUNGEN (LINK-RESET)
 .blog-card, 
 .blog-card a {
     text-decoration: none !important;
@@ -21,32 +20,56 @@
     }
 }
 
-// 2. BASIS-STRUKTUR DER KARTE
+// 2. STRUKTURELLE SPEZIFIKATION DER KARTENELEMENTE
 .blog-card {
     display: flex;
     flex-direction: column;
-    background-color: $brand-paper;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #faf9f5; // Kolorierung zur Simulation eines haptischen Naturkartons
+    border: 1px solid rgba(0, 0, 0, 0.06);
     height: 100%;
-    overflow: hidden;
     position: relative;
+    padding: 10px; // Peripherer Rahmen zur Nachbildung klassischer Fotoabzüge
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
     
-    transition: box-shadow 0.2s ease, border-color 0.2s ease;
-    transform: none !important;
+    // Implementierung einer systematischen, asymmetrischen Rotation zur Erzeugung eines analogen Erscheinungsbildes
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                z-index 0s;
 
-    &:hover {
-        transform: none !important;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-        border-color: rgba(0, 0, 0, 0.15);
+    &:nth-child(even) {
+        transform: rotate(0.8deg);
+    }
+    &:nth-child(3n) {
+        transform: rotate(-0.6deg);
+    }
+    &:nth-child(5n) {
+        transform: rotate(0.4deg);
     }
 
-    // Bild-Bereich
+    // Definition der transformationsbasierten Interaktivität bei Benutzerfokus (Hover-Szenario)
+    &:hover {
+        transform: scale(1.03) rotate(0deg) !important;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+        z-index: 10; // Priorisierung der visuellen Ebene zur Überlagerung benachbarter Elemente
+        
+        // Geringfügige, elastische Expansion der Halteelemente zur Steigerung der haptischen Rückmeldung
+        &::before { transform: translate(-2px, -2px); }
+        &::after { transform: translate(2px, -2px); }
+        
+        .card-content {
+            &::before { transform: translate(-2px, 2px); }
+            &::after { transform: translate(2px, 2px); }
+        }
+    }
+
+    // Visueller Medienbereich
     .card-image-wrapper {
         width: 100%;
         aspect-ratio: 16 / 10;
         overflow: hidden;
         background-color: #eee;
         position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.04); // Minimale Konturierung des Bildelements
 
         img {
             width: 100%;
@@ -56,30 +79,31 @@
         }
     }
 
-    // 3. TEXT-BEREICH (Zettel-Optik)
+    // 3. TEXT-BEREICH (Integrierte Papier-Struktur auf dem Trägerkarton)
     .card-content {
-        padding: 30px 30px 30px 20px !important;
+        padding: 25px 20px 20px 20px !important;
         position: relative;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
         background-color: #fdfdfd !important;
+        border-top: 1px solid rgba(0, 0, 0, 0.03);
 
-        // Kariertes Muster
+        // Repräsentation des orthogonalen, feinstrukturierten Gitterrasters
         background-image: 
-            linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
+            linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
         background-size: 20px 20px !important;
 
-        // Rote Linie (rechts)
+        // Vertikale Begrenzungslinie zur Simulation eines standardisierten Korrekturrandes
         &::before {
             content: '';
             position: absolute;
-            right: 30px !important;
+            right: 25px !important;
             top: 0;
             bottom: 0;
             width: 1px;
-            background-color: rgba(255, 0, 0, 0.3) !important;
+            background-color: rgba(255, 0, 0, 0.2) !important;
             z-index: 1;
         }
 
@@ -89,20 +113,19 @@
             text-align: left;
             margin-left: 0;
             margin-right: auto;
-            max-width: 260px;
+            max-width: 90%;
         }
 
         h3 {
             font-family: $font-heading;
             font-size: 1.25rem;
-            color: $brand-primary !important;
-            margin-bottom: 12px;
+            color: $text-dark !important;
+            margin-bottom: 10px;
             line-height: 1.3;
         }
 
         p {
             font-family: $font-copy;
-            font-weight: 300;
             font-size: 0.95rem;
             color: $text-main !important;
             line-height: 1.6;
@@ -110,60 +133,111 @@
     }
 }
 
-// 4. TEASER-MODUS (Demnächst / In Arbeit)
+// ==========================================
+// 4. SPEZIFIKATION DER BEFESTIGUNGSELEMENTE (FOTOECKEN)
+// Realisierung mittels CSS-Gradienten und Pseudo-Elementen zur Gewährleistung der Performance
+// ==========================================
+
+// Konsistente Basis-Schnittstelle für sämtliche Eckelemente
+%fotoecke-base {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    z-index: 5;
+    pointer-events: none;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    
+    // Plastische Schattenprojektion zur Simulation räumlicher Tiefe
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.15));
+}
+
+// Obere linke Ecke (Positionierung auf dem Trägerkarton)
+.blog-card::before {
+    @extend %fotoecke-base;
+    top: -6px;
+    left: -6px;
+    // Diagonaler Verlauf zur optischen Nachbildung von Kraftkarton mit integrierter Lichtkante
+    background: linear-gradient(135deg, 
+        #d0bfa7 0%,   // Hellere Nuance zur Simulation einer Lichtkante
+        #bca88d 10%,  // Mittlerer Farbton (Kraftpapier)
+        #9d876a 47%, 
+        #7a654c 49%,  // Dunklere Schattierung zur Darstellung des Einschnitts
+        transparent 50%
+    );
+}
+
+// Obere rechte Ecke (Positionierung auf dem Trägerkarton)
+.blog-card::after {
+    @extend %fotoecke-base;
+    top: -6px;
+    right: -6px;
+    background: linear-gradient(-135deg, 
+        #d0bfa7 0%, 
+        #bca88d 10%, 
+        #9d876a 47%, 
+        #7a654c 49%, 
+        transparent 50%
+    );
+}
+
+// Untere linke Ecke (Positionierung auf dem Inhaltsbereich)
+.blog-card .card-content::before {
+    @extend %fotoecke-base;
+    bottom: -6px;
+    left: -6px;
+    background: linear-gradient(45deg, 
+        #d0bfa7 0%, 
+        #bca88d 10%, 
+        #9d876a 47%, 
+        #7a654c 49%, 
+        transparent 50%
+    );
+}
+
+// Untere rechte Ecke (Positionierung auf dem Inhaltsbereich)
+.blog-card .card-content::after {
+    @extend %fotoecke-base;
+    bottom: -6px;
+    right: -6px;
+    // Überschreibung der für dieses Element genutzten Rand-Eigenschaften zur Wahrung der Konsistenz
+    width: 32px !important;
+    height: 32px !important;
+    top: auto !important;
+    left: auto !important;
+    border: none !important;
+    background: linear-gradient(-45deg, 
+        #d0bfa7 0%, 
+        #bca88d 10%, 
+        #9d876a 47%, 
+        #7a654c 49%, 
+        transparent 50%
+    ) !important;
+}
+
+// 5. ENTWURFSSTATUS (TEASER-MODUS)
 .blog-card.is-teaser {
-    // Karte leicht ausgegraut, um "Inaktivität" zu signalisieren
-    filter: grayscale(0.8);
-    opacity: 0.8;
+    filter: grayscale(0.6);
+    opacity: 0.85;
     cursor: default;
 
-    // Ein dezentes Label oben rechts (wie ein Klebestreifen)
-    &::after {
-        content: 'Demnächst';
-        position: absolute;
-        top: 15px;
-        right: -30px;
-        background: $brand-paper; // Oder eine neutrale Farbe wie #999
-        color: white;
-        padding: 5px 40px;
-        font-family: $font-copy;
-        font-weight: 500;
-        font-size: 0.7rem;
-        text-transform: lowercase;
-        letter-spacing: 0.1em;
-        transform: rotate(45deg);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        z-index: 10;
+    // Reduzierte Sättigung und Kontrastierung der Halteelemente zur Indikation des Entwurfsstatus
+    &::before, &::after, 
+    .card-content::before, .card-content::after {
+        filter: grayscale(0.5) drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
     }
 
     .card-content {
-        background-color: #f9f9f9 !important;
+        background-color: #f7f7f7 !important;
     }
 
-    // Hover-Effekt bei Teasern deaktivieren oder abschwächen
     &:hover {
-        box-shadow: none;
-        border-color: rgba(0, 0, 0, 0.08);
-    }
-}
-
-// Platzhalter für fehlende Bilder
-.card-image-placeholder {
-    width: 100%;
-    height: 100%;
-    background-color: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    &::after {
-        content: 'Notiz folgt';
-        font-family: $font-copy;
-        font-size: 0.65rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: $brand-paper;
-        border: 1px solid #ddd;
-        padding: 4px 12px;
+        transform: none !important;
+        box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03) !important;
+        
+        &::before, &::after, 
+        .card-content::before, .card-content::after {
+            transform: none !important;
+        }
     }
 }
