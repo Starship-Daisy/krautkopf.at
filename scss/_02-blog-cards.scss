@@ -1,7 +1,8 @@
 // ==========================================
 // _02-BLOG-CARDS.SCSS
 // Optimierte Blog-Karten im reduzierten Fotoalbum-Stil
-// Fokus: Absolut rahmenlos (kein Passepartout-Rand), zwei weiß-transparente, statische Ecken am Bild
+// Fokus: Rahmenlos, zwei weiß-transparente Ecken (3px außerhalb platziert), 
+// organische Rotation im Bereich von 1-2° in Zehntelschritten.
 // ==========================================
 
 @use '01-variables' as *;
@@ -25,11 +26,11 @@
 .blog-card {
     display: flex;
     flex-direction: column;
-    background-color: #fdfdfd; // Gleicher Farbton wie der Inhalt, um Ränder zu vermeiden
-    border: none !important;   // Rahmen komplett deaktiviert
+    background-color: #fdfdfd; // Harmonischer Farbton zur nahtlosen Integration des Inhalts
+    border: none !important;   // Rahmen vollständig deaktiviert
     height: 100%;
     position: relative;
-    padding: 0 !important;     // Passepartout-Rand vollständig entfernt, um den Rahmen-Effekt zu löschen
+    padding: 0 !important;     // Kein innerer Passepartout-Abstand, um Rahmenbildung zu vermeiden
     box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
     
     // Sachte, organische Rotation der Karten im Album-Layout
@@ -37,17 +38,21 @@
                 box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 z-index 0s;
 
-    &:nth-child(even) {
-        transform: rotate(0.8deg);
-    }
-    &:nth-child(3n) {
-        transform: rotate(-0.6deg);
-    }
-    &:nth-child(5n) {
-        transform: rotate(0.4deg);
-    }
+    // Organischer, handplatzierter Fotoalbum-Look durch asymmetrische Rotation (1° bis 2° in Zehntelschritten)
+    &:nth-child(12n + 1)  { transform: rotate(1.2deg); }
+    &:nth-child(12n + 2)  { transform: rotate(-1.7deg); }
+    &:nth-child(12n + 3)  { transform: rotate(1.5deg); }
+    &:nth-child(12n + 4)  { transform: rotate(-1.1deg); }
+    &:nth-child(12n + 5)  { transform: rotate(1.9deg); }
+    &:nth-child(12n + 6)  { transform: rotate(-1.3deg); }
+    &:nth-child(12n + 7)  { transform: rotate(1.6deg); }
+    &:nth-child(12n + 8)  { transform: rotate(-1.8deg); }
+    &:nth-child(12n + 9)  { transform: rotate(1.1deg); }
+    &:nth-child(12n + 10) { transform: rotate(-1.5deg); }
+    &:nth-child(12n + 11) { transform: rotate(1.7deg); }
+    &:nth-child(12n + 12) { transform: rotate(-1.2deg); }
 
-    // Hover-Effekt (Nur die Karte hebt sich sachte, die Ecken bleiben starr)
+    // Hover-Effekt (Die Karte richtet sich sanft aus, während die Ecken starr bleiben)
     &:hover {
         transform: scale(1.02) rotate(0deg) !important;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
@@ -58,10 +63,12 @@
     .card-image-wrapper {
         width: 100%;
         aspect-ratio: 16 / 10;
-        overflow: hidden;
         background-color: #eee;
         position: relative;
-        border: none !important; // Rahmen um das Bild vollständig entfernt
+        border: none !important;
+        
+        // WICHTIG: Auf "visible" gestellt, damit die Ecken über den Rand hinausragen können
+        overflow: visible !important; 
 
         img {
             width: 100%;
@@ -79,7 +86,7 @@
         display: flex;
         flex-direction: column;
         background-color: #fdfdfd !important;
-        border: none !important; // Trennlinie zum Bild entfernt, um Nahtlosigkeit zu garantieren
+        border: none !important; // Absolute Nahtlosigkeit zum Bildbereich ohne Trennlinien
 
         // Hellblaues Gitterraster des Notizpapiers
         background-image: 
@@ -126,47 +133,46 @@
 }
 
 // ==========================================
-// 4. WEISS-TRANSPARENTE FOTOECKEN (NUR ZWEI)
-// Befestigungselemente direkt auf dem Bild-Wrapper
+// 4. WEISS-TRANSPARENTE FOTOECKEN (DIAGONAL PLATZIERT)
+// Befestigungselemente ragen nun 3px über das Bild hinaus
 // ==========================================
 
 %fotoecke-base {
     content: '';
     position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 28px; // Leicht vergrößert, um den Überhang optisch auszugleichen
+    height: 28px;
     z-index: 5;
     pointer-events: none;
-    // Keine Hover-Transitionen auf den Ecken für maximale visuelle Ruhe
-    transition: none;
+    transition: none; // Keine Hover-Bewegung an den Ecken für ein realistisches Halte-Gefühl
     
-    // Zarter Schattenwurf der transparenten Ecken
+    // Plastischer Schattenwurf der transparenten Ecken
     filter: drop-shadow(1px 1.5px 1.5px rgba(0, 0, 0, 0.12));
 }
 
-// Oben-links: Weiß-transparente Kunststoffecke
+// Oben-links: 3px nach außen verschobene weiß-transparente Ecke
 .blog-card .card-image-wrapper::before {
     @extend %fotoecke-base;
-    top: 2px;
-    left: 2px;
+    top: -3px;  // 3px außerhalb der oberen Kante
+    left: -3px; // 3px außerhalb der linken Kante
     background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.65) 0%, 
-        rgba(255, 255, 255, 0.25) 44%, 
-        rgba(255, 255, 255, 0.75) 47%, 
-        transparent 49%
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.35) 42%, 
+        rgba(255, 255, 255, 0.8) 45%, 
+        transparent 48%
     );
 }
 
-// Unten-rechts: Weiß-transparente Kunststoffecke
+// Unten-rechts: 3px nach außen verschobene weiß-transparente Ecke
 .blog-card .card-image-wrapper::after {
     @extend %fotoecke-base;
-    bottom: 2px;
-    right: 2px;
+    bottom: -3px; // 3px außerhalb der unteren Kante
+    right: -3px;  // 3px außerhalb der rechten Kante
     background: linear-gradient(-45deg, 
-        rgba(255, 255, 255, 0.65) 0%, 
-        rgba(255, 255, 255, 0.25) 44%, 
-        rgba(255, 255, 255, 0.75) 47%, 
-        transparent 49%
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.35) 42%, 
+        rgba(255, 255, 255, 0.8) 45%, 
+        transparent 48%
     );
 }
 
