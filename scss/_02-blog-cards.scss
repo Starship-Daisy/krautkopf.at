@@ -1,6 +1,7 @@
 // ==========================================
-// _02-BLOG-CARDS-mit Ecken.SCSS
-// Implementierung des visuellen Konzepts für Blog-Karten im Fotoalbum-Stil
+// _02-BLOG-CARDS.SCSS
+// Optimierte Blog-Karten im reduzierten Fotoalbum-Stil
+// Fokus: Rahmenlos, zwei weiß-transparente, statische Ecken am Bild
 // ==========================================
 
 @use '01-variables' as *;
@@ -24,14 +25,14 @@
 .blog-card {
     display: flex;
     flex-direction: column;
-    background-color: #faf9f5; // Kolorierung zur Simulation eines haptischen Naturkartons
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    background-color: #faf9f5; // Warmer Naturkarton als Trägerplatte
+    border: none !important;   // Transparenten Rahmen komplett entfernt
     height: 100%;
     position: relative;
-    padding: 10px; // Peripherer Rahmen zur Nachbildung klassischer Fotoabzüge
+    padding: 10px;             // Weißer Passepartout-Rand des Fotoabzugs
     box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
     
-    // Implementierung einer systematischen, asymmetrischen Rotation zur Erzeugung eines analogen Erscheinungsbildes
+    // Sachte, organische Rotation der Karten im Album-Layout
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 z-index 0s;
@@ -46,30 +47,21 @@
         transform: rotate(0.4deg);
     }
 
-    // Definition der transformationsbasierten Interaktivität bei Benutzerfokus (Hover-Szenario)
+    // Hover-Effekt (Nur die Karte hebt sich sachte, die Ecken bleiben starr)
     &:hover {
-        transform: scale(1.03) rotate(0deg) !important;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
-        z-index: 10; // Priorisierung der visuellen Ebene zur Überlagerung benachbarter Elemente
-        
-        // Geringfügige, elastische Expansion der Halteelemente zur Steigerung der haptischen Rückmeldung
-        &::before { transform: translate(-2px, -2px); }
-        &::after { transform: translate(2px, -2px); }
-        
-        .card-content {
-            &::before { transform: translate(-2px, 2px); }
-            &::after { transform: translate(2px, 2px); }
-        }
+        transform: scale(1.02) rotate(0deg) !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
+        z-index: 10;
     }
 
-    // Visueller Medienbereich
+    // Visueller Medienbereich (Das eigentliche Foto)
     .card-image-wrapper {
         width: 100%;
         aspect-ratio: 16 / 10;
         overflow: hidden;
         background-color: #eee;
         position: relative;
-        border: 1px solid rgba(0, 0, 0, 0.04); // Minimale Konturierung des Bildelements
+        border: none !important; // Rahmen um das Bild entfernt
 
         img {
             width: 100%;
@@ -79,7 +71,7 @@
         }
     }
 
-    // 3. TEXT-BEREICH (Integrierte Papier-Struktur auf dem Trägerkarton)
+    // 3. TEXT-BEREICH (Integrierter Notizzettel auf dem Trägerkarton)
     .card-content {
         padding: 25px 20px 20px 20px !important;
         position: relative;
@@ -89,13 +81,13 @@
         background-color: #fdfdfd !important;
         border-top: 1px solid rgba(0, 0, 0, 0.03);
 
-        // Repräsentation des orthogonalen, feinstrukturierten Gitterrasters
+        // Hellblaues Gitterraster des Notizpapiers
         background-image: 
             linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px),
             linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
         background-size: 20px 20px !important;
 
-        // Vertikale Begrenzungslinie zur Simulation eines standardisierten Korrekturrandes
+        // Vertikale rote Korrekturlinie rechts
         &::before {
             content: '';
             position: absolute;
@@ -134,85 +126,48 @@
 }
 
 // ==========================================
-// 4. SPEZIFIKATION DER BEFESTIGUNGSELEMENTE (FOTOECKEN)
-// Realisierung mittels CSS-Gradienten und Pseudo-Elementen zur Gewährleistung der Performance
+// 4. WEISS-TRANSPARENTE FOTOECKEN (NUR ZWEI)
+// Befestigungselemente direkt auf dem Bild-Wrapper
 // ==========================================
 
-// Konsistente Basis-Schnittstelle für sämtliche Eckelemente
 %fotoecke-base {
     content: '';
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
     z-index: 5;
     pointer-events: none;
-    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    // Keine Hover-Transitionen auf den Ecken für maximale visuelle Ruhe
+    transition: none;
     
-    // Plastische Schattenprojektion zur Simulation räumlicher Tiefe
-    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.15));
+    // Zarter Schattenwurf der transparenten Ecken
+    filter: drop-shadow(1px 1.5px 1.5px rgba(0, 0, 0, 0.12));
 }
 
-// Obere linke Ecke (Positionierung auf dem Trägerkarton)
-.blog-card::before {
+// Oben-links: Weiß-transparente Kunststoffecke
+.blog-card .card-image-wrapper::before {
     @extend %fotoecke-base;
-    top: -6px;
-    left: -6px;
-    // Diagonaler Verlauf zur optischen Nachbildung von Kraftkarton mit integrierter Lichtkante
+    top: 2px;
+    left: 2px;
     background: linear-gradient(135deg, 
-        #d0bfa7 0%,   // Hellere Nuance zur Simulation einer Lichtkante
-        #bca88d 10%,  // Mittlerer Farbton (Kraftpapier)
-        #9d876a 47%, 
-        #7a654c 49%,  // Dunklere Schattierung zur Darstellung des Einschnitts
-        transparent 50%
+        rgba(255, 255, 255, 0.65) 0%, 
+        rgba(255, 255, 255, 0.25) 44%, 
+        rgba(255, 255, 255, 0.75) 47%, 
+        transparent 49%
     );
 }
 
-// Obere rechte Ecke (Positionierung auf dem Trägerkarton)
-.blog-card::after {
+// Unten-rechts: Weiß-transparente Kunststoffecke
+.blog-card .card-image-wrapper::after {
     @extend %fotoecke-base;
-    top: -6px;
-    right: -6px;
-    background: linear-gradient(-135deg, 
-        #d0bfa7 0%, 
-        #bca88d 10%, 
-        #9d876a 47%, 
-        #7a654c 49%, 
-        transparent 50%
-    );
-}
-
-// Untere linke Ecke (Positionierung auf dem Inhaltsbereich)
-.blog-card .card-content::before {
-    @extend %fotoecke-base;
-    bottom: -6px;
-    left: -6px;
-    background: linear-gradient(45deg, 
-        #d0bfa7 0%, 
-        #bca88d 10%, 
-        #9d876a 47%, 
-        #7a654c 49%, 
-        transparent 50%
-    );
-}
-
-// Untere rechte Ecke (Positionierung auf dem Inhaltsbereich)
-.blog-card .card-content::after {
-    @extend %fotoecke-base;
-    bottom: -6px;
-    right: -6px;
-    // Überschreibung der für dieses Element genutzten Rand-Eigenschaften zur Wahrung der Konsistenz
-    width: 32px !important;
-    height: 32px !important;
-    top: auto !important;
-    left: auto !important;
-    border: none !important;
+    bottom: 2px;
+    right: 2px;
     background: linear-gradient(-45deg, 
-        #d0bfa7 0%, 
-        #bca88d 10%, 
-        #9d876a 47%, 
-        #7a654c 49%, 
-        transparent 50%
-    ) !important;
+        rgba(255, 255, 255, 0.65) 0%, 
+        rgba(255, 255, 255, 0.25) 44%, 
+        rgba(255, 255, 255, 0.75) 47%, 
+        transparent 49%
+    );
 }
 
 // 5. ENTWURFSSTATUS (TEASER-MODUS)
@@ -221,12 +176,6 @@
     opacity: 0.85;
     cursor: default;
 
-    // Reduzierte Sättigung und Kontrastierung der Halteelemente zur Indikation des Entwurfsstatus
-    &::before, &::after, 
-    .card-content::before, .card-content::after {
-        filter: grayscale(0.5) drop-shadow(1px 1px 1px rgba(0,0,0,0.1));
-    }
-
     .card-content {
         background-color: #f7f7f7 !important;
     }
@@ -234,10 +183,5 @@
     &:hover {
         transform: none !important;
         box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03) !important;
-        
-        &::before, &::after, 
-        .card-content::before, .card-content::after {
-            transform: none !important;
-        }
     }
 }
