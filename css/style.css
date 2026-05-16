@@ -1200,19 +1200,19 @@ h4.back-to-home:hover,
 .blog-card html body .blog-grid > *:nth-child(12n+1) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+1) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+1) .card-image-wrapper {
-  transform: rotate(-0.11deg) !important;
+  transform: rotate(-0.19deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+2) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+2) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+2) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+2) .card-image-wrapper {
-  transform: rotate(0.15deg) !important;
+  transform: rotate(0.19deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+3) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+3) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+3) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+3) .card-image-wrapper {
-  transform: rotate(-0.2deg) !important;
+  transform: rotate(-0.11deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+4) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+4) .card-image-wrapper,
@@ -1224,49 +1224,49 @@ h4.back-to-home:hover,
 .blog-card html body .blog-grid > *:nth-child(12n+5) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+5) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+5) .card-image-wrapper {
-  transform: rotate(-0.18deg) !important;
+  transform: rotate(-0.17deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+6) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+6) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+6) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+6) .card-image-wrapper {
-  transform: rotate(0.17deg) !important;
+  transform: rotate(0.14deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+7) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+7) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+7) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+7) .card-image-wrapper {
-  transform: rotate(-0.17deg) !important;
+  transform: rotate(-0.16deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+8) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+8) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+8) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+8) .card-image-wrapper {
-  transform: rotate(0.11deg) !important;
+  transform: rotate(0.1deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+9) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+9) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+9) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+9) .card-image-wrapper {
-  transform: rotate(-0.17deg) !important;
+  transform: rotate(-0.2deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+10) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+10) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+10) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+10) .card-image-wrapper {
-  transform: rotate(0.19deg) !important;
+  transform: rotate(0.16deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+11) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+11) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+11) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+11) .card-image-wrapper {
-  transform: rotate(-0.1deg) !important;
+  transform: rotate(-0.15deg) !important;
 }
 .blog-card html body .blog-grid .blog-card:nth-child(12n+12) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+12) .card-image-wrapper,
 .blog-card html body .blog-grid > *:nth-child(12n+12) .blog-card .card-image-wrapper,
 .blog-card html body .blog-card:nth-child(12n+12) .card-image-wrapper {
-  transform: rotate(0.2deg) !important;
+  transform: rotate(0.17deg) !important;
 }
 .blog-card:hover {
   transform: scale(1.02) !important;
@@ -1325,16 +1325,16 @@ html body .blog-card.blog-card:hover .card-image-wrapper,
   max-width: 90%;
 }
 .blog-card .card-content h3 {
-  font-family: "Lora", serif;
+  font-family: "Comforter Brush", cursive;
   font-size: 1.25rem;
-  color: #1a1a1a !important;
+  color: #2c3e50 !important;
   margin-bottom: 10px;
   line-height: 1.3;
 }
 .blog-card .card-content p {
   font-family: "Open Sans", sans-serif;
   font-size: 0.95rem;
-  color: #1a1a1a !important;
+  color: #757a70 !important;
   line-height: 1.6;
 }
 
