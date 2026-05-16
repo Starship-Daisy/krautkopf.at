@@ -226,7 +226,7 @@ h4.back-to-home:hover,
   line-height: 1.1;
 }
 .header-text p {
-  font-family: "Alice", serif !important;
+  font-family: "Open Sans", sans-serif !important;
   font-size: 1rem !important;
   color: #7d9aa5 !important;
   margin: -12px 0 0 0;
@@ -717,6 +717,7 @@ h4.back-to-home:hover,
   font-family: "Lora", serif;
 }
 .sidebar-card p {
+  font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
   color: #757a70;
   line-height: 1.4;
@@ -1195,48 +1196,86 @@ h4.back-to-home:hover,
   box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), z-index 0s;
 }
-.blog-card:nth-child(12n+1) .card-image-wrapper, .blog-grid > *:nth-child(12n+1) .blog-card .card-image-wrapper {
-  transform: rotate(-0.16deg) !important;
-}
-.blog-card:nth-child(12n+2) .card-image-wrapper, .blog-grid > *:nth-child(12n+2) .blog-card .card-image-wrapper {
-  transform: rotate(0.16deg) !important;
-}
-.blog-card:nth-child(12n+3) .card-image-wrapper, .blog-grid > *:nth-child(12n+3) .blog-card .card-image-wrapper {
+.blog-card html body .blog-grid .blog-card:nth-child(12n+1) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+1) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+1) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+1) .card-image-wrapper {
   transform: rotate(-0.11deg) !important;
 }
-.blog-card:nth-child(12n+4) .card-image-wrapper, .blog-grid > *:nth-child(12n+4) .blog-card .card-image-wrapper {
-  transform: rotate(0.16deg) !important;
+.blog-card html body .blog-grid .blog-card:nth-child(12n+2) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+2) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+2) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+2) .card-image-wrapper {
+  transform: rotate(0.15deg) !important;
 }
-.blog-card:nth-child(12n+5) .card-image-wrapper, .blog-grid > *:nth-child(12n+5) .blog-card .card-image-wrapper {
-  transform: rotate(-0.12deg) !important;
-}
-.blog-card:nth-child(12n+6) .card-image-wrapper, .blog-grid > *:nth-child(12n+6) .blog-card .card-image-wrapper {
-  transform: rotate(0.16deg) !important;
-}
-.blog-card:nth-child(12n+7) .card-image-wrapper, .blog-grid > *:nth-child(12n+7) .blog-card .card-image-wrapper {
+.blog-card html body .blog-grid .blog-card:nth-child(12n+3) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+3) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+3) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+3) .card-image-wrapper {
   transform: rotate(-0.2deg) !important;
 }
-.blog-card:nth-child(12n+8) .card-image-wrapper, .blog-grid > *:nth-child(12n+8) .blog-card .card-image-wrapper {
-  transform: rotate(0.14deg) !important;
+.blog-card html body .blog-grid .blog-card:nth-child(12n+4) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+4) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+4) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+4) .card-image-wrapper {
+  transform: rotate(0.17deg) !important;
 }
-.blog-card:nth-child(12n+9) .card-image-wrapper, .blog-grid > *:nth-child(12n+9) .blog-card .card-image-wrapper {
-  transform: rotate(-0.17deg) !important;
-}
-.blog-card:nth-child(12n+10) .card-image-wrapper, .blog-grid > *:nth-child(12n+10) .blog-card .card-image-wrapper {
-  transform: rotate(0.16deg) !important;
-}
-.blog-card:nth-child(12n+11) .card-image-wrapper, .blog-grid > *:nth-child(12n+11) .blog-card .card-image-wrapper {
+.blog-card html body .blog-grid .blog-card:nth-child(12n+5) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+5) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+5) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+5) .card-image-wrapper {
   transform: rotate(-0.18deg) !important;
 }
-.blog-card:nth-child(12n+12) .card-image-wrapper, .blog-grid > *:nth-child(12n+12) .blog-card .card-image-wrapper {
-  transform: rotate(0.1deg) !important;
+.blog-card html body .blog-grid .blog-card:nth-child(12n+6) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+6) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+6) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+6) .card-image-wrapper {
+  transform: rotate(0.17deg) !important;
+}
+.blog-card html body .blog-grid .blog-card:nth-child(12n+7) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+7) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+7) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+7) .card-image-wrapper {
+  transform: rotate(-0.17deg) !important;
+}
+.blog-card html body .blog-grid .blog-card:nth-child(12n+8) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+8) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+8) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+8) .card-image-wrapper {
+  transform: rotate(0.11deg) !important;
+}
+.blog-card html body .blog-grid .blog-card:nth-child(12n+9) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+9) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+9) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+9) .card-image-wrapper {
+  transform: rotate(-0.17deg) !important;
+}
+.blog-card html body .blog-grid .blog-card:nth-child(12n+10) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+10) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+10) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+10) .card-image-wrapper {
+  transform: rotate(0.19deg) !important;
+}
+.blog-card html body .blog-grid .blog-card:nth-child(12n+11) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+11) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+11) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+11) .card-image-wrapper {
+  transform: rotate(-0.1deg) !important;
+}
+.blog-card html body .blog-grid .blog-card:nth-child(12n+12) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+12) .card-image-wrapper,
+.blog-card html body .blog-grid > *:nth-child(12n+12) .blog-card .card-image-wrapper,
+.blog-card html body .blog-card:nth-child(12n+12) .card-image-wrapper {
+  transform: rotate(0.2deg) !important;
 }
 .blog-card:hover {
   transform: scale(1.02) !important;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
   z-index: 10;
 }
-.blog-card:hover .card-image-wrapper {
+html body .blog-card.blog-card:hover .card-image-wrapper,
+.blog-card html body .blog-grid > *:hover .card-image-wrapper,
+.blog-card html body .blog-grid > *:hover .blog-card .card-image-wrapper {
   transform: rotate(0deg) !important;
 }
 .blog-card .card-image-wrapper {
