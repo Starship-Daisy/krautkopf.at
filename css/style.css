@@ -1195,41 +1195,41 @@ h4.back-to-home:hover,
   box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), z-index 0s;
 }
-.blog-card:nth-child(12n+1) {
-  transform: rotate(1.2deg);
+.blog-card:nth-child(12n+1), .blog-grid > *:nth-child(12n+1) .blog-card {
+  transform: rotate(-1.2deg) !important;
 }
-.blog-card:nth-child(12n+2) {
-  transform: rotate(-1.7deg);
+.blog-card:nth-child(12n+2), .blog-grid > *:nth-child(12n+2) .blog-card {
+  transform: rotate(1.2deg) !important;
 }
-.blog-card:nth-child(12n+3) {
-  transform: rotate(1.5deg);
+.blog-card:nth-child(12n+3), .blog-grid > *:nth-child(12n+3) .blog-card {
+  transform: rotate(-1.1deg) !important;
 }
-.blog-card:nth-child(12n+4) {
-  transform: rotate(-1.1deg);
+.blog-card:nth-child(12n+4), .blog-grid > *:nth-child(12n+4) .blog-card {
+  transform: rotate(2deg) !important;
 }
-.blog-card:nth-child(12n+5) {
-  transform: rotate(1.9deg);
+.blog-card:nth-child(12n+5), .blog-grid > *:nth-child(12n+5) .blog-card {
+  transform: rotate(-1.5deg) !important;
 }
-.blog-card:nth-child(12n+6) {
-  transform: rotate(-1.3deg);
+.blog-card:nth-child(12n+6), .blog-grid > *:nth-child(12n+6) .blog-card {
+  transform: rotate(1.4deg) !important;
 }
-.blog-card:nth-child(12n+7) {
-  transform: rotate(1.6deg);
+.blog-card:nth-child(12n+7), .blog-grid > *:nth-child(12n+7) .blog-card {
+  transform: rotate(-1.8deg) !important;
 }
-.blog-card:nth-child(12n+8) {
-  transform: rotate(-1.8deg);
+.blog-card:nth-child(12n+8), .blog-grid > *:nth-child(12n+8) .blog-card {
+  transform: rotate(1deg) !important;
 }
-.blog-card:nth-child(12n+9) {
-  transform: rotate(1.1deg);
+.blog-card:nth-child(12n+9), .blog-grid > *:nth-child(12n+9) .blog-card {
+  transform: rotate(-1.6deg) !important;
 }
-.blog-card:nth-child(12n+10) {
-  transform: rotate(-1.5deg);
+.blog-card:nth-child(12n+10), .blog-grid > *:nth-child(12n+10) .blog-card {
+  transform: rotate(1.7deg) !important;
 }
-.blog-card:nth-child(12n+11) {
-  transform: rotate(1.7deg);
+.blog-card:nth-child(12n+11), .blog-grid > *:nth-child(12n+11) .blog-card {
+  transform: rotate(-1.3deg) !important;
 }
-.blog-card:nth-child(12n+12) {
-  transform: rotate(-1.2deg);
+.blog-card:nth-child(12n+12), .blog-grid > *:nth-child(12n+12) .blog-card {
+  transform: rotate(1.8deg) !important;
 }
 .blog-card:hover {
   transform: scale(1.02) rotate(0deg) !important;
