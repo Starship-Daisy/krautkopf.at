@@ -1,7 +1,7 @@
 // ==========================================
 // _02-BLOG-CARDS.SCSS
 // Optimierte Blog-Karten im reduzierten Fotoalbum-Stil
-// Fokus: Rahmenlos, zwei weiß-transparente, statische Ecken am Bild
+// Fokus: Absolut rahmenlos (kein Passepartout-Rand), zwei weiß-transparente, statische Ecken am Bild
 // ==========================================
 
 @use '01-variables' as *;
@@ -25,11 +25,11 @@
 .blog-card {
     display: flex;
     flex-direction: column;
-    background-color: #faf9f5; // Warmer Naturkarton als Trägerplatte
-    border: none !important;   // Transparenten Rahmen komplett entfernt
+    background-color: #fdfdfd; // Gleicher Farbton wie der Inhalt, um Ränder zu vermeiden
+    border: none !important;   // Rahmen komplett deaktiviert
     height: 100%;
     position: relative;
-    padding: 10px;             // Weißer Passepartout-Rand des Fotoabzugs
+    padding: 0 !important;     // Passepartout-Rand vollständig entfernt, um den Rahmen-Effekt zu löschen
     box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
     
     // Sachte, organische Rotation der Karten im Album-Layout
@@ -61,7 +61,7 @@
         overflow: hidden;
         background-color: #eee;
         position: relative;
-        border: none !important; // Rahmen um das Bild entfernt
+        border: none !important; // Rahmen um das Bild vollständig entfernt
 
         img {
             width: 100%;
@@ -71,7 +71,7 @@
         }
     }
 
-    // 3. TEXT-BEREICH (Integrierter Notizzettel auf dem Trägerkarton)
+    // 3. TEXT-BEREICH (Integrierter Notizzettel auf der Karte)
     .card-content {
         padding: 25px 20px 20px 20px !important;
         position: relative;
@@ -79,7 +79,7 @@
         display: flex;
         flex-direction: column;
         background-color: #fdfdfd !important;
-        border-top: 1px solid rgba(0, 0, 0, 0.03);
+        border: none !important; // Trennlinie zum Bild entfernt, um Nahtlosigkeit zu garantieren
 
         // Hellblaues Gitterraster des Notizpapiers
         background-image: 
