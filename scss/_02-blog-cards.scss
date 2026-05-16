@@ -4,6 +4,7 @@
 // Fokus: Rahmenlos, zwei weiß-transparente Ecken (3px außerhalb platziert), 
 // hocheffiziente, dynamisch generierte SASS-Zufallsrotation (0.1° bis 0.2°)
 // angewendet NUR auf den Bildbereich mit 3px runden Ecken.
+// Extrem hohe CSS-Spezifität zur sicheren Überschreibung von Drittanbieter-Styles.
 // ==========================================
 
 @use '01-variables' as *;
@@ -42,7 +43,7 @@
     // --- ENTWICKLER-SCHLEIFE: DYNAMISCHE ROTATION NUR FÜR DIE BILDER ---
     // Erzeugt vollautomatisch 12 unterschiedliche Rotationsklassen für das Bild-Element.
     // Berechnet minimale, extrem unaufdringliche Zufallswinkel im Bereich von 0.1° bis 0.2°.
-    // Die Karte selbst bleibt waagerecht stehen, während sich nur das "eingeklebte" Foto hauchzart dreht.
+    // Durch die Ergänzung von 'html body' wird die CSS-Spezifität maximiert, um andere Befehle zu dominieren.
     @for $i from 1 through 12 {
         // random(11) liefert 1 bis 11 -> subtrahiert um 1 -> 0 bis 10 -> geteilt durch 100 -> 0.00 bis 0.10 -> addiert um 0.1 -> 0.10 bis 0.20
         $val: (random(11) - 1) / 100 + 0.1; 
@@ -51,22 +52,27 @@
         $direction: if($i % 2 == 0, 1, -1);
         $angle: $val * $direction * 1deg;
 
-        &:nth-child(12n + #{$i}) .card-image-wrapper, 
-        .blog-grid > *:nth-child(12n + #{$i}) & .card-image-wrapper {
+        html body .blog-grid .blog-card:nth-child(12n + #{$i}) .card-image-wrapper,
+        html body .blog-grid > *:nth-child(12n + #{$i}) .card-image-wrapper,
+        html body .blog-grid > *:nth-child(12n + #{$i}) .blog-card .card-image-wrapper,
+        html body .blog-card:nth-child(12n + #{$i}) .card-image-wrapper {
             transform: rotate($angle) !important;
         }
     }
 
-    // Hover-Effekt (Die Karte hebt sich sachte an, das Foto richtet sich im Rahmen gerade aus)
+    // Hover-Effekt (Die Karte hebt sich sachte an)
     &:hover {
         transform: scale(1.02) !important; // Karte skaliert dezent, rotiert aber nicht
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
         z-index: 10;
+    }
 
-        // Das Foto richtet sich bei Interaktion sanft und harmonisch waagerecht aus
-        .card-image-wrapper {
-            transform: rotate(0deg) !important;
-        }
+    // Hover-Begradigung des Bildes mit maximaler Spezifität
+    // Garantiert, dass sich das Foto bei Mausfokus absolut flach ausrichtet, egal welche Regeln vorherrschten.
+    html body &.blog-card:hover .card-image-wrapper,
+    html body .blog-grid > *:hover .card-image-wrapper,
+    html body .blog-grid > *:hover .blog-card .card-image-wrapper {
+        transform: rotate(0deg) !important;
     }
 
     // Visueller Medienbereich (Das eigentliche Foto)
