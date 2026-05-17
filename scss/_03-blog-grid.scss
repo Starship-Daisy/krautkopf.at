@@ -182,7 +182,8 @@ a.blog-card,
 
     // --- DAS KARTEN-DATUM (Hier Schriftart und Farbe editieren) ---
     .card-date {
-      margin-top: auto; 
+      margin-top: auto;
+      margin-bottom: 2rem; 
       
       // HIER SCHRIFTART ÄNDERN:
       // Nutze z.B. $font-main (Inter), $font-copy (Open Sans) oder $font-heading (Lora)
