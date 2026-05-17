@@ -109,7 +109,7 @@
     /*border: 0.5px solid rgba(255, 255, 255, 0.95);*/
     border-radius: 50%;
     pointer-events: none;
-    opacity: 5;
+    opacity: 20;
     z-index: 4;
     box-shadow: 0 0 100px $brand-light, inset 0 0 100px $brand-light;
   }
@@ -177,21 +177,27 @@
   }
 }
 
-// --- GLOWRING ANIMATION ---
+// --- OPTIMIERTE GLOW-ANIMATION (Extrem weicher, rauchiger Übergang) ---
 @keyframes grow-glow {
   0% {
     transform: translate(-50%, -50%) scale(0.1);
-    opacity: 1;
-    border-width: 6px;
+    opacity: 0.85;
+    box-shadow: 
+      0 0 35px 8px rgba($brand-light, 0.35), 
+      inset 0 0 20px 6px rgba($brand-light, 0.25);
   }
-  50% {
-    opacity: 0.8;
+  30% {
+    opacity: 0.7; // Hält den Glow stabil, während er zu expandieren beginnt
   }
   100% {
-    transform: translate(-50%, -50%) scale(2.8);
-    opacity: 0;
-    border-width: 1px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0), inset 0 0 30px rgba(255, 255, 255, 0);
-    }
-  
+    transform: translate(-50%, -50%) scale(3.1); // Weitläufige Ausdehnung
+    opacity: 0; // Fadet absolut gleichmäßig aus
+    
+    // HIER DIE BREITE DES VERLAUFS KORRIGIEREN:
+    // "100px" ist die Weichzeichnung (Blur). Erhöhe sie für einen noch sanfteren Rauch-Effekt.
+    // "30px" ist der Spread (Dichte). Verringere ihn, wenn der Ring schmaler ausblenden soll.
+    box-shadow: 
+      0 0 175px 30px rgba($brand-light, 0), 
+      inset 0 0 60px 20px rgba($brand-light, 0);
+  }
 }
