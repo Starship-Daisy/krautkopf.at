@@ -523,7 +523,7 @@ h4.back-to-home:hover,
 .blog-detail .article-body .article-text p {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  color: #1a1a1a;
+  color: #757a70;
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -1475,7 +1475,7 @@ html body .blog-grid .blog-card .card-content .card-link,
 html body .blog-card .card-content .card-link,
 a.blog-card .card-content .card-link,
 .blog-card .card-content .card-link {
-  margin-top: 1rem;
+  margin-top: 0.25rem;
   margin-bottom: 2rem;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1494,7 +1494,7 @@ a.blog-card .card-content .card-link,
 }
 
 .card-date {
-  margin-top: 1rem;
+  margin-top: 0.25rem;
   margin-bottom: 2rem;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
