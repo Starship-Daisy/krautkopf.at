@@ -1,302 +1,91 @@
 // ==========================================
-// _02-BLOG-CARDS.SCSS
-// Optimierte Blog-Karten im reduzierten Fotoalbum-Stil
-// Fokus: Rahmenlos, zwei weiß-transparente Ecken (3px außerhalb platziert), 
-// hocheffiziente, dynamisch generierte SASS-Zufallsrotation (0.1° bis 0.2°)
-// angewendet NUR auf den Bildbereich mit 3px runden Ecken.
-// Extrem hohe CSS-Spezifität zur sicheren Überschreibung von Drittanbieter-Styles.
+// 02-BLOG-CARDS.SCSS
 // ==========================================
 
-@use '01-variables' as *;
+@use '01-variables' as *; // Das ist okay, um auf Farben/Abstände zuzugreifen
 @use '01-typography' as *;
+@use 'media-query-mixin' as *;
 
-// 1. SYSTEMISCHE RÜCKSETZUNG DER VERLINKUNGEN (LINK-RESET)
-.blog-card, 
-.blog-card a {
-    text-decoration: none !important;
-    border-bottom: none !important;
-    color: inherit !important;
-    outline: none;
-
-    &:link, &:visited, &:hover, &:active {
-        text-decoration: none !important;
-        color: inherit !important;
-    }
-
-// 2. STRUKTURELLE SPEZIFIKATION DER KARTENELEMENTE
 .blog-card {
+  display: flex;
+  flex-direction: column;
+  background-color: $brand-paper; 
+;
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    
+    .card-image {
+      transform: scale(1.05);
+    }
+  }
+
+  // Bild-Container für den Zoom-Effekt
+  .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: $brand-light;
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  // Text-Inhalt
+  .card-content {
+    padding: $space-l;
     display: flex;
     flex-direction: column;
-    background-color: #fdfdfd; // Harmonischer Farbton zur nahtlosen Integration des Inhalts
-    border: none !important;   // Rahmen vollständig deaktiviert
-    height: 100%;
-    position: relative;
-    padding: 0 !important;     // Kein innerer Passepartout-Abstand, um Rahmenbildung zu vermeiden
-    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
-    
-    // Sanfte Transition für das Anheben der Karte im Album-Layout
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
-                z-index 0s;
+    flex-grow: 1;
 
-    // --- ENTWICKLER-SCHLEIFE: DYNAMISCHE ROTATION NUR FÜR DIE BILDER ---
-    // Erzeugt vollautomatisch 12 unterschiedliche Rotationsklassen für das Bild-Element.
-    // Berechnet minimale, extrem unaufdringliche Zufallswinkel im Bereich von 0.1° bis 0.2°.
-    // Durch die Ergänzung von 'html body' wird die CSS-Spezifität maximiert, um andere Befehle zu dominieren.
-    @for $i from 1 through 12 {
-        // random(11) liefert 1 bis 11 -> subtrahiert um 1 -> 0 bis 10 -> geteilt durch 100 -> 0.00 bis 0.10 -> addiert um 0.1 -> 0.10 bis 0.20
-        $val: (random(11) - 1) / 100 + 0.1; 
-        
-        // Alternierendes Vorzeichen (ungerade Indizes rotieren nach links, gerade nach rechts)
-        $direction: if($i % 2 == 0, 1, -1);
-        $angle: $val * $direction * 1deg;
-
-        html body .blog-grid .blog-card:nth-child(12n + #{$i}) .card-image-wrapper,
-        html body .blog-grid > *:nth-child(12n + #{$i}) .card-image-wrapper,
-        html body .blog-grid > *:nth-child(12n + #{$i}) .blog-card .card-image-wrapper,
-        html body .blog-card:nth-child(12n + #{$i}) .card-image-wrapper {
-            transform: rotate($angle) !important;
-        }
+    h3 {
+      font-family: $font-heading;
+      font-size: $font-size-h3;
+      color: $brand-primary;
+      margin-bottom: $space-m;
+      line-height: 1.3;
     }
 
-    // Hover-Effekt (Die Karte hebt sich sachte an)
-    &:hover {
-        transform: scale(1.02) !important; // Karte skaliert dezent, rotiert aber nicht
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
-        z-index: 10;
+    p {
+      font-size: $font-size-small;
+      color: $text-muted;
+      line-height: 1.6;
+      margin-bottom: $space-l;
     }
 
-    // Hover-Begradigung des Bildes mit maximaler Spezifität
-    // Garantiert, dass sich das Foto bei Mausfokus absolut flach ausrichtet, egal welche Regeln vorherrschten.
-    html body &.blog-card:hover .card-image-wrapper,
-    html body .blog-grid > *:hover .card-image-wrapper,
-    html body .blog-grid > *:hover .blog-card .card-image-wrapper {
-        transform: rotate(0deg) !important;
+    .card-link {
+      margin-top: auto; // Schiebt den Link immer ganz nach unten
+      font-family: $font-main;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: $brand-primary;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+
+      &::after {
+        content: '→';
+        margin-left: $space-s;
+        transition: transform 0.3s ease;
+      }
     }
-
-    // Visueller Medienbereich (Das eigentliche Foto)
-    .card-image-wrapper {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        background-color: #eee;
-        position: relative;
-        border: none !important;
-        border-radius: 3px; // Gewünschte abgerundete Ecken von 3px
-        
-        // WICHTIG: Auf "visible" gestellt, damit die Ecken über den Rand hinausragen können
-        overflow: visible !important; 
-
-        // Sanfte Bewegung beim Geraderichten des Bildes
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            border-radius: 3px; // Auch das Bild erhält die 3px Rundung
-        }
-    }
-
-    // 3. TEXT-BEREICH (Integrierter Notizzettel auf der Karte)
-    .card-content {
-        padding: 25px 20px 20px 20px !important;
-        position: relative;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        background-color: #fdfdfd !important;
-        border: none !important; // Absolute Nahtlosigkeit zum Bildbereich ohne Trennlinien
-
-        // Hellblaues Gitterraster des Notizpapiers
-        background-image: 
-            linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
-        background-size: 20px 20px !important;
-
-        // Vertikale rote Korrekturlinie rechts
-        &::before {
-            content: '';
-            position: absolute;
-            right: 25px !important;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: rgba(255, 0, 0, 0.2) !important;
-            z-index: 1;
-        }
-
-        h3, p {
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            margin-left: 0;
-            margin-right: auto;
-            max-width: 90%;
-        }
-
-        h3 {
-            font-family: $font-sub;
-            font-weight: 500;
-            font-size: 1.1rem;
-            color: $text-ink !important;
-            margin-bottom: 10px;
-            line-height: 1.3;
-        }
-
-        p {
-            font-family: $font-copy;
-            font-size: 0.95rem;
-            color: $text-muted !important;
-            line-height: 1.6;
-        }
-    }
+  }
 }
 
-// --- AUTOMATISCHE ABKÜRZUNG DER HEADLINE ---
-        h3 {
-            font-family: $font-heading;
-            font-size: 1.25rem;
-            color: $text-dark !important;
-            margin-bottom: 10px;
-            line-height: 1.3;
-            
-            // Standard-konforme Maskierung für den Sass-Compiler
-            display: -webkit-box;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            
-            #{"-webkit-line-clamp"}: 2; 
-            #{"-webkit-box-orient"}: vertical;
-        }
+// Pfeil-Animation beim Hover
+/*.blog-card:hover .card-link::after {
+  transform: translateX(5px);
+}*/
 
-        p {
-            font-family: $font-copy;
-            font-size: 0.95rem;
-            color: $text-main !important;
-            line-height: 1.6;
-            margin-bottom: $space-m;
-            
-            // Standard-konforme Maskierung für den Beschreibungstext
-            display: -webkit-box;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            
-            #{"-webkit-line-clamp"}: 3; 
-            #{"-webkit-box-orient"}: vertical;
-        }
-
-        // --- DER LINK GANZ UNTEN MIT ABSTAND ---
-        .card-link {
-            font-family: $font-main;
-            font-size: 0.85rem;
-            color: $brand-accent !important;
-            text-transform: lowercase;
-            letter-spacing: 0.05em;
-            
-            // Schiebt den Link automatisch an das absolute Ende des Textbereichs
-            margin-top: auto !important; 
-            padding-top: 15px; 
-            
-            position: relative;
-            z-index: 2;
-            display: inline-block;
-            width: fit-content;
-
-            &:hover {
-                text-decoration: underline !important;
-            }
-        }      
-        }
-        
-        // --- A. DER SYNCHRONISIERTE GLANZ-EFFEKT ---
-        // Durch die Platzierung DIREKT auf dem Wrapper rotiert der Glanz exakt mit dem Bild mit!
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                115deg,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0) 38%,
-                rgba(255, 255, 255, 0.35) 50%,
-                rgba(255, 255, 255, 0) 62%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            background-size: 300% 100%;
-            background-position: 150% 0;
-            background-repeat: no-repeat; // Verhindert das Vollflächige Weiß-Kacheln des Bildes
-            transition: background-position 0.65s cubic-bezier(0.25, 1, 0.5, 1);
-            z-index: 4; // Über dem Foto, aber UNTER den aufgeklebten Fotoecken
-            pointer-events: none;
-            
-            // Maskiert den Glanz exakt auf die 3px Bildrundung (dreht sich mit)
-            clip-path: inset(0 round 3px); 
-        }
-
-// ==========================================
-// 4. WEISS-TRANSPARENTE FOTOECKEN (DIAGONAL PLATZIERT)
-// Befestigungselemente ragen nun 3px über das Bild hinaus
-// ==========================================
-
-%fotoecke-base {
-    content: '';
-    position: absolute;
-    width: 28px; // Leicht vergrößert, um den Überhang optisch auszugleichen
-    height: 28px;
-    z-index: 5;
-    pointer-events: none;
-    transition: none; // Keine eigenständige Hover-Bewegung an den Ecken, sie folgen starr dem Bild
-    
-    // Plastischer Schattenwurf der transparenten Ecken
-    filter: drop-shadow(1px 1.5px 1.5px rgba(0, 0, 0, 0.12));
-}
-
-// Oben-links: 3px nach außen verschobene weiß-transparente Ecke
-.blog-card .card-image-wrapper::before {
-    @extend %fotoecke-base;
-    top: -3px;  // 3px außerhalb der oberen Kante
-    left: -3px; // 3px außerhalb der linken Kante
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.7) 0%, 
-        rgba(255, 255, 255, 0.35) 42%, 
-        rgba(255, 255, 255, 0.8) 45%, 
-        transparent 48%
-    );
-}
-
-// Unten-rechts: 3px nach außen verschobene weiß-transparente Ecke
-.blog-card .card-image-wrapper::after {
-    @extend %fotoecke-base;
-    bottom: -3px; // 3px außerhalb der unteren Kante
-    right: -3px;  // 3px außerhalb der rechten Kante
-    background: linear-gradient(-45deg, 
-        rgba(255, 255, 255, 0.7) 0%, 
-        rgba(255, 255, 255, 0.35) 42%, 
-        rgba(255, 255, 255, 0.8) 45%, 
-        transparent 48%
-    );
-}
-
-// 5. ENTWURFSSTATUS (TEASER-MODUS)
-.blog-card.is-teaser {
-    filter: grayscale(0.6);
-    opacity: 0.85;
-    cursor: default;
-
-    .card-content {
-        background-color: #f7f7f7 !important;
-    }
-
-    &:hover {
-        transform: none !important;
-        box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03) !important;
-        
-        .card-image-wrapper {
-            transform: none !important; // Keine Begradigung bei inaktiven Teasern
-        }
-    }
-}
