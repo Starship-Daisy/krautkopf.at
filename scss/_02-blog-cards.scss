@@ -22,7 +22,6 @@
         text-decoration: none !important;
         color: inherit !important;
     }
-}
 
 // 2. STRUKTURELLE SPEZIFIKATION DER KARTENELEMENTE
 .blog-card {
@@ -208,7 +207,8 @@
                 text-decoration: underline !important;
             }
         }      
-
+        }
+        
         // --- A. DER SYNCHRONISIERTE GLANZ-EFFEKT ---
         // Durch die Platzierung DIREKT auf dem Wrapper rotiert der Glanz exakt mit dem Bild mit!
         &::before {
