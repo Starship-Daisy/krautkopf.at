@@ -171,11 +171,11 @@ a.blog-card,
       align-items: center;
       transition: color 0.3s ease; // Garantiert einen weichen Übergang der Linkfarbe beim Hovern
 
-      &::after {
+      /*&::after {
         content: '→';
         margin-left: $space-s;
         transition: transform 0.3s ease;
-      }
+      }*/
     }
   }
 }
