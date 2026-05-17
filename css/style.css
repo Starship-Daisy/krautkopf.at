@@ -1490,14 +1490,11 @@ a.blog-card .card-content .card-link,
   display: flex;
   align-items: center;
   transition: color 0.3s ease;
-}
-html body .blog-grid .blog-card .card-content .card-link::after,
-html body .blog-card .card-content .card-link::after,
-a.blog-card .card-content .card-link::after,
-.blog-card .card-content .card-link::after {
-  content: "→";
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
+  /*&::after {
+    content: '→';
+    margin-left: $space-s;
+    transition: transform 0.3s ease;
+  }*/
 }
 
 .card-date {
