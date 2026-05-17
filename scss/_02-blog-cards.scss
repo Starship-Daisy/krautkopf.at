@@ -31,7 +31,7 @@
 
     // Glowring triggern
     .glow-ring {
-      animation: grow-glow 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      animation: grow-glow 5.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
   }
 
@@ -109,7 +109,7 @@
     /*border: 0.5px solid rgba(255, 255, 255, 0.95);*/
     border-radius: 50%;
     pointer-events: none;
-    opacity: 20;
+    opacity: 5;
     z-index: 4;
     box-shadow: 0 0 100px $brand-light, inset 0 0 100px $brand-light;
   }
@@ -192,7 +192,6 @@
     opacity: 0;
     border-width: 1px;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0), inset 0 0 30px rgba(255, 255, 255, 0);
-    animation: grow-glow 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
   
 }
