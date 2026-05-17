@@ -1480,6 +1480,7 @@ html body .blog-grid .blog-card .card-content a,
 html body .blog-card .card-content a,
 a.blog-card .card-content a,
 .blog-card .card-content a {
+  font-family: "Open Sans", sans-serif !important;
   text-decoration: none !important;
   color: inherit !important;
   background-color: transparent !important;
