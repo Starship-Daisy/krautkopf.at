@@ -1214,7 +1214,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+2) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+2) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+2) .card-image-wrapper {
-  transform: rotate(0.17deg) !important;
+  transform: rotate(0.19deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+3) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+3) .card-image-wrapper,
@@ -1224,7 +1224,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+3) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+3) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+3) .card-image-wrapper {
-  transform: rotate(-0.18deg) !important;
+  transform: rotate(-0.12deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+4) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+4) .card-image-wrapper,
@@ -1244,7 +1244,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+5) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+5) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+5) .card-image-wrapper {
-  transform: rotate(-0.11deg) !important;
+  transform: rotate(-0.18deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+6) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+6) .card-image-wrapper,
@@ -1254,7 +1254,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+6) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+6) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+6) .card-image-wrapper {
-  transform: rotate(0.13deg) !important;
+  transform: rotate(0.1deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+7) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+7) .card-image-wrapper,
@@ -1264,7 +1264,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+7) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+7) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+7) .card-image-wrapper {
-  transform: rotate(-0.16deg) !important;
+  transform: rotate(-0.13deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+8) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+8) .card-image-wrapper,
@@ -1274,7 +1274,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+8) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+8) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+8) .card-image-wrapper {
-  transform: rotate(0.1deg) !important;
+  transform: rotate(0.12deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+9) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+9) .card-image-wrapper,
@@ -1284,7 +1284,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+9) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+9) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+9) .card-image-wrapper {
-  transform: rotate(-0.2deg) !important;
+  transform: rotate(-0.13deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+10) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+10) .card-image-wrapper,
@@ -1294,7 +1294,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+10) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+10) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+10) .card-image-wrapper {
-  transform: rotate(0.13deg) !important;
+  transform: rotate(0.14deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+11) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+11) .card-image-wrapper,
@@ -1304,7 +1304,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+11) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+11) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+11) .card-image-wrapper {
-  transform: rotate(-0.12deg) !important;
+  transform: rotate(-0.18deg) !important;
 }
 .blog-card .blog-card html body .blog-grid .blog-card:nth-child(12n+12) .card-image-wrapper,
 .blog-card .blog-card html body .blog-grid > *:nth-child(12n+12) .card-image-wrapper,
@@ -1314,7 +1314,7 @@ h4.back-to-home:hover,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+12) .card-image-wrapper,
 .blog-card a .blog-card html body .blog-grid > *:nth-child(12n+12) .blog-card .card-image-wrapper,
 .blog-card a .blog-card html body .blog-card:nth-child(12n+12) .card-image-wrapper {
-  transform: rotate(0.11deg) !important;
+  transform: rotate(0.2deg) !important;
 }
 .blog-card .blog-card:hover,
 .blog-card a .blog-card:hover {
@@ -1499,24 +1499,19 @@ html body .blog-card a .blog-card.blog-card:hover .card-image-wrapper,
   transform: none !important;
 }
 
-.blog-grid a,
-a.blog-card,
-.blog-card a {
+.blog-grid a:not(.blog-card),
+.blog-card a:not(.card-link) {
   text-decoration: none !important;
   border-bottom: none !important;
   color: inherit !important;
   outline: none;
   background-color: transparent !important;
 }
-.blog-grid a:link, .blog-grid a:visited, .blog-grid a:hover, .blog-grid a:active,
-a.blog-card:link,
-a.blog-card:visited,
-a.blog-card:hover,
-a.blog-card:active,
-.blog-card a:link,
-.blog-card a:visited,
-.blog-card a:hover,
-.blog-card a:active {
+.blog-grid a:not(.blog-card):link, .blog-grid a:not(.blog-card):visited, .blog-grid a:not(.blog-card):hover, .blog-grid a:not(.blog-card):active,
+.blog-card a:not(.card-link):link,
+.blog-card a:not(.card-link):visited,
+.blog-card a:not(.card-link):hover,
+.blog-card a:not(.card-link):active {
   text-decoration: none !important;
   border-bottom: none !important;
   color: inherit !important;
