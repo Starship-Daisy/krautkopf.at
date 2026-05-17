@@ -10,14 +10,14 @@
 // 1. GLOBALER RESET FÜR VERLINKUNGEN
 // Wir zwingen alle Link-Wrapper auf transparent, damit kein Browser-Standard 
 // das warme Papier-Design mit Weiß überlagert!
-.blog-grid a, 
-a.blog-card, 
-.blog-card a {
+
+.blog-grid a:not(.blog-card), 
+.blog-card a:not(.card-link) {
     text-decoration: none !important;
     border-bottom: none !important;
     color: inherit !important;
     outline: none;
-    background-color: transparent !important; // Verhindert weiße Flächen auf Links
+    background-color: transparent !important; // Nur innere Elemente transparent halten
 
     &:link, &:visited, &:hover, &:active {
         text-decoration: none !important;
