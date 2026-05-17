@@ -66,22 +66,25 @@ Gedanken sind kein Ergebnis von Anstrengung, sondern von Bewegung. Wer zu sehr v
                 
                 <div class="blog-grid">
         
-                    <article class="blog-card">
-                        <div class="card-image-wrapper">
-                        <!-- Neuer Crop-Container fängt den Zoom im Inneren ab -->
-                            <div class="card-image-crop">
-                                <div class="card-image-placeholder"></div>
-                                </div>
-                                <!-- Der Ring sitzt außerhalb des Crops, aber innerhalb des Wrappers -->
-                                <div class="glow-ring"></div>
-                            </div>
-
-                            <div class="card-content">
-                                <h3>Dein Titel</h3>
-                                <p>Deine Beschreibung...</p>
-                                <a href="#" class="card-link">noch nicht fertig gedacht…</a>
-                            </div>
-                    </article>
+<!-- Korrekte HTML-Struktur für deine Cards -->
+<article class="blog-card">
+  <div class="card-image-wrapper">
+    
+    <!-- Neuer Crop-Container fängt den Zoom im Inneren ab -->
+    <div class="card-image-crop">
+      <img class="card-image" src="dein-bild.jpg" alt="Beispiel">
+    </div>
+    
+    <!-- Der Ring sitzt außerhalb des Crops, aber innerhalb des Wrappers -->
+    <div class="glow-ring"></div>
+    
+  </div>
+  <div class="card-content">
+    <h3>Dein Titel</h3>
+    <p>Deine Beschreibung...</p>
+    <span class="card-link">Notiz lesen</span>
+  </div>
+</article>
                     
                     <article class="blog-card">
                         <a href="blog-01-ge(h)danken.html">
