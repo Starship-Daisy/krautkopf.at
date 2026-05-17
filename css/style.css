@@ -1494,6 +1494,7 @@ a.blog-card .card-content .card-link,
 
 .card-date {
   margin-top: auto;
+  margin-bottom: 2rem;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
