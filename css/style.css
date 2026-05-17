@@ -511,7 +511,7 @@ h4.back-to-home:hover,
   padding: 0 1rem;
 }
 .blog-detail .article-body .lead {
-  font-family: "Lora", serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   color: #4a5d4e;
   line-height: 1.4;
