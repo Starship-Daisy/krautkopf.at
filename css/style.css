@@ -1242,7 +1242,7 @@ h4.back-to-home:hover,
   /*border: 0.5px solid rgba(255, 255, 255, 0.95);*/
   border-radius: 50%;
   pointer-events: none;
-  opacity: 5;
+  opacity: 20;
   z-index: 4;
   box-shadow: 0 0 100px #fdfcf8, inset 0 0 100px #fdfcf8;
 }
@@ -1301,17 +1301,16 @@ h4.back-to-home:hover,
 @keyframes grow-glow {
   0% {
     transform: translate(-50%, -50%) scale(0.1);
-    opacity: 1;
-    border-width: 6px;
+    opacity: 0.85;
+    box-shadow: 0 0 35px 8px rgba(253, 252, 248, 0.35), inset 0 0 20px 6px rgba(253, 252, 248, 0.25);
   }
-  50% {
-    opacity: 0.8;
+  30% {
+    opacity: 0.7;
   }
   100% {
-    transform: translate(-50%, -50%) scale(2.8);
+    transform: translate(-50%, -50%) scale(3.1);
     opacity: 0;
-    border-width: 1px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0), inset 0 0 30px rgba(255, 255, 255, 0);
+    box-shadow: 0 0 175px 30px rgba(253, 252, 248, 0), inset 0 0 60px 20px rgba(253, 252, 248, 0);
   }
 }
 .blog-grid a:not(.blog-card),
