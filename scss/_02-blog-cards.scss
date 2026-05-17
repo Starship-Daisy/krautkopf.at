@@ -158,12 +158,13 @@
     }
 
     .card-link {
+      font-size: $font-size-small;
       margin-top: auto; 
-      font-family: $font-main;
+      font-family: $font-copy;
       font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
-      color: $brand-primary;
+      color: $brand-primary-light;
       letter-spacing: 0.05em;
       display: flex;
       align-items: center;
