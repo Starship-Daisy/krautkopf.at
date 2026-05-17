@@ -1,21 +1,14 @@
-// ==========================================
-// 03-BLOG-GRID.SCSS
-// Optimiertes Grid-Layout & konsolidierte Karten-Struktur
-// BEHOBEN: White-Link-Bug (Verhindert transparente/weiße Karten bei aktiven Links)
-// ==========================================
-
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// 1. GLOBALER RESET FÜR VERLINKUNGEN (Spezifisch eingegrenzt)
-// Wir zwingen nur innere Link-Wrapper auf transparent, aber niemals die .blog-card selbst!
+// Globaler Reset für Links (Verhindert, dass Browser die Karten weiß färben)
 .blog-grid a:not(.blog-card), 
 .blog-card a:not(.card-link) {
     text-decoration: none !important;
     border-bottom: none !important;
     color: inherit !important;
     outline: none;
-    background-color: transparent !important; // Nur innere Elemente transparent halten
+    background-color: transparent !important;
 
     &:link, &:visited, &:hover, &:active {
         text-decoration: none !important;
@@ -25,10 +18,10 @@
     }
 }
 
-// DER GRID-CONTAINER
+// Grid-Container
 .blog-grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; // 3 Spalten nebeneinander
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 40px !important;
     max-width: 1100px;
     margin: 60px auto;
@@ -38,92 +31,124 @@
     @media (max-width: 768px) { grid-template-columns: 1fr !important; }
 }
 
-// 2. DIE BLOG-KARTE (Maximale Spezifität für die Papierfarbe)
-html body .blog-grid .blog-card,
-html body .blog-card,
-a.blog-card,
+// Die Blog-Karte (Basis & Hover)
 .blog-card {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: $brand-paper !important; // Garantiert die warme Papierfarbe für alle Karten
+    background-color: $brand-paper !important; // Garantiert die warme Papierfarbe
     height: 100%;
     position: relative;
     box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.03);
     border: none !important;
-    text-decoration: none !important; // Verhindert Unterstreichungen, falls Karte ein A-Tag ist
+    text-decoration: none !important;
     
-    // Dezentere, flüssige Transitions ohne irritierende Ruckler
-    transition: box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    
-    transform: none !important;
-    will-change: auto;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, box-shadow;
 
     &:hover {
-        transform: none !important; // Keine unruhigen Rotationen mehr auf der ganzen Karte
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07) !important;
+        transform: scale(1.02);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
         background-color: $brand-paper !important;
     }
 
-    // Bildbereich der Karte
+    // Bild-Bereich mit sanfter Drehung und Glanz
     .card-image-wrapper {
         position: relative;
         width: 100%;
         aspect-ratio: 16 / 10 !important; 
         background-color: #eee;
         z-index: 1;
+        overflow: visible !important;
+        transform: rotate(-1.5deg);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 1 !important;
-            visibility: visible !important;
-            transition: none !important;
-            transform: none !important;
+        // Das Foto richtet sich beim Hovern gerade aus
+        &:hover {
+            transform: rotate(0deg);
+        }
+
+        // Der Shimmer / Glanz-Effekt (von rechts nach links)
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(
+                115deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 38%,
+                rgba(255, 255, 255, 0.45) 50%,
+                rgba(255, 255, 255, 0) 62%,
+                rgba(255, 255, 255, 0) 100
+            );
+            background-size: 300% 100%;
+            background-position: 150% 0;
+            background-repeat: no-repeat;
+            transition: background-position 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 4;
+            clip-path: inset(0 round 3px); 
+        }
+
+        // Kompakte Fotoecken (Liegen über dem Glanz)
+        &::after {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            z-index: 5;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 42%, rgba(255, 255, 255, 0.8) 45%, transparent 48%),
+                linear-gradient(-45deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.35) 42%, rgba(255, 255, 255, 0.8) 45%, transparent 48%);
+            background-size: 28px 28px;
+            background-repeat: no-repeat;
+            background-position: top left, bottom right;
+            filter: drop-shadow(1.5px 2px 2px rgba(0, 0, 0, 0.12));
         }
     }
 
-    // Platzhalter für Entwürfe ohne Bild
+    // Trigger für den Glanz bei Hover über die Karte
+    &:hover .card-image-wrapper::before {
+        background-position: -50% 0;
+    }
+    &:hover .card-image-wrapper {
+        transform: rotate(0deg);
+    }
+
+    // Platzhalter für Entwürfe
     .card-image-placeholder {
         width: 100%;
         height: 100%;
-        background-color: #c8c8c8;
+        background-color: #d2cbbe;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        overflow: hidden;
     }
 
-    // DAS KARIERTE TEXTFELD (Maximale Spezifität)
+    // Das karierte Textfeld (Notizblock)
     .card-content {
-        padding: 30px 20px 30px 45px !important; // Genügend Platz links für die Lochung/Ecken
+        padding: 30px 20px 30px 45px !important;
         position: relative;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        background-color: $brand-paper !important; // Garantiert die warme Papierfarbe
+        background-color: $brand-paper !important;
         z-index: 2;
 
-        // BLAUES KARO-MUSTER
+        // Blaues Karo-Muster
         background-image: 
-            linear-gradient(rgba(173, 216, 230, 0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(173, 216, 230, 0.4) 1px, transparent 1px) !important;
+            linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
         background-size: 20px 20px !important;
 
-        // ROTE MARGIN-LINIE (Rechts)
+        // Rote Linie rechts
         &::before {
             content: '';
             position: absolute;
             right: 30px !important;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: rgba(233, 161, 161, 0.4) !important;
+            top: 0; bottom: 0; width: 1px;
+            background-color: rgba(255, 0, 0, 0.2) !important;
             z-index: 1;
         }
 
@@ -131,11 +156,11 @@ a.blog-card,
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 240px; // Verhindert, dass Text die rote Linie überschreibt
+            max-width: 240px;
             text-align: left; 
             hyphens: auto;
             margin-left: 0;
-            margin-right: auto; // Richtet alles sauber nach links aus
+            margin-right: auto;
         }
 
         h3 {
@@ -152,30 +177,5 @@ a.blog-card,
             color: $text-muted !important;
             line-height: 1.5;
         }
-
-        a {
-            text-decoration: none !important;
-            color: inherit !important;
-            background-color: transparent !important;
-        }
-    }
-}
-
-// 3. SPEZIELLER FIX FÜR ENTWÜRFE (DRAFTS / TEASER)
-// Überschreibt die Papierfarbe nur für Entwürfe mit einem dezenten Grau
-html body .blog-grid .blog-card.is-draft,
-.blog-card.is-draft {
-    cursor: default;
-    pointer-events: none; // Nicht anklickbar
-    opacity: 0.8;
-    background-color: #f5f5f5 !important;
-
-    .card-content {
-        background-color: #f5f5f5 !important; // Dezent grauer Zettelton für Entwürfe
-        
-        // Graues Karo-Muster passend zum Draft-Status
-        background-image: 
-            linear-gradient(rgba(200, 200, 200, 0.2) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200, 200, 200, 0.2) 1px, transparent 1px) !important;
     }
 }
