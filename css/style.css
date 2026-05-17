@@ -1475,7 +1475,7 @@ html body .blog-grid .blog-card .card-content .card-link,
 html body .blog-card .card-content .card-link,
 a.blog-card .card-content .card-link,
 .blog-card .card-content .card-link {
-  margin-top: auto;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
@@ -1494,7 +1494,7 @@ a.blog-card .card-content .card-link,
 }
 
 .card-date {
-  margin-top: auto;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
