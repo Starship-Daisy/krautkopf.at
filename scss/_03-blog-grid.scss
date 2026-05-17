@@ -154,7 +154,7 @@ a.blog-card,
         }
     // --- DER KARTEN-LINK (Hier Schriftart und Farbe editieren) ---
     .card-link {
-      margin-top: 1rem;
+      margin-top: $space-xs;
       margin-bottom: 2rem; 
       
       // HIER SCHRIFTART ÄNDERN:
@@ -183,7 +183,7 @@ a.blog-card,
 
     // --- DAS KARTEN-DATUM (Hier Schriftart und Farbe editieren) ---
     .card-date {
-      margin-top: 1rem;
+      margin-top: $space-xs;
       margin-bottom: 2rem; 
       
       // HIER SCHRIFTART ÄNDERN:
