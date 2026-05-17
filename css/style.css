@@ -1476,6 +1476,7 @@ html body .blog-card .card-content .card-link,
 a.blog-card .card-content .card-link,
 .blog-card .card-content .card-link {
   margin-top: auto;
+  margin-bottom: 2rem;
   font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 300;
@@ -1499,7 +1500,7 @@ a.blog-card .card-content .card-link,
   font-size: 0.75rem;
   font-weight: 300;
   text-transform: lowercase;
-  color: #6c7a6f;
+  color: #4a5d4e;
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
