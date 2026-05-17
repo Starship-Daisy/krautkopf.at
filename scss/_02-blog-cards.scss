@@ -118,7 +118,7 @@
 @keyframes grow-glow {
   0% {
     transform: translate(-50%, -50%) scale(0.1);
-    opacity: 0.8; // Startet bereits elegant transparent
+    opacity: 0.2; // Startet bereits elegant transparent
     border-width: 4px;
   }
   40% {
@@ -129,8 +129,8 @@
     opacity: 0;
     border-width: 1px;
     box-shadow: 
-      0 0 120px 25px rgba($brand-accent, 0), 
-      inset 0 0 60px 25px rgba($brand-accent, 0);
+      0 0 120px 25px rgba($brand-light, 0), 
+      inset 0 0 60px 25px rgba($brand-light, 0);
   }
 }
 
