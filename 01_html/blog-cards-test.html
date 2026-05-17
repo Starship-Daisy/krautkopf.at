@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Karten Vorschau</title>
+    <!-- Einbindung der Google Fonts für die authentische Darstellung -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================
+           SIMULIERTES STYLESHEET FÜR DIE CANVAS-VORSCHAU
+           Enthält die Farbwerte deines SASS-Projekts
+           ========================================== */
+        :root {
+            --brand-paper: #faf6ee;      /* Die originale, warme Papierfarbe ($brand-paper) */
+            --brand-primary: #1a1a1a;
+            --brand-grid: rgba(173, 216, 230, 0.35); /* Hellblaues Karo-Raster */
+            --brand-line: rgba(255, 0, 0, 0.2);       /* Rote Korrekturlinie */
+            --text-main: #333333;
+            --text-muted: #666666;
+            --brand-accent: #8b9d83;
+        }
+
+        body {
+            background-color: #e6e2da; /* Etwas dunklerer Tisch-Hintergrund, damit das Papier kontrastiert */
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Simulierter Gitter-Container */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* Die Blog-Karte */
+        .blog-card {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--brand-paper) !important;
+            border: none;
+            height: 100%;
+            position: relative;
+            box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        /* Der edle, synchrone Glanz-Effekt */
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                115deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 38%,
+                rgba(255, 255, 255, 0.35) 50%,
+                rgba(255, 255, 255, 0) 62%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 300% 100%;
+            background-position: 150% 0;
+            background-repeat: no-repeat;
+            transition: background-position 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .blog-card:hover::before {
+            background-position: -50% 0;
+        }
+
+        /* Visueller Bildbereich */
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background-color: #eee;
+            z-index: 1;
+        }
+
+        /* Neutraler Platzhalter für unfertige Entwürfe */
+        .card-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #dcd7cc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Das Notizblock-Textfeld */
+        .card-content {
+            padding: 30px 20px 30px 45px !important;
+            position: relative;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: var(--brand-paper) !important;
+            z-index: 2;
+
+            /* Warmes Karomuster */
+            background-image: 
+                linear-gradient(var(--brand-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px) !important;
+            background-size: 20px 20px !important;
+        }
+
+        /* Die vertikale rote Marginal-Linie */
+        .card-content::before {
+            content: '';
+            position: absolute;
+            right: 30px !important;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--brand-line) !important;
+            z-index: 1;
+        }
+
+        h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.25rem;
+            color: var(--brand-primary);
+            margin: 0 0 10px 0;
+            line-height: 1.3;
+            z-index: 2;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 0 20px 0;
+            z-index: 2;
+        }
+
+        .card-link {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--brand-accent);
+            text-transform: lowercase;
+            margin-top: auto;
+            z-index: 2;
+        }
+
+        /* Stil für inaktive Teaser */
+        .blog-card.is-teaser {
+            opacity: 0.85;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-grid">
+
+        <!-- ERSTE KARTE (Jetzt sauber repariert) -->
+        <article class="blog-card is-teaser">
+            <div class="card-image-wrapper">
+                <div class="card-image-placeholder"></div>
+            </div>
+            <div class="card-content">
+                <h3>Fokus im Chaos.</h3>
+                <p>Die Kunst, das Wesentliche vom Lauten zu unterscheiden.</p>
+                <span class="card-link">noch nicht fertig gedacht…</span>
+            </div>
+        </article>
+
+        <!-- ZWEITE KARTE (Ebenfalls sauber und befreit vom Domino-Effekt) -->
+        <article class="blog-card is-teaser">
+            <div class="card-image-wrapper">
+                <div class="card-image-placeholder"></div>
+            </div>
+            <div class="card-content">
+                <h3>Fokus im Chaos.</h3>
+                <p>Die Kunst, das Wesentliche vom Lauten zu unterscheiden.</p>
+                <span class="card-link">noch nicht fertig gedacht…</span>
+            </div>
+        </article>
+
+    </div>
+
+</body>
+</html>
