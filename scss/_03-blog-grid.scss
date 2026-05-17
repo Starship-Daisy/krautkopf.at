@@ -152,14 +152,33 @@ a.blog-card,
             color: $text-muted !important;
             line-height: 1.5;
         }
+    // --- DER KARTEN-LINK (Hier Schriftart und Farbe editieren) ---
+    .card-link {
+      margin-top: auto; 
+      
+      // HIER SCHRIFTART ÄNDERN:
+      // Nutze z.B. $font-main (Inter), $font-copy (Open Sans) oder $font-heading (Lora)
+      font-family: $font-copy; 
+      font-size: 0.75rem;
+      font-weight: 300;
+      text-transform: lowercase;
+      
+      // HIER GRUNDFARBE ÄNDERN:
+      // Nutze z.B. eine Variable ($brand-accent, $brand-primary-light) oder einen Hexwert (z.B. #ff0000)
+      color: $brand-primary-light; 
+      
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease; // Garantiert einen weichen Übergang der Linkfarbe beim Hovern
 
-        a {
-            font-family: $font-copy !important;
-            text-decoration: none !important;
-            color: inherit !important;
-            background-color: transparent !important;
-        }
+      &::after {
+        content: '→';
+        margin-left: $space-s;
+        transition: transform 0.3s ease;
+      }
     }
+  }
 }
 
 // 3. SPEZIELLER FIX FÜR ENTWÜRFE (DRAFTS / TEASER)
