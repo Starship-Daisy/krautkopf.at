@@ -1190,7 +1190,7 @@ h4.back-to-home:hover,
   transform: scale(1.05);
 }
 .blog-card:hover .glow-ring {
-  animation: grow-glow 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: grow-glow 5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 .blog-card .card-image-wrapper {
   width: 100%;
@@ -1242,7 +1242,7 @@ h4.back-to-home:hover,
   /*border: 0.5px solid rgba(255, 255, 255, 0.95);*/
   border-radius: 50%;
   pointer-events: none;
-  opacity: 20;
+  opacity: 5;
   z-index: 4;
   box-shadow: 0 0 100px #fdfcf8, inset 0 0 100px #fdfcf8;
 }
@@ -1312,7 +1312,6 @@ h4.back-to-home:hover,
     opacity: 0;
     border-width: 1px;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0), inset 0 0 30px rgba(255, 255, 255, 0);
-    animation: grow-glow 3.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
 }
 .blog-grid a:not(.blog-card),
