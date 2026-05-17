@@ -1282,12 +1282,13 @@ h4.back-to-home:hover,
   margin-bottom: 2rem;
 }
 .blog-card .card-content .card-link {
+  font-size: 0.875rem;
   margin-top: auto;
-  font-family: "Inter", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  color: #4a5d4e;
+  color: #6c7a6f;
   letter-spacing: 0.05em;
   display: flex;
   align-items: center;
