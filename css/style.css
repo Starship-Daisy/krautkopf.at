@@ -1476,14 +1476,28 @@ a.blog-card .card-content p,
   color: #757a70 !important;
   line-height: 1.5;
 }
-html body .blog-grid .blog-card .card-content a,
-html body .blog-card .card-content a,
-a.blog-card .card-content a,
-.blog-card .card-content a {
-  font-family: "Open Sans", sans-serif !important;
-  text-decoration: none !important;
-  color: inherit !important;
-  background-color: transparent !important;
+html body .blog-grid .blog-card .card-content .card-link,
+html body .blog-card .card-content .card-link,
+a.blog-card .card-content .card-link,
+.blog-card .card-content .card-link {
+  margin-top: auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-transform: lowercase;
+  color: #6c7a6f;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+html body .blog-grid .blog-card .card-content .card-link::after,
+html body .blog-card .card-content .card-link::after,
+a.blog-card .card-content .card-link::after,
+.blog-card .card-content .card-link::after {
+  content: "→";
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
 html body .blog-grid .blog-card.is-draft,
