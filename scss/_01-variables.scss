@@ -19,6 +19,9 @@ $text-ink2:     #67a6bd;
 $text-ink3:     #7d9aa5;
 $border-color:  rgba(0, 0, 0, 0.08);
 
+// HIER DIE NEUE VARIABLEN EINTRAGEN:
+$image-zoom-factor: 1.05;
+
 // TYPOGRAFIE
 $font-main:         'Inter', sans-serif;
 $font-copy:         'open sans', sans-serif;
@@ -27,7 +30,6 @@ $font-note:         'Comforter Brush', cursive;
 $font-sub:          'Alice', serif;
 $font-script:       'Praise', handwriting;
 $font-scrip-blog:   'Shalimar', handwriting;
-
 
 $font-size-base:  1rem;       // Standard (16px)
 $font-size-h1:    2.5rem;
