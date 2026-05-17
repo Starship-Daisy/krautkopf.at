@@ -1174,11 +1174,13 @@ h4.back-to-home:hover,
   flex-direction: column;
   background-color: #f7f4e9;
   border-radius: 4px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease-in-out;
   height: 100%;
   text-decoration: none;
+  cursor: pointer;
+  position: relative;
 }
 .blog-card:hover {
   transform: translateY(-8px);
@@ -1187,17 +1189,62 @@ h4.back-to-home:hover,
 .blog-card:hover .card-image {
   transform: scale(1.05);
 }
+.blog-card:hover .glow-ring {
+  animation: grow-glow 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
 .blog-card .card-image-wrapper {
   width: 100%;
   aspect-ratio: 4/3;
-  overflow: hidden;
+  overflow: visible;
   background-color: #fdfcf8;
+  position: relative;
 }
-.blog-card .card-image-wrapper .card-image {
+.blog-card .card-image-wrapper::before, .blog-card .card-image-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(1px 1.5px 1.5px rgba(0, 0, 0, 0.12));
+}
+.blog-card .card-image-wrapper::before {
+  top: -3px;
+  left: -3px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 42%, rgba(255, 255, 255, 0.85) 45%, transparent 48%);
+}
+.blog-card .card-image-wrapper::after {
+  bottom: -3px;
+  right: -3px;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 42%, rgba(255, 255, 255, 0.85) 45%, transparent 48%);
+}
+.blog-card .card-image-crop {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+}
+.blog-card .card-image-crop .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.5s ease;
+}
+.blog-card .glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 80px;
+  height: 80px;
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 4;
+  box-shadow: 0 0 20px #8b9d83, inset 0 0 20px #8b9d83;
 }
 .blog-card .card-content {
   padding: 2rem;
@@ -1235,9 +1282,22 @@ h4.back-to-home:hover,
   transition: transform 0.3s ease;
 }
 
-/*.blog-card:hover .card-link::after {
-  transform: translateX(5px);
-}*/
+@keyframes grow-glow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 1;
+    border-width: 6px;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+    border-width: 1px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0), inset 0 0 30px rgba(255, 255, 255, 0);
+  }
+}
 .blog-grid a:not(.blog-card),
 .blog-card a:not(.card-link) {
   text-decoration: none !important;
