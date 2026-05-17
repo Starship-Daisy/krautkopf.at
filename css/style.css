@@ -1259,7 +1259,7 @@ h4.back-to-home:hover,
     transform: translate(-50%, -50%) scale(2.6);
     opacity: 0;
     border-width: 1px;
-    box-shadow: 0 0 60px 25px rgba(139, 157, 131, 0), inset 0 0 60px 25px rgba(139, 157, 131, 0);
+    box-shadow: 0 0 120px 25px rgba(139, 157, 131, 0), inset 0 0 60px 25px rgba(139, 157, 131, 0);
   }
 }
 .blog-card .card-content {
