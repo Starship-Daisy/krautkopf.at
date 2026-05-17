@@ -168,12 +168,6 @@
       letter-spacing: 0.05em;
       display: flex;
       align-items: center;
-
-      &::after {
-        content: '→';
-        margin-left: $space-s;
-        transition: transform 0.3s ease;
-      }
     }
   }
 }
