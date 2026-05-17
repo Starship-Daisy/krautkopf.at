@@ -98,6 +98,22 @@
     }
   }
 
+  // --- GLOW-RING ELEMENT ---
+  .glow-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 80px;
+    height: 80px;
+    border: 4px solid rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 20;
+    z-index: 4;
+    box-shadow: 0 0 20px $brand-accent, inset 0 0 20px $brand-accent;
+  }
+
 // --- GLOWRING ANIMATION (Weiches Ausblenden & sanfteres Wachstum) ---
 @keyframes grow-glow {
   0% {
@@ -117,6 +133,7 @@
       inset 0 0 60px 25px rgba($brand-accent, 0);
   }
 }
+
 
   // Text-Inhalte
   .card-content {
