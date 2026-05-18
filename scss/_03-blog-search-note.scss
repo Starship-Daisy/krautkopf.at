@@ -5,64 +5,61 @@
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// --- GROSSE TYPEWRITER SUCHBOX ---
+// 1. Der äußere Container
+.blog-filter-section {
+  max-width: $container-width;
+  margin: 40px auto;
+  text-align: center;
+}
+
+// 2. Die Box um das Suchfeld (Flach definiert, ohne tiefes Nesting)
 .search-box {
-  position: relative;
-  width: 100%;
-  max-width: 550px; // Deutlich verbreitert (vorher 320px) für mehr Präsenz
-  margin-bottom: $space-m; // Schafft Platz zu den Registerkarten darunter
+  position: relative !important;
+  width: 100% !important;
+  max-width: 550px !important; // Das macht das Feld groß!
+  margin: 0 auto 24px auto !important;
+  display: block !important;
+}
 
-  input {
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid rgba($brand-primary, 0.2); // Etwas dickere, farblich abgestimmte Linie
-    background: transparent;
-    padding: 14px 40px 14px 0; // Mehr Innenabstand für ein luftiges Gefühl
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.2rem; // Größere Schrift (vorher 1rem) für echte Schreibmaschinen-Optik
-    color: $brand-primary;
-    outline: none;
-    transition: all 0.3s ease;
+// 3. Das Eingabefeld selbst
+#blog-search {
+  width: 100% !important;
+  border: none !important;
+  border-bottom: 2px solid $brand-primary !important; // Deine Hauptfarbe als Linie
+  background: transparent !important;
+  padding: 14px 40px 14px 0 !important;
+  font-family: 'Courier Prime', monospace !important; // Schreibmaschinen-Look
+  font-size: 1.2rem !important; // Große Schrift
+  color: $brand-primary !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
 
-    &:focus {
-      border-bottom-color: $brand-primary; // Linie wird beim Reinblicken kräftig
-      background-color: rgba($brand-primary, 0.01); // Ganz zarter Hintergrund-Fokus
-    }
+// 4. Das wandernde Label (Chronik durchsuchen...)
+.search-box label {
+  position: absolute !important;
+  left: 0 !important;
+  top: 14px !important;
+  font-family: 'Courier Prime', monospace !important;
+  font-size: 1.1rem !important;
+  color: $text-muted !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important;
+}
 
-    // Label-Animation bei Fokus oder wenn Text drin steht
-    &:focus + label,
-    &:not(:placeholder-shown) + label {
-      top: -18px;
-      font-size: 0.8rem;
-      color: $brand-accent;
-      letter-spacing: 1.5px;
-    }
-  }
+// 5. Die Label-Animation (Wandert nach oben, wenn Klick oder Text drin)
+#blog-search:focus + label,
+#blog-search:not(:placeholder-shown) + label {
+  top: -18px !important;
+  font-size: 0.8rem !important;
+  color: $brand-accent !important;
+}
 
-  label {
-    position: absolute;
-    left: 0;
-    top: 14px;
-    font-family: 'Courier Prime', monospace;
-    font-size: 1.1rem; // Auch der Platzhalter-Text ist jetzt markanter
-    color: $text-muted;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    pointer-events: none;
-    text-transform: uppercase;
-  }
-
-  .search-icon {
-    position: absolute;
-    right: 8px;
-    top: 16px;
-    font-size: 1.2rem; // Icon wächst proportional mit
-    opacity: 0.4;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  // Wenn der Input fokussiert wird, leuchtet die Lupe leicht auf
-  input:focus ~ .search-icon {
-    opacity: 0.8;
-  }
+// 6. Die Lupe
+.search-icon {
+  position: absolute !important;
+  right: 8px !important;
+  top: 16px !important;
+  font-size: 1.2rem !important;
+  opacity: 0.4 !important;
 }
