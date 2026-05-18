@@ -1169,65 +1169,55 @@ h4.back-to-home:hover,
     transform: scale(1);
   }
 }
-.search-paper-note {
+.search-box {
   position: relative;
   width: 100%;
-  max-width: 380px;
-  background-color: #f7f4e9;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 4px;
-  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.03);
-  padding: 18px 20px 18px 55px;
-  transform: rotate(-1deg);
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-  overflow: hidden;
-  background-image: radial-gradient(circle, #fdfcf8 6px, transparent 7px), radial-gradient(circle, #fdfcf8 6px, transparent 7px), linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px);
-  background-position: 15px 14px, 15px 44px, 0 0;
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-size: 14px 14px, 14px 14px, 100% 22px;
+  max-width: 550px;
+  margin-bottom: 1rem;
 }
-.search-paper-note::before {
-  content: "";
-  position: absolute;
-  left: 42px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background-color: rgba(255, 0, 0, 0.22);
-  z-index: 2;
-}
-.search-paper-note:hover, .search-paper-note:focus-within {
-  transform: rotate(0deg) scale(1.02);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-}
-.search-paper-note__label {
-  position: absolute;
-  left: 55px;
-  top: 18px;
+.search-box input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(74, 93, 78, 0.2);
+  background: transparent;
+  padding: 14px 40px 14px 0;
   font-family: "Courier Prime", monospace;
-  font-size: 0.85rem;
-  color: rgba(117, 122, 112, 0.6);
-  transition: all 0.25s ease-out;
-  pointer-events: none;
-  z-index: 3;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  color: #4a5d4e;
+  outline: none;
+  transition: all 0.3s ease;
 }
-.search-paper-note__input:focus + .search-paper-note__label, .search-paper-note__input:not(:placeholder-shown) + .search-paper-note__label {
-  opacity: 0;
-  transform: translateY(-8px) scale(0.85);
+.search-box input:focus {
+  border-bottom-color: #4a5d4e;
+  background-color: rgba(74, 93, 78, 0.01);
 }
-.search-paper-note__icon {
+.search-box input:focus + label, .search-box input:not(:placeholder-shown) + label {
+  top: -18px;
+  font-size: 0.8rem;
+  color: #8b9d83;
+  letter-spacing: 1.5px;
+}
+.search-box label {
   position: absolute;
-  right: 15px;
-  top: 18px;
-  font-size: 0.9rem;
+  left: 0;
+  top: 14px;
+  font-family: "Courier Prime", monospace;
+  font-size: 1.1rem;
+  color: #757a70;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+.search-box .search-icon {
+  position: absolute;
+  right: 8px;
+  top: 16px;
+  font-size: 1.2rem;
   opacity: 0.4;
   pointer-events: none;
-  z-index: 3;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s ease;
 }
-.search-paper-note:focus-within .search-paper-note__icon {
+.search-box input:focus ~ .search-icon {
   opacity: 0.8;
 }
 
