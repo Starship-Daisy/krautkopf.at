@@ -147,6 +147,9 @@
 
     <!-- Such- und Filterbereich -->
 <div class="blog-filter-section">
+    <!-- Integration der iPhone-Soundlogik -->
+    <script src="../js/clicksound.js"></script>
+    <script src="js/blog-filter.js" defer></script>
     
     <!-- NEUER, INTERAKTIVER SUCH-ZETTEL -->
     <div class="search-paper-note">
@@ -166,31 +169,6 @@
     </div>
     
 </div>
-
-<!-- Such- und Filterbereich -->
-<div class="blog-filter-section">
-    
-    <!-- NEUER, INTERAKTIVER SUCH-ZETTEL -->
-    <div class="search-paper-note">
-        <!-- Das leere "placeholder"-Attribut ist essenziell für den CSS-Label-Effekt -->
-        <input type="text" id="blog-search" class="search-paper-note__input" placeholder=" " autocomplete="off">
-        <label for="blog-search" class="search-paper-note__label">Was suchst du?...</label>
-        <span class="search-paper-note__icon">🔍</span>
-    </div>
-
-    <!-- Registerkarten (Kategoriefilter) -->
-    <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all">Alle Einträge</button>
-        <button class="filter-btn" data-filter="anzucht">Anzucht</button>
-        <button class="filter-btn" data-filter="wildkraeuter">Wildkräuter</button>
-        <button class="filter-btn" data-filter="werkzeug">Werkzeug</button>
-        <button class="filter-btn" data-filter="rezepte">Rezepte</button>
-    </div>
-    
-</div>
-
-
-<script src="js/blog-filter.js" defer></script>
 
 </div>
 
