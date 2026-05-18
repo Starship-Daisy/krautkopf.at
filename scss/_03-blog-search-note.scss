@@ -1,0 +1,96 @@
+// ==========================================
+// _BLOG-SEARCH-NOTE.SCSS (Das Notizzettel-Suchfeld)
+// ==========================================
+
+@use '../01-variables' as *;
+@use '../01-typography' as *;
+
+.search-paper-note {
+  position: relative;
+  width: 100%;
+  max-width: 380px; // Perfekte Proportionen für eine Karteikarte
+  background-color: $brand-paper;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: $border-radius;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.03);
+  
+  // Spacing links lässt Raum für die Binder-Lochungen und die rote Randlinie
+  padding: 18px 20px 18px 55px; 
+  
+  // Der charmante, leicht schiefe Winkel auf dem Schreibtisch
+  transform: rotate(-1deg);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  overflow: hidden;
+
+  // HINTERGRUND-GRAFIK: 2 Löcher links und ein feines, liniertes Notizpapier
+  background-image: 
+    radial-gradient(circle, $brand-light 6px, transparent 7px), // Loch oben
+    radial-gradient(circle, $brand-light 6px, transparent 7px), // Loch unten
+    linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px); // Blaue Schreiblinien
+  
+  background-position: 
+    15px 14px, 
+    15px 44px, 
+    0 0;
+  
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: 14px 14px, 14px 14px, 100% 22px; // Linienhöhe ist auf 22px getaktet
+
+  // Die rote Marginalie (Heft-Randlinie)
+  &::before {
+    content: '';
+    position: absolute;
+    left: 42px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgba(255, 0, 0, 0.22);
+    z-index: 2;
+  }
+
+  // Interaktiver Fokus-Effekt: Der Zettel richtet sich gerade aus
+  &:hover, 
+  &:focus-within {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+  }
+
+  // Handgezeichneter Bleistift-Beschriftungseffekt (Floating Label)
+  &__label {
+    position: absolute;
+    left: 55px;
+    top: 18px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 0.85rem;
+    color: rgba($text-muted, 0.6);
+    transition: all 0.25s ease-out;
+    pointer-events: none;
+    z-index: 3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  // Blendet die Schrift beim Tippen und Fokussieren sanft aus
+  &__input:focus + &__label,
+  &__input:not(:placeholder-shown) + &__label {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.85);
+  }
+
+  // Lupe im Hintergrund
+  &__icon {
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    font-size: 0.9rem;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.3s;
+  }
+
+  &:focus-within &__icon {
+    opacity: 0.8;
+  }
+}
