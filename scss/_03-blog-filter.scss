@@ -1,162 +1,65 @@
 // ==========================================
-// _03-BLOG-FILTER.SCSS
+// _03-BLOG-FILTER.SCSS (Fokus: Suchbox)
 // ==========================================
 
-@use '../01-variables' as *;
-@use '../01-typography' as *;
-
-.blog-filter-section {
-  max-width: $container-width;
-  margin: 40px auto 20px auto;
-  padding: 0 $space-l;
-  display: flex;
-  flex-direction: column;
-  gap: $space-l;
-  align-items: center;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-}
-
-// --- TYPEWRITER SUCHBOX ---
+// --- GROSSE TYPEWRITER SUCHBOX ---
 .search-box {
   position: relative;
   width: 100%;
-  max-width: 320px;
+  max-width: 550px; // Deutlich verbreitert (vorher 320px) für mehr Präsenz
+  margin-bottom: $space-m; // Schafft Platz zu den Registerkarten darunter
 
   input {
     width: 100%;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba($brand-primary, 0.2); // Etwas dickere, farblich abgestimmte Linie
     background: transparent;
-    padding: 10px 30px 10px 0;
+    padding: 14px 40px 14px 0; // Mehr Innenabstand für ein luftiges Gefühl
     font-family: 'Courier Prime', monospace;
-    font-size: 1rem;
+    font-size: 1.2rem; // Größere Schrift (vorher 1rem) für echte Schreibmaschinen-Optik
     color: $brand-primary;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 
     &:focus {
-      border-bottom-color: $brand-primary;
+      border-bottom-color: $brand-primary; // Linie wird beim Reinblicken kräftig
+      background-color: rgba($brand-primary, 0.01); // Ganz zarter Hintergrund-Fokus
     }
 
+    // Label-Animation bei Fokus oder wenn Text drin steht
     &:focus + label,
     &:not(:placeholder-shown) + label {
-      top: -15px;
-      font-size: 0.75rem;
+      top: -18px;
+      font-size: 0.8rem;
       color: $brand-accent;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
   }
 
   label {
     position: absolute;
     left: 0;
-    top: 10px;
+    top: 14px;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.9rem;
+    font-size: 1.1rem; // Auch der Platzhalter-Text ist jetzt markanter
     color: $text-muted;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
     text-transform: uppercase;
   }
 
   .search-icon {
     position: absolute;
-    right: 5px;
-    top: 10px;
-    font-size: 0.9rem;
-    opacity: 0.5;
+    right: 8px;
+    top: 16px;
+    font-size: 1.2rem; // Icon wächst proportional mit
+    opacity: 0.4;
     pointer-events: none;
-  }
-}
-
-// --- REGISTERKARTEN / TABS ---
-.filter-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $space-s;
-  justify-content: center;
-
-  .filter-btn {
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    background-color: rgba($brand-paper, 0.4);
-    color: $text-muted;
-    padding: 6px 16px;
-    font-family: $font-main;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-
-    &:hover {
-      background-color: $brand-paper;
-      color: $brand-primary;
-      border-color: $brand-accent;
-      transform: translateY(-1px);
-    }
-
-    &.active {
-      background-color: $brand-primary;
-      color: white;
-      border-color: $brand-primary;
-      box-shadow: 0 4px 10px rgba($brand-primary, 0.15);
-    }
-  }
-}
-
-// --- LOGISTISCHER "MEHR LADEN" BUTTON ---
-.blog-load-more-container {
-  display: flex;
-  justify-content: center;
-  margin: 40px auto 80px auto;
-  max-width: $container-width;
-  padding: 0 $space-l;
-  width: 100%;
-}
-
-.load-more-btn {
-  background: transparent;
-  border: 1px dashed rgba($brand-primary, 0.3); // Schöner Werkstatt-Gestrichelter Rahmen
-  color: $brand-primary;
-  padding: 12px 30px;
-  font-family: 'Courier Prime', monospace; // Courier für den Werkstatt-Look
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background-color: rgba($brand-primary, 0.04);
-    border-color: $brand-primary;
-    border-style: solid; // Wird beim Hovern durchgezogen
-    transform: translateY(-2px);
-  }
-}
-
-// --- HILFSKLASSEN FÜR DIE LOGISTIK ---
-.blog-card {
-  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease-in-out !important;
-  will-change: transform, opacity;
-
-  // Ausgeblendet durch Filter/Suche
-  &.is-hidden {
-    display: none !important;
-    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  // Ausgeblendet weil über dem Paginierungs-Limit (z. B. Karte Nr. 7+)
-  &.is-paginated-out {
-    display: none !important;
-    opacity: 0;
+  // Wenn der Input fokussiert wird, leuchtet die Lupe leicht auf
+  input:focus ~ .search-icon {
+    opacity: 0.8;
   }
 }
