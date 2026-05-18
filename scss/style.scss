@@ -3,6 +3,8 @@
 // 1. Variablen (Das Fundament)
 @use '01-variables' as *;
 @use '01-typography' as *;
+@use '02-blog-cards' as *;
+@use '03-blog-search-note' as *;
 
 // 2. Basis-Styles (Body, Links, Container)
 @use '01-base' as *;
@@ -19,8 +21,7 @@
 @use '03-legal-background' as *;
 @use '03-credits' as *;
 @use '03-kontakt' as *;
-@use '03-blog-search-note' as *;
+
 
 // 6. Index-Seite (Das Grid und die Karten)
-@use '02-blog-cards' as *;
 @use '03-blog-grid' as *;
