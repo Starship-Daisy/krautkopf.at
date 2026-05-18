@@ -1,27 +1,28 @@
 // style.scss
 
-// 1. Variablen (Das Fundament)
+// 1. Das Fundament (Nur Variablen, Mixins und Schriften – generiert noch kein CSS)
 @use '01-variables' as *;
 @use '01-typography' as *;
-@use '02-blog-cards' as *;
-@use '03-blog-search-note' as *;
 
-// 2. Basis-Styles (Body, Links, Container)
+// 2. Basis-Styles (Formatiert den Body, Standard-Links und globale Container)
 @use '01-base' as *;
 
-// 3. Komponenten (Dinge, die überall vorkommen)
+// 3. Globale Komponenten (Elemente, die auf fast jeder Seite leben)
 @use '02-components' as *;
-@use '02-quotes' as *;
 @use '02-header' as *;
+@use '02-quotes' as *;
 
-// 5. Detail-Seite (Spezifisches für den Blog-Artikel)
+// 4. Blog-Karten-System (Das Design der einzelnen Karten)
+@use '02-blog-cards' as *;
+
+// 5. Index-Seite & Ordnungssystem (Das Raster und deine neue Suche)
+@use '03-blog-grid' as *;
+@use '03-blog-search-note' as *; // <-- Hier greift es perfekt auf Variablen, Basis und Grid zu!
+
+// 6. Spezifische Unterseiten (Werden erst aktiv, wenn die jeweiligen IDs/Klassen im HTML vorkommen)
 @use '03-blog-details' as *;
 @use '03-werkstatt' as *;
+@use '03-kontakt' as *;
 @use '03-legal' as *;
 @use '03-legal-background' as *;
 @use '03-credits' as *;
-@use '03-kontakt' as *;
-
-
-// 6. Index-Seite (Das Grid und die Karten)
-@use '03-blog-grid' as *;
