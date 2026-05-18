@@ -145,6 +145,70 @@
         </div>
     </section>
 
+    <!-- Such- und Filterbereich -->
+<div class="blog-filter-section">
+    
+    <!-- Suchfeld im Schreibmaschinen-Stil -->
+    <div class="search-box">
+        <input type="text" id="blog-search" placeholder=" " autocomplete="off">
+        <label for="blog-search">Chronik durchsuchen...</label>
+        <span class="search-icon">🔍</span>
+    </div>
+
+    <!-- Registerkarten (Kategoriefilter) -->
+    <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">Alle Einträge</button>
+        <button class="filter-btn" data-filter="anzucht">Anzucht</button>
+        <button class="filter-btn" data-filter="wildkraeuter">Wildkräuter</button>
+        <button class="filter-btn" data-filter="werkzeug">Werkzeug</button>
+        <button class="filter-btn" data-filter="rezepte">Rezepte</button>
+    </div>
+    
+</div>
+
+<!-- Grid-Container -->
+<div class="blog-grid" id="blog-grid">
+
+    <!-- Beispiel-Karte 1: Wildkräuter (Älteres Datum) -->
+    <article class="blog-card" data-category="wildkraeuter" data-date="2026-03-14">
+        <div class="card-image-wrapper">
+            <div class="card-image-crop">
+                <img class="card-image" src="brennnessel.jpg" alt="Wildkräuter">
+            </div>
+            <div class="glow-ring"></div>
+        </div>
+        <div class="card-content">
+            <span class="card-date">14. März 2026</span>
+            <h3>Die Kunst der Wildkräuter</h3>
+            <p>Brennnessel und Giersch im Frühjahr...</p>
+            <span class="card-link">Notiz lesen</span>
+        </div>
+    </article>
+
+    <!-- Beispiel-Karte 2: Anzucht (Neueres Datum -> Wird automatisch nach oben sortiert!) -->
+    <article class="blog-card" data-category="anzucht" data-date="2026-05-17">
+        <div class="card-image-wrapper">
+            <div class="card-image-crop">
+                <img class="card-image" src="anzucht.jpg" alt="Tomaten">
+            </div>
+            <div class="glow-ring"></div>
+        </div>
+        <div class="card-content">
+            <span class="card-date">17. Mai 2026</span>
+            <h3>Anzucht auf der Fensterbank</h3>
+            <p>Erste Schritte für Tomaten, Paprika...</p>
+            <span class="card-link">Notiz lesen</span>
+        </div>
+    </article>
+
+</div>
+
+<!-- Logistischer "Mehr laden"-Button -->
+<div class="blog-load-more-container" id="load-more-area">
+    <button id="load-more-btn" class="load-more-btn">Ältere Notizen ausgraben...</button>
+</div>
+
+
     <footer class="main-footer">
         <div class="footer-contact">
             <a href="mailto:wolfgang@krautkopf.at">wolfgang@krautkopf.at</a>
