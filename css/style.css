@@ -861,56 +861,57 @@ html body .blog-grid .blog-card.is-draft .card-content,
   background-image: linear-gradient(rgba(200, 200, 200, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 200, 200, 0.2) 1px, transparent 1px) !important;
 }
 
+.blog-filter-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  text-align: center;
+}
+
 .search-box {
-  position: relative;
-  width: 100%;
-  max-width: 550px;
-  margin-bottom: 1rem;
+  position: relative !important;
+  width: 100% !important;
+  max-width: 550px !important;
+  margin: 0 auto 24px auto !important;
+  display: block !important;
 }
-.search-box input {
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid rgba(74, 93, 78, 0.2);
-  background: transparent;
-  padding: 14px 40px 14px 0;
-  font-family: "Courier Prime", monospace;
-  font-size: 1.2rem;
-  color: #4a5d4e;
-  outline: none;
-  transition: all 0.3s ease;
+
+#blog-search {
+  width: 100% !important;
+  border: none !important;
+  border-bottom: 2px solid #4a5d4e !important;
+  background: transparent !important;
+  padding: 14px 40px 14px 0 !important;
+  font-family: "Courier Prime", monospace !important;
+  font-size: 1.2rem !important;
+  color: #4a5d4e !important;
+  outline: none !important;
+  border-radius: 0 !important;
 }
-.search-box input:focus {
-  border-bottom-color: #4a5d4e;
-  background-color: rgba(74, 93, 78, 0.01);
-}
-.search-box input:focus + label, .search-box input:not(:placeholder-shown) + label {
-  top: -18px;
-  font-size: 0.8rem;
-  color: #8b9d83;
-  letter-spacing: 1.5px;
-}
+
 .search-box label {
-  position: absolute;
-  left: 0;
-  top: 14px;
-  font-family: "Courier Prime", monospace;
-  font-size: 1.1rem;
-  color: #757a70;
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  pointer-events: none;
-  text-transform: uppercase;
+  position: absolute !important;
+  left: 0 !important;
+  top: 14px !important;
+  font-family: "Courier Prime", monospace !important;
+  font-size: 1.1rem !important;
+  color: #757a70 !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important;
 }
-.search-box .search-icon {
-  position: absolute;
-  right: 8px;
-  top: 16px;
-  font-size: 1.2rem;
-  opacity: 0.4;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
+
+#blog-search:focus + label,
+#blog-search:not(:placeholder-shown) + label {
+  top: -18px !important;
+  font-size: 0.8rem !important;
+  color: #8b9d83 !important;
 }
-.search-box input:focus ~ .search-icon {
-  opacity: 0.8;
+
+.search-icon {
+  position: absolute !important;
+  right: 8px !important;
+  top: 16px !important;
+  font-size: 1.2rem !important;
+  opacity: 0.4 !important;
 }
 
 .blog-detail {
