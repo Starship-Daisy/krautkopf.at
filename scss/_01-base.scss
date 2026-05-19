@@ -3,10 +3,7 @@
 // ==========================================
 
 @use '01-variables' as *;
-
-body {
-  background: hotpink !important;
-}
+@use '01-typography' as *;
 
 * {
   box-sizing: border-box;
