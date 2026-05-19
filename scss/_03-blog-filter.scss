@@ -2,6 +2,9 @@
 // _03-BLOG-FILTER.SCSS (Fokus: Suchbox)
 // ==========================================
 
+@use '01-variables' as *;
+@use '01-typography' as *;
+
 // --- GROSSE TYPEWRITER SUCHBOX ---
 .search-box {
   position: relative;
