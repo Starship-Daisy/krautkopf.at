@@ -54,10 +54,6 @@ h1, h2, h3, h4 {
   text-decoration: underline;
 }
 
-body {
-  background: hotpink !important;
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
