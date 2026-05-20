@@ -861,36 +861,17 @@ html body .blog-grid .blog-card.is-draft .card-content,
   background-image: linear-gradient(rgba(200, 200, 200, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(200, 200, 200, 0.2) 1px, transparent 1px) !important;
 }
 
-.search-card {
-  background-color: #f7f4e9;
-  border: 1px solid rgba(74, 93, 78, 0.08);
-  border-radius: 12px;
-  padding: 30px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 280px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.search-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(74, 93, 78, 0.06);
-  border-color: rgba(139, 157, 131, 0.3);
-}
-
 .search-box {
   position: relative;
   width: 100%;
-  max-width: 100%;
+  margin: 10px 0;
 }
 .search-box input[type=text]#blog-search {
   width: 100%;
   border: none;
   border-bottom: 2px solid rgba(74, 93, 78, 0.15);
   background: transparent;
-  padding: 12px 32px 12px 0;
+  padding: 10px 30px 10px 0;
   font-family: "Courier Prime", monospace;
   font-size: 1.1rem;
   color: #4a5d4e;
@@ -904,18 +885,17 @@ html body .blog-grid .blog-card.is-draft .card-content,
 .search-box label {
   position: absolute;
   left: 0;
-  top: 12px;
+  top: 10px;
   font-family: "Courier Prime", monospace;
   font-size: 1rem;
   color: #757a70;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   pointer-events: none;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 .search-box input[type=text]#blog-search:focus + label,
 .search-box input[type=text]#blog-search:not(:placeholder-shown) + label {
-  top: -20px;
+  top: -18px;
   font-size: 0.75rem;
   color: #8b9d83;
   letter-spacing: 1px;
@@ -923,25 +903,9 @@ html body .blog-grid .blog-card.is-draft .card-content,
 .search-box .search-icon {
   position: absolute;
   right: 4px;
-  top: 14px;
+  top: 12px;
   font-size: 1.1rem;
   opacity: 0.3;
-  transition: opacity 0.3s ease;
-}
-.search-box input[type=text]#blog-search:focus ~ .search-icon {
-  opacity: 0.7;
-}
-
-.filter-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin: 40px auto;
-}
-
-.blog-card.is-hidden {
-  display: none !important;
 }
 
 .blog-detail {
