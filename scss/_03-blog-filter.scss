@@ -1,44 +1,22 @@
 // ==========================================
-// _03-BLOG-FILTER.SCSS (Grid-Karten-Design)
+// _03-BLOG-FILTER.SCSS (Nur noch die Mechanik)
 // ==========================================
 
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-// 1. DIE SUCH-KARTE (Verhält sich im Raster wie eine normale Blog-Card)
-.search-card {
-  background-color: $brand-paper; // Nutzt den Hintergrund deiner Blog-Cards
-  border: 1px solid rgba($brand-primary, 0.08);
-  border-radius: 12px; // Gleicher Radius wie bei den Blog-Cards
-  padding: 30px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; // Zentriert den Inhalt vertikal
-  align-items: center;
-  min-height: 280px; // Passt sich an die ungefähre Höhe einer Blog-Card an
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  // Kleiner Hover-Effekt, passend zum restlichen Grid
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba($brand-primary, 0.06);
-    border-color: rgba($brand-accent, 0.3);
-  }
-}
-
-// 2. DIE SCHREIBMASCHINEN-SUCHBOX IN DER KARTE
+// Die Suchbox passt sich jetzt flexibel an den karierten Innenteil der Karte auf
 .search-box {
   position: relative;
   width: 100%;
-  max-width: 100%; // Nutzt jetzt die volle Breite der Karte
+  margin: 10px 0; // Gibt dem Feld etwas Luft nach oben und unten innerhalb der Karte
 
   input[type="text"]#blog-search {
     width: 100%;
     border: none;
     border-bottom: 2px solid rgba($brand-primary, 0.15);
     background: transparent;
-    padding: 12px 32px 12px 0;
+    padding: 10px 30px 10px 0;
     font-family: 'Courier Prime', monospace;
     font-size: 1.1rem;
     color: $brand-primary;
@@ -47,7 +25,7 @@
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-bottom-color: $brand-accent; // Wechselt beim Klicken zur Akzentfarbe
+      border-bottom-color: $brand-accent;
     }
   }
 
@@ -55,52 +33,30 @@
   label {
     position: absolute;
     left: 0;
-    top: 12px;
+    top: 10px;
     font-family: 'Courier Prime', monospace;
     font-size: 1rem;
     color: $text-muted;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
-  // Label wandert elegant nach oben bei Fokus oder Inhalt
+  // Animation: Label rutscht nach oben, wenn das Feld aktiv ist
   input[type="text"]#blog-search:focus + label,
   input[type="text"]#blog-search:not(:placeholder-shown) + label {
-    top: -20px;
+    top: -18px;
     font-size: 0.75rem;
     color: $brand-accent;
     letter-spacing: 1px;
   }
 
-  // Die Lupe im Schreibmaschinen-Look
+  // Die Lupe
   .search-icon {
     position: absolute;
     right: 4px;
-    top: 14px;
+    top: 12px;
     font-size: 1.1rem;
     opacity: 0.3;
-    transition: opacity 0.3s ease;
-  }
-
-  input[type="text"]#blog-search:focus ~ .search-icon {
-    opacity: 0.7;
-  }
-}
-
-// 3. REGISTERKARTEN / TABS (Falls sie unter dem Grid oder separat stehen)
-.filter-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin: 40px auto;
-}
-
-// 4. LOGISTIK-HILFSKLASSEN FÜR DEIN JAVASCRIPT
-.blog-card {
-  &.is-hidden {
-    display: none !important;
   }
 }
