@@ -5,17 +5,22 @@ on:
     paths:
       - 'scss/**/*.scss'
 
+# Hier zentral alle Rechte vergeben. Das gilt jetzt sicher für den gesamten Ablauf!
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    # Das job-interne "permissions:" wurde gelöscht, damit es die obigen Rechte nicht überschreibt!
 
     steps:
       - name: 📂 Code holen
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Hier gehört es hin, damit Git die Historie kennt
+          fetch-depth: 0
 
       - name: 🛠️ Sass installieren
         run: sudo npm install -g sass
