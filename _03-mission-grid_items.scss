@@ -1,0 +1,54 @@
+// ==========================================
+// MISSION GRID & ITEMS (Einleitung der Seite)
+// ==========================================
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr; // Auf dem Handy einspaltig
+  gap: 40px;                  // Großzügiger Abstand zwischen den Blöcken
+  margin-top: 48px;
+
+  // Ab Tablet/Desktop schaltet das Raster auf zwei Spalten um
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mission-item {
+  position: relative;
+  padding-left: 24px; // Platz für die feine Design-Linie links
+  
+  // Eine dezente, vertikale Akzentlinie an der linken Seite
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background-color: rgba($brand-primary, 0.2);
+    transition: background-color 0.3s ease, width 0.3s ease;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    color: $brand-primary;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: $text-muted;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  // Subtiler Interaktions-Effekt, wenn man mit der Maus drüberfährt
+  &:hover {
+    &::before {
+      background-color: $brand-accent; // Linie färbt sich in deine Akzentfarbe
+      width: 3px;                      // Wird minimal dicker
+    }
+  }
+}
