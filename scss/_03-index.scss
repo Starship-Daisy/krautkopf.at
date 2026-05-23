@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: $space-l; // Nutzt die 32px Variable für gleichmäßige Abstände
+    gap: $space-xs; // Nutzt eine Variable für gleichmäßige Abstände
   }
 }
 
