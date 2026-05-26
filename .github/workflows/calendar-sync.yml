@@ -3,7 +3,7 @@ name: 📅 DSGVO Kalender-Sync
 on:
   schedule:
     - cron: '0 */6 * * *' # Läuft vollautomatisch alle 6 Stunden
-  workflow_dispatch: # Aktiviert den blauen "Run workflow" Button für dich!
+  workflow_dispatch: # Aktiviert den blauen "Run workflow" Button
 
 jobs:
   sync:
@@ -11,11 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: 📂 Code von GitHub holen
+        uses: actions/checkout@v4
+
       - name: 📅 .ics von Google abholen
         run: |
           mkdir -p js
           curl -s "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.ics
 
-      - name: 📤 Datei direkt zu Domaintechnik hochladen
-        run: |
-          curl --ftp-create-dirs -T js/werkstatt.ics -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/www/js/werkstatt.ics"
+      - name: 📤 Datei über die bewährte Pipeline hochladen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ./www/
+          protocol: ftp
+          port: 21
+          force-ipv4: true
+          security: loose
