@@ -1,11 +1,11 @@
-name: SCSS to CSS Compiler
+name: SCSS to CSS Compiler # <-- Muss buchstabengetreu so heißen!
 
 on:
   push:
     paths:
       - 'scss/**/*.scss'
+  workflow_dispatch: # Das lassen wir drin, damit du immer den manuellen Button hast!
 
-# Hier zentral alle Rechte vergeben. Das gilt jetzt sicher für den gesamten Ablauf!
 permissions:
   contents: write
   pages: write
