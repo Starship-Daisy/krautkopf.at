@@ -922,6 +922,9 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 
 .calendar-wrapper {
+  width: 100% !important;
+  max-width: 850px !important;
+  margin: 0 auto !important;
   background-color: #4a5d4e !important;
   border: 1px solid #2c3e50 !important;
   border-radius: 8px !important;
