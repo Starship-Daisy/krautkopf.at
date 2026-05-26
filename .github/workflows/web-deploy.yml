@@ -16,7 +16,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' }}
     steps:
       - name: 📂 Code von GitHub holen
-        uses: actions/checkout@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4 # <-- Einfach das ".3.5" weglassen!
         with:
           fetch-depth: 0
 
