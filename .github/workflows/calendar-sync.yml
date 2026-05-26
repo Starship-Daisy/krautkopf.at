@@ -17,7 +17,7 @@ jobs:
       - name: 📅 .ics von Google abholen
         run: |
           mkdir -p js
-          curl -s "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.ics
+          curl -s "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.txt
 
       - name: 📤 Datei über die bewährte Pipeline hochladen
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Hier wird deine lokale, DSGVO-sichere Kalenderdatei geladen
     events: {
-      url: '/js/werkstatt.ics', 
+      url: '/js/werkstatt.txt', 
       format: 'ics'
     },
 
