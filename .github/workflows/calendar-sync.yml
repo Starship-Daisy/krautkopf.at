@@ -1,0 +1,21 @@
+name: 📅 DSGVO Kalender-Sync
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Läuft vollautomatisch alle 6 Stunden
+  workflow_dispatch: # Aktiviert den blauen "Run workflow" Button für dich!
+
+jobs:
+  sync:
+    name: 🔄 Kalender spiegeln
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📅 .ics von Google abholen
+        run: |
+          mkdir -p js
+          curl -s "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.ics
+
+      - name: 📤 Datei direkt zu Domaintechnik hochladen
+        run: |
+          curl --ftp-create-dirs -T js/werkstatt.ics -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/www/js/werkstatt.ics"
