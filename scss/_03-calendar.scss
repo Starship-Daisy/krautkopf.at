@@ -1,36 +1,35 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Dark Calendar & Karierter Block Look)
-// ========================================================
-
-@use '01-variables' as *;
-@use '01-typography' as *;
-
-// ========================================================
 // 1. DAS KALENDERFENSTER (Dunkelmodus mit heller Schrift)
 // ========================================================
 .calendar-wrapper {
+  display: block !important;       // Garantiert echtes Block-Verhalten
   width: 100% !important;
-  max-width: 850px !important;   // ZÄHMT DIE BREITE: Verhindert das "Überlaufen" auf Desktop-Screens
-  margin: 0 auto !important;     // ZENTRIERUNG: Hält den Kalender schön mittig auf der Seite
+  max-width: 850px !important;     // Zähmt die maximale Breite
+  margin: 0 auto !important;       // Zentrierung für normale Block-Elemente
+  
+  // Diese beiden Zeilen hebeln Flex- und Grid-Zwänge von Eltern-Elementen aus:
+  justify-self: center !important; // Zentrierung, falls das Elternteil ein Grid ist
+  align-self: center !important;   // Zentrierung, falls das Elternteil eine Flexbox ist
+  box-sizing: border-box !important;
   
   background-color: $brand-primary !important;
   border: 1px solid $brand-ink !important;
   border-radius: 8px !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
   padding: 24px !important;
-
-  // Das Gitter (Dezente helle Rasterlinien)
-  .fc-theme-standard .fc-scrollgrid,
-  .fc-theme-standard td, 
-  .fc-theme-standard th {
-    background-color: $brand-primary !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  }
   
-  // Wochentage (Kopfzeile)
-  .fc-col-header-cell {
-    background-color: darken($brand-primary, 5%) !important; // Automatisch etwas dunkleres Grün
+  @media (max-width: 768px) {
+    padding: 12px !important;      // Mehr Platz auf Smartphones
   }
+}
+
+// Sicherheitsnetz für das Kalender-Gitter selbst
+#calendar {
+  max-width: 100% !important;
+  display: block !important;
+}
+
+
   .fc-col-header-cell-cushion {
     font-family: $font-heading !important; // Lora
     color: $brand-paper !important;
