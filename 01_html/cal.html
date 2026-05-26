@@ -16,7 +16,7 @@
     <script defer src="../js/clicksound.js"></script>
 
     <head>
-        
+
     <link rel="stylesheet" href="../css/style.css"> 
     
     <style>
@@ -108,6 +108,53 @@
         from { transform: scale(0.95); opacity: 0; }
         to { transform: scale(1); opacity: 1; }
       }
+
+      /* Der "+ weitere"-Link im Kalenderkästchen */
+.fc-daygrid-more-link {
+  color: #4a5d4e !important; /* Dein Werkstatt-Grün */
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 2px 4px;
+  display: block;
+  transition: opacity 0.2s;
+}
+.fc-daygrid-more-link:hover {
+  opacity: 0.7;
+}
+
+/* Das kleine Vorschaufenster, das aufploppt, wenn man auf den Link klickt */
+.fc-popover {
+  background-color: #f7f4e9 !important; /* Deine Papierfarbe */
+  border: 1px solid rgba(74, 93, 78, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+/* Kopfzeile des kleinen Aufplopp-Fensters */
+.fc-popover-header {
+  background-color: rgba(74, 93, 78, 0.08) !important;
+  font-family: 'Lora', serif;
+  color: #4a5d4e !important;
+  font-weight: 700;
+  padding: 8px 12px !important;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+/* Schließen-Kreuz im kleinen Aufplopp-Fenster */
+.fc-popover-close {
+  color: #757a70 !important;
+  opacity: 1 !important;
+}
+.fc-popover-close:hover {
+  color: #4a5d4e !important;
+}
+
+/* Inhalt des kleinen Aufplopp-Fensters */
+.fc-popover-body {
+  padding: 12px !important;
+}
+
     </style>
     <script defer src="../js/clicksound.js"></script>
 
