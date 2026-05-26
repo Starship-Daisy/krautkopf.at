@@ -11,10 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     return window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth';
   }
 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    locale: 'de',
-    firstDay: 1,
-    initialView: getCorrectView(), // Ansicht beim Start ermitteln
+// JETZT NEU: Begrenzt die Termine pro Kästchen und zeigt "+ weitere" an
+    dayMaxEvents: 3, 
+    
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: window.innerWidth < 768 ? '' : 'dayGridMonth,listMonth'
+    },
     
     headerToolbar: {
       left: 'prev,next today',
