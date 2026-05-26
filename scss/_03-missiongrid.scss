@@ -2,6 +2,9 @@
 // MISSION GRID & ITEMS (Einleitung der Seite)
 // ==========================================
 
+@use '01-variables' as *;
+@use '01-typography' as *;
+
 .mission-grid {
   display: grid;
   grid-template-columns: 1fr; // Auf dem Handy einspaltig
