@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-          workflow_dispatch: # <-- DIESE ZEILE HIER KURZ EINFÜGEN!
-  # Dieser Zusatz sorgt dafür, dass der FTP-Upload auch startet, 
-  # wenn der SCSS-Compiler eine Datei automatisch erstellt hat:
   workflow_run:
     workflows: ["SCSS to CSS Compiler"]
     types:
@@ -16,10 +13,7 @@ jobs:
   web-deploy:
     name: 🚀 Deploy
     runs-on: ubuntu-latest
-    
-    # Kleiner Sicherheitsgurt: Lade nur hoch, wenn der Compiler ERFOLGREICH war!
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' }}
-    
     steps:
       - name: 📂 Code von GitHub holen
         uses: actions/checkout@v4
