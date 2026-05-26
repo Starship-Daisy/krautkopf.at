@@ -3,30 +3,29 @@ name: 📅 DSGVO Kalender-Sync
 on:
   schedule:
     - cron: '0 */6 * * *' # Läuft vollautomatisch alle 6 Stunden
-  workflow_dispatch: # Aktiviert den blauen "Run workflow" Button
+  workflow_dispatch: # Aktiviert den manuellen blauen Button
+
+permissions:
+  contents: write # Erlaubt GitHub, die Datei in dein Repo zu schreiben
 
 jobs:
   sync:
-    name: 🔄 Kalender spiegeln
+    name: 🔄 Kalender in Git speichern
     runs-on: ubuntu-latest
 
     steps:
       - name: 📂 Code von GitHub holen
         uses: actions/checkout@v4
 
-      - name: 📅 .ics von Google abholen
+      - name: 📅 .ics von Google abholen (mit Redirect-Schutz)
         run: |
           mkdir -p js
-          curl -s "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.txt
+          curl -sL "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.txt
 
-      - name: 📤 Datei über die bewährte Pipeline hochladen
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./www/
-          protocol: ftp
-          port: 21
-          force-ipv4: true
-          security: loose
+      - name: 📝 Datei in GitHub einchecken & pushen
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add js/werkstatt.txt
+          # Nur committen und pushen, wenn sich an den Terminen wirklich etwas geändert hat
+          git diff-index --quiet HEAD || (git commit -m "📅 Kalender-Daten automatisch aktualisiert" && git push)
