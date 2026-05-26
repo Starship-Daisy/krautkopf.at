@@ -17,9 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     firstDay: 1,
     initialView: getCorrectView(),
     
-    // SCHALTET DIE BEGRENZUNG AB: Die Zeilen wachsen jetzt automatisch mit,
-    // sodass JEDER Termin sofort sichtbar ist!
-    dayMaxEvents: false, 
+    dayMaxEvents: false, // Zeige alle Termine voll an
+    height: 'auto',      // DER ENTSCHEIDENDE FIX: Zwingt die Zeilen, dynamisch mitzuwachsen!
     
     headerToolbar: {
       left: 'prev,next today',
@@ -51,17 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
       calendar.changeView(correctView);
       
       if (window.innerWidth < 768) {
-        calendar.setOption('headerToolbar', {
-          left: 'prev,next today',
-          center: 'title',
-          right: ''
-        });
+        calendar.setOption('headerToolbar', { left: 'prev,next today', center: 'title', right: '' });
       } else {
-        calendar.setOption('headerToolbar', {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,listMonth'
-        });
+        calendar.setOption('headerToolbar', { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' });
       }
     }
   });
