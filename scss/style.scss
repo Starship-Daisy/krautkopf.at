@@ -12,6 +12,7 @@
 @use '02-header' as *;
 @use '02-quotes' as *;
 
+
 // 4. Blog-Karten-System (Das Design der einzelnen Karten)
 @use '02-blog-cards' as *;
 
@@ -27,3 +28,4 @@
 @use '03-legal' as *;
 @use '03-legal-background' as *;
 @use '03-credits' as *;
+@use '03-calendar' as *;
