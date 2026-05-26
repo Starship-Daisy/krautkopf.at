@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   
-  if (!calendarEl) return; // Sicherheitsnetz, falls das Element fehlt
+  if (!calendarEl) return;
 
   var modal = document.getElementById('calendarModal');
   var modalTitle = document.getElementById('modalTitle');
   var modalBody = document.getElementById('modalBody');
   var closeBtn = document.getElementsByClassName('close-modal')[0];
 
-  // Funktion zur Ermittlung der optimalen Ansicht je nach Bildschirmbreite
   function getCorrectView() {
     return window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth';
   }
@@ -18,8 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     firstDay: 1,
     initialView: getCorrectView(),
     
-    // Begrenzt sichtbare Termine im Monatsraster auf 3, danach erscheint der "+ weitere"-Link
-    dayMaxEvents: 3, 
+    // SCHALTET DIE BEGRENZUNG AB: Die Zeilen wachsen jetzt automatisch mit,
+    // sodass JEDER Termin sofort sichtbar ist!
+    dayMaxEvents: false, 
     
     headerToolbar: {
       left: 'prev,next today',
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
       format: 'ics'
     },
 
-    // Popup-Logik beim Klick auf ein Event
     eventClick: function(info) {
       if (modal && modalTitle && modalBody) {
         modalTitle.innerText = info.event.title;
@@ -40,13 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
         modalBody.innerHTML = description;
         modal.style.display = 'block';
       }
-      info.jsEvent.preventDefault(); // Verhindert Google-Weiterleitung
+      info.jsEvent.preventDefault();
     }
   });
 
   calendar.render();
 
-  // Überwachung der Fenstergröße (Wechselt die Ansicht live ohne Neuladen)
   window.addEventListener('resize', function() {
     var correctView = getCorrectView();
     if (calendar.view.type !== correctView) {
@@ -68,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Modal-Schließen Steuerbefehle
   if (closeBtn) {
     closeBtn.onclick = function() { modal.style.display = 'none'; }
   }
