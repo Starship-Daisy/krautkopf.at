@@ -9,6 +9,10 @@
 // 1. DAS KALENDERFENSTER (Dunkelmodus mit heller Schrift)
 // ========================================================
 .calendar-wrapper {
+  width: 100% !important;
+  max-width: 850px !important;   // ZÄHMT DIE BREITE: Verhindert das "Überlaufen" auf Desktop-Screens
+  margin: 0 auto !important;     // ZENTRIERUNG: Hält den Kalender schön mittig auf der Seite
+  
   background-color: $brand-primary !important;
   border: 1px solid $brand-ink !important;
   border-radius: 8px !important;
