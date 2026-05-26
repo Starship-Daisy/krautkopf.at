@@ -4,24 +4,33 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 */6 * * *' # Aktualisiert den Kalender alle 6 Stunden vollautomatisch!
   workflow_run:
     workflows: ["SCSS to CSS Compiler"]
     types:
       - completed
+  workflow_dispatch: # Aktiviert den manuellen blauen Button für dich!
 
 jobs:
   web-deploy:
     name: 🚀 Deploy
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+    
     steps:
       - name: 📂 Code von GitHub holen
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: 📤 Dateien per FTP übertragen
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # <-- Wieder die volle Version eintragen!
+      - name: 📅 .ics von Google abholen und als .txt speichern
+        run: |
+          mkdir -p js
+          curl -sL "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.txt
+
+      - name: 📤 Alle Dateien (inkl. Kalender) per FTP übertragen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
