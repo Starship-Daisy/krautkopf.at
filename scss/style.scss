@@ -18,7 +18,7 @@
 // 5. Index-Seite & Ordnungssystem (Das Raster und deine neue Suche)
 @use '03-blog-grid' as *;
 @use '03-blog-filter' as *; // <-- Hier greift es perfekt auf Variablen, Basis und Grid zu!
-@use '03-mission-grid_items' as *;
+@use '03-mission' as *;
 
 // 6. Spezifische Unterseiten (Werden erst aktiv, wenn die jeweiligen IDs/Klassen im HTML vorkommen)
 @use '03-blog-details' as *;
