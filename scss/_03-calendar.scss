@@ -1,175 +1,186 @@
-// ==========================================
-// _03-CALENDAR.SCSS (Responsive FullCalendar & Modal)
-// ==========================================
+// ========================================================
+// _03-CALENDAR.SCSS (Dark Calendar & Karierter Block Look)
+// ========================================================
 
 @use '01-variables' as *;
 @use '01-typography' as *;
 
-.calendar-section {
-  margin: 60px auto;
-  padding: 0 16px;
-}
-
+// ========================================================
+// 1. DAS KALENDERFENSTER (Dunkelmodus mit heller Schrift)
+// ========================================================
 .calendar-wrapper {
-  width: 100%;
-  max-width: 850px; // Ein Tick breiter für das Monatsraster tut dem Auge gut
-  margin: 0 auto;
-  background-color: $brand-paper;
-  border: 1px solid rgba($brand-primary, 0.08);
-  border-radius: 12px; // Passt perfekt zu deinen Blog-Cards
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-  padding: 24px; // Atmenraum für das Kalendergitter
+  background-color: $brand-primary !important;
+  border: 1px solid $brand-ink !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  padding: 24px !important;
+
+  // Das Gitter (Dezente helle Rasterlinien)
+  .fc-theme-standard .fc-scrollgrid,
+  .fc-theme-standard td, 
+  .fc-theme-standard th {
+    background-color: $brand-primary !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
   
-  @media (max-width: 600px) {
-    padding: 12px; // Kompakter auf Smartphones
+  // Wochentage (Kopfzeile)
+  .fc-col-header-cell {
+    background-color: darken($brand-primary, 5%) !important; // Automatisch etwas dunkleres Grün
   }
-}
-
-// ==========================================
-// FULLCALENDAR DESIGN-OVERRIDES
-// ==========================================
-#calendar {
-  font-family: 'Open Sans', sans-serif;
-
-  // Der Titel (z. B. "Mai 2026")
-  .fc-toolbar-title {
-    font-family: 'Lora', serif;
-    font-size: 1.4rem;
-    color: $brand-primary;
-    
-    @media (max-width: 600px) {
-      font-size: 1.1rem;
-    }
-  }
-
-  // Die Buttons (Zurück, Weiter, Heute, Liste)
-  .fc-button-primary {
-    background-color: transparent;
-    border-color: rgba($brand-primary, 0.15);
-    color: $brand-primary;
-    text-transform: capitalize;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      background-color: rgba($brand-primary, 0.05);
-      border-color: $brand-primary;
-      color: $brand-primary;
-    }
-
-    &:focus {
-      box-shadow: none !important; // Verhindert den hässlichen Standard-Browser-Rahmen
-    }
-
-    &.fc-button-active {
-      background-color: $brand-primary !important;
-      border-color: $brand-primary !important;
-      color: $brand-paper !important;
-    }
-  }
-
-  // Die Event-Balken (Deine Termine im Raster)
-  .fc-event {
-    background-color: rgba($brand-primary, 0.06); 
-    border: 1px solid rgba($brand-primary, 0.15);
-    border-left: 4px solid $brand-primary; // Eleganter Akzentstrich an der Seite
-    color: $brand-primary !important;
-    padding: 3px 6px;
-    cursor: pointer;
-    border-radius: 4px;
+  .fc-col-header-cell-cushion {
+    font-family: $font-heading !important; // Lora
+    color: $brand-paper !important;
+    text-transform: uppercase;
     font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
 
-    &:hover {
-      background-color: rgba($brand-primary, 0.12);
+  // Die Datumszahlen
+  .fc-daygrid-day-number {
+    font-family: $font-sub !important; // Alice
+    color: rgba($brand-paper, 0.9) !important;
+    font-size: 0.95rem;
+    padding: 8px !important;
+  }
+
+  // Heute-Markierung im Dunkelmodus
+  .fc-day-today {
+    background-color: $brand-ink !important; // Altes Tintenblau
+    
+    .fc-daygrid-day-number {
+      color: $brand-ink2 !important; // Hellere Tinte
+      font-weight: 700;
+      text-decoration: underline;
     }
   }
 
-  // Listenansicht fürs Smartphone veredeln
-  .fc-list-day-cushion {
-    background-color: rgba($brand-primary, 0.03) !important;
+  // Die Termine (Helle, leuchtende Textmarker-Balken)
+  .fc-event {
+    background-color: $brand-accent !important; // Salbeiton als Kontrast
+    border: none !important;
+    border-left: 4px solid $brand-paper !important;
+    color: $brand-ink !important; // Schrift in alter Tinte
+    font-family: $font-copy !important; // Open Sans
+    padding: 4px 8px !important;
+    margin: 3px 2px !important;
+    border-radius: 4px !important;
+    transition: transform 0.15s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      background-color: lighten($brand-accent, 5%) !important;
+    }
   }
-  
-  .fc-list-event:hover td {
-    background-color: rgba($brand-primary, 0.02) !important;
+  .fc-event-title { font-weight: 700 !important; }
+  .fc-daygrid-more-link { color: $brand-paper !important; font-weight: 700 !important; }
+}
+
+// Steuerungselemente ÜBER dem Kalender
+.fc-toolbar-title { 
+  font-family: $font-heading !important; 
+  color: $brand-primary !important; 
+}
+.fc-button-primary {
+  background-color: transparent !important;
+  border-color: rgba($brand-primary, 0.2) !important;
+  color: $brand-primary !important;
+
+  &:hover, &.fc-button-active {
+    background-color: $brand-primary !important;
+    color: $brand-paper !important;
+    border-color: $brand-primary !important;
   }
 }
 
-// ==========================================
-// INFO-MODAL (Termin-Details Popup)
-// ==========================================
+// ========================================================
+// 2. DIE TEXTFELDER / POPUP (Karierter Block mit Marginalie)
+// ========================================================
 .modal {
   display: none; 
-  position: fixed; 
-  z-index: 9999; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0, 0, 0, 0.4); 
-  backdrop-filter: blur(4px); // Erzeugt einen edlen Unschärfe-Effekt im Hintergrund
-  
+  position: fixed !important; 
+  z-index: 999999 !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100vw !important; 
+  height: 100vh !important; 
+  background-color: rgba($brand-ink, 0.4) !important; // Weicher Tintenton als Schleier
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
   .modal-content {
-    background-color: $brand-paper;
-    margin: 12% auto; 
-    padding: 32px;
-    border: 1px solid rgba($brand-primary, 0.1);
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-    width: 90%;
-    max-width: 520px;
-    position: relative;
-    animation: modalFadeIn 0.25s ease-out;
-
-    h3 {
-      margin-top: 0;
-      font-family: 'Lora', serif;
-      font-size: 1.5rem;
-      color: $brand-primary;
-      border-bottom: 1px solid rgba($brand-primary, 0.1);
-      padding-bottom: 12px;
-      padding-right: 30px; // Platzhalter, damit Text nicht ins "X" läuft
-    }
-  }
-
-  .close-modal {
-    color: rgba($brand-primary, 0.4);
-    position: absolute;
-    top: 20px;
-    right: 24px;
-    font-size: 32px;
-    font-weight: 300;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.2s;
-
-    &:hover {
-      color: $brand-primary;
-    }
-  }
-
-  #modalBody {
-    line-height: 1.6;
-    font-size: 0.95rem;
-    color: rgba($brand-primary, 0.85);
+    background-color: $brand-light !important; // Helles Papier
+    margin: 12vh auto !important;
+    padding: 32px 32px 32px 75px !important; // Platz links für die rote Linie
+    border: 1px solid rgba($brand-primary, 0.15) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    animation: modalPopIn 0.2s ease-out !important;
     
-    p {
-      margin-bottom: 12px;
+    // KARIERTER BLOCK-LOOK (24px Kästchenraster)
+    background-image: 
+      linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
+      linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
+    background-size: 24px 24px !important;
+
+    // DIE ROTE MARGINALIE (Collegeblock-Linie)
+    &::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 56px !important;
+      width: 1.5px !important;
+      background-color: #c94c4c !important; // Karminrot
+      z-index: 10 !important;
     }
+  }
+
+  // Titel im Schreibblock
+  #modalTitle {
+    margin-top: 0 !important;
+    font-family: $font-heading !important;
+    color: $brand-ink !important;
+    border-bottom: 2px solid #c94c4c !important; // Roter Akzent passend zur Linie
+    padding-bottom: 6px !important;
+    font-size: 1.4rem !important;
+    line-height: 1.3 !important;
+  }
+
+  // Fließtext sitzt exakt auf den 24px-Kästchenlinien
+  #modalBody {
+    font-family: $font-copy !important;
+    color: $text-dark !important;
+    font-size: 0.95rem !important;
+    line-height: 24px !important; // Exakter Match mit background-size!
+    margin-top: 18px !important;
+
+    p { margin-bottom: 0 !important; } // Verhindert, dass Absätze das Zeilenraster verschieben
 
     a {
-      color: $brand-primary; 
-      text-decoration: underline;
-      font-weight: 700;
-      
-      &:hover {
-        opacity: 0.8;
-      }
+      color: $brand-primary !important;
+      text-decoration: underline !important;
+      font-weight: 700 !important;
     }
+  }
+
+  // Schließen-Kreuz (X)
+  .close-modal {
+    color: $text-muted !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 20px !important;
+    font-size: 32px !important;
+    font-weight: 300 !important;
+    line-height: 1 !important;
+    z-index: 11 !important;
+
+    &:hover { color: #c94c4c !important; }
   }
 }
 
-// Sanfte Einblende-Animation fürs Popup
-@keyframes modalFadeIn {
-  from { transform: translateY(-15px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes modalPopIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
