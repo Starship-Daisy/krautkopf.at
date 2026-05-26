@@ -1,33 +1,37 @@
 // style.scss
 
 // 1. Das Fundament (Nur Variablen, Mixins und Schriften – generiert noch kein CSS)
-@use '01-variables' as *;
-@use '01-typography' as *;
+@use '_01-variables' as *;
+@use '_01-typography' as *;
+@use '_01-container' as *;
+@use '_mixins' as *;
+@use '_media-query-mixin' as *;
 
 // 2. Basis-Styles (Formatiert den Body, Standard-Links und globale Container)
-@use '01-base' as *;
+@use '_01-base' as *;
 
 // 3. Globale Komponenten (Elemente, die auf fast jeder Seite leben)
-@use '02-components' as *;
-@use '02-header' as *;
-@use '02-quotes' as *;
-
+@use '_02-components' as *;
+@use '_02-header' as *;
+@use '_02-quotes' as *;
 
 // 4. Blog-Karten-System (Das Design der einzelnen Karten)
-@use '02-blog-cards' as *;
+@use '_02-blog-cards' as *;
 
 // 5. Index-Seite & Ordnungssystem (Das Raster und deine neue Suche)
-@use '03-blog-grid' as *;
-@use '03-blog-filter' as *; // <-- Hier greift es perfekt auf Variablen, Basis und Grid zu!
-
-@use '03-calendar' as *; // Dein neuer Kalender-Style
+@use '_03-blog-grid' as *;
+@use '_03-blog-filter' as *;
+@use '_03-calendar' as *;
 
 // 6. Spezifische Unterseiten (Werden erst aktiv, wenn die jeweiligen IDs/Klassen im HTML vorkommen)
-@use '03-blog-details' as *;
-@use '03-werkstatt' as *;
-@use '03-kontakt' as *;
-@use '03-legal' as *;
-@use '03-legal-background' as *;
-@use '03-credits' as *;
-@use '03-calendar' as *;
-
+@use '_03-blog-details' as *;
+@use '_03-availability-tag' as *;
+@use '_03-werkstatt' as *;
+@use '_03-kontakt' as *;
+@use '_03-mission' as *;
+@use '_03-missiongrid' as *;
+@use '_03-index' as *;
+@use '_03-legal' as *;
+@use '_03-legal-background' as *;
+@use '_03-datenschutz' as *;
+@use '_03-credits' as *;
