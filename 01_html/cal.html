@@ -14,6 +14,103 @@
     
     <link rel="stylesheet" href="../css/style.css"> 
     <script defer src="../js/clicksound.js"></script>
+
+    <head>
+        
+    <link rel="stylesheet" href="../css/style.css"> 
+    
+    <style>
+      /* 1. Das Hintergrund-Overlay (macht die Website edel unscharf) */
+      .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 99999; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0, 0, 0, 0.4); 
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
+
+      /* 2. Die weiße Pop-In Box in der Mitte */
+      .modal-content {
+        background-color: #f7f4e9; /* Entspricht deiner Werkstatt-Papierfarbe */
+        margin: 15% auto; 
+        padding: 32px;
+        border: 1px solid rgba(74, 93, 78, 0.15);
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        width: 90%;
+        max-width: 500px;
+        position: relative;
+        font-family: 'Open Sans', sans-serif;
+        color: #1a1a1a;
+        animation: modalPopIn 0.2s ease-out;
+      }
+
+      /* 3. Der Schließen-Knopf (X) */
+      .close-modal {
+        color: #757a70;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 32px;
+        font-weight: 300;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .close-modal:hover { color: #4a5d4e; }
+
+      /* 4. Titel & Text im Popup */
+      #modalTitle {
+        margin-top: 0;
+        font-family: 'Lora', serif;
+        color: #4a5d4e;
+        border-bottom: 1px solid rgba(74, 93, 78, 0.1);
+        padding-bottom: 12px;
+        font-size: 1.4rem;
+      }
+      #modalBody {
+        line-height: 1.6;
+        font-size: 0.95rem;
+        margin-top: 16px;
+      }
+      #modalBody a {
+        color: #4a5d4e;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      /* 5. FullCalendar optisch anpassen (Titel & Buttons) */
+      .fc-toolbar-title { font-family: 'Lora', serif !important; color: #4a5d4e; }
+      .fc-button-primary {
+        background-color: transparent !important;
+        border-color: rgba(74, 93, 78, 0.2) !important;
+        color: #4a5d4e !important;
+        text-transform: capitalize !important;
+      }
+      .fc-button-primary.fc-button-active, .fc-button-primary:hover {
+        background-color: #4a5d4e !important;
+        color: #f7f4e9 !important;
+      }
+      .fc-event {
+        background-color: rgba(74, 93, 78, 0.06) !important;
+        border: 1px solid rgba(74, 93, 78, 0.15) !important;
+        border-left: 4px solid #4a5d4e !important;
+        color: #4a5d4e !important;
+        cursor: pointer;
+      }
+
+      @keyframes modalPopIn {
+        from { transform: scale(0.95); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+    </style>
+    <script defer src="../js/clicksound.js"></script>
+
 </head>
 
 <body>
