@@ -19,7 +19,7 @@
 // 5. Index-Seite & Ordnungssystem (Das Raster und deine neue Suche)
 @use '03-blog-grid' as *;
 @use '03-blog-filter' as *; // <-- Hier greift es perfekt auf Variablen, Basis und Grid zu!
-@use '03-mission' as *;
+
 @use '03-calendar' as *; // Dein neuer Kalender-Style
 
 // 6. Spezifische Unterseiten (Werden erst aktiv, wenn die jeweiligen IDs/Klassen im HTML vorkommen)
