@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+          workflow_dispatch: # <-- DIESE ZEILE HIER KURZ EINFÜGEN!
   # Dieser Zusatz sorgt dafür, dass der FTP-Upload auch startet, 
   # wenn der SCSS-Compiler eine Datei automatisch erstellt hat:
   workflow_run:
