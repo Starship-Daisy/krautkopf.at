@@ -1,24 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   
+  if (!calendarEl) return; // Sicherheitsnetz, falls das Element fehlt
+
   var modal = document.getElementById('calendarModal');
   var modalTitle = document.getElementById('modalTitle');
   var modalBody = document.getElementById('modalBody');
   var closeBtn = document.getElementsByClassName('close-modal')[0];
 
-  // Funktion, die je nach Breite die richtige Ansicht zurückgibt
+  // Funktion zur Ermittlung der optimalen Ansicht je nach Bildschirmbreite
   function getCorrectView() {
     return window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth';
   }
 
-// JETZT NEU: Begrenzt die Termine pro Kästchen und zeigt "+ weitere" an
-    dayMaxEvents: 3, 
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    locale: 'de',
+    firstDay: 1,
+    initialView: getCorrectView(),
     
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: window.innerWidth < 768 ? '' : 'dayGridMonth,listMonth'
-    },
+    // Begrenzt sichtbare Termine im Monatsraster auf 3, danach erscheint der "+ weitere"-Link
+    dayMaxEvents: 3, 
     
     headerToolbar: {
       left: 'prev,next today',
@@ -31,24 +32,26 @@ document.addEventListener('DOMContentLoaded', function() {
       format: 'ics'
     },
 
+    // Popup-Logik beim Klick auf ein Event
     eventClick: function(info) {
-      modalTitle.innerText = info.event.title;
-      var description = info.event.extendedProps.description || 'Keine weitere Beschreibung vorhanden.';
-      modalBody.innerHTML = description;
-      modal.style.display = 'block';
-      info.jsEvent.preventDefault();
+      if (modal && modalTitle && modalBody) {
+        modalTitle.innerText = info.event.title;
+        var description = info.event.extendedProps.description || 'Keine weitere Beschreibung vorhanden.';
+        modalBody.innerHTML = description;
+        modal.style.display = 'block';
+      }
+      info.jsEvent.preventDefault(); // Verhindert Google-Weiterleitung
     }
   });
 
   calendar.render();
 
-  // JETZT NEU: Hört auf Größenänderungen und schaltet die Ansicht LIVE um!
+  // Überwachung der Fenstergröße (Wechselt die Ansicht live ohne Neuladen)
   window.addEventListener('resize', function() {
     var correctView = getCorrectView();
     if (calendar.view.type !== correctView) {
       calendar.changeView(correctView);
       
-      // Toolbar-Buttons auf dem Handy sauber anpassen
       if (window.innerWidth < 768) {
         calendar.setOption('headerToolbar', {
           left: 'prev,next today',
@@ -65,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Modal-Logik bleibt gleich
-  if(closeBtn) {
+  // Modal-Schließen Steuerbefehle
+  if (closeBtn) {
     closeBtn.onclick = function() { modal.style.display = 'none'; }
   }
   window.onclick = function(event) {
