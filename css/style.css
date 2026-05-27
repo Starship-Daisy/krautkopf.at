@@ -923,8 +923,8 @@ html body .blog-grid .blog-card.is-draft .card-content,
 
 .calendar-section {
   width: 100% !important;
-  max-width: 850px !important; /* Maximale Wunschbreite des Kalenders */
-  margin: 60px auto !important; /* Zentriert die Sektion auf der Seite */
+  display: block !important;
+  margin: 60px auto !important;
   padding: 0 16px !important;
   box-sizing: border-box !important;
 }
@@ -932,85 +932,150 @@ html body .blog-grid .blog-card.is-draft .card-content,
 .calendar-wrapper {
   display: block !important;
   width: 100% !important;
-  background-color: #f7f4e9 !important; /* Zurück zum hellen Werkstatt-Papier */
-  border: 1px solid rgba(74, 93, 78, 0.15) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
-  padding: 24px !important;
+  max-width: 850px !important;
+  margin: 0 auto !important;
+  background-color: #f7f4e9 !important;
+  flex: 0 1 850px !important;
+  justify-self: center !important;
+  align-self: center !important;
+  border: 1px solid rgba(74, 93, 78, 0.1) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important;
+  padding: 20px 20px 20px 80px !important;
+  position: relative !important;
   box-sizing: border-box !important;
 }
 @media (max-width: 768px) {
   .calendar-wrapper {
-    padding: 12px !important; /* Etwas kompakter auf Handys */
+    padding: 10px 10px 10px 55px !important;
+  }
+}
+.calendar-wrapper::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 110px !important;
+  width: 1.5px !important;
+  background-color: #c94c4c !important;
+  opacity: 0.8 !important;
+  z-index: 10 !important;
+}
+@media (max-width: 768px) {
+  .calendar-wrapper::after {
+    left: 75px !important;
+  }
+}
+.calendar-wrapper::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 50px !important;
+  background-image: radial-gradient(circle, #bbb 30%, transparent 35%), radial-gradient(circle, #bbb 30%, transparent 35%), radial-gradient(circle, #bbb 30%, transparent 35%), radial-gradient(circle, #bbb 30%, transparent 35%) !important;
+  background-size: 25px 25px !important;
+  background-position: 15px 50px, 15px 250px, 15px 450px, 15px 650px !important;
+  background-repeat: no-repeat !important;
+  opacity: 0.5 !important;
+  z-index: 5 !important;
+}
+@media (max-width: 768px) {
+  .calendar-wrapper::before {
+    width: 35px !important;
+    background-size: 18px 18px !important;
+    background-position: 8px 40px, 8px 180px, 8px 320px, 8px 460px !important;
   }
 }
 
 #calendar {
   max-width: 100% !important;
-  background-color: #f7f4e9 !important;
+  background-color: transparent !important;
 }
-#calendar .fc-theme-standard .fc-scrollgrid,
+#calendar .fc-theme-standard .fc-scrollgrid {
+  border: none !important;
+}
 #calendar .fc-theme-standard td,
 #calendar .fc-theme-standard th {
-  background-color: #f7f4e9 !important;
-  border: 1px solid rgba(74, 93, 78, 0.1) !important; /* Feine, saubere Linien */
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(74, 93, 78, 0.08) !important;
+}
+#calendar .fc-daygrid-day {
+  border-left: none !important;
+  border-right: none !important;
 }
 #calendar .fc-col-header-cell {
-  background-color: #4a5d4e !important; /* Edler, dunkler Fond */
+  background-color: #4a5d4e !important;
   padding: 12px 0 !important;
+  border-bottom: none !important;
+  border-radius: 2px !important;
 }
 #calendar .fc-col-header-cell-cushion {
-  font-family: "Lora", serif !important; /* Lora */
-  color: #f7f4e9 !important; /* Helle Schrift */
+  font-family: "Lora", serif !important;
+  color: #f7f4e9 !important;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
 }
 #calendar .fc-daygrid-day-number {
-  font-family: "Alice", serif !important; /* Alice */
-  color: #757a70 !important;
+  font-family: "Alice", serif !important;
+  color: rgb(142.5, 147.3076923077, 137.6923076923) !important;
   font-size: 0.95rem;
   padding: 8px !important;
 }
 #calendar .fc-day-today {
-  background-color: rgba(139, 157, 131, 0.08) !important; /* Hauchzarter Schimmer */
+  background-color: rgba(139, 157, 131, 0.05) !important;
 }
 #calendar .fc-day-today .fc-daygrid-day-number {
   color: #4a5d4e !important;
   font-weight: 700;
+  text-decoration: underline dashed #8b9d83 2px;
 }
 #calendar .fc-event {
-  background-color: rgba(139, 157, 131, 0.2) !important; /* Softer Textmarker-Effekt */
+  background-color: rgba(139, 157, 131, 0.15) !important;
   border: none !important;
-  border-left: 4px solid #4a5d4e !important; /* Tintentupfer links */
-  color: #2c3e50 !important; /* Schrift in alter Tinte */
-  font-family: "Open Sans", sans-serif !important; /* Open Sans */
+  border-left: 3px solid #4a5d4e !important;
+  color: #2c3e50 !important;
+  font-family: "Open Sans", sans-serif !important;
   padding: 4px 8px !important;
-  margin: 3px 2px !important;
-  border-radius: 4px !important;
+  margin: 2px 0 !important;
+  border-radius: 2px !important;
   transition: transform 0.15s ease;
 }
 #calendar .fc-event:hover {
-  transform: translateX(2px);
-  background-color: rgba(139, 157, 131, 0.35) !important;
+  transform: translateX(3px);
+  background-color: rgba(139, 157, 131, 0.25) !important;
 }
 #calendar .fc-event-title {
   font-weight: 600 !important;
+  font-size: 0.9rem;
 }
 #calendar .fc-daygrid-more-link {
-  color: #4a5d4e !important;
+  color: #2c3e50 !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 0.8rem;
   font-weight: 700 !important;
+  padding-left: 5px;
 }
 
 .fc-toolbar-title {
   font-family: "Lora", serif !important;
   color: #4a5d4e !important;
 }
+@media (max-width: 768px) {
+  .fc-toolbar-title {
+    font-size: 1.2rem;
+  }
+}
 
 .fc-button-primary {
   background-color: transparent !important;
   border-color: rgba(74, 93, 78, 0.2) !important;
   color: #4a5d4e !important;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 0.9rem !important;
+  text-transform: capitalize !important;
 }
 .fc-button-primary:hover, .fc-button-primary.fc-button-active {
   background-color: #4a5d4e !important;
@@ -1050,7 +1115,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   bottom: 0 !important;
   left: 56px !important;
   width: 1.5px !important;
-  background-color: #c94c4c !important; /* Rote Marginalie */
+  background-color: #c94c4c !important;
   z-index: 10 !important;
 }
 .modal #modalTitle {
