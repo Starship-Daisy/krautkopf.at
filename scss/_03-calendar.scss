@@ -1,84 +1,102 @@
 // ========================================================
-// 1. DAS KALENDERFENSTER (Dunkelmodus mit heller Schrift)
+// _03-CALENDAR.SCSS (Heller Kalender mit dunkler Kappe)
 // ========================================================
-.calendar-wrapper {
-  display: block !important;       // Garantiert echtes Block-Verhalten
+
+@use '01-variables' as *;
+
+// 1. ÄUSSERER RAHMEN (Zwingt die gesamte Sektion in die Schranken)
+.calendar-section {
   width: 100% !important;
-  max-width: 850px !important;     // Zähmt die maximale Breite
-  margin: 0 auto !important;       // Zentrierung für normale Block-Elemente
-  
-  // Diese beiden Zeilen hebeln Flex- und Grid-Zwänge von Eltern-Elementen aus:
-  justify-self: center !important; // Zentrierung, falls das Elternteil ein Grid ist
-  align-self: center !important;   // Zentrierung, falls das Elternteil eine Flexbox ist
+  max-width: 850px !important; /* Maximale Wunschbreite des Kalenders */
+  margin: 60px auto !important; /* Zentriert die Sektion auf der Seite */
+  padding: 0 16px !important;
   box-sizing: border-box !important;
-  
-  background-color: $brand-primary !important;
-  border: 1px solid $brand-ink !important;
+}
+
+// 2. DER WRAPPER (Hell, kompakt und zentriert)
+.calendar-wrapper {
+  display: block !important;
+  width: 100% !important;
+  background-color: $brand-paper !important; /* Zurück zum hellen Werkstatt-Papier */
+  border: 1px solid rgba($brand-primary, 0.15) !important;
   border-radius: 8px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
   padding: 24px !important;
-  
+  box-sizing: border-box !important;
+
   @media (max-width: 768px) {
-    padding: 12px !important;      // Mehr Platz auf Smartphones
+    padding: 12px !important; /* Etwas kompakter auf Handys */
   }
 }
 
-// Sicherheitsnetz für das Kalender-Gitter selbst
+// ========================================================
+// FULLCALENDAR EDITIERUNG (Heller Block-Look)
+// ========================================================
 #calendar {
   max-width: 100% !important;
-  display: block !important;
-}
+  background-color: $brand-paper !important;
 
-
+  // Das helle Rastergitter
+  .fc-theme-standard .fc-scrollgrid,
+  .fc-theme-standard td, 
+  .fc-theme-standard th {
+    background-color: $brand-paper !important;
+    border: 1px solid rgba($brand-primary, 0.1) !important; /* Feine, saubere Linien */
+  }
+  
+  // 👑 DIE EDLE DUNKLEN ZELLEN (Wochentage-Kopfzeile)
+  .fc-col-header-cell {
+    background-color: $brand-primary !important; /* Edler, dunkler Fond */
+    padding: 12px 0 !important;
+  }
   .fc-col-header-cell-cushion {
-    font-family: $font-heading !important; // Lora
-    color: $brand-paper !important;
+    font-family: $font-heading !important; /* Lora */
+    color: $brand-paper !important;        /* Helle Schrift */
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
   }
 
-  // Die Datumszahlen
+  // Die Datumszahlen in den hellen Zellen
   .fc-daygrid-day-number {
-    font-family: $font-sub !important; // Alice
-    color: rgba($brand-paper, 0.9) !important;
+    font-family: $font-sub !important; /* Alice */
+    color: $text-muted !important;
     font-size: 0.95rem;
     padding: 8px !important;
   }
 
-  // Heute-Markierung im Dunkelmodus
+  // Heute-Markierung (Dezent hervorgehoben)
   .fc-day-today {
-    background-color: $brand-ink !important; // Altes Tintenblau
+    background-color: rgba($brand-accent, 0.08) !important; /* Hauchzarter Schimmer */
     
     .fc-daygrid-day-number {
-      color: $brand-ink2 !important; // Hellere Tinte
+      color: $brand-primary !important;
       font-weight: 700;
-      text-decoration: underline;
     }
   }
 
-  // Die Termine (Helle, leuchtende Textmarker-Balken)
+  // Die Termine (Als harmonische Textmarker-Balken)
   .fc-event {
-    background-color: $brand-accent !important; // Salbeiton als Kontrast
+    background-color: rgba($brand-accent, 0.2) !important; /* Softer Textmarker-Effekt */
     border: none !important;
-    border-left: 4px solid $brand-paper !important;
-    color: $brand-ink !important; // Schrift in alter Tinte
-    font-family: $font-copy !important; // Open Sans
+    border-left: 4px solid $brand-primary !important; /* Tintentupfer links */
+    color: $brand-ink !important; /* Schrift in alter Tinte */
+    font-family: $font-copy !important; /* Open Sans */
     padding: 4px 8px !important;
     margin: 3px 2px !important;
     border-radius: 4px !important;
     transition: transform 0.15s ease;
 
     &:hover {
-      transform: scale(1.02);
-      background-color: lighten($brand-accent, 5%) !important;
+      transform: translateX(2px);
+      background-color: rgba($brand-accent, 0.35) !important;
     }
   }
-  .fc-event-title { font-weight: 700 !important; }
-  .fc-daygrid-more-link { color: $brand-paper !important; font-weight: 700 !important; }
+  .fc-event-title { font-weight: 600 !important; }
+  .fc-daygrid-more-link { color: $brand-primary !important; font-weight: 700 !important; }
 }
 
-// Steuerungselemente ÜBER dem Kalender
+// Toolbar-Elemente über dem Kalender
 .fc-toolbar-title { 
   font-family: $font-heading !important; 
   color: $brand-primary !important; 
@@ -96,7 +114,7 @@
 }
 
 // ========================================================
-// 2. DIE TEXTFELDER / POPUP (Karierter Block mit Marginalie)
+// 3. DIE TEXTFELDER / POPUP (Karierter Block bleibt)
 // ========================================================
 .modal {
   display: none; 
@@ -106,14 +124,14 @@
   top: 0 !important;
   width: 100vw !important; 
   height: 100vh !important; 
-  background-color: rgba($brand-ink, 0.4) !important; // Weicher Tintenton als Schleier
+  background-color: rgba($brand-ink, 0.4) !important;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
   .modal-content {
-    background-color: $brand-light !important; // Helles Papier
+    background-color: $brand-light !important;
     margin: 12vh auto !important;
-    padding: 32px 32px 32px 75px !important; // Platz links für die rote Linie
+    padding: 32px 32px 32px 75px !important;
     border: 1px solid rgba($brand-primary, 0.15) !important;
     border-radius: 4px !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
@@ -121,13 +139,11 @@
     box-sizing: border-box !important;
     animation: modalPopIn 0.2s ease-out !important;
     
-    // KARIERTER BLOCK-LOOK (24px Kästchenraster)
     background-image: 
       linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
       linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
     background-size: 24px 24px !important;
 
-    // DIE ROTE MARGINALIE (Collegeblock-Linie)
     &::before {
       content: '' !important;
       position: absolute !important;
@@ -135,31 +151,29 @@
       bottom: 0 !important;
       left: 56px !important;
       width: 1.5px !important;
-      background-color: #c94c4c !important; // Karminrot
+      background-color: #c94c4c !important; /* Rote Marginalie */
       z-index: 10 !important;
     }
   }
 
-  // Titel im Schreibblock
   #modalTitle {
     margin-top: 0 !important;
     font-family: $font-heading !important;
     color: $brand-ink !important;
-    border-bottom: 2px solid #c94c4c !important; // Roter Akzent passend zur Linie
+    border-bottom: 2px solid #c94c4c !important;
     padding-bottom: 6px !important;
     font-size: 1.4rem !important;
     line-height: 1.3 !important;
   }
 
-  // Fließtext sitzt exakt auf den 24px-Kästchenlinien
   #modalBody {
     font-family: $font-copy !important;
     color: $text-dark !important;
     font-size: 0.95rem !important;
-    line-height: 24px !important; // Exakter Match mit background-size!
+    line-height: 24px !important;
     margin-top: 18px !important;
 
-    p { margin-bottom: 0 !important; } // Verhindert, dass Absätze das Zeilenraster verschieben
+    p { margin-bottom: 0 !important; }
 
     a {
       color: $brand-primary !important;
@@ -168,7 +182,6 @@
     }
   }
 
-  // Schließen-Kreuz (X)
   .close-modal {
     color: $text-muted !important;
     position: absolute !important;
