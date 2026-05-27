@@ -9,115 +9,221 @@ X-WR-CALDESC:Events & Spektakel\nist ein Kalender für Freunde\, die mit mir
   gemeinsam schöne Sachen unternehmen wollen.\nEs ist ein Kalender\, auf dem
   ein reger Austausch stattfinden soll.
 BEGIN:VEVENT
-DTSTART:20260718T180000Z
-DTEND:20260718T200000Z
-DTSTAMP:20260527T040419Z
-UID:0ef4h67ustchuinpdjt3e6p0i0@google.com
-CREATED:20260526T094404Z
-DESCRIPTION:<u></u><h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p><
- strong><b>KONZERT</b></strong> des Duo <a href="https://www.schneebergersie
- ber.com/"><em><i>Diknu Schneeberger</i></em></a> – Gipsy trifft Weltmusik</
- p><p>Tauchen Sie ein in die betörende Welt von <em><i>SCHNEEBERGER &amp\; S
- IEBER</i></em>\, wo die magischen Gypsy-Jazz-Klänge von <em><i>Diknu Schnee
- berger</i></em> auf die facettenreiche\, weltmusikalische Virtuosität von <
- em><i>Alexander Sieber </i></em>treffen. Diese meisterhafte Verschmelzung z
- weier Gitarrenwelten entfaltet eine Symphonie aus Herz und Seele.</p><p>Die
- ses Duo präsentiert ein Repertoire\, das reich an herzhaften Eigenkompositi
- onen ist\, maßgeschneidert für die erlesene Harmonie zweier Gitarren. Jeder
-  Ton\, jede Melodie\, erzählt eine Geschichte\, die durch die vielschichtig
- en Sprachen des Latin\, Gypsy oder der klassischen Musik geformt wird. Es i
- st eine musikalische Erzählung\, die lebendig wird in den kunstvollen Finge
- rn der Musiker.</p><p>Lassen Sie sich entführen auf eine musikalische Reise
- \, die nicht nur das Ohr\, sondern auch die Seele berührt. Mit Diknu Schnee
- bergers leidenschaftlichem Spiel\, das in seinem vierten Werk ‘Feuerlicht’ 
- als praktisch vollendet gepriesen wird\, und Alexander Siebers weltmusikali
- scher Finesse\, erwartet Sie eine Performance\, die das Publikum in eine We
- lt voller Farben und Emotionen entführt.</p><p><strong><b><em><i>SCHNEEBERG
- ER &amp\; SIEBER</i></em></b></strong> – eine musikalische Begegnung\, die 
- verspricht\, nicht nur zu unterhalten\, sondern zu verzaubern.</p><u></u>
-LAST-MODIFIED:20260526T151107Z
+DTSTART:20260726T130000Z
+DTEND:20260726T190000Z
+DTSTAMP:20260527T095137Z
+UID:3i2bt2iv0kujuarh1kckrn3rmj@google.com
+CREATED:20260526T152256Z
+DESCRIPTION:Hofjause 2026\nAm 26. Juli 2026 von 15 bis 21 Uhr findet wieder
+  unsere beliebte Hofjause statt.\n\nJedes Jahr freuen wir uns\, diese mit v
+ ielen lieben Gästen zu feiern  - meist bei bestem Wetter und angenehmen Tem
+ peraturen und begleitet von wunderbarer südamerikanischer Livemusik. Belieb
+ t sind die Führungen durch die Gärtnerei und in die Burg Sachsengang.\n\nKi
+ nder haben nicht nur Spaß in der Hüpfburg\, sondern interessieren sich auch
+  für die Isländer des Islandpferdehofs nebenan.
+LAST-MODIFIED:20260526T152312Z
+LOCATION:Burg Sachsengang
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Hofjause 27.7.2025
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260724T180000Z
+DTEND:20260724T200000Z
+DTSTAMP:20260527T095137Z
+UID:7bvcp6j3hec3ld5ha75r8mo05i@google.com
+CREATED:20260526T094556Z
+DESCRIPTION:<u></u><h2><span style="font-weight: normal\;">Freitag\, 24.7 2
+ 026<br>Sommerkino Marchfeld 2026<br><br>Calle Málage – Ein Zuhause in Tange
+ r<br>ES 2025\, 116min<br><br>Trailer<br><br>María Ángeles lebt seit Jahrzeh
+ nten im spanischen Viertel von Tanger. Ihre Wohnung in der Calle Málaga\, g
+ efüllt mit Erinnerungen\, Blumen und alten Möbelstücken\, ist für sie weit 
+ mehr als ein Zuhause. Vom Balkon aus verfolgt sie das geschäftige Leben der
+  Straßen\, in denen Vergangenheit und Gegenwart ineinanderfließen. Als ihre
+  Tochter Clara jedoch den Entschluss fasst\, die Wohnung zu verkaufen\, ste
+ ht María Ángeles vor einer entscheidenden Veränderung. Ein Umzug in ein Sen
+ iorenheim kommt für sie nicht infrage. Mit Einfallsreichtum und unbeirrbare
+ m Willen setzt sie alles daran\, ihre vier Wände zu bewahren. Unerwartet er
+ öffnet dieser Widerstand neue Begegnungen\, weckt Lebensfreude und bringt e
+ ine Liebe zurück\, die längst verloren schien.</span></h2><h2><br></h2><u><
+ /u>
+LAST-MODIFIED:20260526T151056Z
+LOCATION:Am Gelände der Ruine in Markgrafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:360° Marchfelder Kultursommer\, „Calle Málage – Ein Zuhause in Tang
+ er“
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260703T180000Z
+DTEND:20260703T200000Z
+DTSTAMP:20260527T095137Z
+UID:6e0vprvvnf1noprg36dn5n9k94@google.com
+CREATED:20260526T093645Z
+DESCRIPTION:<section><br><h2><strong><b>Freitag\, 3.7.2026</b></strong></h2
+ ><p>Sommerkino Marchfeld 2026</p><h4><em><i>The Life of Chuck</i></em></h4>
+ <p>US&amp\;A 2024\, 110min</p><p><a href="https://www.youtube.com/watch?v=D
+ i5nN4q8rA8">Trailer</a></p><p>Wer ist Chuck? Die Welt geht unter\, Kaliforn
+ ien versinkt im Meer\, das Internet bricht zusammen – doch in einer amerika
+ nischen Kleinstadt herrscht vor allem Dankbarkeit gegenüber <em><i>Charles 
+ „Chuck“ Krantz</i></em>\, einem gewöhnlichen Buchhalter\, dessen Gesicht al
+ len freundlich von Plakatwänden und aus dem Fernsehen zulächelt. Wer ist di
+ eser Mann\, den niemand wirklich zu kennen scheint? Ein Rätsel\, das weit z
+ urückreicht\, bis in dessen Kindheit bei seiner Großmutter\, die ihre unend
+ liche Liebe fürs Tanzen an ihn weitergab\, und seinem Großvater\, der ihn i
+ n die Geheimnisse der Buchhaltung einweihte und unbedingt vor der verschlos
+ senen Dachkammer bewahren wollte. Ein Rätsel\, das vor allem eine Frage auf
+ wirft: Kann das Schicksal eines Einzelnen die ganze Welt beeinflussen?</p><
+ /section>
+LAST-MODIFIED:20260526T151210Z
+LOCATION:Am Gelände der Ruine in Markgrafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:360° Marchfelder Kultursommer\, The Life of Chuck
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20261003T163000Z
+DTEND:20261003T190000Z
+DTSTAMP:20260527T095137Z
+UID:37v373eebn0tjfcf2bpu6dgbjr@google.com
+CREATED:20260526T100903Z
+DESCRIPTION:<u></u><p><strong><b>Zeit</b></strong>: 18.30 – 21.00<br></p><p
+ ><strong><b>Ort</b></strong>: @ KommVorZone</p><p><strong><b>Thema</b></str
+ ong>: LEGACY – Welches Feuer hast oder willst Du in Anderen entzünden? Was 
+ ist Dein Beitrag?</p><p><strong><b>Kosten</b></strong>: Pay what you wish!<
+ /p><p>&gt\; <a href="mailto:mo@machbarschaft.at?subject=Anmeldung%20BROalit
+ ion%20Oktober%20-%20Bin%20Fixstarter!" target="_blank">anmelden</a></p><u><
+ /u><u></u><u></u><u></u><p><strong><b>Weitere Termin:</b></strong> 22. Augu
+ st\, 3. Oktober\, 14. November 2026<br><br></p><br><u></u><p>Für Männer in 
+ Übergängen (Trennung\, Berufswechsel\, Sinnfragen)\,<br>Für Männer mit Dist
+ anz zu „klassischer Männerarbeit“\, aber Offenheit für neue Erfahrungen.</p
+ ><hr><p></p><ul><li>Du hast viele Freunde\, aber niemanden\, mit dem Du wir
+ klich reden kannst.</li><li>Du hast gelernt keine Schwäche zu zeigen und ma
+ chst Deine Probleme mit Dir selbst aus. </li><li>Du bist neugierig und offe
+ n für andere Perspektiven</li><li>Du tauschst Dich gerne mit anderen aus</l
+ i><li>Du lernst gerne von Anderen und teilst Deine Erfahrungen</li></ul><b>
+ Mach mit</b><br>Für Dich ist die Teilnahme an einer Männergruppe (noch) nic
+ ht vorstellbar.<br>Dann hast Du vielleicht Lust auf ein gutes <a href="http
+ s://www.google.com/url?q=https://www.machbarschaft.at/gehologen/&amp\;sa=D&
+ amp\;source=calendar&amp\;ust=1780222090983443&amp\;usg=AOvVaw3CaflrpMO8QFF
+ c0d2hyUZn" target="_blank">GEHspräch</a>?<p></p><u></u><u></u>
+LAST-MODIFIED:20260526T100904Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:BROalition Männer stärken Männer
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260527T163000Z
+DTEND:20260527T190000Z
+DTSTAMP:20260527T095137Z
+UID:3njgtm8jfp795bellblc4h6tmg@google.com
+CREATED:20260526T100615Z
+DESCRIPTION:<u></u><p>MITTWOCH 27. Mai 2026<br>Beziehungen<br>“Viele Lieben
+ \, klare Absprachen – Zwischen Eifersucht und Mitfreude in polyamoren Bezie
+ hungen” lädt dich ein\, einen Blick hinter die Kulissen nicht‑monogamer Bez
+ iehungen zu werfen. Ein Paar\, das seit zehn Jahren polyamor unterwegs ist 
+ und ein lebendiges Beziehungs‑Rhizom mit verschiedenen\, teils langjährigen
+  Partnerschaften lebt\, erzählt von seinem Alltag: von ersten Schritten und
+  Fehltritten\, von schwierigen Gesprächen\, von Grenzen\, die gehalten werd
+ en wollen – und von Momenten echter Mitfreude\, wenn der geliebte Mensch mi
+ t jemand anderem strahlt.<br><br>An diesem Abend geht es um mehr als “offen
+ e Beziehungen”: Wir sprechen über Sprache und Begriffe\, über Eifersucht un
+ d Sicherheit\, über Compersion (Mitfreude) als vielleicht ungewohntes Gefüh
+ l und darüber\, wie Polyamorie zu einem Weg des Loslassens\, der inneren Ar
+ beit und der Beziehungs‑Spiritualität werden kann. Du musst selbst nicht po
+ ly sein (oder es werden wollen)\, um etwas mitzunehmen – wenn dich die Frag
+ en nach Vertrauen\, Freiheit\, Verbundenheit und Wachstum in Beziehungen be
+ wegen\, bist du hier genau richtig.<br><br>Start: 18.30 (Einlass: 18.00)<br
+ ><br>Ort: Yella Yella in der Seestadt Wien <a href="http://www.yellayella.a
+ t" target="_blank">www.yellayella.at</a><br><br>Kosten: Pay what you wish</
+ p><p></p><u></u><u></u>
+LAST-MODIFIED:20260526T182153Z
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Kapazündler | Beziehungen
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260620T030000Z
+DTEND:20260620T060000Z
+DTSTAMP:20260527T095137Z
+UID:2b548g8bcnnkiiei021dibduhl@google.com
+CREATED:20260526T095537Z
+DESCRIPTION:<header><h3>Samstag 20. Juni 2026</h3></header><br><p><strong><
+ b>WANN:</b></strong> um <strong><b>05.25 Uhr</b></strong> in der Früh!<br><
+ strong><b>WIE:</b></strong> Wer gehen bei JEDEM Wetter! Gutes Schuhwerk ist
+  von Vorteil.<br><strong><b>WO:</b></strong> Info zum genauen Treffpunkt er
+ folgt nach Anmeldung.<br><strong><b>DAUER:</b></strong> ca. 2\,5 h</p>
+LAST-MODIFIED:20260526T150917Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:GehoLogie
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260725T180000Z
+DTEND:20260725T200000Z
+DTSTAMP:20260527T095137Z
+UID:6dmscbv2c1h1ecdfqt9r2buev7@google.com
+CREATED:20260526T094738Z
+DESCRIPTION:<u></u><h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p>L
+ ESUNG des Krimiautors Roman Klementovic aus seinem aktuellen Buch „Splitter
+ schreie„. Anschließende Frage- und Signierstunde.</p><p><br>Der gebürtige M
+ archfelder kam über Umwege zum Schreiben. Genauer gesagt über Hawaii!<br><b
+ r>Klementovic studierte und war mehrere Jahre im Marketing tätig\, bevor er
+  2015 sein erstes Buch veröffentlichte. Mehr als 10 Jahre später wird er im
+  Herbst 2026 sein mittlerweile 10. Buch in die Regale der Krimi-Liebhaber s
+ tellen. Die fesselnden Cliffhanger-Geschichten fesseln mittlerweile eine st
+ ändig steigende Zahl von LeserInnen im Deutschsprachigen Raum\, sodass es n
+ icht verwundert\, dass bereits zwei seiner Bücher verfilmt wurden.<br><br>W
+ ir sind gespannt\, ob der sympathische Krimi-Autodidakt das Rätsel um den U
+ mweg nach Hawaii an diesem Abend auf der Ruine Markgrafneusiedl lösen wird…
+ <br><br>In Kooperation mit der Öffentlichen Bibliothek Raasdorf</p><u></u>
+LAST-MODIFIED:20260526T151046Z
 LOCATION:Am Gelände der Ruine in Markgrafneusiedl
 SEQUENCE:1
 STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, KONZERT des Duo „Diknu Schneeberger
- “ 
+SUMMARY:360° Marchfelder Kultursommer\, Roman Klementovic | „Splitterschrei
+ e„
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20261205T040000Z
-DTEND:20261205T070000Z
-DTSTAMP:20260527T040419Z
-UID:3uh38nomng477oj1drr1jei8di@google.com
-CREATED:20260526T100001Z
-DESCRIPTION:<u></u><h3>Samstag 20. Juni 2026</h3><u></u><br><p><strong><b>W
- ANN:</b></strong> um <strong><b>05.25 Uhr</b></strong> in der Früh!<br><str
- ong><b>WIE:</b></strong> Wer gehen bei JEDEM Wetter! Gutes Schuhwerk ist vo
- n Vorteil.<br><strong><b>WO:</b></strong> Info zum genauen Treffpunkt erfol
- gt nach Anmeldung.<br><strong><b>DAUER:</b></strong> ca. 2\,5 h</p>
-LAST-MODIFIED:20260526T151152Z
+DTSTART:20260704T180000Z
+DTEND:20260704T200000Z
+DTSTAMP:20260527T095137Z
+UID:4kmr2l9rfi7avfscb1jgbjbt4g@google.com
+CREATED:20260526T093735Z
+DESCRIPTION:<h2><strong><b>Samstag\, 4.7.2026</b></strong></h2><p>INSPIRATI
+ ONS-TALK des Glücksforschers <a href="https://www.rauchensteiner.at/"><em><
+ i>Manfred Rauchensteiner</i></em></a></p><p>Seine Hauptaufgabe sieht der Gl
+ ücksforscher <em><i>Manfred Rauchensteiner</i></em>darin\, Menschen „aufzuw
+ ecken“ aus ihrem Tiefschlaf des Alltags. Menschen zu erinnern und zu beschr
+ eiben\, welch wunderbare\, schöpferische Wesen wir sind. Durch das Erklären
+  und Erkennen vieler anerlernter „Programme und Verhaltensmuster“\, die uns
+  scheinbar nicht glücklich gemacht haben. Als Experte für Glaubenssätze und
+  Denkmuster beschreibt er Möglichkeiten\, wie du wieder Verantwortung für d
+ eine Gedanken und Empfindungen übernehmen kannst und mit wenig Aufwand Gros
+ sartiges bewirkst. Denn Glücklichsein ist eine Entscheidung!</p><p>Seiner B
+ erufung folgend veranstaltet er als ausgebildeter Emotionstrainer\, Glücksf
+ orscher\, Autor und Wissensentwickler zahlreiche Workshops\, Seminare\, Ein
+ zeltrainings und Vorträge. Nach 10 Jahren kommt er endlich wieder ins March
+ feld!</p>
+LAST-MODIFIED:20260526T151201Z
+LOCATION:Am Gelände der Ruine in Markgrafneusiedl
 SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:GehoLogie „Men Only“
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260616T163000Z
-DTEND:20260616T183000Z
-DTSTAMP:20260527T040419Z
-UID:7i9inmi07i42gkl0483m6eb205@google.com
-CREATED:20260526T095123Z
-DESCRIPTION:<u></u><br><u></u><h3>DIENSTAG 16. Juni 2026</h3><u></u><u></u>
- <u></u><u></u><br><h4>JENSEITSBILDER</h4><u></u><u></u><u></u><br><br><p>Wi
- e es „Drüben“ aussieht\, ob es ein gutes oder böses Jenseits gibt\, ob es e
- in Leben nach dem Tod gibt?  Sich die Muße zu nehmen\, in einige unterschie
- dlichen Welt- und Jenseits-Bilder\, die sich in der Menschheitsgeschichte s
- chon angesammelt haben – hineinzuschauen\, in die reiche Bildwelt dieses Th
- emas\, und hinein zu spüren in die unterschiedlichen Vorstellungen\, dazu l
- ädt Evelyn an diesem Abend ein.</p><p>Vielleicht findest Du Inspiration für
-  die eigenen Vorstellungen vom Jenseits…</p><u></u><br><h5>Die Vortragende<
- /h5><u></u><br><br><p>Evelyne ist beruflich als Ergotherapeutin auf einer n
- eurologischen Langzeitstation tätig und als Teil des Palliativ-Teams mit de
- m Thema Sterbekultur betraut. Täglich ist sie dort mit fortschreitenden Erk
- rankungen\, die früher oder später zum Tode führen konfrontiert. Daher ist 
- ihr dieses Thema ein persönliches Anliegen. Nach Ihren Erfahrung wirken die
-  eigenen bewussten oder unbewussten Jenseitsbilder zentral in unser Alltags
- leben.</p><u></u><u></u><br><p><strong><b>Start</b></strong>: 18.30 (Einlas
- s: 18.00)</p><p><strong><b>Ort</b></strong>: <a href="https://www.google.co
- m/maps/place/Yella+Yella!+Nachbar_innentreff/@48.224802\,16.4944322\,1173m/
- data=!3m3!1e3!4b1!5s0x476d0108d11710cd:0xe9738fb6598ce96f!4m6!3m5!1s0x476d0
- 1cd036341a5:0x6c834158587d36ac!8m2!3d48.224802!4d16.4970125!16s%2Fg%2F11gj0
- v70j4?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
- Yella Yella</a> in der Seestadt Wien <a href="https://www.yellayella.at/" t
- arget="_blank">www.yellayella.at</a></p><p><strong><b>Kosten</b></strong>: 
- Pay what you wish</p><u></u>
-LAST-MODIFIED:20260526T150932Z
-LOCATION:Yella Yella
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:kapazündler\, jenseitsbilder
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260801T030000Z
-DTEND:20260801T060000Z
-DTSTAMP:20260527T040419Z
-UID:33pofu5afvkl71s5uqbh18r4jh@google.com
-CREATED:20260526T095620Z
-DESCRIPTION:<u></u><h3>Samstag 20. Juni 2026</h3><u></u><br><p><strong><b>W
- ANN:</b></strong> um <strong><b>05.25 Uhr</b></strong> in der Früh!<br><str
- ong><b>WIE:</b></strong> Wer gehen bei JEDEM Wetter! Gutes Schuhwerk ist vo
- n Vorteil.<br><strong><b>WO:</b></strong> Info zum genauen Treffpunkt erfol
- gt nach Anmeldung.<br><strong><b>DAUER:</b></strong> ca. 2\,5 h</p>
-LAST-MODIFIED:20260526T151026Z
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:GehoLogie „Men Only“
+SUMMARY:360° Marchfelder Kultursommer\, INSPIRATIONS-TALK des Glücksforsche
+ rs Manfred Rauchensteiner
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20261024T030000Z
 DTEND:20261024T060000Z
-DTSTAMP:20260527T040419Z
+DTSTAMP:20260527T095137Z
 UID:340fc5cierrrbsphs8scm8tsce@google.com
 CREATED:20260526T095726Z
 DESCRIPTION:<u></u><h3>Samstag 20. Juni 2026</h3><u></u><br><p><strong><b>W
@@ -132,9 +238,101 @@ SUMMARY:GehoLogie „Men Only“
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+DTSTART:20260912T030000Z
+DTEND:20260912T060000Z
+DTSTAMP:20260527T095137Z
+UID:5jtja2aq14j5qsrh9fnakgqir0@google.com
+CREATED:20260526T095641Z
+DESCRIPTION:<u></u><h3>Samstag 20. Juni 2026</h3><u></u><br><p><strong><b>W
+ ANN:</b></strong> um <strong><b>05.25 Uhr</b></strong> in der Früh!<br><str
+ ong><b>WIE:</b></strong> Wer gehen bei JEDEM Wetter! Gutes Schuhwerk ist vo
+ n Vorteil.<br><strong><b>WO:</b></strong> Info zum genauen Treffpunkt erfol
+ gt nach Anmeldung.<br><strong><b>DAUER:</b></strong> ca. 2\,5 h</p>
+LAST-MODIFIED:20260526T151015Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:GehoLogie „Men Only“
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260808T170000Z
+DTEND:20260808T190000Z
+DTSTAMP:20260527T095137Z
+UID:0c5bom19qhrdar3sdroapq789v@google.com
+CREATED:20260526T152454Z
+DESCRIPTION:<br><h3><b>Buntgemüse-Sommerkino</b></h3><br><p>am 8. August 20
+ 26 gibt es im Burghof von Sachsengang wieder ein Sommerkino\, erstmals von 
+ uns selbst veranstaltet! Details folgen an dieser Stelle. Herzlich willkomm
+ en! </p>
+LAST-MODIFIED:20260526T152454Z
+LOCATION:Burg von Sachsengang
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Buntgemüse-Sommerkino
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260822T163000Z
+DTEND:20260822T190000Z
+DTSTAMP:20260527T095137Z
+UID:5bmudr6a3pg0si09f713uoco4f@google.com
+CREATED:20260526T100835Z
+DESCRIPTION:<u></u><p><strong><b>Zeit</b></strong>: 18.30 – 21.00<br></p><p
+ ><strong><b>Ort</b></strong>: @ KommVorZone</p><p><strong><b>Thema</b></str
+ ong>: LEGACY – Welches Feuer hast oder willst Du in Anderen entzünden? Was 
+ ist Dein Beitrag?</p><p><strong><b>Kosten</b></strong>: Pay what you wish!<
+ /p><p>&gt\; <a href="mailto:mo@machbarschaft.at?subject=Anmeldung%20BROalit
+ ion%20Oktober%20-%20Bin%20Fixstarter!" target="_blank">anmelden</a></p><u><
+ /u><u></u><u></u><u></u><p><strong><b>Weitere Termin:</b></strong> 22. Augu
+ st\, 3. Oktober\, 14. November 2026<br><br></p><br><u></u><p>Für Männer in 
+ Übergängen (Trennung\, Berufswechsel\, Sinnfragen)\,<br>Für Männer mit Dist
+ anz zu „klassischer Männerarbeit“\, aber Offenheit für neue Erfahrungen.</p
+ ><hr><p></p><ul><li>Du hast viele Freunde\, aber niemanden\, mit dem Du wir
+ klich reden kannst.</li><li>Du hast gelernt keine Schwäche zu zeigen und ma
+ chst Deine Probleme mit Dir selbst aus. </li><li>Du bist neugierig und offe
+ n für andere Perspektiven</li><li>Du tauschst Dich gerne mit anderen aus</l
+ i><li>Du lernst gerne von Anderen und teilst Deine Erfahrungen</li></ul><b>
+ Mach mit</b><br>Für Dich ist die Teilnahme an einer Männergruppe (noch) nic
+ ht vorstellbar.<br>Dann hast Du vielleicht Lust auf ein gutes <a href="http
+ s://www.google.com/url?q=https://www.machbarschaft.at/gehologen/&amp\;sa=D&
+ amp\;source=calendar&amp\;ust=1780222090983443&amp\;usg=AOvVaw3CaflrpMO8QFF
+ c0d2hyUZn" target="_blank">GEHspräch</a>?<p></p><u></u><u></u>
+LAST-MODIFIED:20260526T100835Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:BROalition Männer stärken Männer
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260614T080000Z
+DTEND:20260614T110000Z
+DTSTAMP:20260527T095137Z
+UID:5sttenlpnentjof1sd1lr9qmr7@google.com
+CREATED:20260526T114740Z
+DESCRIPTION:<h3>Jazz-Picknick im Bank Austria Park - eine Matinee mit den W
+ iener Symphonikern</h3><br><p>Am <strong><b>Sonntag\, den 14. Juni 2026\, <
+ /b></strong>findet <strong><b>von 11.00 - 12.30 Uhr </b></strong>ein Konzer
+ t mit dem Jazz-Ensemble der Wiener Symphoniker im Bank Austria Park statt:<
+ /p><p>Präsentiert werden jazzige Arrangements bekannter Orchesterwerke und 
+ Opern.<br>Es werden u.a. folgende Stücke gespielt: Richard Strauss – Also s
+ prach Zarathustra\, La Traviata – Brindisi\, Nabucco – Va\, pensiero\, Rigo
+ letto – Arie des Sparafucile und La donna è mobile\, Hoffmanns Erzähungen –
+  Can-Can\, Turandot – Nessun dorma\, Carmen – Habanera\, Romeo and Julia – 
+ Love Theme\, West Side Story – Medley\, Maurice Ravel – Boléro</p><p>Das Ko
+ nzert ist <strong><b>gratis </b></strong>zugänglich. Es gibt <strong><b>Foo
+ d Trucks</b></strong>\, bei denen Essen und Trinken gekauft werden kann.</p
+ >
+LAST-MODIFIED:20260526T114756Z
+LOCATION:Bank Austria Park
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Jazz-Picknick im Bank Austria Park
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 DTSTART:20260529T173000Z
 DTEND:20260529T200000Z
-DTSTAMP:20260527T040419Z
+DTSTAMP:20260527T095137Z
 UID:6j64puua528rqk6s7p269a982c@google.com
 CREATED:20260526T090328Z
 DESCRIPTION:<h1><b>Finding Sir David</b></h1><br><br><i>eine Dokumentation 
@@ -177,316 +375,61 @@ SUMMARY:Finding Sir David
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20261114T173000Z
-DTEND:20261114T200000Z
-DTSTAMP:20260527T040419Z
-UID:1s0m3u57td4bumuvpnr3e75j4u@google.com
-CREATED:20260526T100922Z
-DESCRIPTION:<u></u><p><strong><b>Zeit</b></strong>: 18.30 – 21.00<br></p><p
- ><strong><b>Ort</b></strong>: @ KommVorZone</p><p><strong><b>Thema</b></str
- ong>: LEGACY – Welches Feuer hast oder willst Du in Anderen entzünden? Was 
- ist Dein Beitrag?</p><p><strong><b>Kosten</b></strong>: Pay what you wish!<
- /p><p>&gt\; <a href="mailto:mo@machbarschaft.at?subject=Anmeldung%20BROalit
- ion%20Oktober%20-%20Bin%20Fixstarter!" target="_blank">anmelden</a></p><u><
- /u><u></u><u></u><u></u><p><strong><b>Weitere Termin:</b></strong> 22. Augu
- st\, 3. Oktober\, 14. November 2026<br><br></p><br><u></u><p>Für Männer in 
- Übergängen (Trennung\, Berufswechsel\, Sinnfragen)\,<br>Für Männer mit Dist
- anz zu „klassischer Männerarbeit“\, aber Offenheit für neue Erfahrungen.</p
- ><hr><p></p><ul><li>Du hast viele Freunde\, aber niemanden\, mit dem Du wir
- klich reden kannst.</li><li>Du hast gelernt keine Schwäche zu zeigen und ma
- chst Deine Probleme mit Dir selbst aus. </li><li>Du bist neugierig und offe
- n für andere Perspektiven</li><li>Du tauschst Dich gerne mit anderen aus</l
- i><li>Du lernst gerne von Anderen und teilst Deine Erfahrungen</li></ul><b>
- Mach mit</b><br>Für Dich ist die Teilnahme an einer Männergruppe (noch) nic
- ht vorstellbar.<br>Dann hast Du vielleicht Lust auf ein gutes <a href="http
- s://www.google.com/url?q=https://www.machbarschaft.at/gehologen/&amp\;sa=D&
- amp\;source=calendar&amp\;ust=1780222090983443&amp\;usg=AOvVaw3CaflrpMO8QFF
- c0d2hyUZn" target="_blank">GEHspräch</a>?<p></p><u></u><u></u>
-LAST-MODIFIED:20260526T100923Z
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:BROalition Männer stärken Männer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260711T180000Z
-DTEND:20260711T200000Z
-DTSTAMP:20260527T040419Z
-UID:17qqipe9ap6nk7happja970b64@google.com
-CREATED:20260526T093843Z
-DESCRIPTION:<h2><strong><b>Samstag\, 11.7.2026</b></strong></h2><p>Illusion
- s-Show des Mentalisten <em><i>Philipp Oberlohr</i></em><em><i> „<a href="ht
- tps://tabula-rasa-project.com/udbt-show" target="_blank">Das undeckbare Tun
- </a>„.</i></em></p><p>An der Schnittstelle zwischen Theater und Illusions-S
- how schafft Oberlohr sinnvolle Begegnungen mit dem Publikum und lässt es sp
- ielerisch und leicht an der Realität zweifeln. Die Performance vereint Game
-  Theatre\, mind-reading und funky Ideen zu bewusstseinserweiternden interak
- tiven Erlebnissen.</p><p>Illusionist und Mentalist <em><i>Philipp Oberlohr<
- /i></em> sprengt Kategorien und macht seine Shows zu Erlebnissen\, die verb
- inden. <em><i>The Irish Times</i></em> nennt ihn<strong><b> </b></strong>“ü
- ber-natürlich”<strong><b>\,</b></strong> doch das ist er auf keinen Fall. <
- em><i>Metropole Vienna</i></em> sagt “Mentalist Philipp Oberlohr knows ever
- ything about you”\; stimmt glücklicherweise auch nicht.</p><p>Was stimmt nu
- n? Seine Bühnenshows\, Keynotes und Workshops ziehen Menschen den Teppich u
- nter den Füßen weg und bewegen sie nachhaltig. Doch machen Sie sich selbst 
- ein Bild.</p><p>Trauen Sie sich. Und trauen Sie ihm.</p><p>Der studierte Th
- eologe ist mittlerweile mit seinen Shows international gefragt. Im Rahmen d
- es <em><i>360° Marchfelder Kultursommers</i></em> kommt er zum ersten Mal i
- ns Marchfeld!</p>
-LAST-MODIFIED:20260526T151129Z
+DTSTART:20260718T180000Z
+DTEND:20260718T200000Z
+DTSTAMP:20260527T095137Z
+UID:0ef4h67ustchuinpdjt3e6p0i0@google.com
+CREATED:20260526T094404Z
+DESCRIPTION:<u></u><h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p><
+ strong><b>KONZERT</b></strong> des Duo <a href="https://www.schneebergersie
+ ber.com/"><em><i>Diknu Schneeberger</i></em></a> – Gipsy trifft Weltmusik</
+ p><p>Tauchen Sie ein in die betörende Welt von <em><i>SCHNEEBERGER &amp\; S
+ IEBER</i></em>\, wo die magischen Gypsy-Jazz-Klänge von <em><i>Diknu Schnee
+ berger</i></em> auf die facettenreiche\, weltmusikalische Virtuosität von <
+ em><i>Alexander Sieber </i></em>treffen. Diese meisterhafte Verschmelzung z
+ weier Gitarrenwelten entfaltet eine Symphonie aus Herz und Seele.</p><p>Die
+ ses Duo präsentiert ein Repertoire\, das reich an herzhaften Eigenkompositi
+ onen ist\, maßgeschneidert für die erlesene Harmonie zweier Gitarren. Jeder
+  Ton\, jede Melodie\, erzählt eine Geschichte\, die durch die vielschichtig
+ en Sprachen des Latin\, Gypsy oder der klassischen Musik geformt wird. Es i
+ st eine musikalische Erzählung\, die lebendig wird in den kunstvollen Finge
+ rn der Musiker.</p><p>Lassen Sie sich entführen auf eine musikalische Reise
+ \, die nicht nur das Ohr\, sondern auch die Seele berührt. Mit Diknu Schnee
+ bergers leidenschaftlichem Spiel\, das in seinem vierten Werk ‘Feuerlicht’ 
+ als praktisch vollendet gepriesen wird\, und Alexander Siebers weltmusikali
+ scher Finesse\, erwartet Sie eine Performance\, die das Publikum in eine We
+ lt voller Farben und Emotionen entführt.</p><p><strong><b><em><i>SCHNEEBERG
+ ER &amp\; SIEBER</i></em></b></strong> – eine musikalische Begegnung\, die 
+ verspricht\, nicht nur zu unterhalten\, sondern zu verzaubern.</p><u></u>
+LAST-MODIFIED:20260526T151107Z
 LOCATION:Am Gelände der Ruine in Markgrafneusiedl
 SEQUENCE:1
 STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, Philipp Oberlohr „Das undeckbare Tu
- n“.
+SUMMARY:360° Marchfelder Kultursommer\, KONZERT des Duo „Diknu Schneeberger
+ “ 
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260725T180000Z
-DTEND:20260725T200000Z
-DTSTAMP:20260527T040419Z
-UID:6dmscbv2c1h1ecdfqt9r2buev7@google.com
-CREATED:20260526T094738Z
-DESCRIPTION:<u></u><h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p>L
- ESUNG des Krimiautors Roman Klementovic aus seinem aktuellen Buch „Splitter
- schreie„. Anschließende Frage- und Signierstunde.</p><p><br>Der gebürtige M
- archfelder kam über Umwege zum Schreiben. Genauer gesagt über Hawaii!<br><b
- r>Klementovic studierte und war mehrere Jahre im Marketing tätig\, bevor er
-  2015 sein erstes Buch veröffentlichte. Mehr als 10 Jahre später wird er im
-  Herbst 2026 sein mittlerweile 10. Buch in die Regale der Krimi-Liebhaber s
- tellen. Die fesselnden Cliffhanger-Geschichten fesseln mittlerweile eine st
- ändig steigende Zahl von LeserInnen im Deutschsprachigen Raum\, sodass es n
- icht verwundert\, dass bereits zwei seiner Bücher verfilmt wurden.<br><br>W
- ir sind gespannt\, ob der sympathische Krimi-Autodidakt das Rätsel um den U
- mweg nach Hawaii an diesem Abend auf der Ruine Markgrafneusiedl lösen wird…
- <br><br>In Kooperation mit der Öffentlichen Bibliothek Raasdorf</p><u></u>
-LAST-MODIFIED:20260526T151046Z
-LOCATION:Am Gelände der Ruine in Markgrafneusiedl
-SEQUENCE:1
-STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, Roman Klementovic | „Splitterschrei
- e„
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260614T080000Z
-DTEND:20260614T110000Z
-DTSTAMP:20260527T040419Z
-UID:5sttenlpnentjof1sd1lr9qmr7@google.com
-CREATED:20260526T114740Z
-DESCRIPTION:<h3>Jazz-Picknick im Bank Austria Park - eine Matinee mit den W
- iener Symphonikern</h3><br><p>Am <strong><b>Sonntag\, den 14. Juni 2026\, <
- /b></strong>findet <strong><b>von 11.00 - 12.30 Uhr </b></strong>ein Konzer
- t mit dem Jazz-Ensemble der Wiener Symphoniker im Bank Austria Park statt:<
- /p><p>Präsentiert werden jazzige Arrangements bekannter Orchesterwerke und 
- Opern.<br>Es werden u.a. folgende Stücke gespielt: Richard Strauss – Also s
- prach Zarathustra\, La Traviata – Brindisi\, Nabucco – Va\, pensiero\, Rigo
- letto – Arie des Sparafucile und La donna è mobile\, Hoffmanns Erzähungen –
-  Can-Can\, Turandot – Nessun dorma\, Carmen – Habanera\, Romeo and Julia – 
- Love Theme\, West Side Story – Medley\, Maurice Ravel – Boléro</p><p>Das Ko
- nzert ist <strong><b>gratis </b></strong>zugänglich. Es gibt <strong><b>Foo
- d Trucks</b></strong>\, bei denen Essen und Trinken gekauft werden kann.</p
- >
-LAST-MODIFIED:20260526T114756Z
-LOCATION:Bank Austria Park
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Jazz-Picknick im Bank Austria Park
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260703T180000Z
-DTEND:20260703T200000Z
-DTSTAMP:20260527T040419Z
-UID:6e0vprvvnf1noprg36dn5n9k94@google.com
-CREATED:20260526T093645Z
-DESCRIPTION:<section><br><h2><strong><b>Freitag\, 3.7.2026</b></strong></h2
- ><p>Sommerkino Marchfeld 2026</p><h4><em><i>The Life of Chuck</i></em></h4>
- <p>US&amp\;A 2024\, 110min</p><p><a href="https://www.youtube.com/watch?v=D
- i5nN4q8rA8">Trailer</a></p><p>Wer ist Chuck? Die Welt geht unter\, Kaliforn
- ien versinkt im Meer\, das Internet bricht zusammen – doch in einer amerika
- nischen Kleinstadt herrscht vor allem Dankbarkeit gegenüber <em><i>Charles 
- „Chuck“ Krantz</i></em>\, einem gewöhnlichen Buchhalter\, dessen Gesicht al
- len freundlich von Plakatwänden und aus dem Fernsehen zulächelt. Wer ist di
- eser Mann\, den niemand wirklich zu kennen scheint? Ein Rätsel\, das weit z
- urückreicht\, bis in dessen Kindheit bei seiner Großmutter\, die ihre unend
- liche Liebe fürs Tanzen an ihn weitergab\, und seinem Großvater\, der ihn i
- n die Geheimnisse der Buchhaltung einweihte und unbedingt vor der verschlos
- senen Dachkammer bewahren wollte. Ein Rätsel\, das vor allem eine Frage auf
- wirft: Kann das Schicksal eines Einzelnen die ganze Welt beeinflussen?</p><
- /section>
-LAST-MODIFIED:20260526T151210Z
-LOCATION:Am Gelände der Ruine in Markgrafneusiedl
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, The Life of Chuck
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260527T163000Z
-DTEND:20260527T190000Z
-DTSTAMP:20260527T040419Z
-UID:3njgtm8jfp795bellblc4h6tmg@google.com
-CREATED:20260526T100615Z
-DESCRIPTION:<u></u><p>MITTWOCH 27. Mai 2026<br>Beziehungen<br>“Viele Lieben
- \, klare Absprachen – Zwischen Eifersucht und Mitfreude in polyamoren Bezie
- hungen” lädt dich ein\, einen Blick hinter die Kulissen nicht‑monogamer Bez
- iehungen zu werfen. Ein Paar\, das seit zehn Jahren polyamor unterwegs ist 
- und ein lebendiges Beziehungs‑Rhizom mit verschiedenen\, teils langjährigen
-  Partnerschaften lebt\, erzählt von seinem Alltag: von ersten Schritten und
-  Fehltritten\, von schwierigen Gesprächen\, von Grenzen\, die gehalten werd
- en wollen – und von Momenten echter Mitfreude\, wenn der geliebte Mensch mi
- t jemand anderem strahlt.<br><br>An diesem Abend geht es um mehr als “offen
- e Beziehungen”: Wir sprechen über Sprache und Begriffe\, über Eifersucht un
- d Sicherheit\, über Compersion (Mitfreude) als vielleicht ungewohntes Gefüh
- l und darüber\, wie Polyamorie zu einem Weg des Loslassens\, der inneren Ar
- beit und der Beziehungs‑Spiritualität werden kann. Du musst selbst nicht po
- ly sein (oder es werden wollen)\, um etwas mitzunehmen – wenn dich die Frag
- en nach Vertrauen\, Freiheit\, Verbundenheit und Wachstum in Beziehungen be
- wegen\, bist du hier genau richtig.<br><br>Start: 18.30 (Einlass: 18.00)<br
- ><br>Ort: Yella Yella in der Seestadt Wien <a href="http://www.yellayella.a
- t" target="_blank">www.yellayella.at</a><br><br>Kosten: Pay what you wish</
- p><p></p><u></u><u></u>
-LAST-MODIFIED:20260526T182153Z
-SEQUENCE:1
-STATUS:CONFIRMED
-SUMMARY:Kapazündler | Beziehungen
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20261003T163000Z
-DTEND:20261003T190000Z
-DTSTAMP:20260527T040419Z
-UID:37v373eebn0tjfcf2bpu6dgbjr@google.com
-CREATED:20260526T100903Z
-DESCRIPTION:<u></u><p><strong><b>Zeit</b></strong>: 18.30 – 21.00<br></p><p
- ><strong><b>Ort</b></strong>: @ KommVorZone</p><p><strong><b>Thema</b></str
- ong>: LEGACY – Welches Feuer hast oder willst Du in Anderen entzünden? Was 
- ist Dein Beitrag?</p><p><strong><b>Kosten</b></strong>: Pay what you wish!<
- /p><p>&gt\; <a href="mailto:mo@machbarschaft.at?subject=Anmeldung%20BROalit
- ion%20Oktober%20-%20Bin%20Fixstarter!" target="_blank">anmelden</a></p><u><
- /u><u></u><u></u><u></u><p><strong><b>Weitere Termin:</b></strong> 22. Augu
- st\, 3. Oktober\, 14. November 2026<br><br></p><br><u></u><p>Für Männer in 
- Übergängen (Trennung\, Berufswechsel\, Sinnfragen)\,<br>Für Männer mit Dist
- anz zu „klassischer Männerarbeit“\, aber Offenheit für neue Erfahrungen.</p
- ><hr><p></p><ul><li>Du hast viele Freunde\, aber niemanden\, mit dem Du wir
- klich reden kannst.</li><li>Du hast gelernt keine Schwäche zu zeigen und ma
- chst Deine Probleme mit Dir selbst aus. </li><li>Du bist neugierig und offe
- n für andere Perspektiven</li><li>Du tauschst Dich gerne mit anderen aus</l
- i><li>Du lernst gerne von Anderen und teilst Deine Erfahrungen</li></ul><b>
- Mach mit</b><br>Für Dich ist die Teilnahme an einer Männergruppe (noch) nic
- ht vorstellbar.<br>Dann hast Du vielleicht Lust auf ein gutes <a href="http
- s://www.google.com/url?q=https://www.machbarschaft.at/gehologen/&amp\;sa=D&
- amp\;source=calendar&amp\;ust=1780222090983443&amp\;usg=AOvVaw3CaflrpMO8QFF
- c0d2hyUZn" target="_blank">GEHspräch</a>?<p></p><u></u><u></u>
-LAST-MODIFIED:20260526T100904Z
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:BROalition Männer stärken Männer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260912T030000Z
-DTEND:20260912T060000Z
-DTSTAMP:20260527T040419Z
-UID:5jtja2aq14j5qsrh9fnakgqir0@google.com
-CREATED:20260526T095641Z
+DTSTART:20260801T030000Z
+DTEND:20260801T060000Z
+DTSTAMP:20260527T095137Z
+UID:33pofu5afvkl71s5uqbh18r4jh@google.com
+CREATED:20260526T095620Z
 DESCRIPTION:<u></u><h3>Samstag 20. Juni 2026</h3><u></u><br><p><strong><b>W
  ANN:</b></strong> um <strong><b>05.25 Uhr</b></strong> in der Früh!<br><str
  ong><b>WIE:</b></strong> Wer gehen bei JEDEM Wetter! Gutes Schuhwerk ist vo
  n Vorteil.<br><strong><b>WO:</b></strong> Info zum genauen Treffpunkt erfol
  gt nach Anmeldung.<br><strong><b>DAUER:</b></strong> ca. 2\,5 h</p>
-LAST-MODIFIED:20260526T151015Z
+LAST-MODIFIED:20260526T151026Z
 SEQUENCE:0
 STATUS:CONFIRMED
 SUMMARY:GehoLogie „Men Only“
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260726T130000Z
-DTEND:20260726T190000Z
-DTSTAMP:20260527T040419Z
-UID:3i2bt2iv0kujuarh1kckrn3rmj@google.com
-CREATED:20260526T152256Z
-DESCRIPTION:Hofjause 2026\nAm 26. Juli 2026 von 15 bis 21 Uhr findet wieder
-  unsere beliebte Hofjause statt.\n\nJedes Jahr freuen wir uns\, diese mit v
- ielen lieben Gästen zu feiern  - meist bei bestem Wetter und angenehmen Tem
- peraturen und begleitet von wunderbarer südamerikanischer Livemusik. Belieb
- t sind die Führungen durch die Gärtnerei und in die Burg Sachsengang.\n\nKi
- nder haben nicht nur Spaß in der Hüpfburg\, sondern interessieren sich auch
-  für die Isländer des Islandpferdehofs nebenan.
-LAST-MODIFIED:20260526T152312Z
-LOCATION:Burg Sachsengang
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Hofjause 27.7.2025
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260822T163000Z
-DTEND:20260822T190000Z
-DTSTAMP:20260527T040419Z
-UID:5bmudr6a3pg0si09f713uoco4f@google.com
-CREATED:20260526T100835Z
-DESCRIPTION:<u></u><p><strong><b>Zeit</b></strong>: 18.30 – 21.00<br></p><p
- ><strong><b>Ort</b></strong>: @ KommVorZone</p><p><strong><b>Thema</b></str
- ong>: LEGACY – Welches Feuer hast oder willst Du in Anderen entzünden? Was 
- ist Dein Beitrag?</p><p><strong><b>Kosten</b></strong>: Pay what you wish!<
- /p><p>&gt\; <a href="mailto:mo@machbarschaft.at?subject=Anmeldung%20BROalit
- ion%20Oktober%20-%20Bin%20Fixstarter!" target="_blank">anmelden</a></p><u><
- /u><u></u><u></u><u></u><p><strong><b>Weitere Termin:</b></strong> 22. Augu
- st\, 3. Oktober\, 14. November 2026<br><br></p><br><u></u><p>Für Männer in 
- Übergängen (Trennung\, Berufswechsel\, Sinnfragen)\,<br>Für Männer mit Dist
- anz zu „klassischer Männerarbeit“\, aber Offenheit für neue Erfahrungen.</p
- ><hr><p></p><ul><li>Du hast viele Freunde\, aber niemanden\, mit dem Du wir
- klich reden kannst.</li><li>Du hast gelernt keine Schwäche zu zeigen und ma
- chst Deine Probleme mit Dir selbst aus. </li><li>Du bist neugierig und offe
- n für andere Perspektiven</li><li>Du tauschst Dich gerne mit anderen aus</l
- i><li>Du lernst gerne von Anderen und teilst Deine Erfahrungen</li></ul><b>
- Mach mit</b><br>Für Dich ist die Teilnahme an einer Männergruppe (noch) nic
- ht vorstellbar.<br>Dann hast Du vielleicht Lust auf ein gutes <a href="http
- s://www.google.com/url?q=https://www.machbarschaft.at/gehologen/&amp\;sa=D&
- amp\;source=calendar&amp\;ust=1780222090983443&amp\;usg=AOvVaw3CaflrpMO8QFF
- c0d2hyUZn" target="_blank">GEHspräch</a>?<p></p><u></u><u></u>
-LAST-MODIFIED:20260526T100835Z
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:BROalition Männer stärken Männer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260704T180000Z
-DTEND:20260704T200000Z
-DTSTAMP:20260527T040419Z
-UID:4kmr2l9rfi7avfscb1jgbjbt4g@google.com
-CREATED:20260526T093735Z
-DESCRIPTION:<h2><strong><b>Samstag\, 4.7.2026</b></strong></h2><p>INSPIRATI
- ONS-TALK des Glücksforschers <a href="https://www.rauchensteiner.at/"><em><
- i>Manfred Rauchensteiner</i></em></a></p><p>Seine Hauptaufgabe sieht der Gl
- ücksforscher <em><i>Manfred Rauchensteiner</i></em>darin\, Menschen „aufzuw
- ecken“ aus ihrem Tiefschlaf des Alltags. Menschen zu erinnern und zu beschr
- eiben\, welch wunderbare\, schöpferische Wesen wir sind. Durch das Erklären
-  und Erkennen vieler anerlernter „Programme und Verhaltensmuster“\, die uns
-  scheinbar nicht glücklich gemacht haben. Als Experte für Glaubenssätze und
-  Denkmuster beschreibt er Möglichkeiten\, wie du wieder Verantwortung für d
- eine Gedanken und Empfindungen übernehmen kannst und mit wenig Aufwand Gros
- sartiges bewirkst. Denn Glücklichsein ist eine Entscheidung!</p><p>Seiner B
- erufung folgend veranstaltet er als ausgebildeter Emotionstrainer\, Glücksf
- orscher\, Autor und Wissensentwickler zahlreiche Workshops\, Seminare\, Ein
- zeltrainings und Vorträge. Nach 10 Jahren kommt er endlich wieder ins March
- feld!</p>
-LAST-MODIFIED:20260526T151201Z
-LOCATION:Am Gelände der Ruine in Markgrafneusiedl
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, INSPIRATIONS-TALK des Glücksforsche
- rs Manfred Rauchensteiner
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20260717T180000Z
 DTEND:20260717T200000Z
-DTSTAMP:20260527T040419Z
+DTSTAMP:20260527T095137Z
 UID:46bqffkm1unaqefvgb4lb35edk@google.com
 CREATED:20260526T094221Z
 DESCRIPTION:<u></u><section><br><h2><strong><b>Freitag\, 17.7.2026</b></str
@@ -516,26 +459,9 @@ SUMMARY:360° Marchfelder Kultursommer\, Dokumentation „Renate“
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260620T030000Z
-DTEND:20260620T060000Z
-DTSTAMP:20260527T040419Z
-UID:2b548g8bcnnkiiei021dibduhl@google.com
-CREATED:20260526T095537Z
-DESCRIPTION:<header><h3>Samstag 20. Juni 2026</h3></header><br><p><strong><
- b>WANN:</b></strong> um <strong><b>05.25 Uhr</b></strong> in der Früh!<br><
- strong><b>WIE:</b></strong> Wer gehen bei JEDEM Wetter! Gutes Schuhwerk ist
-  von Vorteil.<br><strong><b>WO:</b></strong> Info zum genauen Treffpunkt er
- folgt nach Anmeldung.<br><strong><b>DAUER:</b></strong> ca. 2\,5 h</p>
-LAST-MODIFIED:20260526T150917Z
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:GehoLogie
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20260710T180000Z
 DTEND:20260710T200000Z
-DTSTAMP:20260527T040419Z
+DTSTAMP:20260527T095137Z
 UID:4iobjvbt7bs7al0mmtsfk2tv1k@google.com
 CREATED:20260526T090155Z
 DESCRIPTION:<h2><strong><b>Freitag\, 10.7.2026</b></strong></h2><p>Sommerki
@@ -557,48 +483,122 @@ SUMMARY:360° Marchfelder Kultursommer\, DJ Ahmet
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260724T180000Z
-DTEND:20260724T200000Z
-DTSTAMP:20260527T040419Z
-UID:7bvcp6j3hec3ld5ha75r8mo05i@google.com
-CREATED:20260526T094556Z
-DESCRIPTION:<u></u><h2><span style="font-weight: normal\;">Freitag\, 24.7 2
- 026<br>Sommerkino Marchfeld 2026<br><br>Calle Málage – Ein Zuhause in Tange
- r<br>ES 2025\, 116min<br><br>Trailer<br><br>María Ángeles lebt seit Jahrzeh
- nten im spanischen Viertel von Tanger. Ihre Wohnung in der Calle Málaga\, g
- efüllt mit Erinnerungen\, Blumen und alten Möbelstücken\, ist für sie weit 
- mehr als ein Zuhause. Vom Balkon aus verfolgt sie das geschäftige Leben der
-  Straßen\, in denen Vergangenheit und Gegenwart ineinanderfließen. Als ihre
-  Tochter Clara jedoch den Entschluss fasst\, die Wohnung zu verkaufen\, ste
- ht María Ángeles vor einer entscheidenden Veränderung. Ein Umzug in ein Sen
- iorenheim kommt für sie nicht infrage. Mit Einfallsreichtum und unbeirrbare
- m Willen setzt sie alles daran\, ihre vier Wände zu bewahren. Unerwartet er
- öffnet dieser Widerstand neue Begegnungen\, weckt Lebensfreude und bringt e
- ine Liebe zurück\, die längst verloren schien.</span></h2><h2><br></h2><u><
- /u>
-LAST-MODIFIED:20260526T151056Z
-LOCATION:Am Gelände der Ruine in Markgrafneusiedl
+DTSTART:20261114T173000Z
+DTEND:20261114T200000Z
+DTSTAMP:20260527T095137Z
+UID:1s0m3u57td4bumuvpnr3e75j4u@google.com
+CREATED:20260526T100922Z
+DESCRIPTION:<u></u><p><strong><b>Zeit</b></strong>: 18.30 – 21.00<br></p><p
+ ><strong><b>Ort</b></strong>: @ KommVorZone</p><p><strong><b>Thema</b></str
+ ong>: LEGACY – Welches Feuer hast oder willst Du in Anderen entzünden? Was 
+ ist Dein Beitrag?</p><p><strong><b>Kosten</b></strong>: Pay what you wish!<
+ /p><p>&gt\; <a href="mailto:mo@machbarschaft.at?subject=Anmeldung%20BROalit
+ ion%20Oktober%20-%20Bin%20Fixstarter!" target="_blank">anmelden</a></p><u><
+ /u><u></u><u></u><u></u><p><strong><b>Weitere Termin:</b></strong> 22. Augu
+ st\, 3. Oktober\, 14. November 2026<br><br></p><br><u></u><p>Für Männer in 
+ Übergängen (Trennung\, Berufswechsel\, Sinnfragen)\,<br>Für Männer mit Dist
+ anz zu „klassischer Männerarbeit“\, aber Offenheit für neue Erfahrungen.</p
+ ><hr><p></p><ul><li>Du hast viele Freunde\, aber niemanden\, mit dem Du wir
+ klich reden kannst.</li><li>Du hast gelernt keine Schwäche zu zeigen und ma
+ chst Deine Probleme mit Dir selbst aus. </li><li>Du bist neugierig und offe
+ n für andere Perspektiven</li><li>Du tauschst Dich gerne mit anderen aus</l
+ i><li>Du lernst gerne von Anderen und teilst Deine Erfahrungen</li></ul><b>
+ Mach mit</b><br>Für Dich ist die Teilnahme an einer Männergruppe (noch) nic
+ ht vorstellbar.<br>Dann hast Du vielleicht Lust auf ein gutes <a href="http
+ s://www.google.com/url?q=https://www.machbarschaft.at/gehologen/&amp\;sa=D&
+ amp\;source=calendar&amp\;ust=1780222090983443&amp\;usg=AOvVaw3CaflrpMO8QFF
+ c0d2hyUZn" target="_blank">GEHspräch</a>?<p></p><u></u><u></u>
+LAST-MODIFIED:20260526T100923Z
 SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, „Calle Málage – Ein Zuhause in Tang
- er“
+SUMMARY:BROalition Männer stärken Männer
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260808T170000Z
-DTEND:20260808T190000Z
-DTSTAMP:20260527T040419Z
-UID:0c5bom19qhrdar3sdroapq789v@google.com
-CREATED:20260526T152454Z
-DESCRIPTION:<br><h3><b>Buntgemüse-Sommerkino</b></h3><br><p>am 8. August 20
- 26 gibt es im Burghof von Sachsengang wieder ein Sommerkino\, erstmals von 
- uns selbst veranstaltet! Details folgen an dieser Stelle. Herzlich willkomm
- en! </p>
-LAST-MODIFIED:20260526T152454Z
-LOCATION:Burg von Sachsengang
+DTSTART:20260616T163000Z
+DTEND:20260616T183000Z
+DTSTAMP:20260527T095137Z
+UID:7i9inmi07i42gkl0483m6eb205@google.com
+CREATED:20260526T095123Z
+DESCRIPTION:<u></u><br><u></u><h3>DIENSTAG 16. Juni 2026</h3><u></u><u></u>
+ <u></u><u></u><br><h4>JENSEITSBILDER</h4><u></u><u></u><u></u><br><br><p>Wi
+ e es „Drüben“ aussieht\, ob es ein gutes oder böses Jenseits gibt\, ob es e
+ in Leben nach dem Tod gibt?  Sich die Muße zu nehmen\, in einige unterschie
+ dlichen Welt- und Jenseits-Bilder\, die sich in der Menschheitsgeschichte s
+ chon angesammelt haben – hineinzuschauen\, in die reiche Bildwelt dieses Th
+ emas\, und hinein zu spüren in die unterschiedlichen Vorstellungen\, dazu l
+ ädt Evelyn an diesem Abend ein.</p><p>Vielleicht findest Du Inspiration für
+  die eigenen Vorstellungen vom Jenseits…</p><u></u><br><h5>Die Vortragende<
+ /h5><u></u><br><br><p>Evelyne ist beruflich als Ergotherapeutin auf einer n
+ eurologischen Langzeitstation tätig und als Teil des Palliativ-Teams mit de
+ m Thema Sterbekultur betraut. Täglich ist sie dort mit fortschreitenden Erk
+ rankungen\, die früher oder später zum Tode führen konfrontiert. Daher ist 
+ ihr dieses Thema ein persönliches Anliegen. Nach Ihren Erfahrung wirken die
+  eigenen bewussten oder unbewussten Jenseitsbilder zentral in unser Alltags
+ leben.</p><u></u><u></u><br><p><strong><b>Start</b></strong>: 18.30 (Einlas
+ s: 18.00)</p><p><strong><b>Ort</b></strong>: <a href="https://www.google.co
+ m/maps/place/Yella+Yella!+Nachbar_innentreff/@48.224802\,16.4944322\,1173m/
+ data=!3m3!1e3!4b1!5s0x476d0108d11710cd:0xe9738fb6598ce96f!4m6!3m5!1s0x476d0
+ 1cd036341a5:0x6c834158587d36ac!8m2!3d48.224802!4d16.4970125!16s%2Fg%2F11gj0
+ v70j4?entry=ttu&g_ep=EgoyMDI1MDkwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+ Yella Yella</a> in der Seestadt Wien <a href="https://www.yellayella.at/" t
+ arget="_blank">www.yellayella.at</a></p><p><strong><b>Kosten</b></strong>: 
+ Pay what you wish</p><u></u>
+LAST-MODIFIED:20260526T150932Z
+LOCATION:Yella Yella
 SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:Buntgemüse-Sommerkino
+SUMMARY:kapazündler\, jenseitsbilder
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20261205T040000Z
+DTEND:20261205T070000Z
+DTSTAMP:20260527T095137Z
+UID:3uh38nomng477oj1drr1jei8di@google.com
+CREATED:20260526T100001Z
+DESCRIPTION:<u></u><h3>Samstag 20. Juni 2026</h3><u></u><br><p><strong><b>W
+ ANN:</b></strong> um <strong><b>05.25 Uhr</b></strong> in der Früh!<br><str
+ ong><b>WIE:</b></strong> Wer gehen bei JEDEM Wetter! Gutes Schuhwerk ist vo
+ n Vorteil.<br><strong><b>WO:</b></strong> Info zum genauen Treffpunkt erfol
+ gt nach Anmeldung.<br><strong><b>DAUER:</b></strong> ca. 2\,5 h</p>
+LAST-MODIFIED:20260526T151152Z
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:GehoLogie „Men Only“
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260711T180000Z
+DTEND:20260711T200000Z
+DTSTAMP:20260527T095137Z
+UID:17qqipe9ap6nk7happja970b64@google.com
+CREATED:20260526T093843Z
+DESCRIPTION:<h2><strong><b>Samstag\, 11.7.2026</b></strong></h2><p>Illusion
+ s-Show des Mentalisten <em><i>Philipp Oberlohr</i></em><em><i> „<a href="ht
+ tps://tabula-rasa-project.com/udbt-show" target="_blank">Das undeckbare Tun
+ </a>„.</i></em></p><p>An der Schnittstelle zwischen Theater und Illusions-S
+ how schafft Oberlohr sinnvolle Begegnungen mit dem Publikum und lässt es sp
+ ielerisch und leicht an der Realität zweifeln. Die Performance vereint Game
+  Theatre\, mind-reading und funky Ideen zu bewusstseinserweiternden interak
+ tiven Erlebnissen.</p><p>Illusionist und Mentalist <em><i>Philipp Oberlohr<
+ /i></em> sprengt Kategorien und macht seine Shows zu Erlebnissen\, die verb
+ inden. <em><i>The Irish Times</i></em> nennt ihn<strong><b> </b></strong>“ü
+ ber-natürlich”<strong><b>\,</b></strong> doch das ist er auf keinen Fall. <
+ em><i>Metropole Vienna</i></em> sagt “Mentalist Philipp Oberlohr knows ever
+ ything about you”\; stimmt glücklicherweise auch nicht.</p><p>Was stimmt nu
+ n? Seine Bühnenshows\, Keynotes und Workshops ziehen Menschen den Teppich u
+ nter den Füßen weg und bewegen sie nachhaltig. Doch machen Sie sich selbst 
+ ein Bild.</p><p>Trauen Sie sich. Und trauen Sie ihm.</p><p>Der studierte Th
+ eologe ist mittlerweile mit seinen Shows international gefragt. Im Rahmen d
+ es <em><i>360° Marchfelder Kultursommers</i></em> kommt er zum ersten Mal i
+ ns Marchfeld!</p>
+LAST-MODIFIED:20260526T151129Z
+LOCATION:Am Gelände der Ruine in Markgrafneusiedl
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:360° Marchfelder Kultursommer\, Philipp Oberlohr „Das undeckbare Tu
+ n“.
 TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR
