@@ -1,62 +1,65 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Komponente: .schreibblock-wrapper)
+// _03-CALENDAR.SCSS (Full-Screen Collegeblock-Design)
 // ========================================================
 
 @use '01-variables' as *;
 
-// 1. DIE GRUND-SEKTION (Hintergrund-Container)
+// 1. DIE GRUND-SEKTION (Zieht sich über die volle Bildschirmbreite)
 .calendar-section {
   width: 100% !important;
+  max-width: 100% !important;
   display: block !important;
-  margin: 60px auto !important;
-  padding: 0 16px !important;
+  margin: 40px auto !important;
+  padding: 0 !important;
   box-sizing: border-box !important;
 }
 
-// 2. DER WRAPPER (Das physische Collegeblock-Blatt mit fester Breite)
+// 2. DER WRAPPER (Das fortlaufende, karierte Blockpapier)
 .schreibblock-wrapper {
   display: block !important;
   width: 100% !important;
-  max-width: 850px !important;      // Hier wird die Breite felsenfest gezähmt
-  margin: 0 auto !important;        // Perfekte Zentrierung auf dem Screen
+  max-width: 100% !important; // Füllt den gesamten Bildschirm aus
   background-color: $brand-paper !important; 
   
-  // Hebelt zuverlässig jegliche Flex- oder Grid-Zwänge von Eltern-Elementen aus
-  flex: 0 1 850px !important;
-  justify-self: center !important;
-  align-self: center !important;
-  
-  // Schatten und feiner Rand für den Papier-Look
-  border: 1px solid rgba($brand-primary, 0.1) !important;
-  border-radius: 4px !important; 
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important;
-  
-  // Innenabstand: Links viel Platz für Lochung & Marginalie
-  padding: 20px 20px 20px 80px !important; 
+  // Großzügiger Innenabstand, damit das Gitter sauber zwischen den roten Linien sitzt
+  padding: 40px 140px 40px 140px !important; 
   position: relative !important;
   box-sizing: border-box !important;
 
-  @media (max-width: 768px) {
-    padding: 10px 10px 10px 55px !important; // Mobil etwas kompakter
-  }
-
-  // 🔴 DIE ROTE MARGINALIE (Läuft senkrecht durch das gesamte Blatt)
-  &::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    left: 110px !important; 
-    width: 1.5px !important;
-    background-color: #c94c4c !important; 
-    opacity: 0.8 !important;
-    z-index: 10 !important;
+  @media (max-width: 1024px) {
+    padding: 30px 80px 30px 90px !important;
   }
   @media (max-width: 768px) {
-    &::after { left: 75px !important; }
+    padding: 20px 25px 20px 55px !important; // Mobil kompakter
   }
 
-  // 🕳️ DER LOCHRAND (Perforation andeuten)
+  // 📝 DAS MASTER-RASTER & BEIDE ROTEN MARGINAL-LINIEN (Rechts und Links)
+  background-image: 
+    // Linke rote Linie
+    linear-gradient(90deg, transparent 115px, #c94c4c 115px, #c94c4c 116.5px, transparent 116.5px),
+    // Rechte rote Linie
+    linear-gradient(270deg, transparent 115px, #c94c4c 115px, #c94c4c 116.5px, transparent 116.5px),
+    // Das feine, hellgrüne Karomuster (24px Kästchen)
+    linear-gradient(90deg, rgba($brand-primary, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba($brand-primary, 0.04) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px !important;
+
+  @media (max-width: 1024px) {
+    background-image: 
+      linear-gradient(90deg, transparent 75px, #c94c4c 75px, #c94c4c 76.5px, transparent 76.5px),
+      linear-gradient(270deg, transparent 65px, #c94c4c 65px, #c94c4c 66.5px, transparent 66.5px),
+      linear-gradient(90deg, rgba($brand-primary, 0.04) 1px, transparent 1px),
+      linear-gradient(rgba($brand-primary, 0.04) 1px, transparent 1px) !important;
+  }
+  @media (max-width: 768px) {
+    background-image: 
+      linear-gradient(90deg, transparent 45px, #c94c4c 45px, #c94c4c 46.5px, transparent 46.5px),
+      linear-gradient(270deg, transparent 15px, #c94c4c 15px, #c94c4c 16.5px, transparent 16.5px),
+      linear-gradient(90deg, rgba($brand-primary, 0.04) 1px, transparent 1px),
+      linear-gradient(rgba($brand-primary, 0.04) 1px, transparent 1px) !important;
+  }
+
+  // 🕳️ DER LOCHRAND (Perforation ganz links am Blattrand)
   &::before {
     content: '' !important;
     position: absolute !important;
@@ -64,8 +67,6 @@
     bottom: 0 !important;
     left: 0 !important;
     width: 50px !important; 
-    
-    // Erzeugt die typischen Ringbuch-Stanzlöcher
     background-image: 
       radial-gradient(circle, #bbb 30%, transparent 35%),
       radial-gradient(circle, #bbb 30%, transparent 35%),
@@ -74,20 +75,20 @@
     background-size: 25px 25px !important; 
     background-position: 15px 50px, 15px 250px, 15px 450px, 15px 650px !important; 
     background-repeat: no-repeat !important;
-    opacity: 0.5 !important;
+    opacity: 0.4 !important;
     z-index: 5 !important;
   }
   @media (max-width: 768px) {
     &::before {
-      width: 35px !important;
-      background-size: 18px 18px !important;
+      width: 30px !important;
+      background-size: 16px 16px !important;
       background-position: 8px 40px, 8px 180px, 8px 320px, 8px 460px !important;
     }
   }
 }
 
 // ========================================================
-// FULLCALENDAR STYLING (Liniertes Papier im Gitter)
+// FULLCALENDAR TRANSPARENZ & TINTE
 // ========================================================
 #calendar {
   max-width: 100% !important;
@@ -97,76 +98,72 @@
     border: none !important; 
   }
 
+  // Alles komplett transparent machen, damit das Karomuster durchscheint
   .fc-theme-standard td, 
   .fc-theme-standard th {
     background-color: transparent !important;
-    border: none !important;
-    border-bottom: 1px solid rgba($brand-primary, 0.08) !important; // Horizontale Schreiblinien
-  }
-  
-  .fc-daygrid-day {
-    border-left: none !important;
-    border-right: none !important;
+    border: 1px solid rgba($brand-primary, 0.06) !important; // Hauchzarte Zellen-Begrenzung
   }
 
-  // 👑 DIE EDLEN DUNKLEN ZELLEN (Wochentage-Kopfzeile)
+  // 👑 DIE EDLEN DUNKLEN KOPFZEILEN (Wochentage)
   .fc-col-header-cell {
-    background-color: $brand-primary !important; 
+    background-color: $brand-primary !important; /* Dein edles Werkstatt-Grün */
     padding: 12px 0 !important;
-    border-bottom: none !important;
-    border-radius: 2px !important; 
+    border: none !important;
   }
   .fc-col-header-cell-cushion {
-    font-family: $font-heading !important; 
-    color: $brand-paper !important;        
+    font-family: $font-heading !important; /* Lora */
+    color: $brand-paper !important;        /* Helle Schrift */
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     letter-spacing: 1px;
   }
 
-  // Die Datumszahlen
+  // Die Kalenderzahlen
   .fc-daygrid-day-number {
-    font-family: $font-sub !important; 
-    color: lighten($text-muted, 10%) !important;
+    font-family: $font-sub !important; /* Alice */
+    color: lighten($text-muted, 5%) !important;
     font-size: 0.95rem;
     padding: 8px !important;
   }
 
-  // Heute-Markierung
+  // Heute-Markierung (Dezent unaufdringlich)
   .fc-day-today {
-    background-color: rgba($brand-accent, 0.05) !important;
+    background-color: rgba($brand-accent, 0.04) !important;
     
     .fc-daygrid-day-number {
       color: $brand-primary !important;
       font-weight: 700;
-      text-decoration: underline dashed $brand-accent 2px;
     }
   }
 
-  // Die Termine (Als "Textmarker"-Streifen auf dem Blatt)
+  // ✒️ DIE TERMINE (Transparent mit blauer Handschrift!)
   .fc-event {
-    background-color: rgba($brand-accent, 0.15) !important; 
+    background-color: transparent !important; /* Keine störenden Balken */
     border: none !important;
-    border-left: 3px solid $brand-primary !important; 
-    color: $brand-ink !important; 
-    font-family: $font-copy !important; 
-    padding: 4px 8px !important;
-    margin: 2px 0 !important; 
-    border-radius: 2px !important;
-    transition: transform 0.15s ease;
+    box-shadow: none !important;
+    color: #1e40af !important; /* Wunderschönes Füller-Königsblau */
+    
+    // Nutzt deine im Head verankerte Handschrift-Schriftart:
+    font-family: 'Comforter Brush', cursive !important; 
+    font-size: 1.4rem !important; /* Schreibschrift braucht etwas Größe zum Wirken */
+    line-height: 1.1 !important;
+    padding: 2px 4px !important;
+    margin: 1px 0 !important;
+    transition: transform 0.15s ease, opacity 0.15s;
 
     &:hover {
-      transform: translateX(3px);
-      background-color: rgba($brand-accent, 0.25) !important;
+      transform: scale(1.03) rotate(-1deg); /* Minimaler "echter" Bewegungseffekt */
+      opacity: 0.8;
     }
   }
-  .fc-event-title { font-weight: 600 !important; font-size: 0.9rem; }
+  .fc-event-title { font-weight: 400 !important; }
+  
   .fc-daygrid-more-link { 
-    color: $brand-ink !important; 
+    color: #1e40af !important; 
     font-family: $font-copy !important;
     font-size: 0.8rem;
     font-weight: 700 !important; 
-    padding-left: 5px;
   }
 }
 
@@ -209,7 +206,7 @@
   .modal-content {
     background-color: $brand-light !important;
     margin: 12vh auto !important;
-    padding: 32px 32px 32px 75px !important; // Platz links für die rote Linie
+    padding: 32px 32px 32px 75px !important;
     border: 1px solid rgba($brand-primary, 0.15) !important;
     border-radius: 4px !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
@@ -217,13 +214,11 @@
     box-sizing: border-box !important;
     animation: modalPopIn 0.2s ease-out !important;
     
-    // Kästchen-Raster (24px)
     background-image: 
       linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
       linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
     background-size: 24px 24px !important;
 
-    // Rote Marginalie im Popup
     &::before {
       content: '' !important;
       position: absolute !important;
@@ -250,11 +245,9 @@
     font-family: $font-copy !important;
     color: $text-dark !important;
     font-size: 0.95rem !important;
-    line-height: 24px !important; // Sitzt perfekt auf den Kästchenlinien
+    line-height: 24px !important;
     margin-top: 18px !important;
-
     p { margin-bottom: 0 !important; }
-
     a {
       color: $brand-primary !important;
       text-decoration: underline !important;
@@ -271,7 +264,6 @@
     font-weight: 300 !important;
     line-height: 1 !important;
     z-index: 11 !important;
-
     &:hover { color: #c94c4c !important; }
   }
 }
