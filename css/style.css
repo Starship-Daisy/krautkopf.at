@@ -929,7 +929,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   box-sizing: border-box !important;
 }
 
-.calendar-wrapper {
+.schreibblock-wrapper {
   display: block !important;
   width: 100% !important;
   max-width: 850px !important;
@@ -946,11 +946,11 @@ html body .blog-grid .blog-card.is-draft .card-content,
   box-sizing: border-box !important;
 }
 @media (max-width: 768px) {
-  .calendar-wrapper {
+  .schreibblock-wrapper {
     padding: 10px 10px 10px 55px !important;
   }
 }
-.calendar-wrapper::after {
+.schreibblock-wrapper::after {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -962,11 +962,11 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 10 !important;
 }
 @media (max-width: 768px) {
-  .calendar-wrapper::after {
+  .schreibblock-wrapper::after {
     left: 75px !important;
   }
 }
-.calendar-wrapper::before {
+.schreibblock-wrapper::before {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -981,7 +981,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 5 !important;
 }
 @media (max-width: 768px) {
-  .calendar-wrapper::before {
+  .schreibblock-wrapper::before {
     width: 35px !important;
     background-size: 18px 18px !important;
     background-position: 8px 40px, 8px 180px, 8px 320px, 8px 460px !important;
