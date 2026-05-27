@@ -999,10 +999,13 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 #calendar-grid .calendar-day.empty {
   visibility: hidden;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 @media (max-width: 768px) {
   #calendar-grid .calendar-day.empty {
-    display: none;
+    display: none !important;
   }
 }
 #calendar-grid .calendar-day.is-today .day-number {
