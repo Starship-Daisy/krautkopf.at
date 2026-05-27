@@ -1,10 +1,10 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Der Kalender IST das karierte Papier)
+// _03-CALENDAR.SCSS (Die nukleare Transparenz-Option)
 // ========================================================
 
 @use '01-variables' as *;
 
-// 1. DIE GRUND-SEKTION (Zieht den Block über die volle Bildschirmbreite)
+// 1. DIE GRUND-SEKTION
 .calendar-section {
   width: 100% !important;
   max-width: 100% !important;
@@ -14,36 +14,32 @@
   box-sizing: border-box !important;
 }
 
-// ========================================================
-// 2. DER WRAPPER (Das endlose, karierte Notizbuch-Papier)
-// ========================================================
+// 2. DER WRAPPER (Das fortlaufende, karierte Papier)
 .schreibblock-wrapper {
   display: grid !important;
-  // Das 3-Zonen-Grid: 1 Spalte links frei, 7 Spalten Kalender, 1 Spalte rechts frei
   grid-template-columns: 1fr 7fr 1fr !important; 
   align-items: start !important;
   
   width: 100% !important;
   max-width: 100% !important; 
-  background-color: $brand-paper !important; // Deine Papierfarbe (#f7f4e9)
+  background-color: $brand-paper !important; 
   
-  // Abstand zum Bildschirmrand (Platz für Lochung links)
   padding: 40px 40px 40px 80px !important; 
   position: relative !important;
   box-sizing: border-box !important;
 
-  // 📝 DEUTLICHES KAROMUSTER (Deckkraft von 0.05 auf 0.15 angehoben!)
+  // 📝 Das unaufhaltsame Karomuster
   background-image: 
     linear-gradient(90deg, rgba($brand-primary, 0.15) 1px, transparent 1px),
     linear-gradient(rgba($brand-primary, 0.15) 1px, transparent 1px) !important;
   background-size: 24px 24px !important; 
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr !important; // Mobil schalten wir die leeren Randspalten ab
+    grid-template-columns: 1fr !important; 
     padding: 20px 15px 20px 50px !important; 
   }
 
-  // 🕳️ DER LOCHRAND (Ganz links am äußersten Rand des Screens eingestanzt)
+  // 🕳️ Der Lochrand ganz links
   &::before {
     content: '' !important;
     position: absolute !important;
@@ -65,13 +61,19 @@
 }
 
 // ========================================================
-// 3. FULLCALENDAR (Vollkommen glasklar auf dem Karo platziert)
+// 3. FULLCALENDAR (Glasklar radiert)
 // ========================================================
 #calendar {
-  grid-column: 2 !important; // Positioniert den Kalender exakt in der Mitte des Grids
+  grid-column: 2 !important; 
   min-width: 0 !important;   
   max-width: 100% !important;
   position: relative !important; 
+  
+  // 🔥 SCHRITT 1: FullCalendars interne Farb-Engines auf transparent zwingen
+  --fc-page-bg-color: transparent !important;
+  --fc-neutral-bg-color: transparent !important;
+  --fc-non-business-color: transparent !important;
+  --fc-today-bg-color: transparent !important;
   background: transparent !important;
   background-color: transparent !important;
 
@@ -79,7 +81,7 @@
     grid-column: 1 !important;
   }
 
-  // 🔴 DIE LINKE ROTE MARGINAL-LINIE
+  // 🔴 Rote Marginal-Linie links
   &::before {
     content: '' !important;
     position: absolute !important;
@@ -92,7 +94,7 @@
     opacity: 0.85;
   }
 
-  // 🔴 DIE RECHTE ROTE MARGINAL-LINIE
+  // 🔴 Rote Marginal-Linie rechts
   &::after {
     content: '' !important;
     position: absolute !important;
@@ -105,43 +107,31 @@
     opacity: 0.85;
   }
 
-  // 🚫 ABSOLUTE TRANSPARENZ: .fc-view und .fc-view-harness wurden hinzugefügt!
-  .fc-view,
-  .fc-view-harness,
-  .fc-scrollgrid,
-  .fc-scrollgrid-inner,
-  .fc-scrollgrid-section,
-  .fc-scrollgrid-section table,
-  .fc-scrollgrid-sync-table,
-  .fc-daygrid-body,
-  .fc-daygrid-body table,
-  .fc-daygrid-day,
-  .fc-daygrid-day-frame,
-  .fc-daygrid-day-top,
-  .fc-daygrid-day-events,
-  .fc-list,
-  .fc-list-table,
-  .fc-list-day td,
-  .fc-list-event td,
-  td, 
-  th {
+  // 🔥 SCHRITT 2: Der "Universal-Radiergummi"
+  // Entzieht absolut JEDEM Element im Kalender die Hintergrundfarbe
+  * {
     background: transparent !important;
     background-color: transparent !important;
-    // Hauchzarte Zellen-Begrenzungslinien, damit die Struktur logisch bleibt
-    border: 1px solid rgba($brand-primary, 0.05) !important; 
+    border-color: rgba($brand-primary, 0.05) !important; // Hauchzarte Zellen-Ränder
   }
 
-  // Vertikale Spaltenlinien im Kalenderfeld tilgen
+  // Vertikale Gitterlinien löschen
   .fc-daygrid-day {
     border-left: none !important;
     border-right: none !important;
   }
 
-  // 👑 DIE EDLEN DUNKLEN KOPFZEILEN (Wochentage Mo - So)
+  // 👑 AUSNAHME 1: DIE WOCHENTAGE (Müssen farbig bleiben!)
   .fc-col-header-cell {
+    background: $brand-primary !important; 
     background-color: $brand-primary !important; 
     padding: 12px 0 !important;
     border: none !important;
+    
+    * {
+      background: transparent !important;
+      background-color: transparent !important;
+    }
   }
   .fc-col-header-cell-cushion {
     font-family: $font-heading !important; // Lora
@@ -151,7 +141,7 @@
     letter-spacing: 1px;
   }
 
-  // Die Kalender-Datumszahlen
+  // Datumszahlen
   .fc-daygrid-day-number {
     font-family: $font-sub !important; // Alice
     color: lighten($text-muted, 5%) !important;
@@ -159,27 +149,20 @@
     padding: 8px !important;
   }
 
-  // Heute-Markierung (Rein handschriftlich unterstrichen)
-  .fc-day-today {
-    background: transparent !important;
-    background-color: transparent !important;
-    
-    .fc-daygrid-day-number {
-      color: $brand-primary !important;
-      font-weight: 700;
-      text-decoration: underline dashed $brand-accent 2px; 
-    }
+  // Heute-Zahl markieren
+  .fc-day-today .fc-daygrid-day-number {
+    color: $brand-primary !important;
+    font-weight: 700;
+    text-decoration: underline dashed $brand-accent 2px;
   }
 
-  // ✒️ DIE TERMINE (Blaue Füllertinte direkt auf den Kästchen!)
+  // ✒️ DIE TERMINE (Königsblaue Tinte)
   .fc-event {
-    background: transparent !important;
-    background-color: transparent !important; 
     border: none !important;
     box-shadow: none !important;
     
     font-family: $font-script !important; // Praise
-    color: $text-ink2 !important;        // Dein blaues Tintenton (#67a6bd)
+    color: $text-ink2 !important;        // #67a6bd
     
     font-size: 1.9rem !important;        
     line-height: 0.9 !important;
@@ -195,28 +178,25 @@
   
   .fc-daygrid-more-link { 
     color: $text-ink2 !important; 
-    font-family: $font-copy !important; // open sans
+    font-family: $font-copy !important; 
     font-size: 0.8rem;
     font-weight: 700 !important; 
-    padding-left: 6px;
   }
 }
 
-// Monatsname & Navigations-Buttons über dem Papier
+// 🎛️ AUSNAHME 2: CONTROLS & BUTTONS (Dürfen beim Hovern farbig werden)
 .fc-toolbar-title { 
-  font-family: $font-heading !important; // Lora
+  font-family: $font-heading !important; 
   color: $brand-primary !important; 
-  @media (max-width: 768px) { font-size: 1.2rem; }
 }
 .fc-button-primary {
-  background-color: transparent !important;
-  border-color: rgba($brand-primary, 0.2) !important;
+  border: 1px solid rgba($brand-primary, 0.2) !important;
   color: $brand-primary !important;
   font-family: $font-copy !important;
   font-size: 0.9rem !important;
-  text-transform: capitalize !important;
 
   &:hover, &.fc-button-active {
+    background: $brand-primary !important;
     background-color: $brand-primary !important;
     color: $brand-paper !important;
     border-color: $brand-primary !important;
@@ -224,7 +204,7 @@
 }
 
 // ========================================================
-// 4. DIE DETAIL-POPUPS (Karierter Notizzettel beim Anklicken)
+// 4. DIE DETAIL-POPUPS (Karierter Notizzettel)
 // ========================================================
 .modal {
   display: none; 
@@ -238,7 +218,7 @@
   backdrop-filter: blur(5px);
 
   .modal-content {
-    background-color: $brand-light !important; // #fdfcf8
+    background-color: $brand-light !important; 
     margin: 12vh auto !important;
     padding: 32px 32px 32px 75px !important; 
     border: 1px solid rgba($brand-primary, 0.15) !important;
@@ -272,7 +252,6 @@
     border-bottom: 2px solid #c94c4c !important;
     padding-bottom: 6px !important;
     font-size: 1.4rem !important;
-    line-height: 1.3 !important;
   }
 
   #modalBody {
@@ -283,11 +262,9 @@
     margin-top: 18px !important;
     
     p { margin-bottom: 0 !important; }
-    
     a {
       color: $brand-primary !important;
       text-decoration: underline !important;
-      font-weight: 700 !important;
     }
   }
 
@@ -297,8 +274,6 @@
     top: 15px !important;
     right: 20px !important;
     font-size: 32px !important;
-    font-weight: 300 !important;
-    line-height: 1 !important;
     z-index: 11 !important;
     &:hover { color: #c94c4c !important; }
   }
