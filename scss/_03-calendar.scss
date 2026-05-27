@@ -1,10 +1,10 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Das haptische Collegeblock-Blatt)
+// _03-CALENDAR.SCSS (Komponente: .schreibblock-wrapper)
 // ========================================================
 
 @use '01-variables' as *;
 
-// 1. DIE GRUND-SEKTION (Nimmt den vollen Platz im Hintergrund)
+// 1. DIE GRUND-SEKTION (Hintergrund-Container)
 .calendar-section {
   width: 100% !important;
   display: block !important;
@@ -13,31 +13,31 @@
   box-sizing: border-box !important;
 }
 
-// 2. DER WRAPPER (Das physische Blatt Papier – HIER WIRD DIE BREITE GEZÄHMT)
-.calendar-wrapper {
+// 2. DER WRAPPER (Das physische Collegeblock-Blatt mit fester Breite)
+.schreibblock-wrapper {
   display: block !important;
   width: 100% !important;
-  max-width: 850px !important;      // Das exakte Maß für deinen Screen-Look
-  margin: 0 auto !important;        // Zentriert das Blatt im Container
+  max-width: 850px !important;      // Hier wird die Breite felsenfest gezähmt
+  margin: 0 auto !important;        // Perfekte Zentrierung auf dem Screen
   background-color: $brand-paper !important; 
   
-  // Diese Zeilen brechen jegliche Flex-/Grid-Zwänge von übergeordneten Containern auf
+  // Hebelt zuverlässig jegliche Flex- oder Grid-Zwänge von Eltern-Elementen aus
   flex: 0 1 850px !important;
   justify-self: center !important;
   align-self: center !important;
   
-  // Schatten und feiner Rand für die Blatthaptik
+  // Schatten und feiner Rand für den Papier-Look
   border: 1px solid rgba($brand-primary, 0.1) !important;
   border-radius: 4px !important; 
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important;
   
-  // Platzierung: Links Platz für Perforation und Lochung, rechts normal
+  // Innenabstand: Links viel Platz für Lochung & Marginalie
   padding: 20px 20px 20px 80px !important; 
   position: relative !important;
   box-sizing: border-box !important;
 
   @media (max-width: 768px) {
-    padding: 10px 10px 10px 55px !important; // Kompakter auf Smartphones
+    padding: 10px 10px 10px 55px !important; // Mobil etwas kompakter
   }
 
   // 🔴 DIE ROTE MARGINALIE (Läuft senkrecht durch das gesamte Blatt)
@@ -65,7 +65,7 @@
     left: 0 !important;
     width: 50px !important; 
     
-    // Erzeugt die Löcher mittels radialer Verläufe
+    // Erzeugt die typischen Ringbuch-Stanzlöcher
     background-image: 
       radial-gradient(circle, #bbb 30%, transparent 35%),
       radial-gradient(circle, #bbb 30%, transparent 35%),
@@ -101,7 +101,7 @@
   .fc-theme-standard th {
     background-color: transparent !important;
     border: none !important;
-    border-bottom: 1px solid rgba($brand-primary, 0.08) !important; // Nur horizontale Schreiblinien
+    border-bottom: 1px solid rgba($brand-primary, 0.08) !important; // Horizontale Schreiblinien
   }
   
   .fc-daygrid-day {
@@ -170,7 +170,7 @@
   }
 }
 
-// Controls (Monatsname & Buttons)
+// Controls über dem Kalender (Monatsname & Buttons)
 .fc-toolbar-title { 
   font-family: $font-heading !important; 
   color: $brand-primary !important; 
@@ -209,7 +209,7 @@
   .modal-content {
     background-color: $brand-light !important;
     margin: 12vh auto !important;
-    padding: 32px 32px 32px 75px !important;
+    padding: 32px 32px 32px 75px !important; // Platz links für die rote Linie
     border: 1px solid rgba($brand-primary, 0.15) !important;
     border-radius: 4px !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
@@ -250,7 +250,7 @@
     font-family: $font-copy !important;
     color: $text-dark !important;
     font-size: 0.95rem !important;
-    line-height: 24px !important;
+    line-height: 24px !important; // Sitzt perfekt auf den Kästchenlinien
     margin-top: 18px !important;
 
     p { margin-bottom: 0 !important; }
