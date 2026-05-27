@@ -940,8 +940,13 @@ html body .blog-grid .blog-card.is-draft .card-content,
   padding: 40px 40px 40px 80px !important;
   position: relative !important;
   box-sizing: border-box !important;
-  background-image: linear-gradient(90deg, rgba(74, 93, 78, 0.15) 1px, transparent 1px), linear-gradient(rgba(74, 93, 78, 0.15) 1px, transparent 1px) !important;
+  background-image: linear-gradient(90deg, rgba(74, 93, 78, 0.12) 1px, transparent 1px), linear-gradient(rgba(74, 93, 78, 0.12) 1px, transparent 1px) !important;
   background-size: 24px 24px !important;
+}
+@media (max-width: 1024px) {
+  .schreibblock-wrapper {
+    padding: 30px 20px 30px 60px !important;
+  }
 }
 @media (max-width: 768px) {
   .schreibblock-wrapper {
@@ -964,24 +969,52 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 5 !important;
 }
 
-#calendar {
+.custom-calendar-header {
   grid-column: 2 !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  position: relative !important;
-  --fc-page-bg-color: transparent !important;
-  --fc-neutral-bg-color: transparent !important;
-  --fc-non-business-color: transparent !important;
-  --fc-today-bg-color: transparent !important;
-  background: transparent !important;
-  background-color: transparent !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 24px !important;
 }
 @media (max-width: 768px) {
-  #calendar {
+  .custom-calendar-header {
     grid-column: 1 !important;
   }
 }
-#calendar::before {
+.custom-calendar-header h3 {
+  font-family: "Lora", serif !important;
+  color: #4a5d4e !important;
+  font-size: 1.8rem !important;
+  margin: 0 !important;
+}
+.custom-calendar-header .cal-btn {
+  background: transparent !important;
+  border: 1px solid rgba(74, 93, 78, 0.2) !important;
+  color: #4a5d4e !important;
+  padding: 6px 16px !important;
+  font-family: "Open Sans", sans-serif !important;
+  cursor: pointer;
+  border-radius: 4px !important;
+  transition: all 0.2s ease;
+}
+.custom-calendar-header .cal-btn:hover {
+  background: #4a5d4e !important;
+  color: #f7f4e9 !important;
+}
+
+.custom-calendar-grid {
+  grid-column: 2 !important;
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  background: transparent !important;
+  position: relative !important;
+}
+@media (max-width: 768px) {
+  .custom-calendar-grid {
+    grid-column: 1 !important;
+  }
+}
+.custom-calendar-grid::before {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -992,7 +1025,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 50 !important;
   opacity: 0.85;
 }
-#calendar::after {
+.custom-calendar-grid::after {
   content: "" !important;
   position: absolute !important;
   top: 0 !important;
@@ -1003,83 +1036,55 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 50 !important;
   opacity: 0.85;
 }
-#calendar * {
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: rgba(74, 93, 78, 0.05) !important;
-}
-#calendar .fc-daygrid-day {
-  border-left: none !important;
-  border-right: none !important;
-}
-#calendar .fc-col-header-cell {
-  background: #4a5d4e !important;
+.custom-calendar-grid .weekday-label {
   background-color: #4a5d4e !important;
-  padding: 12px 0 !important;
-  border: none !important;
-}
-#calendar .fc-col-header-cell * {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-#calendar .fc-col-header-cell-cushion {
-  font-family: "Lora", serif !important;
   color: #f7f4e9 !important;
+  font-family: "Lora", serif !important;
   text-transform: uppercase;
   font-size: 0.85rem;
+  text-align: center;
+  padding: 12px 0 !important;
   letter-spacing: 1px;
+  border: none !important;
 }
-#calendar .fc-daygrid-day-number {
+.custom-calendar-grid .calendar-day {
+  background: transparent !important;
+  background-color: transparent !important;
+  min-height: 120px;
+  padding: 8px !important;
+  box-sizing: border-box !important;
+  border-bottom: 1px solid rgba(74, 93, 78, 0.06) !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+.custom-calendar-grid .calendar-day .day-number {
   font-family: "Alice", serif !important;
   color: rgb(129.75, 135.1025641026, 124.3974358974) !important;
   font-size: 0.95rem;
-  padding: 8px !important;
+  display: block;
+  margin-bottom: 6px;
 }
-#calendar .fc-day-today .fc-daygrid-day-number {
+.custom-calendar-grid .calendar-day.empty {
+  border-bottom: 1px solid rgba(74, 93, 78, 0.03) !important;
+}
+.custom-calendar-grid .calendar-day.is-today .day-number {
   color: #4a5d4e !important;
   font-weight: 700;
   text-decoration: underline dashed #8b9d83 2px;
 }
-#calendar .fc-event {
-  border: none !important;
-  box-shadow: none !important;
+.custom-calendar-grid .calendar-day .event-item {
   font-family: "Praise", handwriting !important;
   color: #67a6bd !important;
   font-size: 1.9rem !important;
   line-height: 0.9 !important;
-  padding: 0px 6px !important;
+  padding: 2px 4px !important;
   margin: 2px 0 !important;
+  cursor: pointer;
   transition: transform 0.15s ease;
 }
-#calendar .fc-event:hover {
-  transform: scale(1.03) rotate(-0.5deg);
-}
-#calendar .fc-event-title {
-  font-weight: 400 !important;
-}
-#calendar .fc-daygrid-more-link {
-  color: #67a6bd !important;
-  font-family: "Open Sans", sans-serif !important;
-  font-size: 0.8rem;
-  font-weight: 700 !important;
-}
-
-.fc-toolbar-title {
-  font-family: "Lora", serif !important;
-  color: #4a5d4e !important;
-}
-
-.fc-button-primary {
-  border: 1px solid rgba(74, 93, 78, 0.2) !important;
-  color: #4a5d4e !important;
-  font-family: "Open Sans", sans-serif !important;
-  font-size: 0.9rem !important;
-}
-.fc-button-primary:hover, .fc-button-primary.fc-button-active {
-  background: #4a5d4e !important;
-  background-color: #4a5d4e !important;
-  color: #f7f4e9 !important;
-  border-color: #4a5d4e !important;
+.custom-calendar-grid .calendar-day .event-item:hover {
+  transform: scale(1.04) rotate(-0.5deg);
 }
 
 .modal {
@@ -1150,7 +1155,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   color: #c94c4c !important;
 }
 
-@keyframes modalPopIn {
+@pragma keyframes modalPopIn {
   from {
     transform: scale(0.96);
     opacity: 0;
