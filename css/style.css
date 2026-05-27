@@ -931,21 +931,24 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 
 .schreibblock-wrapper {
-  display: block !important;
+  display: grid !important;
+  grid-template-columns: 1fr 7fr 1fr !important;
+  align-items: start !important;
   width: 100% !important;
   max-width: 100% !important;
   background-color: #f7f4e9 !important;
-  padding: 40px 140px 40px 140px !important;
+  padding: 40px 60px 40px 100px !important;
   position: relative !important;
   box-sizing: border-box !important;
 }
 @media (max-width: 1024px) {
   .schreibblock-wrapper {
-    padding: 30px 80px 30px 90px !important;
+    padding: 30px 40px 30px 80px !important;
   }
 }
 @media (max-width: 768px) {
   .schreibblock-wrapper {
+    grid-template-columns: 1fr !important;
     padding: 20px 25px 20px 55px !important;
   }
 }
@@ -986,56 +989,78 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 
 #calendar {
+  grid-column: 2 !important;
+  min-width: 0 !important;
   max-width: 100% !important;
+  background: transparent !important;
   background-color: transparent !important;
+}
+@media (max-width: 768px) {
+  #calendar {
+    grid-column: 1 !important;
+  }
 }
 #calendar .fc-theme-standard .fc-scrollgrid {
   border: none !important;
 }
-#calendar .fc-theme-standard td,
-#calendar .fc-theme-standard th {
-  background-color: rgba(247, 244, 233, 0.5) !important;
+#calendar .fc-scrollgrid-sync-table,
+#calendar .fc-daygrid-body,
+#calendar .fc-daygrid-day,
+#calendar .fc-daygrid-day-frame,
+#calendar .fc-daygrid-day-top,
+#calendar .fc-daygrid-day-events,
+#calendar td,
+#calendar th {
+  background: transparent !important;
+  background-color: transparent !important;
   border: 1px solid rgba(74, 93, 78, 0.06) !important;
 }
+#calendar .fc-daygrid-day {
+  border-left: none !important;
+  border-right: none !important;
+}
 #calendar .fc-col-header-cell {
-  background-color: #4a5d4e !important; /* Dein edles Werkstatt-Grün */
+  background-color: #4a5d4e !important;
   padding: 12px 0 !important;
   border: none !important;
 }
 #calendar .fc-col-header-cell-cushion {
-  font-family: "Lora", serif !important; /* Lora */
-  color: #f7f4e9 !important; /* Helle Schrift */
+  font-family: "Lora", serif !important;
+  color: #f7f4e9 !important;
   text-transform: uppercase;
   font-size: 0.85rem;
   letter-spacing: 1px;
 }
 #calendar .fc-daygrid-day-number {
-  font-family: "Open Sans", sans-serif !important; /* Alice */
+  font-family: "Alice", serif !important;
   color: rgb(129.75, 135.1025641026, 124.3974358974) !important;
   font-size: 0.95rem;
   padding: 8px !important;
 }
 #calendar .fc-day-today {
-  background-color: rgba(139, 157, 131, 0.04) !important;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 #calendar .fc-day-today .fc-daygrid-day-number {
   color: #4a5d4e !important;
   font-weight: 700;
+  text-decoration: underline dashed #8b9d83 2px;
 }
 #calendar .fc-event {
-  background-color: transparent !important; /* Keine störenden Balken */
+  background: transparent !important;
+  background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  color: #1e40af !important; /* Wunderschönes Füller-Königsblau */
+  color: #1e40af !important;
   font-family: "Comforter Brush", cursive !important;
-  font-size: 1.4rem !important; /* Schreibschrift braucht etwas Größe zum Wirken */
+  font-size: 1.4rem !important;
   line-height: 1.1 !important;
   padding: 2px 4px !important;
   margin: 1px 0 !important;
   transition: transform 0.15s ease, opacity 0.15s;
 }
 #calendar .fc-event:hover {
-  transform: scale(1.03) rotate(-1deg); /* Minimaler "echter" Bewegungseffekt */
+  transform: scale(1.03) rotate(-1deg);
   opacity: 0.8;
 }
 #calendar .fc-event-title {
