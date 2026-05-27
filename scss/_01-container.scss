@@ -1,4 +1,5 @@
-@use '01-variables' as *;
+@use 'sass:color'; // 1. Das Sass-Werkzeug laden
+@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
 
 // 1. Der allgemeine Container (Das Fundament)
 // Er sorgt dafür, dass dein Inhalt auf ALLEN Seiten mittig sitzt.

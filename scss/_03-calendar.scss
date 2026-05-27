@@ -2,7 +2,8 @@
 // _03-CALENDAR.SCSS (Der Kalender IST das Notizblatt)
 // ========================================================
 
-@use '01-variables' as *;
+@use 'sass:color'; // 1. Das Sass-Werkzeug laden
+@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
 
 // 1. DIE GRUND-SEKTION (Füllt den gesamten Screen)
 .calendar-section {

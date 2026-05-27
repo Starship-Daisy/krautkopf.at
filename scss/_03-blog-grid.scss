@@ -4,7 +4,8 @@
 // BEHOBEN: White-Link-Bug (Verhindert transparente/weiße Karten bei aktiven Links)
 // ==========================================
 
-@use '01-variables' as *;
+@use 'sass:color'; // 1. Das Sass-Werkzeug laden
+@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
 @use '01-typography' as *;
 
 // 1. GLOBALER RESET FÜR VERLINKUNGEN (Spezifisch eingegrenzt)

@@ -3,6 +3,8 @@
 // ==========================================
 
 @use "sass:map";
+@use 'sass:color'; // 1. Das Sass-Werkzeug laden
+@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
 
 // Definition der Breakpoints
 $breakpoints: (

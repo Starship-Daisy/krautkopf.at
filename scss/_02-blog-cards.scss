@@ -2,6 +2,8 @@
 // _02-BLOG-CARDS.SCSS (Komplettes Update)
 // ==========================================
 
+
+@use 'sass:color'; // 1. Das Sass-Werkzeug laden
 @use '01-variables' as *;
 @use '01-typography' as *;
 @use 'media-query-mixin' as *;

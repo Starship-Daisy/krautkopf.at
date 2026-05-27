@@ -2,8 +2,8 @@
 // LAYOUT FÜR RECHTLICHE INHALTE (Datenschutz/Impressum)
 // ==========================================
 
-@use '01-variables' as *;
-@use '01-typography' as *;
+@use 'sass:color'; // 1. Das Sass-Werkzeug laden
+@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden@use '01-typography' as *;
 @use 'media-query-mixin' as *;
 
 // Nur wenn der Header die Klasse .legal-header hat, gelten diese Regeln

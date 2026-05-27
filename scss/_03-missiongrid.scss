@@ -2,7 +2,8 @@
 // MISSION GRID & ITEMS (Einleitung der Seite)
 // ==========================================
 
-@use '01-variables' as *;
+@use 'sass:color'; // 1. Das Sass-Werkzeug laden
+@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
 @use '01-typography' as *;
 
 .mission-grid {
