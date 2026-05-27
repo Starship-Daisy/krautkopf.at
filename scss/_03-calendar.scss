@@ -1,110 +1,188 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Heller Kalender mit dunkler Kappe)
+// _03-CALENDAR.SCSS (Das haptische Collegeblock-Blatt)
 // ========================================================
 
 @use '01-variables' as *;
 
-// 1. ÄUSSERER RAHMEN (Zwingt die gesamte Sektion in die Schranken)
+// 1. DIE GRUND-SEKTION (Nimmt den vollen Platz im Hintergrund)
 .calendar-section {
   width: 100% !important;
-  max-width: 850px !important; /* Maximale Wunschbreite des Kalenders */
-  margin: 60px auto !important; /* Zentriert die Sektion auf der Seite */
+  display: block !important;
+  margin: 60px auto !important;
   padding: 0 16px !important;
   box-sizing: border-box !important;
 }
 
-// 2. DER WRAPPER (Hell, kompakt und zentriert)
+// 2. DER WRAPPER (Das physische Blatt Papier – HIER WIRD DIE BREITE GEZÄHMT)
 .calendar-wrapper {
   display: block !important;
   width: 100% !important;
-  background-color: $brand-paper !important; /* Zurück zum hellen Werkstatt-Papier */
-  border: 1px solid rgba($brand-primary, 0.15) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03) !important;
-  padding: 24px !important;
+  max-width: 850px !important;      // Das exakte Maß für deinen Screen-Look
+  margin: 0 auto !important;        // Zentriert das Blatt im Container
+  background-color: $brand-paper !important; 
+  
+  // Diese Zeilen brechen jegliche Flex-/Grid-Zwänge von übergeordneten Containern auf
+  flex: 0 1 850px !important;
+  justify-self: center !important;
+  align-self: center !important;
+  
+  // Schatten und feiner Rand für die Blatthaptik
+  border: 1px solid rgba($brand-primary, 0.1) !important;
+  border-radius: 4px !important; 
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important;
+  
+  // Platzierung: Links Platz für Perforation und Lochung, rechts normal
+  padding: 20px 20px 20px 80px !important; 
+  position: relative !important;
   box-sizing: border-box !important;
 
   @media (max-width: 768px) {
-    padding: 12px !important; /* Etwas kompakter auf Handys */
+    padding: 10px 10px 10px 55px !important; // Kompakter auf Smartphones
+  }
+
+  // 🔴 DIE ROTE MARGINALIE (Läuft senkrecht durch das gesamte Blatt)
+  &::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 110px !important; 
+    width: 1.5px !important;
+    background-color: #c94c4c !important; 
+    opacity: 0.8 !important;
+    z-index: 10 !important;
+  }
+  @media (max-width: 768px) {
+    &::after { left: 75px !important; }
+  }
+
+  // 🕳️ DER LOCHRAND (Perforation andeuten)
+  &::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 50px !important; 
+    
+    // Erzeugt die Löcher mittels radialer Verläufe
+    background-image: 
+      radial-gradient(circle, #bbb 30%, transparent 35%),
+      radial-gradient(circle, #bbb 30%, transparent 35%),
+      radial-gradient(circle, #bbb 30%, transparent 35%),
+      radial-gradient(circle, #bbb 30%, transparent 35%) !important;
+    background-size: 25px 25px !important; 
+    background-position: 15px 50px, 15px 250px, 15px 450px, 15px 650px !important; 
+    background-repeat: no-repeat !important;
+    opacity: 0.5 !important;
+    z-index: 5 !important;
+  }
+  @media (max-width: 768px) {
+    &::before {
+      width: 35px !important;
+      background-size: 18px 18px !important;
+      background-position: 8px 40px, 8px 180px, 8px 320px, 8px 460px !important;
+    }
   }
 }
 
 // ========================================================
-// FULLCALENDAR EDITIERUNG (Heller Block-Look)
+// FULLCALENDAR STYLING (Liniertes Papier im Gitter)
 // ========================================================
 #calendar {
   max-width: 100% !important;
-  background-color: $brand-paper !important;
+  background-color: transparent !important;
 
-  // Das helle Rastergitter
-  .fc-theme-standard .fc-scrollgrid,
+  .fc-theme-standard .fc-scrollgrid {
+    border: none !important; 
+  }
+
   .fc-theme-standard td, 
   .fc-theme-standard th {
-    background-color: $brand-paper !important;
-    border: 1px solid rgba($brand-primary, 0.1) !important; /* Feine, saubere Linien */
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba($brand-primary, 0.08) !important; // Nur horizontale Schreiblinien
   }
   
-  // 👑 DIE EDLE DUNKLEN ZELLEN (Wochentage-Kopfzeile)
+  .fc-daygrid-day {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  // 👑 DIE EDLEN DUNKLEN ZELLEN (Wochentage-Kopfzeile)
   .fc-col-header-cell {
-    background-color: $brand-primary !important; /* Edler, dunkler Fond */
+    background-color: $brand-primary !important; 
     padding: 12px 0 !important;
+    border-bottom: none !important;
+    border-radius: 2px !important; 
   }
   .fc-col-header-cell-cushion {
-    font-family: $font-heading !important; /* Lora */
-    color: $brand-paper !important;        /* Helle Schrift */
+    font-family: $font-heading !important; 
+    color: $brand-paper !important;        
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
   }
 
-  // Die Datumszahlen in den hellen Zellen
+  // Die Datumszahlen
   .fc-daygrid-day-number {
-    font-family: $font-sub !important; /* Alice */
-    color: $text-muted !important;
+    font-family: $font-sub !important; 
+    color: lighten($text-muted, 10%) !important;
     font-size: 0.95rem;
     padding: 8px !important;
   }
 
-  // Heute-Markierung (Dezent hervorgehoben)
+  // Heute-Markierung
   .fc-day-today {
-    background-color: rgba($brand-accent, 0.08) !important; /* Hauchzarter Schimmer */
+    background-color: rgba($brand-accent, 0.05) !important;
     
     .fc-daygrid-day-number {
       color: $brand-primary !important;
       font-weight: 700;
+      text-decoration: underline dashed $brand-accent 2px;
     }
   }
 
-  // Die Termine (Als harmonische Textmarker-Balken)
+  // Die Termine (Als "Textmarker"-Streifen auf dem Blatt)
   .fc-event {
-    background-color: rgba($brand-accent, 0.2) !important; /* Softer Textmarker-Effekt */
+    background-color: rgba($brand-accent, 0.15) !important; 
     border: none !important;
-    border-left: 4px solid $brand-primary !important; /* Tintentupfer links */
-    color: $brand-ink !important; /* Schrift in alter Tinte */
-    font-family: $font-copy !important; /* Open Sans */
+    border-left: 3px solid $brand-primary !important; 
+    color: $brand-ink !important; 
+    font-family: $font-copy !important; 
     padding: 4px 8px !important;
-    margin: 3px 2px !important;
-    border-radius: 4px !important;
+    margin: 2px 0 !important; 
+    border-radius: 2px !important;
     transition: transform 0.15s ease;
 
     &:hover {
-      transform: translateX(2px);
-      background-color: rgba($brand-accent, 0.35) !important;
+      transform: translateX(3px);
+      background-color: rgba($brand-accent, 0.25) !important;
     }
   }
-  .fc-event-title { font-weight: 600 !important; }
-  .fc-daygrid-more-link { color: $brand-primary !important; font-weight: 700 !important; }
+  .fc-event-title { font-weight: 600 !important; font-size: 0.9rem; }
+  .fc-daygrid-more-link { 
+    color: $brand-ink !important; 
+    font-family: $font-copy !important;
+    font-size: 0.8rem;
+    font-weight: 700 !important; 
+    padding-left: 5px;
+  }
 }
 
-// Toolbar-Elemente über dem Kalender
+// Controls (Monatsname & Buttons)
 .fc-toolbar-title { 
   font-family: $font-heading !important; 
   color: $brand-primary !important; 
+  @media (max-width: 768px) { font-size: 1.2rem; }
 }
 .fc-button-primary {
   background-color: transparent !important;
   border-color: rgba($brand-primary, 0.2) !important;
   color: $brand-primary !important;
+  font-family: $font-copy !important;
+  font-size: 0.9rem !important;
+  text-transform: capitalize !important;
 
   &:hover, &.fc-button-active {
     background-color: $brand-primary !important;
@@ -114,7 +192,7 @@
 }
 
 // ========================================================
-// 3. DIE TEXTFELDER / POPUP (Karierter Block bleibt)
+// 3. DIE TEXTFELDER / POPUP (Karierter Notizzettel)
 // ========================================================
 .modal {
   display: none; 
@@ -139,11 +217,13 @@
     box-sizing: border-box !important;
     animation: modalPopIn 0.2s ease-out !important;
     
+    // Kästchen-Raster (24px)
     background-image: 
       linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
       linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
     background-size: 24px 24px !important;
 
+    // Rote Marginalie im Popup
     &::before {
       content: '' !important;
       position: absolute !important;
@@ -151,7 +231,7 @@
       bottom: 0 !important;
       left: 56px !important;
       width: 1.5px !important;
-      background-color: #c94c4c !important; /* Rote Marginalie */
+      background-color: #c94c4c !important;
       z-index: 10 !important;
     }
   }
