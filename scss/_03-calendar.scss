@@ -1,92 +1,16 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Kariertes Papier-Design)
+// 3. SELBSTGEBAUTES KALENDER-GRID (An dein JS angepasst)
 // ========================================================
-
-@use '01-variables' as *;
-@use 'sass:color';
-
-// Lokale Farb-Variablen (statt hardcodierter Werte)
-$marginal-red:  #c94c4c;
-$hole-gray:     #bbb;
-
-// ========================================================
-// 1. DIE GRUND-SEKTION
-// ========================================================
-.calendar-section {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-  margin: 40px auto;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-// ========================================================
-// 2. DER WRAPPER (Das fortlaufende, karierte Papier)
-// ========================================================
-.schreibblock-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 7fr 1fr;
-  align-items: start;
-
-  width: 100%;
-  max-width: 100%;
-  background-color: $brand-paper;
-
-  padding: 40px 40px 40px 80px;
-  position: relative;
-  box-sizing: border-box;
-
-  // 📝 Das Karomuster
-  background-image:
-    linear-gradient(90deg, rgba($brand-primary, 0.15) 1px, transparent 1px),
-    linear-gradient(rgba($brand-primary, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    padding: 20px 15px 20px 50px;
-  }
-
-  // 🕳️ Der Lochrand ganz links
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    background-image:
-      radial-gradient(circle, $hole-gray 30%, transparent 35%),
-      radial-gradient(circle, $hole-gray 30%, transparent 35%),
-      radial-gradient(circle, $hole-gray 30%, transparent 35%),
-      radial-gradient(circle, $hole-gray 30%, transparent 35%);
-    background-size: 25px 25px;
-    background-position: 12px 60px, 12px 260px, 12px 460px, 12px 660px;
-    background-repeat: no-repeat;
-    opacity: 0.35;
-    z-index: 5;
-  }
-}
-
-// ========================================================
-// 3. FULLCALENDAR (Glasklar radiert)
-// ========================================================
-#calendar {
+#calendar-grid {
   grid-column: 2;
   min-width: 0;
   max-width: 100%;
   position: relative;
-
-  // Farb-Engines von FullCalendar auf transparent zwingen
-  --fc-page-bg-color:        transparent;
-  --fc-neutral-bg-color:     transparent;
-  --fc-non-business-color:   transparent;
-  --fc-today-bg-color:       transparent;
-  --fc-bg-event-color:       transparent;
-  --fc-border-color:         #{rgba($brand-primary, 0.05)};
-
-  background: transparent;
+  
+  // 🧩 Hier aktivieren wir das 7-Tage-Raster
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px; // Dünne Gitterlinie
 
   @media (max-width: 768px) {
     grid-column: 1;
@@ -118,29 +42,11 @@ $hole-gray:     #bbb;
     opacity: 0.85;
   }
 
-  // Universal-Radiergummi für alle inneren Boxen
-  .fc-view-harness, .fc-view, .fc-scroller, .fc-scroller-harness,
-  .fc-scrollgrid, .fc-scrollgrid-inner, .fc-scrollgrid-section,
-  .fc-scrollgrid-section table, .fc-scrollgrid-sync-table,
-  .fc-daygrid-body, .fc-daygrid-body table, .fc-daygrid-day,
-  .fc-daygrid-day-frame, .fc-daygrid-day-top, .fc-daygrid-day-events {
-    background: transparent;
-    background-color: transparent;
-  }
-
-  // Vertikale Gitterlinien löschen
-  .fc-daygrid-day {
-    border-left: none;
-    border-right: none;
-  }
-
   // 👑 DIE WOCHENTAGE (Kopfzeile)
-  .fc-col-header-cell {
+  .weekday-label {
     background-color: $brand-primary;
     padding: 12px 0;
-    border: none;
-  }
-  .fc-col-header-cell-cushion {
+    text-align: center;
     font-family: $font-heading; // Lora
     color: $brand-paper;
     text-transform: uppercase;
@@ -148,162 +54,59 @@ $hole-gray:     #bbb;
     letter-spacing: 1px;
   }
 
+  // 📅 DIE EINZELNEN TAGE
+  .calendar-day {
+    background: transparent;
+    min-height: 90px; // Platz für Termine
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+    box-sizing: border-box;
+
+    &.empty {
+      visibility: hidden; // Leere Tage vor dem 1. des Monats unsichtbar machen
+    }
+
+    // Heute-Zahl markieren
+    &.is-today .day-number {
+      color: $brand-primary;
+      font-weight: 700;
+      text-decoration: underline dashed $brand-accent 2px;
+    }
+  }
+
   // Datumszahlen
-  .fc-daygrid-day-number {
+  .day-number {
     font-family: $font-sub; // Alice
     color: color.adjust($text-muted, $lightness: 5%);
     font-size: 0.95rem;
-    padding: 8px;
-  }
-
-  // Heute-Zahl markieren
-  .fc-day-today .fc-daygrid-day-number {
-    color: $brand-primary;
-    font-weight: 700;
-    text-decoration: underline dashed $brand-accent 2px;
+    padding: 4px;
   }
 
   // ✒️ DIE TERMINE (Königsblaue Tinte)
-  .fc-event {
+  .event-item {
     background: transparent;
-    background-color: transparent;
     border: none;
     box-shadow: none;
+    text-align: left;
+    cursor: pointer;
 
     font-family: $font-script; // Praise
     color: $text-ink2;         // #67a6bd
 
     font-size: 1.9rem;
-    line-height: 1.2; // FIX: war 0.9 → Descender wurden abgeschnitten
+    line-height: 1.2;
     padding: 0 6px;
     margin: 2px 0;
     transition: transform 0.15s ease;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:hover {
       transform: scale(1.03) rotate(-0.5deg);
     }
   }
-  .fc-event-title { font-weight: 400; }
-
-  .fc-daygrid-more-link {
-    color: $text-ink2;
-    font-family: $font-copy;
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-}
-
-// Toolbar & Buttons über dem Kalender
-.fc-toolbar-title {
-  font-family: $font-heading;
-  color: $brand-primary;
-}
-.fc-button-primary {
-  background-color: transparent;
-  border: 1px solid rgba($brand-primary, 0.2);
-  color: $brand-primary;
-  font-family: $font-copy;
-  font-size: 0.9rem;
-  text-transform: capitalize;
-
-  &:hover,
-  &.fc-button-active {
-    background: $brand-primary;
-    background-color: $brand-primary;
-    color: $brand-paper;
-    border-color: $brand-primary;
-  }
-}
-
-// ========================================================
-// 4. DIE DETAIL-POPUPS (Karierter Notizzettel)
-// ========================================================
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999999;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba($brand-ink, 0.4);
-
-  // FIX: -webkit-Prefix für Safari-Kompatibilität ergänzt
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
-
-  // FIX: Zustand über Modifier-Klasse steuerbar (JS setzt .modal--open)
-  &.modal--open {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
-  .modal-content {
-    background-color: $brand-light;
-    margin: 12vh auto;
-    padding: 32px 32px 32px 75px;
-    border: 1px solid rgba($brand-primary, 0.15);
-    border-radius: $border-radius;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    position: relative;
-    box-sizing: border-box;
-    animation: modalPopIn 0.2s ease-out;
-
-    background-image:
-      linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
-      linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px);
-    background-size: 24px 24px;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 56px;
-      width: 1.5px;
-      background-color: $marginal-red;
-      z-index: 10;
-    }
-  }
-
-  #modalTitle {
-    margin-top: 0;
-    font-family: $font-heading;
-    color: $brand-ink;
-    border-bottom: 2px solid $marginal-red;
-    padding-bottom: 6px;
-    font-size: 1.4rem;
-  }
-
-  #modalBody {
-    font-family: $font-copy;
-    color: $text-dark;
-    font-size: 0.95rem;
-    line-height: 24px;
-    margin-top: 18px;
-
-    p { margin-bottom: 0; }
-    a {
-      color: $brand-primary;
-      text-decoration: underline;
-    }
-  }
-
-  .close-modal {
-    color: $text-muted;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 32px;
-    z-index: 11;
-    cursor: pointer;
-
-    &:hover { color: $marginal-red; }
-  }
-}
-
-@keyframes modalPopIn {
-  from { transform: scale(0.96); opacity: 0; }
-  to   { transform: scale(1);    opacity: 1; }
 }
