@@ -1077,6 +1077,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   color: #4a5d4e !important;
   font-family: "Open Sans", sans-serif !important;
   font-size: 0.9rem !important;
+  text-transform: capitalize !important;
 }
 .fc-button-primary:hover, .fc-button-primary.fc-button-active {
   background: #4a5d4e !important;
