@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="b8c1b257-c6f9-4816-9e2d-eae8342a8885"></script>        
+    <meta name="description" content="Werkstatt-Termine von Home-Werkstatt krautkopf.at – alle aktuellen Kurse und Veranstaltungen auf einen Blick.">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="b8c1b257-c6f9-4816-9e2d-eae8342a8885"></script>
     <title>Termine - Home-Werkstatt</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400|open-sans:300,400,500,600,700,800" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css"> 
+    <!-- FIX: Inter entfernt (Duplikat zu Open Sans) -->
+    <link href="https://fonts.bunny.net/css?family=lora:400,700|comforter-brush:400|praise:400|alice:400|open-sans:300,400,500,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
     <script defer src="../js/clicksound.js"></script>
 </head>
 
@@ -24,53 +25,69 @@
                 <a href="../index.html">krautkopf.at</a>
             </div>
         </div>
+        <!-- FIX: aria-hidden auf leere Layout-Divs -->
         <div class="header-center">
-            <div class="brand-wrapper"></div>
+            <div class="brand-wrapper" aria-hidden="true"></div>
         </div>
-        <div class="header-right"></div>
+        <div class="header-right" aria-hidden="true"></div>
     </div>
 </header>
 
 <main class="main-wrapper">
     <section class="calendar-section">
         <div class="container">
-            <h2 class="blog-feed-title" style="text-align: center; margin-bottom: 32px;">Werkstatt-Termine</h2>
-            
+            <!-- FIX: Inline-Style entfernt, Klasse im SCSS anpassen -->
+            <h2 class="blog-feed-title blog-feed-title--centered">Werkstatt-Termine</h2>
+
             <div class="schreibblock-wrapper">
-                <div id="calendar" data-ical-url="https://calendar.google.com/calendar/ical/wolfgang%40krautkopf.at/public/basic.ics"></div>
+                <!-- FIX: id und data-Attribute passend zu calendar-init.js -->
+                <div id="calendar-wrapper" data-ical-url="../js/werkstatt.ics">
+                    <div id="calendar-grid"></div>
+                </div>
             </div>
         </div>
     </section>
-
-    <footer class="main-footer">
-        <div class="footer-contact"><a href="mailto:wolfgang@krautkopf.at">wolfgang@krautkopf.at</a></div>
-        <div>
-            <nav class="footer-nav">
-                <a href="gedanken-werkstatt.html">Gedanken-Werkstatt</a>
-                <a href="hirn-werkstatt.html">Hirn-Werkstatt</a>
-                <a href="datenschutz.html">Datenschutz</a>
-                <a href="impressum.html">Impressum</a>
-                <a href="kontakt.html">Kontakt</a>
-            </nav>
-            <p class="copyright">&copy; 2026 Home-Werkstatt</p>
-        </div>
-    </footer>
 </main>
 
-<div id="calendarModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h3 id="modalTitle"></h3>
-    <div id="modalBody"></div>
-  </div>
+<!-- FIX: footer außerhalb von main -->
+<footer class="main-footer">
+    <div class="footer-contact"><a href="mailto:wolfgang@krautkopf.at">wolfgang@krautkopf.at</a></div>
+    <div>
+        <nav class="footer-nav">
+            <a href="gedanken-werkstatt.html">Gedanken-Werkstatt</a>
+            <a href="hirn-werkstatt.html">Hirn-Werkstatt</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <p class="copyright">&copy; 2026 Home-Werkstatt</p>
+    </div>
+</footer>
+
+<!-- FIX: ARIA-Attribute für Screenreader, aria-hidden im geschlossenen Zustand -->
+<div id="calendarModal"
+     class="modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modalTitle"
+     aria-hidden="true">
+    <div class="modal-content">
+        <!-- FIX: aria-label auf Schließen-Button -->
+        <button class="close-modal" aria-label="Dialog schließen">&times;</button>
+        <h3 id="modalTitle"></h3>
+        <div id="modalBody"></div>
+    </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/locales/de.global.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@6.1.15/index.global.min.js"></script>
+<!-- FIX: noscript-Fallback -->
+<noscript>
+    <p style="text-align:center; padding: 2rem;">
+        JavaScript ist deaktiviert. Die Termine sind direkt im
+        <a href="https://calendar.google.com">Google Kalender</a> einsehbar.
+    </p>
+</noscript>
 
-<script src="../js/calendar-init.js?v=6"></script>
+<script src="../js/calendar-init.js?v=7"></script>
 
 </body>
 </html>

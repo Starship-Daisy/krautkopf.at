@@ -1,145 +1,204 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+ 
+    // FIX: Korrekte IDs passend zum HTML
     const wrapper = document.getElementById('calendar-wrapper');
-    const grid = document.getElementById('calendar-grid');
-    if (!grid || !wrapper) return;
-
+    const grid    = document.getElementById('calendar-grid');
+ 
+    // FIX: Null-Check mit sichtbarer Fehlermeldung statt stummem Return
+    if (!grid || !wrapper) {
+        console.error('calendar-init.js: #calendar-wrapper oder #calendar-grid nicht gefunden.');
+        return;
+    }
+ 
     const icalUrl = wrapper.getAttribute('data-ical-url');
-
-    // 1. INTELLIGENTER ICAL-PARSER (Übersetzt Google-Chinesisch in saubere Termine)
+ 
+    // =========================================================
+    // 1. ICAL-PARSER
+    // =========================================================
     function parseICS(data) {
         const events = {};
-        const lines = data.split(/\r?\n/);
+        const lines  = data.split(/\r?\n/);
         let currentEvent = null;
-
+ 
         for (let i = 0; i < lines.length; i++) {
             let line = lines[i];
-            
-            // Zeilen-Umbüche von Google reparieren
-            while (i + 1 < lines.length && (lines[i+1].startsWith(' ') || lines[i+1].startsWith('\t'))) {
-                line += lines[i+1].substring(1);
+ 
+            // Zeilenfortsetzungen laut iCal-Spec reparieren (RFC 5545)
+            while (i + 1 < lines.length &&
+                   (lines[i + 1].startsWith(' ') || lines[i + 1].startsWith('\t'))) {
+                line += lines[i + 1].substring(1);
                 i++;
             }
-
+ 
             if (line.startsWith('BEGIN:VEVENT')) {
                 currentEvent = {};
             } else if (line.startsWith('END:VEVENT')) {
                 if (currentEvent && currentEvent.start) {
                     if (!events[currentEvent.start]) events[currentEvent.start] = [];
                     events[currentEvent.start].push({
-                        title: currentEvent.summary || 'Werkstatt-Termin',
-                        desc: currentEvent.description || 'Keine weiteren Details vorhanden.'
+                        title: currentEvent.summary     || 'Werkstatt-Termin',
+                        desc:  currentEvent.description || 'Keine weiteren Details vorhanden.'
                     });
                 }
                 currentEvent = null;
             } else if (currentEvent) {
+ 
                 if (line.startsWith('DTSTART')) {
-                    const parts = line.split(':');
-                    const val = parts[1];
+                    // FIX: Immer den Teil nach dem letzten ':' nehmen,
+                    // damit DTSTART;TZID=Europe/Vienna:20260527T100000 korrekt geparst wird.
+                    const val = line.split(':').pop();
                     if (val) {
-                        // Formatiert YYYYMMDDTHHMMSSZ oder YYYYMMDD zu YYYY-MM-DD
                         const y = val.substring(0, 4);
                         const m = val.substring(4, 6);
                         const d = val.substring(6, 8);
                         currentEvent.start = `${y}-${m}-${d}`;
                     }
+ 
                 } else if (line.startsWith('SUMMARY:')) {
                     currentEvent.summary = line.substring(8).replace(/\\,/g, ',');
+ 
                 } else if (line.startsWith('DESCRIPTION:')) {
-                    currentEvent.description = line.substring(12).replace(/\\n/g, '<br>').replace(/\\,/g, ',');
+                    // FIX: XSS-Schutz – erst Text escapen, dann \n ersetzen
+                    const raw     = line.substring(12).replace(/\\,/g, ',');
+                    const escaped = raw
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;');
+                    currentEvent.description = escaped.replace(/\\n/g, '<br>');
                 }
             }
         }
         return events;
     }
-
-    // 2. DAS GRID ZEICHNEN
+ 
+    // =========================================================
+    // 2. KALENDER ZEICHNEN
+    // =========================================================
     function renderCalendar(parsedEvents) {
-        grid.innerHTML = ''; // Reset
-
-        // Wochentage-Header erzeugen
+        grid.innerHTML = '';
+ 
+        // Wochentage-Header
         const weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
-        weekdays.forEach(day => {
+        weekdays.forEach(function (day) {
             const label = document.createElement('div');
             label.className = 'weekday-label';
-            label.innerText = day;
+            label.textContent = day;
             grid.appendChild(label);
         });
-
-        // Festes Setup für Mai 2026 (Startet am Freitag = 4 leere Boxen)
-        const startingSpaces = 4; 
-        const daysInMonth = 31;
-        const todayDay = 27; // 27. Mai 2026 Markierung
-
-        // Leere Boxen auffüllen
+ 
+        // FIX: Monat, Starttag und "Heute" dynamisch berechnen (nicht hardcodiert)
+        const now          = new Date();
+        const year         = now.getFullYear();
+        const month        = now.getMonth(); // 0-basiert
+ 
+        const daysInMonth  = new Date(year, month + 1, 0).getDate();
+        const todayDay     = now.getDate();
+ 
+        // Wochentag des 1. des Monats: getDay() gibt 0=So … 6=Sa
+        // Umrechnen auf Mo=0 … So=6
+        const firstWeekday = new Date(year, month, 1).getDay();
+        const startingSpaces = (firstWeekday === 0) ? 6 : firstWeekday - 1;
+ 
+        // Leerzellen vor dem 1.
         for (let i = 0; i < startingSpaces; i++) {
             const emptyCell = document.createElement('div');
             emptyCell.className = 'calendar-day empty';
             grid.appendChild(emptyCell);
         }
-
+ 
         // Tage generieren
         for (let day = 1; day <= daysInMonth; day++) {
             const cell = document.createElement('div');
             cell.className = 'calendar-day';
             if (day === todayDay) cell.classList.add('is-today');
-            
-            const dateStr = `2026-05-${day.toString().padStart(2, '0')}`;
-            
+ 
+            const mm      = String(month + 1).padStart(2, '0');
+            const dd      = String(day).padStart(2, '0');
+            const dateStr = `${year}-${mm}-${dd}`;
+ 
             const numSpan = document.createElement('span');
-            numSpan.className = 'day-number';
-            numSpan.innerText = day;
+            numSpan.className   = 'day-number';
+            numSpan.textContent = day;
             cell.appendChild(numSpan);
-
-            // Google-Termine für diesen Tag injizieren
+ 
             if (parsedEvents[dateStr]) {
-                parsedEvents[dateStr].forEach(evt => {
+                parsedEvents[dateStr].forEach(function (evt) {
                     const evtDiv = document.createElement('div');
-                    evtDiv.className = 'event-item';
-                    evtDiv.innerText = evt.title;
-                    
-                    // Klick aufs Notizblock-Modal
-                    evtDiv.addEventListener('click', function(e) {
+                    evtDiv.className   = 'event-item';
+                    evtDiv.textContent = evt.title;
+ 
+                    evtDiv.addEventListener('click', function (e) {
                         e.stopPropagation();
-                        document.getElementById('modalTitle').innerText = evt.title;
-                        document.getElementById('modalBody').innerHTML = evt.desc;
-                        document.getElementById('calendarModal').style.display = 'block';
+                        openModal(evt.title, evt.desc);
                     });
-                    
+ 
                     cell.appendChild(evtDiv);
                 });
             }
+ 
             grid.appendChild(cell);
         }
     }
-
-    // 3. LIVE-DATEN VON GOOGLE LADEN
-    if (icalUrl && iCalUrl !== 'HIER_DEINE_GOOGLE_MUTTER_PROVATE_ICAL_URL_EINTRAGEN.ics') {
+ 
+    // =========================================================
+    // 3. MODAL-STEUERUNG
+    // FIX: classList statt style.display, ARIA, Escape-Taste
+    // =========================================================
+    const modal      = document.getElementById('calendarModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody  = document.getElementById('modalBody');
+    const closeBtn   = document.querySelector('.close-modal');
+ 
+    function openModal(title, descHtml) {
+        if (!modal) return;
+        modalTitle.textContent = title;
+        modalBody.innerHTML    = descHtml; // bereits XSS-gesäubert im Parser
+        modal.classList.add('modal--open');
+        modal.setAttribute('aria-hidden', 'false');
+        // Fokus in den Dialog setzen für Accessibility
+        closeBtn && closeBtn.focus();
+    }
+ 
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('modal--open');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+ 
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+ 
+    // Klick auf den Hintergrund schließt das Modal
+    window.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+    });
+ 
+    // FIX: Escape-Taste schließt das Modal
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+ 
+    // =========================================================
+    // 4. DATEN LADEN
+    // FIX: Tippfehler iCalUrl → icalUrl, Fallback-Prüfung
+    // =========================================================
+    if (icalUrl && !icalUrl.includes('HIER_DEINE')) {
         fetch(icalUrl)
-            .then(response => {
-                if (!response.ok) throw new Error('Netzwerk-Fehler beim Laden des Google Kalenders');
+            .then(function (response) {
+                if (!response.ok) throw new Error('HTTP ' + response.status);
                 return response.text();
             })
-            .then(data => {
-                const parsedEvents = parseICS(data);
-                renderCalendar(parsedEvents);
+            .then(function (data) {
+                renderCalendar(parseICS(data));
             })
-            .catch(err => {
-                console.error(err);
-                // Fallback: Leeren Kalender zeichnen, falls Google blockiert
+            .catch(function (err) {
+                console.error('Kalender konnte nicht geladen werden:', err);
                 renderCalendar({});
             });
     } else {
-        // Fallback falls noch keine URL eingetragen wurde
         renderCalendar({});
     }
-
-    // Modal-Schließmechanismus
-    document.querySelector('.close-modal').addEventListener('click', function() {
-        document.getElementById('calendarModal').style.display = 'none';
-    });
-    window.addEventListener('click', function(e) {
-        if (e.target == document.getElementById('calendarModal')) {
-            document.getElementById('calendarModal').style.display = 'none';
-        }
-    });
+ 
 });
