@@ -940,7 +940,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   padding: 40px 40px 40px 80px !important;
   position: relative !important;
   box-sizing: border-box !important;
-  background-image: linear-gradient(90deg, rgba(74, 93, 78, 0.05) 1px, transparent 1px), linear-gradient(rgba(74, 93, 78, 0.05) 1px, transparent 1px) !important;
+  background-image: linear-gradient(90deg, rgba(74, 93, 78, 0.15) 1px, transparent 1px), linear-gradient(rgba(74, 93, 78, 0.15) 1px, transparent 1px) !important;
   background-size: 24px 24px !important;
 }
 @media (max-width: 768px) {
@@ -999,6 +999,8 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 50 !important;
   opacity: 0.85;
 }
+#calendar .fc-view,
+#calendar .fc-view-harness,
 #calendar .fc-scrollgrid,
 #calendar .fc-scrollgrid-inner,
 #calendar .fc-scrollgrid-section,
