@@ -925,7 +925,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   width: 100% !important;
   max-width: 100% !important;
   display: block !important;
-  margin: 20px auto !important;
+  margin: 40px auto !important;
   padding: 0 !important;
   box-sizing: border-box !important;
 }
@@ -1056,22 +1056,22 @@ html body .blog-grid .blog-card.is-draft .card-content,
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  color: #21197d !important;
-  font-family: "Comforter Brush", cursive !important;
-  font-size: 1.45rem !important;
-  line-height: 1.1 !important;
-  padding: 2px 6px !important;
-  margin: 1px 0 !important;
+  font-family: "Praise", handwriting !important;
+  color: #67a6bd !important;
+  font-size: 1.9rem !important;
+  line-height: 0.9 !important;
+  padding: 0px 6px !important;
+  margin: 2px 0 !important;
   transition: transform 0.15s ease;
 }
 #calendar .fc-event:hover {
-  transform: scale(1.04) rotate(-0.5deg);
+  transform: scale(1.03) rotate(-0.5deg);
 }
 #calendar .fc-event-title {
   font-weight: 400 !important;
 }
 #calendar .fc-daygrid-more-link {
-  color: #1e40af !important;
+  color: #67a6bd !important;
   font-family: "Open Sans", sans-serif !important;
   font-size: 0.8rem;
   font-weight: 700 !important;
@@ -1112,7 +1112,6 @@ html body .blog-grid .blog-card.is-draft .card-content,
   height: 100vh !important;
   background-color: rgba(44, 62, 80, 0.4) !important;
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
 }
 .modal .modal-content {
   background-color: #fdfcf8 !important;
