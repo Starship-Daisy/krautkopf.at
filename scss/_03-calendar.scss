@@ -101,7 +101,7 @@
   // Alles komplett transparent machen, damit das Karomuster durchscheint
   .fc-theme-standard td, 
   .fc-theme-standard th {
-    background-color: transparent !important;
+    background-color: rgba($brand-paper, 0.5) !important; // <-- HIER! Ändern zu z.B. transparent rgba($brand-paper, 0.5) für halbdurchsichtig
     border: 1px solid rgba($brand-primary, 0.06) !important; // Hauchzarte Zellen-Begrenzung
   }
 
@@ -121,7 +121,7 @@
 
   // Die Kalenderzahlen
   .fc-daygrid-day-number {
-    font-family: $font-sub !important; /* Alice */
+    font-family: $font-copy !important; /* Alice */
     color: lighten($text-muted, 5%) !important;
     font-size: 0.95rem;
     padding: 8px !important;
