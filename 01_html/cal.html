@@ -8,9 +8,7 @@
     <title>Termine - Home-Werkstatt</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400;|open-sans:300" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=inter:400,700|lora:400,700|comforter-brush:400|praise:400|Alice:400|open-sans:300,400,500,600,700,800|Shalimar:400|courier-prime:400" rel="stylesheet">
     
     <link rel="stylesheet" href="../css/style.css"> 
     <script defer src="../js/clicksound.js"></script>
@@ -27,8 +25,8 @@
         </div>
 
         <div class="header-center">
-            <div class="brand-wrapper">
-                </div> </div>
+            <div class="brand-wrapper"></div>
+        </div>
 
         <div class="header-right"></div>
     </div>
@@ -36,14 +34,22 @@
 
 <main class="main-wrapper">
 
-<div class="calendar-wrapper">
-    <div id="calendar"></div>
-</div>
-
-<div class="schreibblock-wrapper">
-    <div id="calendar"></div>
-</div>
-
+    <section class="calendar-section">
+        <div class="container">
+            <h2 class="blog-feed-title" style="text-align: center; margin-bottom: 32px;">Werkstatt-Termine</h2>
+            
+            <div class="schreibblock-wrapper">
+                <div class="custom-calendar-header">
+                    <button id="prev-month" class="cal-btn">&lt;</button>
+                    <h3 id="current-month">Mai 2026</h3>
+                    <button id="next-month" class="cal-btn">&gt;</button>
+                </div>
+                
+                <div class="custom-calendar-grid" id="calendar-grid">
+                    </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="main-footer">
         <div class="footer-contact">
@@ -71,12 +77,7 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/locales/de.global.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.5.0/ical.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/icalendar@6.1.15/index.global.min.js"></script>
-
-<script src="../js/calendar-init.js?v=3"></script>
+<script src="../js/calendar-init.js?v=4"></script>
 
 </body>
 </html>

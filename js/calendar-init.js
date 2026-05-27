@@ -1,66 +1,77 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  
-  if (!calendarEl) return;
+    const grid = document.getElementById('calendar-grid');
+    const monthTitle = document.getElementById('current-month');
+    if (!grid || !monthTitle) return;
 
-  var modal = document.getElementById('calendarModal');
-  var modalTitle = document.getElementById('modalTitle');
-  var modalBody = document.getElementById('modalBody');
-  var closeBtn = document.getElementsByClassName('close-modal')[0];
+    // 1. Deine Termine (Hier kannst du beliebig erweitern!)
+    const events = {
+        "2026-05-02": [{ title: "Werkstatt-Termin", desc: "Krautkopf-Atelier um 14:00 Uhr" }],
+        "2026-05-08": [{ title: "Team Fokus Meeting", desc: "Strategie-Besprechung für das neue Web-Layout." }],
+        "2026-05-15": [{ title: "Werkstatt-Termin", desc: "Ganztägiges Arbeiten in der Haupt-Werkstatt." }],
+        "2026-05-22": [{ title: "Team Fokus Meeting", desc: "Review der wöchentlichen Ziele." }]
+    };
 
-  function getCorrectView() {
-    return window.innerWidth < 768 ? 'listMonth' : 'dayGridMonth';
-  }
+    // Wochentage-Header generieren
+    const weekdays = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+    weekdays.forEach(day => {
+        const label = document.createElement('div');
+        label.className = 'weekday-label';
+        label.innerText = day;
+        grid.appendChild(label);
+    });
 
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    locale: 'de',
-    firstDay: 1,
-    initialView: getCorrectView(),
-    
-    dayMaxEvents: false, // Zeige alle Termine voll an
-    height: 'auto',      // DER ENTSCHEIDENDE FIX: Zwingt die Zeilen, dynamisch mitzuwachsen!
-    
-    headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: window.innerWidth < 768 ? '' : 'dayGridMonth,listMonth'
-    },
-    
-    events: {
-      url: '/js/werkstatt.txt', 
-      format: 'ics'
-    },
+    // Festes Datum: Mai 2026 (Startet am Freitag = 4 leere Boxen)
+    const startingSpaces = 4; 
+    const daysInMonth = 31;
+    const todayDay = 27; // Für die .is-today Markierung im Mai 2026
 
-    eventClick: function(info) {
-      if (modal && modalTitle && modalBody) {
-        modalTitle.innerText = info.event.title;
-        var description = info.event.extendedProps.description || 'Keine weitere Beschreibung vorhanden.';
-        modalBody.innerHTML = description;
-        modal.style.display = 'block';
-      }
-      info.jsEvent.preventDefault();
+    // Leere Boxen auffüllen
+    for (let i = 0; i < startingSpaces; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'calendar-day empty';
+        grid.appendChild(emptyCell);
     }
-  });
 
-  calendar.render();
+    // Tage zeichnen
+    for (let day = 1; day <= daysInMonth; day++) {
+        const cell = document.createElement('div');
+        cell.className = 'calendar-day';
+        if (day === todayDay) cell.classList.add('is-today');
+        
+        const dateStr = `2026-05-${day.toString().padStart(2, '0')}`;
+        
+        const numSpan = document.createElement('span');
+        numSpan.className = 'day-number';
+        numSpan.innerText = day;
+        cell.appendChild(numSpan);
 
-  window.addEventListener('resize', function() {
-    var correctView = getCorrectView();
-    if (calendar.view.type !== correctView) {
-      calendar.changeView(correctView);
-      
-      if (window.innerWidth < 768) {
-        calendar.setOption('headerToolbar', { left: 'prev,next today', center: 'title', right: '' });
-      } else {
-        calendar.setOption('headerToolbar', { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listMonth' });
-      }
+        if (events[dateStr]) {
+            events[dateStr].forEach(evt => {
+                const evtDiv = document.createElement('div');
+                evtDiv.className = 'event-item';
+                evtDiv.innerText = evt.title;
+                
+                // Klick-Event für dein kariertes Modal
+                evtDiv.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    document.getElementById('modalTitle').innerText = evt.title;
+                    document.getElementById('modalBody').innerHTML = `<p>${evt.desc}</p>`;
+                    document.getElementById('calendarModal').style.display = 'block';
+                });
+                
+                cell.appendChild(evtDiv);
+            });
+        }
+        grid.appendChild(cell);
     }
-  });
 
-  if (closeBtn) {
-    closeBtn.onclick = function() { modal.style.display = 'none'; }
-  }
-  window.onclick = function(event) {
-    if (event.target == modal) { modal.style.display = 'none'; }
-  }
+    // Modal schlagen
+    document.querySelector('.close-modal').addEventListener('click', function() {
+        document.getElementById('calendarModal').style.display = 'none';
+    });
+    window.addEventListener('click', function(e) {
+        if (e.target == document.getElementById('calendarModal')) {
+            document.getElementById('calendarModal').style.display = 'none';
+        }
+    });
 });
