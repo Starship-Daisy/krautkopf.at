@@ -923,47 +923,44 @@ html body .blog-grid .blog-card.is-draft .card-content,
 
 .calendar-section {
   width: 100% !important;
+  max-width: 100% !important;
   display: block !important;
-  margin: 60px auto !important;
-  padding: 0 16px !important;
+  margin: 40px auto !important;
+  padding: 0 !important;
   box-sizing: border-box !important;
 }
 
 .schreibblock-wrapper {
   display: block !important;
   width: 100% !important;
-  max-width: 850px !important;
-  margin: 0 auto !important;
+  max-width: 100% !important;
   background-color: #f7f4e9 !important;
-  flex: 0 1 850px !important;
-  justify-self: center !important;
-  align-self: center !important;
-  border: 1px solid rgba(74, 93, 78, 0.1) !important;
-  border-radius: 4px !important;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04) !important;
-  padding: 20px 20px 20px 80px !important;
+  padding: 40px 140px 40px 140px !important;
   position: relative !important;
   box-sizing: border-box !important;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .schreibblock-wrapper {
-    padding: 10px 10px 10px 55px !important;
+    padding: 30px 80px 30px 90px !important;
   }
 }
-.schreibblock-wrapper::after {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  left: 110px !important;
-  width: 1.5px !important;
-  background-color: #c94c4c !important;
-  opacity: 0.8 !important;
-  z-index: 10 !important;
+@media (max-width: 768px) {
+  .schreibblock-wrapper {
+    padding: 20px 25px 20px 55px !important;
+  }
+}
+.schreibblock-wrapper {
+  background-image: linear-gradient(90deg, transparent 115px, #c94c4c 115px, #c94c4c 116.5px, transparent 116.5px), linear-gradient(270deg, transparent 115px, #c94c4c 115px, #c94c4c 116.5px, transparent 116.5px), linear-gradient(90deg, rgba(74, 93, 78, 0.04) 1px, transparent 1px), linear-gradient(rgba(74, 93, 78, 0.04) 1px, transparent 1px) !important;
+  background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px !important;
+}
+@media (max-width: 1024px) {
+  .schreibblock-wrapper {
+    background-image: linear-gradient(90deg, transparent 75px, #c94c4c 75px, #c94c4c 76.5px, transparent 76.5px), linear-gradient(270deg, transparent 65px, #c94c4c 65px, #c94c4c 66.5px, transparent 66.5px), linear-gradient(90deg, rgba(74, 93, 78, 0.04) 1px, transparent 1px), linear-gradient(rgba(74, 93, 78, 0.04) 1px, transparent 1px) !important;
+  }
 }
 @media (max-width: 768px) {
-  .schreibblock-wrapper::after {
-    left: 75px !important;
+  .schreibblock-wrapper {
+    background-image: linear-gradient(90deg, transparent 45px, #c94c4c 45px, #c94c4c 46.5px, transparent 46.5px), linear-gradient(270deg, transparent 15px, #c94c4c 15px, #c94c4c 16.5px, transparent 16.5px), linear-gradient(90deg, rgba(74, 93, 78, 0.04) 1px, transparent 1px), linear-gradient(rgba(74, 93, 78, 0.04) 1px, transparent 1px) !important;
   }
 }
 .schreibblock-wrapper::before {
@@ -977,13 +974,13 @@ html body .blog-grid .blog-card.is-draft .card-content,
   background-size: 25px 25px !important;
   background-position: 15px 50px, 15px 250px, 15px 450px, 15px 650px !important;
   background-repeat: no-repeat !important;
-  opacity: 0.5 !important;
+  opacity: 0.4 !important;
   z-index: 5 !important;
 }
 @media (max-width: 768px) {
   .schreibblock-wrapper::before {
-    width: 35px !important;
-    background-size: 18px 18px !important;
+    width: 30px !important;
+    background-size: 16px 16px !important;
     background-position: 8px 40px, 8px 180px, 8px 320px, 8px 460px !important;
   }
 }
@@ -998,65 +995,57 @@ html body .blog-grid .blog-card.is-draft .card-content,
 #calendar .fc-theme-standard td,
 #calendar .fc-theme-standard th {
   background-color: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid rgba(74, 93, 78, 0.08) !important;
-}
-#calendar .fc-daygrid-day {
-  border-left: none !important;
-  border-right: none !important;
+  border: 1px solid rgba(74, 93, 78, 0.06) !important;
 }
 #calendar .fc-col-header-cell {
-  background-color: #4a5d4e !important;
+  background-color: #4a5d4e !important; /* Dein edles Werkstatt-Grün */
   padding: 12px 0 !important;
-  border-bottom: none !important;
-  border-radius: 2px !important;
+  border: none !important;
 }
 #calendar .fc-col-header-cell-cushion {
-  font-family: "Lora", serif !important;
-  color: #f7f4e9 !important;
+  font-family: "Lora", serif !important; /* Lora */
+  color: #f7f4e9 !important; /* Helle Schrift */
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 1px;
 }
 #calendar .fc-daygrid-day-number {
-  font-family: "Alice", serif !important;
-  color: rgb(142.5, 147.3076923077, 137.6923076923) !important;
+  font-family: "Alice", serif !important; /* Alice */
+  color: rgb(129.75, 135.1025641026, 124.3974358974) !important;
   font-size: 0.95rem;
   padding: 8px !important;
 }
 #calendar .fc-day-today {
-  background-color: rgba(139, 157, 131, 0.05) !important;
+  background-color: rgba(139, 157, 131, 0.04) !important;
 }
 #calendar .fc-day-today .fc-daygrid-day-number {
   color: #4a5d4e !important;
   font-weight: 700;
-  text-decoration: underline dashed #8b9d83 2px;
 }
 #calendar .fc-event {
-  background-color: rgba(139, 157, 131, 0.15) !important;
+  background-color: transparent !important; /* Keine störenden Balken */
   border: none !important;
-  border-left: 3px solid #4a5d4e !important;
-  color: #2c3e50 !important;
-  font-family: "Open Sans", sans-serif !important;
-  padding: 4px 8px !important;
-  margin: 2px 0 !important;
-  border-radius: 2px !important;
-  transition: transform 0.15s ease;
+  box-shadow: none !important;
+  color: #1e40af !important; /* Wunderschönes Füller-Königsblau */
+  font-family: "Comforter Brush", cursive !important;
+  font-size: 1.4rem !important; /* Schreibschrift braucht etwas Größe zum Wirken */
+  line-height: 1.1 !important;
+  padding: 2px 4px !important;
+  margin: 1px 0 !important;
+  transition: transform 0.15s ease, opacity 0.15s;
 }
 #calendar .fc-event:hover {
-  transform: translateX(3px);
-  background-color: rgba(139, 157, 131, 0.25) !important;
+  transform: scale(1.03) rotate(-1deg); /* Minimaler "echter" Bewegungseffekt */
+  opacity: 0.8;
 }
 #calendar .fc-event-title {
-  font-weight: 600 !important;
-  font-size: 0.9rem;
+  font-weight: 400 !important;
 }
 #calendar .fc-daygrid-more-link {
-  color: #2c3e50 !important;
+  color: #1e40af !important;
   font-family: "Open Sans", sans-serif !important;
   font-size: 0.8rem;
   font-weight: 700 !important;
-  padding-left: 5px;
 }
 
 .fc-toolbar-title {
