@@ -1,10 +1,6 @@
-// ========================================================
-// _03-CALENDAR.SCSS (Eigener, nativer Schreibblock-Kalender)
-// ========================================================
-
 @use '01-variables' as *;
 
-// 1. DIE GRUND-SEKTION (Hintergrund-Container)
+// 1. Hintergrund-Bereich
 .calendar-section {
   width: 100% !important;
   max-width: 100% !important;
@@ -14,43 +10,34 @@
   box-sizing: border-box !important;
 }
 
-// 2. DER WRAPPER (Das physische, unendliche Karopapier)
+// 2. Das karierte Blockblatt (Das 3-Zonen-Grid zentriert den Kalender)
 .schreibblock-wrapper {
   display: grid !important;
-  // 1 leere Spalte links (1fr), 7 Spalten Kalender (7fr), 1 leere Spalte rechts (1fr)
   grid-template-columns: 1fr 7fr 1fr !important; 
   align-items: start !important;
-  
   width: 100% !important;
   max-width: 100% !important; 
-  background-color: $brand-paper !important; // Dein #f7f4e9 Papierton
+  background-color: $brand-paper !important; // #f7f4e9
   padding: 40px 40px 40px 80px !important; 
   position: relative !important;
   box-sizing: border-box !important;
 
-  // 📝 DAS DEFINITIVE KAROMUSTER (Läuft ungestört unter allem durch)
+  // 📝 Das unumstößliche Karomuster (15% Deckkraft)
   background-image: 
-    linear-gradient(90deg, rgba($brand-primary, 0.12) 1px, transparent 1px),
-    linear-gradient(rgba($brand-primary, 0.12) 1px, transparent 1px) !important;
+    linear-gradient(90deg, rgba($brand-primary, 0.15) 1px, transparent 1px),
+    linear-gradient(rgba($brand-primary, 0.15) 1px, transparent 1px) !important;
   background-size: 24px 24px !important; 
 
-  @media (max-width: 1024px) {
-    padding: 30px 20px 30px 60px !important;
-  }
-
   @media (max-width: 768px) {
-    grid-template-columns: 1fr !important; // Mobil schalten wir die leeren Seitenspalten ab
+    grid-template-columns: 1fr !important;
     padding: 20px 15px 20px 50px !important; 
   }
 
-  // 🕳️ DER LOCHRAND (Ganz links am Blattrand gestanzt)
+  // 🕳️ Lochrand ganz links
   &::before {
     content: '' !important;
     position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 40px !important; 
+    top: 0; bottom: 0; left: 0; width: 40px !important; 
     background-image: 
       radial-gradient(circle, #bbb 30%, transparent 35%),
       radial-gradient(circle, #bbb 30%, transparent 35%),
@@ -64,163 +51,127 @@
   }
 }
 
-// ========================================================
-// 3. DAS KALENDER-GITTER (Vollkommen transparent)
-// ========================================================
-.custom-calendar-header {
+// 3. FullCalendar Anpassung
+#calendar {
   grid-column: 2 !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  margin-bottom: 24px !important;
-
-  @media (max-width: 768px) {
-    grid-column: 1 !important;
-  }
-
-  h3 {
-    font-family: $font-heading !important; // Lora
-    color: $brand-primary !important;
-    font-size: 1.8rem !important;
-    margin: 0 !important;
-  }
-
-  .cal-btn {
-    background: transparent !important;
-    border: 1px solid rgba($brand-primary, 0.2) !important;
-    color: $brand-primary !important;
-    padding: 6px 16px !important;
-    font-family: $font-copy !important;
-    cursor: pointer;
-    border-radius: $border-radius !important;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background: $brand-primary !important;
-      color: $brand-paper !important;
-    }
-  }
-}
-
-.custom-calendar-grid {
-  grid-column: 2 !important; // Zwingt das Gitter in die Mitte
-  display: grid !important;
-  grid-template-columns: repeat(7, 1fr) !important;
-  background: transparent !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
   position: relative !important;
 
-  @media (max-width: 768px) {
-    grid-column: 1 !important;
-  }
+  // 💥 Der Variablen-Nuke: FullCalendars Farbsysteme austrocknen
+  --fc-page-bg-color: transparent !important;
+  --fc-neutral-bg-color: transparent !important;
+  --fc-non-business-color: transparent !important;
+  --fc-today-bg-color: transparent !important;
+  --fc-bg-event-color: transparent !important;
+  --fc-border-color: rgba($brand-primary, 0.05) !important;
 
-  // 🔴 DIE LINKE ROTE MARGINAL-LINIE (Direkt an der Kante zum Montag)
+  background: transparent !important;
+  background-color: transparent !important;
+
+  @media (max-width: 768px) { grid-column: 1 !important; }
+
+  // 🔴 Rote Linien
   &::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    left: -12px !important; 
-    width: 1.5px !important;
-    background-color: #c94c4c !important;
-    z-index: 50 !important;
-    opacity: 0.85;
+    content: '' !important; position: absolute !important;
+    top: 0; bottom: 0; left: -12px !important; width: 1.5px !important;
+    background-color: #c94c4c !important; z-index: 50 !important; opacity: 0.85;
   }
-
-  // 🔴 DIE RECHTE ROTE MARGINAL-LINIE (Direkt nach dem Sonntag)
   &::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    right: -12px !important; 
-    width: 1.5px !important;
-    background-color: #c94c4c !important;
-    z-index: 50 !important;
-    opacity: 0.85;
+    content: '' !important; position: absolute !important;
+    top: 0; bottom: 0; right: -12px !important; width: 1.5px !important;
+    background-color: #c94c4c !important; z-index: 50 !important; opacity: 0.85;
   }
 
-  // Die Wochentags-Kopfzeile
-  .weekday-label {
-    background-color: $brand-primary !important;
-    color: $brand-paper !important;
-    font-family: $font-heading !important; // Lora
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 12px 0 !important;
-    letter-spacing: 1px;
-    border: none !important;
-  }
-
-  // Die einzelnen Tagesboxen (KOMPLETT TRANSPARENT!)
-  .calendar-day {
+  // Jedes tiefere Container-Schild transparent spülen
+  .fc-view-harness, .fc-view, .fc-scroller, .fc-scroller-harness,
+  .fc-scrollgrid, .fc-scrollgrid-inner, .fc-scrollgrid-section, 
+  .fc-scrollgrid-section table, .fc-scrollgrid-sync-table, 
+  .fc-daygrid-body, .fc-daygrid-body table, .fc-daygrid-day, 
+  .fc-daygrid-day-frame, .fc-daygrid-day-top, .fc-daygrid-day-events {
     background: transparent !important;
     background-color: transparent !important;
-    min-height: 120px; 
+  }
+
+  // Vertikale Gitterstriche entfernen
+  .fc-daygrid-day { border-left: none !important; border-right: none !important; }
+
+  // 👑 Wochentage (Kopfzeile)
+  .fc-col-header-cell {
+    background-color: $brand-primary !important;
+    padding: 12px 0 !important;
+    border: none !important;
+  }
+  .fc-col-header-cell-cushion {
+    font-family: $font-heading !important; // Lora
+    color: $brand-paper !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  // Zahlen (Alice)
+  .fc-daygrid-day-number {
+    font-family: $font-sub !important;
+    color: lighten($text-muted, 5%) !important;
+    font-size: 0.95rem;
     padding: 8px !important;
-    box-sizing: border-box !important;
-    border-bottom: 1px solid rgba($brand-primary, 0.06) !important; // Horizontale Hilfslinien
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
+  }
 
-    .day-number {
-      font-family: $font-sub !important; // Alice
-      color: lighten($text-muted, 5%) !important;
-      font-size: 0.95rem;
-      display: block;
-      margin-bottom: 6px;
-    }
+  // Heute
+  .fc-day-today .fc-daygrid-day-number {
+    color: $brand-primary !important;
+    font-weight: 700;
+    text-decoration: underline dashed $brand-accent 2px;
+  }
 
-    &.empty {
-      border-bottom: 1px solid rgba($brand-primary, 0.03) !important;
-    }
+  // ✒️ Die Termine (Blaue Tinte aus deinen Variablen)
+  .fc-event {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    font-family: $font-script !important; // Praise
+    color: $text-ink2 !important;        // #67a6bd
+    font-size: 1.9rem !important;
+    line-height: 0.9 !important;
+    padding: 0px 6px !important;
+    margin: 2px 0 !important;
+    transition: transform 0.15s ease;
 
-    // Heute handschriftlich markiert
-    &.is-today {
-      .day-number {
-        color: $brand-primary !important;
-        font-weight: 700;
-        text-decoration: underline dashed $brand-accent 2px;
-      }
-    }
+    &:hover { transform: scale(1.03) rotate(-0.5deg); }
+  }
+  .fc-event-title { font-weight: 400 !important; }
+  .fc-daygrid-more-link { color: $text-ink2 !important; font-family: $font-copy !important; font-size: 0.8rem; font-weight: 700 !important; }
+}
 
-    // ✒️ DER HANDSCHRIFTLICHE TERMIN (Blaue Tinte freischwebend auf den Karos)
-    .event-item {
-      font-family: $font-script !important; // Praise
-      color: $text-ink2 !important;        // #67a6bd
-      font-size: 1.9rem !important;
-      line-height: 0.9 !important;
-      padding: 2px 4px !important;
-      margin: 2px 0 !important;
-      cursor: pointer;
-      transition: transform 0.15s ease;
-
-      &:hover {
-        transform: scale(1.04) rotate(-0.5deg);
-      }
-    }
+// Toolbar & Buttons
+.fc-toolbar-title { font-family: $font-heading !important; color: $brand-primary !important; }
+.fc-button-primary {
+  background-color: transparent !important;
+  border: 1px solid rgba($brand-primary, 0.2) !important;
+  color: $brand-primary !important;
+  font-family: $font-copy !important;
+  font-size: 0.9rem !important;
+  &:hover, &.fc-button-active {
+    background: $brand-primary !important;
+    background-color: $brand-primary !important;
+    color: $brand-paper !important;
+    border-color: $brand-primary !important;
   }
 }
 
-// ========================================================
-// 4. DIE DETAIL-POPUPS (Karierter Notizzettel)
-// ========================================================
+// Popups (Karierter Zettel)
 .modal {
-  display: none; 
-  position: fixed !important; 
-  z-index: 999999 !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 100vw !important; 
-  height: 100vh !important; 
-  background-color: rgba($brand-ink, 0.4) !important; 
-  backdrop-filter: blur(5px);
+  display: none; position: fixed !important; z-index: 999999 !important;
+  left: 0; top: 0; width: 100vw !important; height: 100vh !important;
+  background-color: rgba($brand-ink, 0.4) !important; backdrop-filter: blur(5px);
 
   .modal-content {
-    background-color: $brand-light !important; // #fdfcf8
+    background-color: $brand-light !important;
     margin: 12vh auto !important;
-    padding: 32px 32px 32px 75px !important; 
+    padding: 32px 32px 32px 75px !important;
     border: 1px solid rgba($brand-primary, 0.15) !important;
     border-radius: $border-radius !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
@@ -234,52 +185,12 @@
     background-size: 24px 24px !important;
 
     &::before {
-      content: '' !important;
-      position: absolute !important;
-      top: 0 !important;
-      bottom: 0 !important;
-      left: 56px !important;
-      width: 1.5px !important;
-      background-color: #c94c4c !important;
-      z-index: 10 !important;
+      content: ''; position: absolute !important; top: 0; bottom: 0; left: 56px !important;
+      width: 1.5px !important; background-color: #c94c4c !important; z-index: 10 !important;
     }
   }
-
-  #modalTitle {
-    margin-top: 0 !important;
-    font-family: $font-heading !important;
-    color: $brand-ink !important;
-    border-bottom: 2px solid #c94c4c !important;
-    padding-bottom: 6px !important;
-    font-size: 1.4rem !important;
-  }
-
-  #modalBody {
-    font-family: $font-copy !important; 
-    color: $text-dark !important;
-    font-size: 0.95rem !important;
-    line-height: 24px !important; 
-    margin-top: 18px !important;
-    
-    p { margin-bottom: 0 !important; }
-    a {
-      color: $brand-primary !important;
-      text-decoration: underline !important;
-    }
-  }
-
-  .close-modal {
-    color: $text-muted !important;
-    position: absolute !important;
-    top: 15px !important;
-    right: 20px !important;
-    font-size: 32px !important;
-    z-index: 11 !important;
-    &:hover { color: #c94c4c !important; }
-  }
+  #modalTitle { margin-top: 0 !important; font-family: $font-heading !important; color: $brand-ink !important; border-bottom: 2px solid #c94c4c !important; padding-bottom: 6px !important; font-size: 1.4rem !important; }
+  #modalBody { font-family: $font-copy !important; color: $text-dark !important; font-size: 0.95rem !important; line-height: 24px !important; margin-top: 18px !important; p { margin-bottom: 0 !important; } a { color: $brand-primary !important; text-decoration: underline !important; } }
+  .close-modal { color: $text-muted !important; position: absolute !important; top: 15px !important; right: 20px !important; font-size: 32px !important; z-index: 11 !important; &:hover { color: #c94c4c !important; } }
 }
-
-@pragma keyframes modalPopIn {
-  from { transform: scale(0.96); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
+@keyframes modalPopIn { from { transform: scale(0.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
