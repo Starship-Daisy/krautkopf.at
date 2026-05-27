@@ -1,10 +1,12 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Full-Screen Collegeblock-Design)
+// _03-CALENDAR.SCSS (Komplette Komponente: Schreibblock-Design)
 // ========================================================
 
 @use '01-variables' as *;
 
-// 1. DIE GRUND-SEKTION (Zieht sich über die volle Bildschirmbreite)
+// ========================================================
+// 1. DIE GRUND-SEKTION (Zieht sich über die volle Breite)
+// ========================================================
 .calendar-section {
   width: 100% !important;
   max-width: 100% !important;
@@ -14,32 +16,41 @@
   box-sizing: border-box !important;
 }
 
+// ========================================================
 // 2. DER WRAPPER (Das fortlaufende, karierte Blockpapier)
+// ========================================================
 .schreibblock-wrapper {
-  display: block !important;
+  display: grid !important;
+  // Intelligent aufgeteilt: Spalte links frei (1fr), Kalender (7fr), Spalte rechts frei (1fr)
+  grid-template-columns: 1fr 7fr 1fr !important; 
+  align-items: start !important;
+  
   width: 100% !important;
-  max-width: 100% !important; // Füllt den gesamten Bildschirm aus
+  max-width: 100% !important; 
   background-color: $brand-paper !important; 
   
-  // Großzügiger Innenabstand, damit das Gitter sauber zwischen den roten Linien sitzt
-  padding: 40px 140px 40px 140px !important; 
+  // Abstand zum Rand (Breite für Lochung und Marginalien)
+  padding: 40px 60px 40px 100px !important; 
   position: relative !important;
   box-sizing: border-box !important;
 
   @media (max-width: 1024px) {
-    padding: 30px 80px 30px 90px !important;
-  }
-  @media (max-width: 768px) {
-    padding: 20px 25px 20px 55px !important; // Mobil kompakter
+    padding: 30px 40px 30px 80px !important;
   }
 
-  // 📝 DAS MASTER-RASTER & BEIDE ROTEN MARGINAL-LINIEN (Rechts und Links)
+  // MOBIL-FIX: Auf dem Handy die leeren Spalten abschalten, damit die Liste Platz hat
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr !important; 
+    padding: 20px 25px 20px 55px !important; 
+  }
+
+  // 📝 HINTERGRUND-KAROS & BEIDE ROTEN MARGINAL-LINIEN (Rechts und Links)
   background-image: 
     // Linke rote Linie
     linear-gradient(90deg, transparent 115px, #c94c4c 115px, #c94c4c 116.5px, transparent 116.5px),
     // Rechte rote Linie
     linear-gradient(270deg, transparent 115px, #c94c4c 115px, #c94c4c 116.5px, transparent 116.5px),
-    // Das feine, hellgrüne Karomuster (24px Kästchen)
+    // Das feine Karomuster (24px Kästchen)
     linear-gradient(90deg, rgba($brand-primary, 0.04) 1px, transparent 1px),
     linear-gradient(rgba($brand-primary, 0.04) 1px, transparent 1px) !important;
   background-size: 100% 100%, 100% 100%, 24px 24px, 24px 24px !important;
@@ -88,32 +99,52 @@
 }
 
 // ========================================================
-// FULLCALENDAR TRANSPARENZ & TINTE
+// 3. FULLCALENDAR TRANSPARENZ & TINTE
 // ========================================================
 #calendar {
+  grid-column: 2 !important; // Schiebt den Kalender exakt in die mittlere Zone
+  min-width: 0 !important;   
   max-width: 100% !important;
+  background: transparent !important;
   background-color: transparent !important;
+
+  @media (max-width: 768px) {
+    grid-column: 1 !important; // Auf dem Handy wieder volle Breite nutzen
+  }
 
   .fc-theme-standard .fc-scrollgrid {
     border: none !important; 
   }
 
-  // Alles komplett transparent machen, damit das Karomuster durchscheint
-  .fc-theme-standard td, 
-  .fc-theme-standard th {
-    background-color: rgba($brand-paper, 0.5) !important; // <-- HIER! Ändern zu z.B. transparent rgba($brand-paper, 0.5) für halbdurchsichtig
-    border: 1px solid rgba($brand-primary, 0.06) !important; // Hauchzarte Zellen-Begrenzung
+  // RADIKALE TRANSPARENZ: Löscht alle versteckten Hintergründe für freie Sicht aufs Karo
+  .fc-scrollgrid-sync-table,
+  .fc-daygrid-body,
+  .fc-daygrid-day,
+  .fc-daygrid-day-frame,
+  .fc-daygrid-day-top,
+  .fc-daygrid-day-events,
+  td, 
+  th {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid rgba($brand-primary, 0.06) !important; 
+  }
+
+  // Vertikale Gitterlinien unsichtbar machen für echten Blockblatt-Look
+  .fc-daygrid-day {
+    border-left: none !important;
+    border-right: none !important;
   }
 
   // 👑 DIE EDLEN DUNKLEN KOPFZEILEN (Wochentage)
   .fc-col-header-cell {
-    background-color: $brand-primary !important; /* Dein edles Werkstatt-Grün */
+    background-color: $brand-primary !important; 
     padding: 12px 0 !important;
     border: none !important;
   }
   .fc-col-header-cell-cushion {
-    font-family: $font-heading !important; /* Lora */
-    color: $brand-paper !important;        /* Helle Schrift */
+    font-family: $font-heading !important; 
+    color: $brand-paper !important;        
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
@@ -121,39 +152,41 @@
 
   // Die Kalenderzahlen
   .fc-daygrid-day-number {
-    font-family: $font-copy !important; /* Alice */
+    font-family: $font-sub !important; 
     color: lighten($text-muted, 5%) !important;
     font-size: 0.95rem;
     padding: 8px !important;
   }
 
-  // Heute-Markierung (Dezent unaufdringlich)
+  // Heute-Markierung (Rein handschriftlich unterstrichen)
   .fc-day-today {
-    background-color: rgba($brand-accent, 0.04) !important;
+    background: transparent !important;
+    background-color: transparent !important;
     
     .fc-daygrid-day-number {
       color: $brand-primary !important;
       font-weight: 700;
+      text-decoration: underline dashed $brand-accent 2px;
     }
   }
 
-  // ✒️ DIE TERMINE (Transparent mit blauer Handschrift!)
+  // ✒️ DIE TERMINE (Komplett transparent mit blauer Handschrift)
   .fc-event {
-    background-color: transparent !important; /* Keine störenden Balken */
+    background: transparent !important;
+    background-color: transparent !important; 
     border: none !important;
     box-shadow: none !important;
-    color: #1e40af !important; /* Wunderschönes Füller-Königsblau */
+    color: #1e40af !important; // Füller-Königsblau
     
-    // Nutzt deine im Head verankerte Handschrift-Schriftart:
     font-family: 'Comforter Brush', cursive !important; 
-    font-size: 1.4rem !important; /* Schreibschrift braucht etwas Größe zum Wirken */
+    font-size: 1.4rem !important; 
     line-height: 1.1 !important;
     padding: 2px 4px !important;
     margin: 1px 0 !important;
     transition: transform 0.15s ease, opacity 0.15s;
 
     &:hover {
-      transform: scale(1.03) rotate(-1deg); /* Minimaler "echter" Bewegungseffekt */
+      transform: scale(1.03) rotate(-1deg); 
       opacity: 0.8;
     }
   }
@@ -189,7 +222,7 @@
 }
 
 // ========================================================
-// 3. DIE TEXTFELDER / POPUP (Karierter Notizzettel)
+// 4. DIE TEXTFELDER / POPUP (Karierter Notizzettel)
 // ========================================================
 .modal {
   display: none; 
@@ -206,7 +239,7 @@
   .modal-content {
     background-color: $brand-light !important;
     margin: 12vh auto !important;
-    padding: 32px 32px 32px 75px !important;
+    padding: 32px 32px 32px 75px !important; // Randabstand links wegen Marginalie
     border: 1px solid rgba($brand-primary, 0.15) !important;
     border-radius: 4px !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
@@ -214,11 +247,13 @@
     box-sizing: border-box !important;
     animation: modalPopIn 0.2s ease-out !important;
     
+    // Kästchen-Raster für das Notizblatt (24px)
     background-image: 
       linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
       linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
     background-size: 24px 24px !important;
 
+    // Rote Marginalie im Popup
     &::before {
       content: '' !important;
       position: absolute !important;
@@ -245,9 +280,11 @@
     font-family: $font-copy !important;
     color: $text-dark !important;
     font-size: 0.95rem !important;
-    line-height: 24px !important;
+    line-height: 24px !important; // Setzt den Text perfekt auf die Kästchenlinien
     margin-top: 18px !important;
+
     p { margin-bottom: 0 !important; }
+
     a {
       color: $brand-primary !important;
       text-decoration: underline !important;
@@ -264,6 +301,7 @@
     font-weight: 300 !important;
     line-height: 1 !important;
     z-index: 11 !important;
+
     &:hover { color: #c94c4c !important; }
   }
 }
