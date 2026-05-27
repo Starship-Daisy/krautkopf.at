@@ -994,7 +994,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 #calendar .fc-theme-standard td,
 #calendar .fc-theme-standard th {
-  background-color: transparent !important;
+  background-color: rgba(247, 244, 233, 0.5) !important;
   border: 1px solid rgba(74, 93, 78, 0.06) !important;
 }
 #calendar .fc-col-header-cell {
@@ -1010,7 +1010,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   letter-spacing: 1px;
 }
 #calendar .fc-daygrid-day-number {
-  font-family: "Alice", serif !important; /* Alice */
+  font-family: "Open Sans", sans-serif !important; /* Alice */
   color: rgb(129.75, 135.1025641026, 124.3974358974) !important;
   font-size: 0.95rem;
   padding: 8px !important;
