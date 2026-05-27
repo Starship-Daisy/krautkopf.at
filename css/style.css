@@ -921,41 +921,57 @@ html body .blog-grid .blog-card.is-draft .card-content,
   opacity: 0.3;
 }
 
-#calendar-grid {
-  grid-column: 2;
-  min-width: 0;
-  max-width: 100%;
+.calendar-page-wrapper {
+  background-color: #fdfcf8;
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+.calendar-sheet {
+  background-color: #f7f4e9 !important;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 40px 40px 65px;
   position: relative;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+}
+@media (max-width: 768px) {
+  .calendar-sheet {
+    padding: 30px 15px 30px 45px;
+  }
+}
+.calendar-sheet::before {
+  content: "";
+  position: absolute;
+  left: 45px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background-color: rgba(201, 76, 76, 0.5) !important;
+  z-index: 10;
+}
+
+#calendar-grid {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 1px;
 }
 @media (max-width: 768px) {
   #calendar-grid {
-    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
-}
-#calendar-grid::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -12px;
-  width: 1.5px;
-  background-color: #67a6bd;
-  z-index: 50;
-  opacity: 0.85;
-}
-#calendar-grid::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: -12px;
-  width: 1.5px;
-  background-color: #67a6bd;
-  z-index: 50;
-  opacity: 0.85;
 }
 #calendar-grid .weekday-label {
   background-color: #4a5d4e;
@@ -967,17 +983,27 @@ html body .blog-grid .blog-card.is-draft .card-content,
   font-size: 0.85rem;
   letter-spacing: 1px;
 }
+@media (max-width: 768px) {
+  #calendar-grid .weekday-label {
+    display: none;
+  }
+}
 #calendar-grid .calendar-day {
   background: transparent;
-  min-height: 90px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 5px;
+  padding: 8px;
   box-sizing: border-box;
 }
 #calendar-grid .calendar-day.empty {
   visibility: hidden;
+}
+@media (max-width: 768px) {
+  #calendar-grid .calendar-day.empty {
+    display: none;
+  }
 }
 #calendar-grid .calendar-day.is-today .day-number {
   color: #4a5d4e;
@@ -989,6 +1015,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   color: rgb(129.75, 135.1025641026, 124.3974358974);
   font-size: 0.95rem;
   padding: 4px;
+  margin-bottom: 4px;
 }
 #calendar-grid .event-item {
   background: transparent;
