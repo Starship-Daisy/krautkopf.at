@@ -1,50 +1,74 @@
 // ========================================================
-// 3. SELBSTGEBAUTES KALENDER-GRID (An dein JS angepasst)
+// 03-CALENDAR.SCSS (Kariertes Kalenderblatt-Design)
 // ========================================================
 
-@use 'sass:color'; // 1. Das Sass-Werkzeug laden
-@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
+@use 'sass:color'; 
+@use '01-variables' as *; 
 @use '01-typography' as *;
 
-#calendar-grid {
-  grid-column: 2;
-  min-width: 0;
-  max-width: 100%;
+// Lokale Farbvariable für die rote Linie (falls nicht in 01-variables)
+$marginal-red: #c94c4c;
+
+// 1. DER EIN_FÄRBIGE HINTERGRUND-CONTAINER
+// Hier kannst du die Hintergrundfarbe der kompletten Seite steuern
+.calendar-page-wrapper {
+  background-color: $brand-light; // Solider, einfarbiger Hintergrund (z.B. dein helles Beige/Grau)
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+// 2. DAS KALENDERBLATT (Der freischwebende Notizblock-Zettel)
+.calendar-sheet {
+  background-color: $brand-paper !important; // Die warme Papierfarbe
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 40px 40px 65px; // Mehr Platz links für die rote Linie
   position: relative;
-  
-  // 🧩 Hier aktivieren wir das 7-Tage-Raster
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1px; // Dünne Gitterlinie
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); // Eleganter Blattschatten
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  // 🧩 BLAUES KARO-MUSTER (Aus deiner Blog-Karte übernommen)
+  background-image: 
+    linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
 
   @media (max-width: 768px) {
-    grid-column: 1;
+    padding: 30px 15px 30px 45px;
   }
 
-  // 🔴 Rote Marginal-Linie links
+  // 🔴 ROTE MARGINAL-LINIE (Klassisch auf der linken Seite des Blattes)
   &::before {
     content: '';
     position: absolute;
+    left: 45px; // Exakte Positionierung auf dem Karo
     top: 0;
     bottom: 0;
-    left: -12px;
     width: 1.5px;
-    background-color: $text-ink2;
-    z-index: 50;
-    opacity: 0.85;
+    background-color: rgba($marginal-red, 0.5) !important;
+    z-index: 10;
   }
+}
 
-  // 🔴 Rote Marginal-Linie rechts
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: -12px;
-    width: 1.5px;
-    background-color: $text-ink2;
-    z-index: 50;
-    opacity: 0.85;
+// 3. DAS KALENDER-GRID (Deine funktionale Vorlage)
+#calendar-grid {
+  position: relative;
+  z-index: 2; // Liegt sicher über dem Karomuster
+  
+  // Aktiviert das 7-Tage-Raster für Woche/Monat
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px; // Erzeugt eine hauchdünne Rasterlinie zwischen den Tagen
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; // Auf Mobilgeräten stehen die Tage untereinander
+    gap: 15px;
   }
 
   // 👑 DIE WOCHENTAGE (Kopfzeile)
@@ -57,20 +81,28 @@
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+      display: none; // Blendet die Mo-So Kopfzeile auf Mobilgeräten aus, da dort nutzlos
+    }
   }
 
   // 📅 DIE EINZELNEN TAGE
   .calendar-day {
     background: transparent;
-    min-height: 90px; // Platz für Termine
+    min-height: 100px; // Garantiert Platz für Termine auf dem Zettel
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5px;
+    padding: 8px;
     box-sizing: border-box;
 
     &.empty {
       visibility: hidden; // Leere Tage vor dem 1. des Monats unsichtbar machen
+      
+      @media (max-width: 768px) {
+        display: none; // Verhindert leere Lücken auf dem Handy
+      }
     }
 
     // Heute-Zahl markieren
@@ -87,6 +119,7 @@
     color: color.adjust($text-muted, $lightness: 5%);
     font-size: 0.95rem;
     padding: 4px;
+    margin-bottom: 4px;
   }
 
   // ✒️ DIE TERMINE (Königsblaue Tinte)
@@ -108,10 +141,10 @@
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; // Schneidet zu langen Text elegant mit "..." ab
 
     &:hover {
-      transform: scale(1.03) rotate(-0.5deg);
+      transform: scale(1.03) rotate(-0.5deg); // Leichter Tintentanz beim Drüberfahren
     }
   }
 }
