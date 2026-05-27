@@ -87,21 +87,25 @@ $marginal-red: #c94c4c;
     }
   }
 
-  // 📅 DIE EINZELNEN TAGE
+// 📅 DIE EINZELNEN TAGE
   .calendar-day {
     background: transparent;
-    min-height: 100px; // Garantiert Platz für Termine auf dem Zettel
+    min-height: 100px; // Platz für Termine auf Desktop
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 8px;
     box-sizing: border-box;
 
+    // 🛑 FIX: Absolut sicheres Verstecken der leeren Auffülltage
     &.empty {
-      visibility: hidden; // Leere Tage vor dem 1. des Monats unsichtbar machen
-      
+      visibility: hidden;        // Desktop: Unsichtbar, aber hält den Platz für die Wochentage frei
+      min-height: 0 !important;  // Verhindert, dass die Box Raum einnimmt
+      padding: 0 !important;     // Entfernt inneren Abstand
+      margin: 0 !important;
+
       @media (max-width: 768px) {
-        display: none; // Verhindert leere Lücken auf dem Handy
+        display: none !important; // Mobile: Löscht das Element komplett aus dem Layout-Fluss
       }
     }
 
@@ -113,6 +117,7 @@ $marginal-red: #c94c4c;
     }
   }
 
+  
   // Datumszahlen
   .day-number {
     font-family: $font-sub; // Alice
