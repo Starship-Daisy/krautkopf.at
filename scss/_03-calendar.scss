@@ -32,11 +32,11 @@
   position: relative !important;
   box-sizing: border-box !important;
 
-  // 📝 HIER ENTSTEHT DAS KARIERTE BLATT (Zieht sich ungestört unter allem durch)
+  // 📝 DEUTLICHES KAROMUSTER (Deckkraft von 0.05 auf 0.15 angehoben!)
   background-image: 
-    linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
-    linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
-  background-size: 24px 24px !important; // Die perfekte Kästchengröße
+    linear-gradient(90deg, rgba($brand-primary, 0.15) 1px, transparent 1px),
+    linear-gradient(rgba($brand-primary, 0.15) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important; 
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr !important; // Mobil schalten wir die leeren Randspalten ab
@@ -79,33 +79,35 @@
     grid-column: 1 !important;
   }
 
-  // 🔴 DIE LINKE ROTE MARGINAL-LINIE (Exakt an der linken Kante des Kalenders)
+  // 🔴 DIE LINKE ROTE MARGINAL-LINIE
   &::before {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
     bottom: 0 !important;
-    left: -12px !important; // Sitzt elegant knapp vor dem Montag
+    left: -12px !important; 
     width: 1.5px !important;
     background-color: #c94c4c !important;
     z-index: 50 !important;
     opacity: 0.85;
   }
 
-  // 🔴 DIE RECHTE ROTE MARGINAL-LINIE (Exakt an der rechten Kante des Kalenders)
+  // 🔴 DIE RECHTE ROTE MARGINAL-LINIE
   &::after {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
     bottom: 0 !important;
-    right: -12px !important; // Sitzt elegant knapp nach dem Sonntag
+    right: -12px !important; 
     width: 1.5px !important;
     background-color: #c94c4c !important;
     z-index: 50 !important;
     opacity: 0.85;
   }
 
-  // 🚫 RADIKALE TRANSPARENZ: Jede versteckte Hintergrund-Ebene von FullCalendar wird gelöscht
+  // 🚫 ABSOLUTE TRANSPARENZ: .fc-view und .fc-view-harness wurden hinzugefügt!
+  .fc-view,
+  .fc-view-harness,
   .fc-scrollgrid,
   .fc-scrollgrid-inner,
   .fc-scrollgrid-section,
@@ -125,26 +127,25 @@
   th {
     background: transparent !important;
     background-color: transparent !important;
-    // Ganz zarte Hilfslinien für die Zellen, damit man weiß, wo die Tage liegen:
+    // Hauchzarte Zellen-Begrenzungslinien, damit die Struktur logisch bleibt
     border: 1px solid rgba($brand-primary, 0.05) !important; 
   }
 
-  // Vertikale Spaltenlinien im Kalenderfeld tilgen (Erhöht den echten Papierblock-Look)
+  // Vertikale Spaltenlinien im Kalenderfeld tilgen
   .fc-daygrid-day {
     border-left: none !important;
     border-right: none !important;
   }
 
-  // 👑 DIE EDLEN DUNKLEN KOPFZEILEN (Die Wochentage Mo - So)
-  // Sitzen wie eine feste Klammer ganz oben sauber zwischen den roten Linien
+  // 👑 DIE EDLEN DUNKLEN KOPFZEILEN (Wochentage Mo - So)
   .fc-col-header-cell {
-    background-color: $brand-primary !important; // Dein edles Werkstatt-Grün (#4a5d4e)
+    background-color: $brand-primary !important; 
     padding: 12px 0 !important;
     border: none !important;
   }
   .fc-col-header-cell-cushion {
     font-family: $font-heading !important; // Lora
-    color: $brand-paper !important;        // Helle Schrift
+    color: $brand-paper !important;        
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
@@ -158,7 +159,7 @@
     padding: 8px !important;
   }
 
-  // Heute-Markierung (Völlig ohne Hintergrundschleier, nur handschriftlich markiert)
+  // Heute-Markierung (Rein handschriftlich unterstrichen)
   .fc-day-today {
     background: transparent !important;
     background-color: transparent !important;
@@ -166,35 +167,35 @@
     .fc-daygrid-day-number {
       color: $brand-primary !important;
       font-weight: 700;
-      text-decoration: underline dashed $brand-accent 2px; // Salbeigrünes gestricheltes Unterstreichen
+      text-decoration: underline dashed $brand-accent 2px; 
     }
   }
 
-  // ✒️ DIE TERMINE (Vollkommen transparent mit blauer Füllertinte direkt auf den Kästchen!)
+  // ✒️ DIE TERMINE (Blaue Füllertinte direkt auf den Kästchen!)
   .fc-event {
     background: transparent !important;
     background-color: transparent !important; 
     border: none !important;
     box-shadow: none !important;
     
-    font-family: $font-script !important; // Deine feine Tinte 'Praise'
+    font-family: $font-script !important; // Praise
     color: $text-ink2 !important;        // Dein blaues Tintenton (#67a6bd)
     
-    font-size: 1.9rem !important;        // 'Praise' läuft sehr filigran, braucht diese Größe
+    font-size: 1.9rem !important;        
     line-height: 0.9 !important;
     padding: 0px 6px !important;
     margin: 2px 0 !important;
     transition: transform 0.15s ease;
 
     &:hover {
-      transform: scale(1.03) rotate(-0.5deg); // Minimaler organischer Schwebungseffekt beim Drüberfahren
+      transform: scale(1.03) rotate(-0.5deg); 
     }
   }
   .fc-event-title { font-weight: 400 !important; }
   
   .fc-daygrid-more-link { 
     color: $text-ink2 !important; 
-    font-family: $font-copy !important; // open sans für das "+ weitere"
+    font-family: $font-copy !important; // open sans
     font-size: 0.8rem;
     font-weight: 700 !important; 
     padding-left: 6px;
@@ -233,13 +234,13 @@
   top: 0 !important;
   width: 100vw !important; 
   height: 100vh !important; 
-  background-color: rgba($brand-ink, 0.4) !important; // Tiefes Tintenblau als Hintergrund-Schleier
+  background-color: rgba($brand-ink, 0.4) !important; 
   backdrop-filter: blur(5px);
 
   .modal-content {
-    background-color: $brand-light !important; // Hellere Papierfarbe (#fdfcf8)
+    background-color: $brand-light !important; // #fdfcf8
     margin: 12vh auto !important;
-    padding: 32px 32px 32px 75px !important; // Platz links für die rote Linie
+    padding: 32px 32px 32px 75px !important; 
     border: 1px solid rgba($brand-primary, 0.15) !important;
     border-radius: $border-radius !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
@@ -247,13 +248,11 @@
     box-sizing: border-box !important;
     animation: modalPopIn 0.2s ease-out !important;
     
-    // Kästchen-Raster im Info-Blatt
     background-image: 
       linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
       linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
     background-size: 24px 24px !important;
 
-    // Rote Marginalie im Popup
     &::before {
       content: '' !important;
       position: absolute !important;
@@ -277,10 +276,10 @@
   }
 
   #modalBody {
-    font-family: $font-copy !important; // open sans
+    font-family: $font-copy !important; 
     color: $text-dark !important;
     font-size: 0.95rem !important;
-    line-height: 24px !important; // Text schreibt sich exakt auf die Kästchenlinien
+    line-height: 24px !important; 
     margin-top: 18px !important;
     
     p { margin-bottom: 0 !important; }
