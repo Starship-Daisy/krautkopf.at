@@ -1,59 +1,71 @@
 // ========================================================
-// _03-CALENDAR.SCSS (Kariertes Papier-Design - JETZT RECHTSSICHER!)
+// _03-CALENDAR.SCSS (Kariertes Papier-Design)
 // ========================================================
 
 @use '01-variables' as *;
+@use 'sass:color';
 
+// Lokale Farb-Variablen (statt hardcodierter Werte)
+$marginal-red:  #c94c4c;
+$hole-gray:     #bbb;
+
+// ========================================================
 // 1. DIE GRUND-SEKTION
+// ========================================================
 .calendar-section {
-  width: 100% !important;
-  max-width: 100% !important;
-  display: block !important;
-  margin: 40px auto !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 40px auto;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+// ========================================================
 // 2. DER WRAPPER (Das fortlaufende, karierte Papier)
+// ========================================================
 .schreibblock-wrapper {
-  display: grid !important;
-  grid-template-columns: 1fr 7fr 1fr !important; 
-  align-items: start !important;
-  
-  width: 100% !important;
-  max-width: 100% !important; 
-  background-color: $brand-paper !important; 
-  
-  padding: 40px 40px 40px 80px !important; 
-  position: relative !important;
-  box-sizing: border-box !important;
+  display: grid;
+  grid-template-columns: 1fr 7fr 1fr;
+  align-items: start;
 
-  // 📝 Das unaufhaltsame Karomuster
-  background-image: 
+  width: 100%;
+  max-width: 100%;
+  background-color: $brand-paper;
+
+  padding: 40px 40px 40px 80px;
+  position: relative;
+  box-sizing: border-box;
+
+  // 📝 Das Karomuster
+  background-image:
     linear-gradient(90deg, rgba($brand-primary, 0.15) 1px, transparent 1px),
-    linear-gradient(rgba($brand-primary, 0.15) 1px, transparent 1px) !important;
-  background-size: 24px 24px !important; 
+    linear-gradient(rgba($brand-primary, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr !important; 
-    padding: 20px 15px 20px 50px !important; 
+    grid-template-columns: 1fr;
+    padding: 20px 15px 20px 50px;
   }
 
   // 🕳️ Der Lochrand ganz links
   &::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0; bottom: 0; left: 0; width: 40px !important; 
-    background-image: 
-      radial-gradient(circle, #bbb 30%, transparent 35%),
-      radial-gradient(circle, #bbb 30%, transparent 35%),
-      radial-gradient(circle, #bbb 30%, transparent 35%),
-      radial-gradient(circle, #bbb 30%, transparent 35%) !important;
-    background-size: 25px 25px !important; 
-    background-position: 12px 60px, 12px 260px, 12px 460px, 12px 660px !important; 
-    background-repeat: no-repeat !important;
-    opacity: 0.35 !important;
-    z-index: 5 !important;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    background-image:
+      radial-gradient(circle, $hole-gray 30%, transparent 35%),
+      radial-gradient(circle, $hole-gray 30%, transparent 35%),
+      radial-gradient(circle, $hole-gray 30%, transparent 35%),
+      radial-gradient(circle, $hole-gray 30%, transparent 35%);
+    background-size: 25px 25px;
+    background-position: 12px 60px, 12px 260px, 12px 460px, 12px 660px;
+    background-repeat: no-repeat;
+    opacity: 0.35;
+    z-index: 5;
   }
 }
 
@@ -61,67 +73,76 @@
 // 3. FULLCALENDAR (Glasklar radiert)
 // ========================================================
 #calendar {
-  grid-column: 2 !important; 
-  min-width: 0 !important;   
-  max-width: 100% !important;
-  position: relative !important; 
-  
-  // Farb-Engines von FullCalendar auf transparent zwingen
-  --fc-page-bg-color: transparent !important;
-  --fc-neutral-bg-color: transparent !important;
-  --fc-non-business-color: transparent !important;
-  --fc-today-bg-color: transparent !important;
-  --fc-bg-event-color: transparent !important;
-  --fc-border-color: rgba($brand-primary, 0.05) !important;
+  grid-column: 2;
+  min-width: 0;
+  max-width: 100%;
+  position: relative;
 
-  background: transparent !important;
-  background-color: transparent !important;
+  // Farb-Engines von FullCalendar auf transparent zwingen
+  --fc-page-bg-color:        transparent;
+  --fc-neutral-bg-color:     transparent;
+  --fc-non-business-color:   transparent;
+  --fc-today-bg-color:       transparent;
+  --fc-bg-event-color:       transparent;
+  --fc-border-color:         #{rgba($brand-primary, 0.05)};
+
+  background: transparent;
 
   @media (max-width: 768px) {
-    grid-column: 1 !important;
+    grid-column: 1;
   }
 
   // 🔴 Rote Marginal-Linie links
   &::before {
-    content: '' !important;
-    position: absolute !important;
-    top: 0; bottom: 0; left: -12px !important; width: 1.5px !important;
-    background-color: #c94c4c !important; z-index: 50 !important; opacity: 0.85;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -12px;
+    width: 1.5px;
+    background-color: $marginal-red;
+    z-index: 50;
+    opacity: 0.85;
   }
 
   // 🔴 Rote Marginal-Linie rechts
   &::after {
-    content: '' !important;
-    position: absolute !important;
-    top: 0; bottom: 0; right: -12px !important; width: 1.5px !important;
-    background-color: #c94c4c !important; z-index: 50 !important; opacity: 0.85;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -12px;
+    width: 1.5px;
+    background-color: $marginal-red;
+    z-index: 50;
+    opacity: 0.85;
   }
 
   // Universal-Radiergummi für alle inneren Boxen
   .fc-view-harness, .fc-view, .fc-scroller, .fc-scroller-harness,
-  .fc-scrollgrid, .fc-scrollgrid-inner, .fc-scrollgrid-section, 
-  .fc-scrollgrid-section table, .fc-scrollgrid-sync-table, 
-  .fc-daygrid-body, .fc-daygrid-body table, .fc-daygrid-day, 
+  .fc-scrollgrid, .fc-scrollgrid-inner, .fc-scrollgrid-section,
+  .fc-scrollgrid-section table, .fc-scrollgrid-sync-table,
+  .fc-daygrid-body, .fc-daygrid-body table, .fc-daygrid-day,
   .fc-daygrid-day-frame, .fc-daygrid-day-top, .fc-daygrid-day-events {
-    background: transparent !important;
-    background-color: transparent !important;
+    background: transparent;
+    background-color: transparent;
   }
 
   // Vertikale Gitterlinien löschen
   .fc-daygrid-day {
-    border-left: none !important;
-    border-right: none !important;
+    border-left: none;
+    border-right: none;
   }
 
   // 👑 DIE WOCHENTAGE (Kopfzeile)
   .fc-col-header-cell {
-    background-color: $brand-primary !important; 
-    padding: 12px 0 !important;
-    border: none !important;
+    background-color: $brand-primary;
+    padding: 12px 0;
+    border: none;
   }
   .fc-col-header-cell-cushion {
-    font-family: $font-heading !important; // Lora
-    color: $brand-paper !important;        
+    font-family: $font-heading; // Lora
+    color: $brand-paper;
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
@@ -129,67 +150,68 @@
 
   // Datumszahlen
   .fc-daygrid-day-number {
-    font-family: $font-sub !important; // Alice
-    color: lighten($text-muted, 5%) !important;
+    font-family: $font-sub; // Alice
+    color: color.adjust($text-muted, $lightness: 5%);
     font-size: 0.95rem;
-    padding: 8px !important;
+    padding: 8px;
   }
 
   // Heute-Zahl markieren
   .fc-day-today .fc-daygrid-day-number {
-    color: $brand-primary !important;
+    color: $brand-primary;
     font-weight: 700;
     text-decoration: underline dashed $brand-accent 2px;
   }
 
   // ✒️ DIE TERMINE (Königsblaue Tinte)
   .fc-event {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    
-    font-family: $font-script !important; // Praise
-    color: $text-ink2 !important;        // #67a6bd
-    
-    font-size: 1.9rem !important;        
-    line-height: 0.9 !important;
-    padding: 0px 6px !important;
-    margin: 2px 0 !important;
+    background: transparent;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+    font-family: $font-script; // Praise
+    color: $text-ink2;         // #67a6bd
+
+    font-size: 1.9rem;
+    line-height: 1.2; // FIX: war 0.9 → Descender wurden abgeschnitten
+    padding: 0 6px;
+    margin: 2px 0;
     transition: transform 0.15s ease;
 
     &:hover {
-      transform: scale(1.03) rotate(-0.5deg); 
+      transform: scale(1.03) rotate(-0.5deg);
     }
   }
-  .fc-event-title { font-weight: 400 !important; }
-  
-  .fc-daygrid-more-link { 
-    color: $text-ink2 !important; 
-    font-family: $font-copy !important; 
+  .fc-event-title { font-weight: 400; }
+
+  .fc-daygrid-more-link {
+    color: $text-ink2;
+    font-family: $font-copy;
     font-size: 0.8rem;
-    font-weight: 700 !important; 
+    font-weight: 700;
   }
 }
 
 // Toolbar & Buttons über dem Kalender
-.fc-toolbar-title { 
-  font-family: $font-heading !important; 
-  color: $brand-primary !important; 
+.fc-toolbar-title {
+  font-family: $font-heading;
+  color: $brand-primary;
 }
 .fc-button-primary {
-  background-color: transparent !important;
-  border: 1px solid rgba($brand-primary, 0.2) !important;
-  color: $brand-primary !important;
-  font-family: $font-copy !important;
-  font-size: 0.9rem !important;
-  text-transform: capitalize !important;
+  background-color: transparent;
+  border: 1px solid rgba($brand-primary, 0.2);
+  color: $brand-primary;
+  font-family: $font-copy;
+  font-size: 0.9rem;
+  text-transform: capitalize;
 
-  &:hover, &.fc-button-active {
-    background: $brand-primary !important;
-    background-color: $brand-primary !important;
-    color: $brand-paper !important;
-    border-color: $brand-primary !important;
+  &:hover,
+  &.fc-button-active {
+    background: $brand-primary;
+    background-color: $brand-primary;
+    color: $brand-paper;
+    border-color: $brand-primary;
   }
 }
 
@@ -197,71 +219,91 @@
 // 4. DIE DETAIL-POPUPS (Karierter Notizzettel)
 // ========================================================
 .modal {
-  display: none; 
-  position: fixed !important; 
-  z-index: 999999 !important;
-  left: 0; top: 0; width: 100vw !important; height: 100vh !important;
-  background-color: rgba($brand-ink, 0.4) !important; 
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($brand-ink, 0.4);
+
+  // FIX: -webkit-Prefix für Safari-Kompatibilität ergänzt
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 
+  // FIX: Zustand über Modifier-Klasse steuerbar (JS setzt .modal--open)
+  &.modal--open {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
   .modal-content {
-    background-color: $brand-light !important; 
-    margin: 12vh auto !important;
-    padding: 32px 32px 32px 75px !important; 
-    border: 1px solid rgba($brand-primary, 0.15) !important;
-    border-radius: $border-radius !important;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
-    position: relative !important;
-    box-sizing: border-box !important;
-    animation: modalPopIn 0.2s ease-out !important;
-    
-    background-image: 
+    background-color: $brand-light;
+    margin: 12vh auto;
+    padding: 32px 32px 32px 75px;
+    border: 1px solid rgba($brand-primary, 0.15);
+    border-radius: $border-radius;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    box-sizing: border-box;
+    animation: modalPopIn 0.2s ease-out;
+
+    background-image:
       linear-gradient(90deg, rgba($brand-primary, 0.05) 1px, transparent 1px),
-      linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px) !important;
-    background-size: 24px 24px !important;
+      linear-gradient(rgba($brand-primary, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
 
     &::before {
-      content: ''; position: absolute !important; top: 0; bottom: 0; left: 56px !important;
-      width: 1.5px !important; background-color: #c94c4c !important; z-index: 10 !important;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 56px;
+      width: 1.5px;
+      background-color: $marginal-red;
+      z-index: 10;
     }
   }
 
   #modalTitle {
-    margin-top: 0 !important;
-    font-family: $font-heading !important;
-    color: $brand-ink !important;
-    border-bottom: 2px solid #c94c4c !important;
-    padding-bottom: 6px !important;
-    font-size: 1.4rem !important;
+    margin-top: 0;
+    font-family: $font-heading;
+    color: $brand-ink;
+    border-bottom: 2px solid $marginal-red;
+    padding-bottom: 6px;
+    font-size: 1.4rem;
   }
 
   #modalBody {
-    font-family: $font-copy !important; 
-    color: $text-dark !important;
-    font-size: 0.95rem !important;
-    line-height: 24px !important; 
-    margin-top: 18px !important;
-    
-    p { margin-bottom: 0 !important; }
+    font-family: $font-copy;
+    color: $text-dark;
+    font-size: 0.95rem;
+    line-height: 24px;
+    margin-top: 18px;
+
+    p { margin-bottom: 0; }
     a {
-      color: $brand-primary !important;
-      text-decoration: underline !important;
+      color: $brand-primary;
+      text-decoration: underline;
     }
   }
 
   .close-modal {
-    color: $text-muted !important;
-    position: absolute !important;
-    top: 15px !important;
-    right: 20px !important;
-    font-size: 32px !important;
-    z-index: 11 !important;
-    &:hover { color: #c94c4c !important; }
+    color: $text-muted;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    z-index: 11;
+    cursor: pointer;
+
+    &:hover { color: $marginal-red; }
   }
 }
 
-// JETZT SAUBER UND STRUKTURELL KORREKT:
 @keyframes modalPopIn {
   from { transform: scale(0.96); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  to   { transform: scale(1);    opacity: 1; }
 }
