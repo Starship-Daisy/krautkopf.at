@@ -963,26 +963,32 @@ html body .blog-grid .blog-card.is-draft .card-content,
 .calendar-navigation {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 35px;
   position: relative;
   z-index: 50;
 }
 .calendar-navigation h3 {
   font-family: "Lora", serif;
   color: #4a5d4e;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin: 0;
   text-align: center;
+  min-width: 220px;
 }
 .calendar-navigation .calendar-btn {
   background: transparent;
-  border: 1px solid rgba(74, 93, 78, 0.2);
+  border: 1px solid rgba(74, 93, 78, 0.15);
   color: #4a5d4e;
-  font-size: 1.1rem;
-  padding: 6px 16px;
+  font-size: 1.2rem;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 50%;
   transition: all 0.2s ease;
   font-family: "Open Sans", sans-serif;
 }
@@ -996,7 +1002,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 1px;
 }
 @media (max-width: 768px) {
@@ -1007,12 +1013,12 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 #calendar-grid .weekday-label {
   background-color: #4a5d4e;
-  padding: 12px 0;
+  padding: 10px 0;
   text-align: center;
   font-family: "Lora", serif;
   color: #f7f4e9;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
 }
 @media (max-width: 768px) {
@@ -1022,16 +1028,22 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 #calendar-grid .calendar-day {
   background: transparent;
-  min-height: 100px;
+  height: 115px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 8px;
+  padding: 6px;
   box-sizing: border-box;
+  border-bottom: 1px solid rgba(74, 93, 78, 0.06);
+  border-right: 1px solid rgba(74, 93, 78, 0.06);
+}
+#calendar-grid .calendar-day:nth-child(7n+1) {
+  border-right: none;
 }
 #calendar-grid .calendar-day.empty {
   visibility: hidden;
-  min-height: 0 !important;
+  height: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -1048,9 +1060,9 @@ html body .blog-grid .blog-card.is-draft .card-content,
 #calendar-grid .day-number {
   font-family: "Alice", serif;
   color: rgb(129.75, 135.1025641026, 124.3974358974);
-  font-size: 0.95rem;
-  padding: 4px;
-  margin-bottom: 4px;
+  font-size: 0.9rem;
+  padding: 2px 4px;
+  margin-bottom: 2px;
 }
 #calendar-grid .event-item {
   background: transparent;
@@ -1058,22 +1070,113 @@ html body .blog-grid .blog-card.is-draft .card-content,
   box-shadow: none;
   text-align: left;
   cursor: pointer;
+  width: 100%;
   font-family: "Praise", handwriting;
   color: #67a6bd;
-  font-size: 1.9rem;
-  line-height: 1.2;
-  padding: 0 6px;
-  margin: 2px 0;
-  transition: transform 0.15s ease;
-  width: 100%;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  padding: 0 4px;
+  margin: 1px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: transform 0.15s ease;
 }
 #calendar-grid .event-item:hover {
-  transform: scale(1.03) rotate(-0.5deg);
+  transform: scale(1.02) rotate(-0.5deg);
+  color: #4a5d4e;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(44, 62, 80, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+}
+.modal.modal--open {
+  display: flex;
+}
+.modal .modal-content {
+  background-color: #f7f4e9 !important;
+  width: 90%;
+  max-width: 540px;
+  padding: 40px 30px 40px 65px;
+  border: 1px solid rgba(74, 93, 78, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  position: relative;
+  box-sizing: border-box;
+  animation: modalPopIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-image: linear-gradient(rgba(173, 216, 230, 0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.25) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+}
+.modal .modal-content::before {
+  content: "";
+  position: absolute;
+  left: 45px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background-color: rgba(201, 76, 76, 0.5) !important;
+  z-index: 10;
+}
+.modal #modalTitle {
+  margin-top: 0;
+  font-family: "Lora", serif;
+  color: #4a5d4e;
+  border-bottom: 1px solid rgba(201, 76, 76, 0.3);
+  padding-bottom: 8px;
+  font-size: 1.4rem;
+}
+.modal #modalBody {
+  font-family: "Open Sans", sans-serif;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+.modal #modalBody p {
+  margin-bottom: 10px;
+}
+.modal #modalBody a {
+  color: #4a5d4e;
+  text-decoration: underline;
+  font-weight: 600;
+}
+.modal .close-modal {
+  color: #757a70;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  z-index: 11;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.modal .close-modal:hover {
+  color: #c94c4c;
+}
+
+@keyframes modalPopIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .blog-detail {
   max-width: 750px;
   margin: 4rem auto;
