@@ -12,26 +12,34 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let viewedDate   = new Date(); 
     let globalEvents = {};         
+    let currentStatusEl = null; // Speichert die aktuelle Statusmeldung
 
     const monthNames = [
         'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
         'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
     ];
 
-    // Hilfsfunktion, um Fehler direkt auf dem Kalenderblatt anzuzeigen
-    function showOnScreenStatus(message, isError = false) {
-        const statusDiv = document.createElement('div');
-        statusDiv.style.gridColumn = "1 / -1";
-        statusDiv.style.padding = "15px";
-        statusDiv.style.margin = "10px 0";
-        statusDiv.style.fontFamily = "sans-serif";
-        statusDiv.style.fontSize = "0.9rem";
-        statusDiv.style.borderRadius = "4px";
-        statusDiv.style.backgroundColor = isError ? "#f8d7da" : "#e2e3e5";
-        statusDiv.style.color = isError ? "#721c24" : "#383d41";
-        statusDiv.style.border = isError ? "1px solid #f5c6cb" : "1px solid #d6d8db";
-        statusDiv.textContent = message;
-        grid.appendChild(statusDiv);
+    // Hilfsfunktion für saubere Statusmeldungen ganz oben
+    function showStatus(message, isError = false) {
+        // Alte Statusmeldung entfernen, falls vorhanden
+        if (currentStatusEl && currentStatusEl.parentNode) {
+            currentStatusEl.parentNode.removeChild(currentStatusEl);
+        }
+        
+        currentStatusEl = document.createElement('div');
+        currentStatusEl.style.gridColumn = "1 / -1";
+        currentStatusEl.style.padding = "12px";
+        currentStatusEl.style.margin = "0 0 15px 0";
+        currentStatusEl.style.fontFamily = "sans-serif";
+        currentStatusEl.style.fontSize = "0.9rem";
+        currentStatusEl.style.borderRadius = "4px";
+        currentStatusEl.style.backgroundColor = isError ? "#f8d7da" : "#e2e3e5";
+        currentStatusEl.style.color = isError ? "#721c24" : "#383d41";
+        currentStatusEl.style.border = isError ? "1px solid #f5c6cb" : "1px solid #d6d8db";
+        currentStatusEl.textContent = message;
+        
+        // Signalisiert dem Grid, die Meldung ganz oben anzuzeigen
+        grid.insertBefore(currentStatusEl, grid.firstChild);
     }
  
     // =========================================================
@@ -82,11 +90,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         
-        // Wenn die Datei geladen wurde, aber keine VEVENT-Blöcke hat:
         if (counter === 0) {
-            setTimeout(() => showOnScreenStatus("Hinweis: Die .ics-Datei wurde geladen, enthält aber überhaupt keine gültigen Termine. Überprüfe, ob der Google-Kalender öffentlich ist.", false), 50);
+            showStatus("Hinweis: Die Kalenderdatei ist da, enthält aber 0 Termine. Prüfe, ob Termine im Google Kalender eingetragen sind.", false);
         } else {
-            setTimeout(() => showOnScreenStatus(`Erfolg: Es wurden insgesamt ${counter} Termine aus der Datei eingelesen.`, false), 50);
+            showStatus(`Erfolg: ${counter} Termine aus Google-Export geladen!`, false);
         }
         
         return events;
@@ -96,12 +103,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // 2. KALENDER ZEICHNEN
     // =========================================================
     function renderCalendar() {
-        // Event-Einträge behalten, nur das Grid leeren (Labels & Boxen)
-        const statusElements = grid.querySelectorAll('div[style*="grid-column"]');
-        grid.innerHTML = '';
-        
-        // Statusmeldungen wieder anhängen, falls vorhanden
-        statusElements.forEach(el => grid.appendChild(el));
+        // Wochentage und Tage neu aufbauen
+        const labels = grid.querySelectorAll('.weekday-label, .calendar-day');
+        labels.forEach(el => el.parentNode.removeChild(el));
  
         if (monthTitle) {
             monthTitle.textContent = `${monthNames[viewedDate.getMonth()]} ${viewedDate.getFullYear()}`;
@@ -210,13 +214,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // 5. INITIALER LADEVORGANG
     // =========================================================
     if (icalUrl && !icalUrl.includes('HIER_DEINE')) {
-        showOnScreenStatus(`Ladeversuch der Datei von Pfad: "${icalUrl}"...`, false);
+        showStatus("Verbinde mit Kalenderdatei...", false);
         
         fetch(icalUrl)
             .then(function (response) {
-                if (!response.ok) {
-                    throw new Error(`Datei nicht gefunden (HTTP ${response.status}). Überprüfe den data-ical-url Pfad im HTML!`);
-                }
+                if (!response.ok) throw new Error('HTTP ' + response.status);
                 return response.text();
             })
             .then(function (data) {
@@ -224,12 +226,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 renderCalendar();             
             })
             .catch(function (err) {
-                grid.innerHTML = '';
-                showOnScreenStatus(`Fehler beim Laden: ${err.message}`, true);
+                showStatus(`Fehler beim Laden: ${err.message}`, true);
                 renderCalendar();
             });
     } else {
-        showOnScreenStatus("Fehler: Keine gültige iCal-URL im HTML-Attribut 'data-ical-url' hinterlegt.", true);
+        showStatus("Fehler: Keine gültige iCal-URL hinterlegt.", true);
         renderCalendar();
     }
 });
