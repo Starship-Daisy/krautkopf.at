@@ -26,16 +26,14 @@ $marginal-red: #c94c4c;
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 40px 40px 40px 65px; // Mehr Platz links für die rote Linie
+  padding: 40px 40px 40px 65px; 
   position: relative;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); 
   border-radius: 4px;
   box-sizing: border-box;
 
   // 🧩 BLAUES KARO-MUSTER
-  background-image: 
-    linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
+  background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
   background-size: 24px 24px !important;
 
   @media (max-width: 768px) {
@@ -61,19 +59,19 @@ $marginal-red: #c94c4c;
 .calendar-navigation {
   display: flex;
   align-items: center;
-  justify-content: center; // Harmonisch zentriert
+  justify-content: center; 
   gap: 24px;
   margin-bottom: 35px;
   position: relative;
   z-index: 50; 
 
   h3 {
-    font-family: $font-heading; // Lora
+    font-family: $font-heading; 
     color: $brand-primary;
     font-size: 1.7rem;
     margin: 0;
     text-align: center;
-    min-width: 220px; // Verhindert Ruckeln beim Monatswechsel
+    min-width: 220px; 
   }
 
   .calendar-btn {
@@ -87,7 +85,7 @@ $marginal-red: #c94c4c;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 50%; // Schicke, runde Retro-Knöpfe
+    border-radius: 50%; 
     transition: all 0.2s ease;
     font-family: $font-copy;
 
@@ -106,7 +104,7 @@ $marginal-red: #c94c4c;
   position: relative;
   z-index: 2; 
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr)); // Mathematisch exakte Spaltenbreiten
+  grid-template-columns: repeat(7, minmax(0, 1fr)); 
   gap: 1px; 
 
   @media (max-width: 768px) {
@@ -131,8 +129,8 @@ $marginal-red: #c94c4c;
   // 📅 DIE EINZELNEN TAGE
   .calendar-day {
     background: transparent;
-    height: 115px; // 🛑 FESTE HÖHE: Verhindert das vertikale Strecken der Zellen!
-    overflow: hidden; // Schneidet Überschüsse ab, statt das Design zu zerstören
+    height: 115px; 
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -166,7 +164,7 @@ $marginal-red: #c94c4c;
 
   // Datumszahlen
   .day-number {
-    font-family: $font-sub; // Alice
+    font-family: $font-sub; 
     color: color.adjust($text-muted, $lightness: 5%);
     font-size: 0.9rem;
     padding: 2px 4px;
@@ -182,14 +180,13 @@ $marginal-red: #c94c4c;
     cursor: pointer;
     width: 100%;
 
-    font-family: $font-script; // Praise
+    font-family: $font-script; 
     color: $text-ink2;         
     font-size: 1.75rem;
     line-height: 1.1;
     padding: 0 4px;
     margin: 1px 0;
     
-    // Horizontaler Zeilenschutz
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; 
@@ -215,7 +212,6 @@ $marginal-red: #c94c4c;
   height: 100vh;
   background-color: rgba($brand-ink, 0.35); 
 
-  // ✨ BACKDROP-BLUR: Macht den Hintergrund wunderbar unscharf
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   
@@ -228,7 +224,7 @@ $marginal-red: #c94c4c;
 
   .modal-content {
     background-color: $brand-paper !important; 
-    width: 90%; // 🛑 SEITENABSTAND: Garantiert links und rechts 5% Luft zum Bildschirmrand
+    width: 90%; 
     max-width: 540px; 
     padding: 40px 30px 40px 65px; 
     border: 1px solid rgba($brand-primary, 0.15);
@@ -238,5 +234,62 @@ $marginal-red: #c94c4c;
     box-sizing: border-box;
     animation: modalPopIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    background-image: 
-      linear-gradient(rgba(173, 216, 230, 0.25) 1px, transparent 1px),}
+    background-image: linear-gradient(rgba(173, 216, 230, 0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.25) 1px, transparent 1px) !important;
+    background-size: 24px 24px !important;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 45px;
+      top: 0;
+      bottom: 0;
+      width: 1.5px;
+      background-color: rgba($marginal-red, 0.5) !important;
+      z-index: 10;
+    }
+  }
+
+  #modalTitle {
+    margin-top: 0;
+    font-family: $font-heading;
+    color: $brand-primary;
+    border-bottom: 1px solid rgba($marginal-red, 0.3);
+    padding-bottom: 8px;
+    font-size: 1.4rem;
+  }
+
+  #modalBody {
+    font-family: $font-copy;
+    color: $text-dark;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 15px;
+
+    p { margin-bottom: 10px; }
+    a {
+      color: $brand-primary;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  }
+
+  .close-modal {
+    color: $text-muted;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    z-index: 11;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover { color: $marginal-red; }
+  }
+}
+
+@keyframes modalPopIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
