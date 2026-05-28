@@ -24,10 +24,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 📅 .ics von Google abholen und als .txt speichern
+      - name: 📅 .ics von Google abholen und speichern
         run: |
           mkdir -p js
-          curl -sL "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.txt
+          curl -sLf "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.ics
 
       - name: 📤 Alle Dateien (inkl. Kalender) per FTP übertragen
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
