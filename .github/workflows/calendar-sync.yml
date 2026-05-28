@@ -1,38 +1,30 @@
-name: 📅 DSGVO Kalender-Sync
- 
+name: DSGVO Kalender-Sync
+
 on:
   schedule:
-    - cron: '0 */6 * * *' # Läuft vollautomatisch alle 6 Stunden
-  workflow_dispatch: # Aktiviert den manuellen blauen Button
- 
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
 permissions:
-  contents: write # Erlaubt GitHub, die Datei in dein Repo zu schreiben
- 
+  contents: write
+
 jobs:
   sync:
-    name: 🔄 Kalender in Git speichern
+    name: Kalender in Git speichern
     runs-on: ubuntu-latest
- 
+
     steps:
-      - name: 📂 Code von GitHub holen
+      - name: Code von GitHub holen
         uses: actions/checkout@v4
- 
-      - name: 📅 .ics von Google abholen
-        env:
-          # FIX: URL als Secret speichern (in GitHub → Settings → Secrets → ICAL_URL anlegen)
-          ICAL_URL: ${{https://calendar.google.com/calendar/ical/wolfgang%40krautkopf.at/public/basic.ics}}
+
+      - name: .ics von Google abholen
         run: |
           mkdir -p js
-          # FIX: --fail bricht den Step ab wenn Google einen Fehler zurückgibt,
-          #       statt eine Fehler-HTML in die Datei zu schreiben.
-          # FIX: Dateiendung .ics statt .txt (semantisch korrekt)
-          curl -sLf "$ICAL_URL" -o js/werkstatt.ics
- 
-      - name: 📝 Datei in GitHub einchecken & pushen
+          curl -sLf "https://calendar.google.com/calendar/ical/wolfgang%40krautkopf.at/public/basic.ics" -o js/werkstatt.ics
+
+      - name: Datei in GitHub einchecken & pushen
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add js/werkstatt.ics
-          # Nur committen und pushen wenn sich wirklich etwas geändert hat
-          git diff-index --quiet HEAD || (git commit -m "📅 Kalender-Daten automatisch aktualisiert" && git push)
- 
+          git diff-index --quiet HEAD || (git commit -m "Kalender-Daten automatisch aktualisiert" && git push)
