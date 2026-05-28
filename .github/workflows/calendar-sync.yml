@@ -20,7 +20,7 @@ jobs:
       - name: 📅 .ics von Google abholen
         env:
           # FIX: URL als Secret speichern (in GitHub → Settings → Secrets → ICAL_URL anlegen)
-          ICAL_URL: ${{ secrets.ICAL_URL }}
+          ICAL_URL: ${{https://calendar.google.com/calendar/ical/wolfgang%40krautkopf.at/public/basic.ics}}
         run: |
           mkdir -p js
           # FIX: --fail bricht den Step ab wenn Google einen Fehler zurückgibt,
