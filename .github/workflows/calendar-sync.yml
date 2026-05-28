@@ -20,7 +20,7 @@ jobs:
       - name: .ics von Google abholen
         run: |
           mkdir -p js
-          curl -sLf "https://calendar.google.com/calendar/ical/wolfgang%40krautkopf.at/public/basic.ics" -o js/werkstatt.ics
+          curl -sLf "${{ secrets.ICAL_URL }}" -o js/werkstatt.ics
 
       - name: Datei in GitHub einchecken & pushen
         run: |
