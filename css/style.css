@@ -960,6 +960,38 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 10;
 }
 
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 50;
+}
+.calendar-navigation h3 {
+  font-family: "Lora", serif;
+  color: #4a5d4e;
+  font-size: 1.6rem;
+  margin: 0;
+  text-align: center;
+}
+.calendar-navigation .calendar-btn {
+  background: transparent;
+  border: 1px solid rgba(74, 93, 78, 0.2);
+  color: #4a5d4e;
+  font-size: 1.1rem;
+  padding: 6px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: "Open Sans", sans-serif;
+}
+.calendar-navigation .calendar-btn:hover {
+  background-color: #4a5d4e;
+  color: #f7f4e9;
+  border-color: #4a5d4e;
+}
+
 #calendar-grid {
   position: relative;
   z-index: 2;
