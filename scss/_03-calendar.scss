@@ -1,5 +1,5 @@
 // ========================================================
-// 03-CALENDAR.SCSS (Kariertes Kalenderblatt-Design)
+// 03-CALENDAR.SCSS (Kariertes Kalenderblatt- & Popup-Design)
 // ========================================================
 
 @use 'sass:color'; 
@@ -9,10 +9,9 @@
 // Lokale Farbvariable für die rote Linie (falls nicht in 01-variables)
 $marginal-red: #c94c4c;
 
-// 1. DER EIN_FÄRBIGE HINTERGRUND-CONTAINER
-// Hier kannst du die Hintergrundfarbe der kompletten Seite steuern
+// 1. DER EIN-FÄRBIGE HINTERGRUND-CONTAINER
 .calendar-page-wrapper {
-  background-color: $brand-light; // Solider, einfarbiger Hintergrund (z.B. dein helles Beige/Grau)
+  background-color: $brand-light; 
   padding: 60px 20px;
   min-height: 100vh;
   display: flex;
@@ -23,17 +22,17 @@ $marginal-red: #c94c4c;
 
 // 2. DAS KALENDERBLATT (Der freischwebende Notizblock-Zettel)
 .calendar-sheet {
-  background-color: $brand-paper !important; // Die warme Papierfarbe
+  background-color: $brand-paper !important; 
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   padding: 40px 40px 40px 65px; // Mehr Platz links für die rote Linie
   position: relative;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); // Eleganter Blattschatten
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); 
   border-radius: 4px;
   box-sizing: border-box;
 
-  // 🧩 BLAUES KARO-MUSTER (Aus deiner Blog-Karte übernommen)
+  // 🧩 BLAUES KARO-MUSTER
   background-image: 
     linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px),
     linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
@@ -43,11 +42,11 @@ $marginal-red: #c94c4c;
     padding: 30px 15px 30px 45px;
   }
 
-  // 🔴 ROTE MARGINAL-LINIE (Klassisch auf der linken Seite des Blattes)
+  // 🔴 ROTE MARGINAL-LINIE
   &::before {
     content: '';
     position: absolute;
-    left: 45px; // Exakte Positionierung auf dem Karo
+    left: 45px; 
     top: 0;
     bottom: 0;
     width: 1.5px;
@@ -57,32 +56,38 @@ $marginal-red: #c94c4c;
 }
 
 // ========================================================
-// 🆕 DIE MONATS-NAVIGATION (Zettel-Stil)
+// 3. DIE MONATS-NAVIGATION (Zentriert auf dem Zettel)
 // ========================================================
 .calendar-navigation {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 30px;
+  justify-content: center; // Harmonisch zentriert
+  gap: 24px;
+  margin-bottom: 35px;
   position: relative;
-  z-index: 50; // Liegt über dem Karo
+  z-index: 50; 
 
   h3 {
     font-family: $font-heading; // Lora
     color: $brand-primary;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     margin: 0;
     text-align: center;
+    min-width: 220px; // Verhindert Ruckeln beim Monatswechsel
   }
 
   .calendar-btn {
     background: transparent;
-    border: 1px solid rgba($brand-primary, 0.2);
+    border: 1px solid rgba($brand-primary, 0.15);
     color: $brand-primary;
-    font-size: 1.1rem;
-    padding: 6px 16px;
+    font-size: 1.2rem;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    border-radius: $border-radius;
+    border-radius: 50%; // Schicke, runde Retro-Knöpfe
     transition: all 0.2s ease;
     font-family: $font-copy;
 
@@ -94,60 +99,64 @@ $marginal-red: #c94c4c;
   }
 }
 
-// 3. DAS KALENDER-GRID (Deine funktionale Vorlage)
+// ========================================================
+// 4. DAS KALENDER-GRID (Sicher gegen Verzerren)
+// ========================================================
 #calendar-grid {
   position: relative;
-  z-index: 2; // Liegt sicher über dem Karomuster
-  
-  // Aktiviert das 7-Tage-Raster für Woche/Monat
+  z-index: 2; 
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1px; // Erzeugt eine hauchdünne Rasterlinie zwischen den Tagen
+  grid-template-columns: repeat(7, minmax(0, 1fr)); // Mathematisch exakte Spaltenbreiten
+  gap: 1px; 
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; // Auf Mobilgeräten stehen die Tage untereinander
+    grid-template-columns: 1fr; 
     gap: 15px;
   }
 
   // 👑 DIE WOCHENTAGE (Kopfzeile)
   .weekday-label {
     background-color: $brand-primary;
-    padding: 12px 0;
+    padding: 10px 0;
     text-align: center;
-    font-family: $font-heading; // Lora
+    font-family: $font-heading; 
     color: $brand-paper;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
 
-    @media (max-width: 768px) {
-      display: none; // Blendet die Mo-So Kopfzeile auf Mobilgeräten aus, da dort nutzlos
-    }
+    @media (max-width: 768px) { display: none; }
   }
 
-// 📅 DIE EINZELNEN TAGE
+  // 📅 DIE EINZELNEN TAGE
   .calendar-day {
     background: transparent;
-    min-height: 100px; // Platz für Termine auf Desktop
+    height: 115px; // 🛑 FESTE HÖHE: Verhindert das vertikale Strecken der Zellen!
+    overflow: hidden; // Schneidet Überschüsse ab, statt das Design zu zerstören
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 8px;
+    padding: 6px;
     box-sizing: border-box;
+    
+    border-bottom: 1px solid rgba($brand-primary, 0.06);
+    border-right: 1px solid rgba($brand-primary, 0.06);
 
-    // 🛑 FIX: Absolut sicheres Verstecken der leeren Auffülltage
+    &:nth-child(7n+1) { border-right: none; } 
+
+    // Absolut sicheres Verstecken der leeren Auffülltage
     &.empty {
-      visibility: hidden;        // Desktop: Unsichtbar, aber hält den Platz für die Wochentage frei
-      min-height: 0 !important;  // Verhindert, dass die Box Raum einnimmt
-      padding: 0 !important;     // Entfernt inneren Abstand
+      visibility: hidden;        
+      height: 0 !important;  
+      padding: 0 !important;     
       margin: 0 !important;
 
       @media (max-width: 768px) {
-        display: none !important; // Mobile: Löscht das Element komplett aus dem Layout-Fluss
+        display: none !important; 
       }
     }
 
-    // Heute-Zahl markieren
+    // Heute markieren
     &.is-today .day-number {
       color: $brand-primary;
       font-weight: 700;
@@ -155,14 +164,13 @@ $marginal-red: #c94c4c;
     }
   }
 
-
   // Datumszahlen
   .day-number {
     font-family: $font-sub; // Alice
     color: color.adjust($text-muted, $lightness: 5%);
-    font-size: 0.95rem;
-    padding: 4px;
-    margin-bottom: 4px;
+    font-size: 0.9rem;
+    padding: 2px 4px;
+    margin-bottom: 2px;
   }
 
   // ✒️ DIE TERMINE (Königsblaue Tinte)
@@ -172,22 +180,63 @@ $marginal-red: #c94c4c;
     box-shadow: none;
     text-align: left;
     cursor: pointer;
+    width: 100%;
 
     font-family: $font-script; // Praise
-    color: $text-ink2;         // #67a6bd
-
-    font-size: 1.9rem;
-    line-height: 1.2;
-    padding: 0 6px;
-    margin: 2px 0;
-    transition: transform 0.15s ease;
-    width: 100%;
+    color: $text-ink2;         
+    font-size: 1.75rem;
+    line-height: 1.1;
+    padding: 0 4px;
+    margin: 1px 0;
+    
+    // Horizontaler Zeilenschutz
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; // Schneidet zu langen Text elegant mit "..." ab
+    text-overflow: ellipsis; 
+    transition: transform 0.15s ease;
 
     &:hover {
-      transform: scale(1.03) rotate(-0.5deg); // Leichter Tintentanz beim Drüberfahren
+      transform: scale(1.02) rotate(-0.5deg); 
+      color: $brand-primary;
     }
   }
 }
+
+// ========================================================
+// 5. DIE DETAIL-POPUPS (Mit Unschärfe & Screen-Abstand)
+// ========================================================
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($brand-ink, 0.35); 
+
+  // ✨ BACKDROP-BLUR: Macht den Hintergrund wunderbar unscharf
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  
+  justify-content: center;
+  align-items: center;
+
+  &.modal--open {
+    display: flex; 
+  }
+
+  .modal-content {
+    background-color: $brand-paper !important; 
+    width: 90%; // 🛑 SEITENABSTAND: Garantiert links und rechts 5% Luft zum Bildschirmrand
+    max-width: 540px; 
+    padding: 40px 30px 40px 65px; 
+    border: 1px solid rgba($brand-primary, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    box-sizing: border-box;
+    animation: modalPopIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    background-image: 
+      linear-gradient(rgba(173, 216, 230, 0.25) 1px, transparent 1px),
