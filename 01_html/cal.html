@@ -33,13 +33,28 @@
     </div>
 </header>
 
-<main class="calendar-page-wrapper"> <section class="calendar-sheet"> <h2 class="blog-feed-title blog-feed-title--centered">Werkstatt-Termine</h2>
+<main class="calendar-page-wrapper"> 
+    <section class="calendar-sheet"> <h2 class="blog-feed-title blog-feed-title--centered">Werkstatt-Termine</h2>
+        
+        <div id="calendar-wrapper" data-ical-url="../js/werkstatt.ics">
+            <div id="calendar-grid"></div> 
+        </div>
+    </section>
+
+    <section class="calendar-sheet"> 
+        <h2 class="blog-feed-title blog-feed-title--centered">Werkstatt-Termine</h2>
+
+        <div class="calendar-navigation">
+            <button id="calendar-prev" class="calendar-btn" aria-label="Vorheriger Monat">&larr;</button>
+            <h3 id="calendar-month-title"></h3>
+            <button id="calendar-next" class="calendar-btn" aria-label="Nächster Monat">&rarr;</button>
+        </div>
 
         <div id="calendar-wrapper" data-ical-url="../js/werkstatt.ics">
             <div id="calendar-grid"></div> 
         </div>
-
     </section>
+
 </main>
 
 <!-- FIX: footer außerhalb von main -->
