@@ -56,6 +56,44 @@ $marginal-red: #c94c4c;
   }
 }
 
+// ========================================================
+// 🆕 DIE MONATS-NAVIGATION (Zettel-Stil)
+// ========================================================
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 50; // Liegt über dem Karo
+
+  h3 {
+    font-family: $font-heading; // Lora
+    color: $brand-primary;
+    font-size: 1.6rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  .calendar-btn {
+    background: transparent;
+    border: 1px solid rgba($brand-primary, 0.2);
+    color: $brand-primary;
+    font-size: 1.1rem;
+    padding: 6px 16px;
+    cursor: pointer;
+    border-radius: $border-radius;
+    transition: all 0.2s ease;
+    font-family: $font-copy;
+
+    &:hover {
+      background-color: $brand-primary;
+      color: $brand-paper;
+      border-color: $brand-primary;
+    }
+  }
+}
+
 // 3. DAS KALENDER-GRID (Deine funktionale Vorlage)
 #calendar-grid {
   position: relative;
@@ -117,7 +155,7 @@ $marginal-red: #c94c4c;
     }
   }
 
-  
+
   // Datumszahlen
   .day-number {
     font-family: $font-sub; // Alice
