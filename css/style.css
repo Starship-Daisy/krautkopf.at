@@ -1091,7 +1091,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   text-overflow: clip !important;
 }
 .event-item:hover {
-  transform: scale(1.02) rotate(-0.5deg);
+  /*transform: scale(1.02) rotate(-0.5deg); */
   color: #4a5d4e;
 }
 .event-item .event-time {
