@@ -1168,6 +1168,22 @@ html body .blog-grid .blog-card.is-draft .card-content,
   font-size: 0.95rem;
   line-height: 1.6;
   margin-top: 15px;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 12px;
+}
+.modal #modalBody::-webkit-scrollbar {
+  width: 6px;
+}
+.modal #modalBody::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal #modalBody::-webkit-scrollbar-thumb {
+  background: rgba(74, 93, 78, 0.2);
+  border-radius: 10px;
+}
+.modal #modalBody::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 93, 78, 0.4);
 }
 .modal #modalBody p {
   margin-bottom: 10px;
