@@ -184,21 +184,50 @@ $marginal-red: #c94c4c;
   cursor: pointer;
   width: 100%;
 
+  // ÄNDERUNG: Stapelt Uhrzeit und Text untereinander statt nebeneinander
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  gap: 4px; // Kleiner Abstand zwischen Uhrzeit-Badge und Text
+
   font-family: $font-copy; 
   color: $text-ink2;         
-  font-size: 1.1rem; // Leicht herabgesetzt, damit es im Grid Platz hat
-  line-height: 1.1;
-  padding: 0 4px;
-  margin: 1px 0;
+  font-size: 1.1rem; 
+  line-height: 1.25; // Etwas mehr Luft für mehrzeiligen Text
+  padding: 4px;
+  margin: 6px 0;
   
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; 
-  transition: transform 0.15s ease;
+  // FIX: Umbruch erlauben und Abschneiden verhindern
+  white-space: normal !important; 
+  overflow: visible !important; 
+  text-overflow: clip !important;
 
   &:hover {
     transform: scale(1.02) rotate(-0.5deg); 
     color: $brand-primary;
+  }
+
+  .event-time {
+    font-family: $font-main;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: $brand-primary; 
+    background-color: rgba($brand-primary, 0.08); 
+    padding: 2px 6px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+
+  .event-title {
+    font-family: $font-copy;
+    font-size: 1.05rem; 
+    color: $text-ink2;
+    
+    // FIX: Auch hier den Zeilenumbruch für die Headline aktivieren
+    white-space: normal !important; 
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
 }
 
