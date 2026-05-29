@@ -164,6 +164,26 @@ $marginal-red: #c94c4c;
     font-weight: 700;
     text-decoration: underline dashed $brand-accent 2px;
   }
+} 
+
+  // Ausblenden der leeren Auffülltage
+  &.empty {
+    visibility: hidden;        
+    height: 0 !important;  
+    padding: 0 !important;     
+    margin: 0 !important;
+
+    @media (max-width: 768px) {
+      display: none !important; 
+    }
+  }
+
+  // Heute markieren
+  &.is-today .day-number {
+    color: $brand-primary;
+    font-weight: 700;
+    text-decoration: underline dashed $brand-accent 2px;
+  }
 }
 
 // Datumszahlen
