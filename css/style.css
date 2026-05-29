@@ -922,18 +922,15 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 
 .calendar-page-wrapper {
-  background-color: #fdfcf8;
-  padding: 60px 20px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: start;
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  min-height: 80vh;
   box-sizing: border-box;
 }
 
 .calendar-sheet {
   background-color: #f7f4e9 !important;
-  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
   padding: 40px 40px 40px 65px;
@@ -969,7 +966,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   position: relative;
   z-index: 50;
 }
-.calendar-navigation h3 {
+.calendar-navigation #calendar-month-title {
   font-family: "Lora", serif;
   color: #4a5d4e;
   font-size: 1.7rem;
@@ -994,8 +991,12 @@ html body .blog-grid .blog-card.is-draft .card-content,
 }
 .calendar-navigation .calendar-btn:hover {
   background-color: #4a5d4e;
-  color: #f7f4e9;
+  color: #fdfcf8;
   border-color: #4a5d4e;
+}
+.calendar-navigation .calendar-btn:focus {
+  outline: 2px solid #8b9d83;
+  outline-offset: 2px;
 }
 
 #calendar-grid {
@@ -1011,7 +1012,8 @@ html body .blog-grid .blog-card.is-draft .card-content,
     gap: 15px;
   }
 }
-#calendar-grid .weekday-label {
+
+.weekday-label {
   background-color: #4a5d4e;
   padding: 10px 0;
   text-align: center;
@@ -1022,11 +1024,12 @@ html body .blog-grid .blog-card.is-draft .card-content,
   letter-spacing: 1px;
 }
 @media (max-width: 768px) {
-  #calendar-grid .weekday-label {
+  .weekday-label {
     display: none;
   }
 }
-#calendar-grid .calendar-day {
+
+.calendar-day {
   background: transparent;
   height: 115px;
   overflow: hidden;
@@ -1038,42 +1041,44 @@ html body .blog-grid .blog-card.is-draft .card-content,
   border-bottom: 1px solid rgba(74, 93, 78, 0.06);
   border-right: 1px solid rgba(74, 93, 78, 0.06);
 }
-#calendar-grid .calendar-day:nth-child(7n+1) {
+.calendar-day:nth-child(7n) {
   border-right: none;
 }
-#calendar-grid .calendar-day.empty {
+.calendar-day.empty {
   visibility: hidden;
   height: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 @media (max-width: 768px) {
-  #calendar-grid .calendar-day.empty {
+  .calendar-day.empty {
     display: none !important;
   }
 }
-#calendar-grid .calendar-day.is-today .day-number {
+.calendar-day.is-today .day-number {
   color: #4a5d4e;
   font-weight: 700;
   text-decoration: underline dashed #8b9d83 2px;
 }
-#calendar-grid .day-number {
+
+.day-number {
   font-family: "Alice", serif;
   color: rgb(129.75, 135.1025641026, 124.3974358974);
   font-size: 0.9rem;
   padding: 2px 4px;
   margin-bottom: 2px;
 }
-#calendar-grid .event-item {
+
+.event-item {
   background: transparent;
   border: none;
   box-shadow: none;
   text-align: left;
   cursor: pointer;
   width: 100%;
-  font-family: "Praise", handwriting;
+  font-family: "Open Sans", sans-serif;
   color: #67a6bd;
-  font-size: 1.75rem;
+  font-size: 1.1rem;
   line-height: 1.1;
   padding: 0 4px;
   margin: 1px 0;
@@ -1082,7 +1087,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   text-overflow: ellipsis;
   transition: transform 0.15s ease;
 }
-#calendar-grid .event-item:hover {
+.event-item:hover {
   transform: scale(1.02) rotate(-0.5deg);
   color: #4a5d4e;
 }
