@@ -35,7 +35,8 @@ $marginal-red: #c94c4c;
   background-size: 24px 24px !important;
 
   @media (max-width: 768px) {
-    padding: 30px 15px 30px 45px;
+    // Auf Mobile etwas weniger Links-Abstand, damit mehr Platz für den Text ist
+    padding: 30px 20px 30px 50px;
   }
 
   // 🔴 ROTE MARGINAL-LINIE (Heftrand)
@@ -48,6 +49,10 @@ $marginal-red: #c94c4c;
     width: 1.5px;
     background-color: rgba($marginal-red, 0.5) !important;
     z-index: 10;
+
+    @media (max-width: 768px) {
+      left: 35px; // Rückt auf Mobile synchron mit dem Padding mit
+    }
   }
 }
 
@@ -106,9 +111,10 @@ $marginal-red: #c94c4c;
   grid-template-columns: repeat(7, minmax(0, 1fr)); 
   gap: 1px; 
 
+  // transformiert das Raster auf Smartphones in eine saubere 1-spaltige Liste
   @media (max-width: 768px) {
     grid-template-columns: 1fr; 
-    gap: 15px;
+    gap: 0; // Keine Lücken auf Mobile, da wir feine Trennlinien nutzen
   }
 }
 
@@ -124,11 +130,11 @@ $marginal-red: #c94c4c;
   letter-spacing: 1px;
 
   @media (max-width: 768px) { 
-    display: none; 
+    display: none; // Auf Mobile blenden wir Mo, Di, Mi komplett aus
   }
 }
 
-// 📅 DIE EINZELNEN TAGE (Mit flexibler Höhenanpassung)
+// 📅 DIE EINZELNEN TAGE
 .calendar-day {
   background: transparent;
   min-height: 115px; 
@@ -146,23 +152,39 @@ $marginal-red: #c94c4c;
     border-right: none; 
   } 
 
-  // Ausblenden der leeren Auffülltage
   &.empty {
     visibility: hidden;        
     height: 0 !important;  
     padding: 0 !important;     
     margin: 0 !important;
-
-    @media (max-width: 768px) {
-      display: none !important; 
-    }
   }
 
-  // Heute markieren
+  // Heutigen Tag auf Desktop markieren
   &.is-today .day-number {
     color: $brand-primary;
     font-weight: 700;
     text-decoration: underline dashed $brand-accent 2px;
+  }
+
+  // 📱 === ULTRA-CLEANER MOBILE LIST-MODE ===
+  @media (max-width: 768px) {
+    border-right: none !important;
+    border-bottom: none !important;
+    
+    // UNSICHTBAR-SCHALTEN: Wenn ein Tag KEIN Event enthält, verschwindet er komplett vom Handybildschirm
+    &:not(:has(.event-item)) {
+      display: none !important;
+    }
+
+    // SICHTBAR-SCHALTEN: Nur Tage mit echten Terminen werden zu einer Listenzeile geformt
+    &:has(.event-item) {
+      display: grid !important;
+      grid-template-columns: 45px 1fr; // Links das Datum, rechts die Termine
+      gap: 10px 15px;
+      min-height: auto !important;
+      padding: 15px 0;
+      border-bottom: 1px dashed rgba($brand-primary, 0.15) !important; // Schöne, abtrennte Notizblock-Linie
+    }
   }
 }
 
@@ -173,6 +195,26 @@ $marginal-red: #c94c4c;
   font-size: 0.9rem;
   padding: 2px 4px;
   margin-bottom: 2px;
+
+  @media (max-width: 768px) {
+    // Verwandelt die Zahl auf Mobile in einen hübschen Datums-Badge links
+    grid-column: 1;
+    grid-row: 1 / span 20; // Hält die Zahl links, selbst wenn am selben Tag 3 Termine untereinander stehen
+    align-self: start;
+    background-color: rgba($brand-primary, 0.08);
+    color: $brand-primary !important;
+    text-decoration: none !important; // Unterstreichung von "heute" auf Mobile entfernen
+    border-radius: 4px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 // ✒️ DIE TERMINE (Königsblaue Tinte & Mehrzeilig)
@@ -200,8 +242,13 @@ $marginal-red: #c94c4c;
   text-overflow: clip !important;
 
   &:hover {
-    /*transform: scale(1.02) rotate(-0.5deg); */
-    color: $brand-primary;
+    color: $brand-primary; // Steht jetzt völlig wackelfrei und ruhig!
+  }
+
+  @media (max-width: 768px) {
+    grid-column: 2; // Drückt den Termin in die rechte Spalte, neben das Datum
+    margin: 0;
+    padding: 2px 0;
   }
 
   .event-time {
@@ -223,6 +270,25 @@ $marginal-red: #c94c4c;
     white-space: normal !important; 
     overflow: visible !important;
     text-overflow: clip !important;
+  }
+}
+
+// ⚪️ DER HEUTE-KREIS (NUR FÜR DESKTOP)
+@media (min-width: 769px) {
+  .calendar-day.is-today {
+    background-image: radial-gradient(circle 120px at 100% 100%, #ffffff 0%, #ffffff 99%, transparent 100%) !important;
+    border: 1px solid rgba($brand-primary, 0.2) !important;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.01);
+  }
+}
+
+// 📱 HEUTE-MARKIERUNG AUF MOBILE
+@media (max-width: 768px) {
+  .calendar-day.is-today {
+    .day-number {
+      background-color: $brand-primary !important;
+      color: $brand-paper !important; // Macht den Datums-Badge am heutigen Tag vollfarbig grün
+    }
   }
 }
 
@@ -285,31 +351,29 @@ $marginal-red: #c94c4c;
     font-size: 1.4rem;
   }
 
-#modalBody {
+  #modalBody {
     font-family: $font-copy;
     color: $text-dark;
     font-size: 0.95rem;
     line-height: 1.6;
     margin-top: 15px;
 
-    // 📜 HIER DIE NEUEN SCROLL-STYLES:
-    max-height: 50vh;            // Begrenzt den Text auf maximal 50% der Bildschirmhöhe
-    overflow-y: auto;            // Aktiviert das vertikale Scrollen, sobald der Text zu lang wird
-    padding-right: 12px;         // Gibt dem Text ein wenig Sicherheitsabstand zum Scrollbalken
+    max-height: 50vh;            
+    overflow-y: auto;            
+    padding-right: 12px;         
 
-    // 🎨 DESIGN FÜR DEN SCROLLBALKEN (Dezent passend zur Home-Werkstatt)
     &::-webkit-scrollbar {
-      width: 6px;                // Schön schmal und elegant
+      width: 6px;                
     }
     &::-webkit-scrollbar-track {
-      background: transparent;   // Kein blockiger Hintergrund
+      background: transparent;   
     }
     &::-webkit-scrollbar-thumb {
-      background: rgba($brand-primary, 0.2); // Zartes Werkstatt-Grün
+      background: rgba($brand-primary, 0.2); 
       border-radius: 10px;
       
       &:hover {
-        background: rgba($brand-primary, 0.4); // Wird beim Drüberfahren etwas dunkler
+        background: rgba($brand-primary, 0.4); 
       }
     }
 
