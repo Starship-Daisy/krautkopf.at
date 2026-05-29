@@ -1,0 +1,39 @@
+name: Automatisch Kalender aktualisieren
+
+on:
+  schedule:
+    # Läuft vollautomatisch jeden Tag um 04:00 Uhr nachts (UTC)
+    - cron: '0 4 * * *'
+  workflow_dispatch: # Erlaubt es dir, das Update jederzeit manuell per Klick zu starten
+
+jobs:
+  refresh-ical:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code auschecken
+        uses: actions/checkout@v4
+
+      - name: Aktuelle iCal-Datei herunterladen
+        run: |
+          # Sicherstellen, dass der js-Ordner existiert
+          mkdir -p js
+          
+          # Download der echten Google-Kalender-Datei via GitHub Secret
+          curl -sL "${{ secrets.ICAL_SOURCE_URL }}" -o js/werkstatt.ics
+
+      - name: Änderungen prüfen und committen
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Die aktualisierte Datei für Git vormerken
+          git add js/werkstatt.ics
+          
+          # Prüfen, ob sich überhaupt ein Termin geändert hat
+          if git diff --staged --quiet; then
+            echo "Keine neuen Termine vorhanden. Überspringe Commit."
+          else
+            git commit -m "chore: Automatisches Kalender-Update (Google-Export)"
+            git push
+          fi
