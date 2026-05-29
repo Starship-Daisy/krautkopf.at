@@ -12,16 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let viewedDate   = new Date(); 
     let globalEvents = {};         
-    let currentStatusEl = null; // Speichert die aktuelle Statusmeldung
+    let currentStatusEl = null; 
 
     const monthNames = [
         'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
         'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
     ];
 
-    // Hilfsfunktion für saubere Statusmeldungen ganz oben
     function showStatus(message, isError = false) {
-        // Alte Statusmeldung entfernen, falls vorhanden
         if (currentStatusEl && currentStatusEl.parentNode) {
             currentStatusEl.parentNode.removeChild(currentStatusEl);
         }
@@ -38,12 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
         currentStatusEl.style.border = isError ? "1px solid #f5c6cb" : "1px solid #d6d8db";
         currentStatusEl.textContent = message;
         
-        // Signalisiert dem Grid, die Meldung ganz oben anzuzeigen
         grid.insertBefore(currentStatusEl, grid.firstChild);
     }
  
     // =========================================================
-    // 1. ICAL-PARSER
+    // 1. ICAL-PARSER (Mit Uhrzeit-Extraktion & HTML-Fix)
     // =========================================================
     function parseICS(data) {
         const events = {};
@@ -66,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (!events[currentEvent.start]) events[currentEvent.start] = [];
                     events[currentEvent.start].push({
                         title: currentEvent.summary     || 'Werkstatt-Termin',
-                        desc:  currentEvent.description || 'Keine weiteren Details vorhanden.'
+                        desc:  currentEvent.description || 'Keine weiteren Details vorhanden.',
+                        time:  currentEvent.time        || '' // Uhrzeit mitspeichern
                     });
                     counter++;
                 }
@@ -76,6 +74,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     const val = cleanLine.split(':').pop();
                     if (val && val.length >= 8) {
                         currentEvent.start = `${val.substring(0, 4)}-${val.substring(4, 6)}-${val.substring(6, 8)}`;
+                        
+                        // Uhrzeit auslesen, falls vorhanden (sucht nach dem 'T' im Zeitstempel)
+                        const tIdx = val.indexOf('T');
+                        if (tIdx !== -1 && val.length >= tIdx + 5) {
+                            currentEvent.time = `${val.substring(tIdx + 1, tIdx + 3)}:${val.substring(tIdx + 3, tIdx + 5)}`;
+                        } else {
+                            currentEvent.time = ''; // Ganztägig
+                        }
                     }
                 } else if (cleanLine.startsWith('SUMMARY')) {
                     const colonIdx = cleanLine.indexOf(':');
@@ -83,18 +89,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (cleanLine.startsWith('DESCRIPTION')) {
                     const colonIdx = cleanLine.indexOf(':');
                     if (colonIdx !== -1) {
-                        const raw = cleanLine.substring(colonIdx + 1).replace(/\\,/g, ',');
-                        currentEvent.description = raw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/\\n/g, '<br>');
+                        let raw = cleanLine.substring(colonIdx + 1);
+                        // FIX: HTML-Codes NICHT mehr escapen, sondern Formatierung erlauben!
+                        raw = raw.replace(/\\,/g, ',')
+                                 .replace(/\\;/g, ';')
+                                 .replace(/\\n/g, '<br>')
+                                 .replace(/\\/g, '');
+                        currentEvent.description = raw;
                     }
                 }
             }
         }
         
-        // HIER GEÄNDERT: Die lästige "Erfolg"-Meldung wird nun einfach übersprungen
         if (counter === 0) {
-            showStatus("Hinweis: Die Kalenderdatei ist da, enthält aber 0 Termine. Prüfe, ob Termine im Google Kalender eingetragen sind.", false);
+            showStatus("Hinweis: Die Kalenderdatei enthält 0 Termine.", false);
         } else {
-            // Der Lade-Status ("Verbinde...") wird rückstandslos weggelöscht
             if (currentStatusEl && currentStatusEl.parentNode) {
                 currentStatusEl.parentNode.removeChild(currentStatusEl);
             }
@@ -107,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // 2. KALENDER ZEICHNEN
     // =========================================================
     function renderCalendar() {
-        // Wochentage und Tage neu aufbauen
         const labels = grid.querySelectorAll('.weekday-label, .calendar-day');
         labels.forEach(el => el.parentNode.removeChild(el));
  
@@ -158,7 +166,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 globalEvents[dateStr].forEach(function (evt) {
                     const evtDiv = document.createElement('div');
                     evtDiv.className   = 'event-item';
-                    evtDiv.textContent = evt.title;
+                    
+                    // Hier strukturieren wir den Inhalt der Zelle: Uhrzeit + Headline
+                    let timeBadge = evt.time ? `<span class="event-time">${evt.time}</span>` : '';
+                    let titleText = `<span class="event-title">${evt.title}</span>`;
+                    
+                    evtDiv.innerHTML = timeBadge + titleText;
+                    
                     evtDiv.addEventListener('click', function (e) {
                         e.stopPropagation();
                         openModal(evt.title, evt.desc);
@@ -198,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function openModal(title, descHtml) {
         if (!modal) return;
         modalTitle.textContent = title;
-        modalBody.innerHTML    = descHtml;
+        modalBody.innerHTML    = descHtml; // Rendert jetzt echtes HTML sauber aus
         modal.classList.add('modal--open');
         modal.setAttribute('aria-hidden', 'false');
         closeBtn && closeBtn.focus();
