@@ -20,7 +20,7 @@ jobs:
       - name: .ics von Google abholen
         run: |
           mkdir -p js
-          curl -sLf "${{ secrets.ICAL_URL }}" -o js/werkstatt.ics
+          curl -sLf "${{ secrets.ICAL_SOURCE_URL }}" -o js/werkstatt.ics
 
       - name: Datei in GitHub einchecken & pushen
         run: |
