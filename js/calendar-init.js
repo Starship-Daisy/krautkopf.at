@@ -90,10 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         
+        // HIER GEÄNDERT: Die lästige "Erfolg"-Meldung wird nun einfach übersprungen
         if (counter === 0) {
             showStatus("Hinweis: Die Kalenderdatei ist da, enthält aber 0 Termine. Prüfe, ob Termine im Google Kalender eingetragen sind.", false);
         } else {
-            showStatus(`Erfolg: ${counter} Termine aus Google-Export geladen!`, false);
+            // Der Lade-Status ("Verbinde...") wird rückstandslos weggelöscht
+            if (currentStatusEl && currentStatusEl.parentNode) {
+                currentStatusEl.parentNode.removeChild(currentStatusEl);
+            }
         }
         
         return events;
