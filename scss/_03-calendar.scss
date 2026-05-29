@@ -285,12 +285,33 @@ $marginal-red: #c94c4c;
     font-size: 1.4rem;
   }
 
-  #modalBody {
+#modalBody {
     font-family: $font-copy;
     color: $text-dark;
     font-size: 0.95rem;
     line-height: 1.6;
     margin-top: 15px;
+
+    // 📜 HIER DIE NEUEN SCROLL-STYLES:
+    max-height: 50vh;            // Begrenzt den Text auf maximal 50% der Bildschirmhöhe
+    overflow-y: auto;            // Aktiviert das vertikale Scrollen, sobald der Text zu lang wird
+    padding-right: 12px;         // Gibt dem Text ein wenig Sicherheitsabstand zum Scrollbalken
+
+    // 🎨 DESIGN FÜR DEN SCROLLBALKEN (Dezent passend zur Home-Werkstatt)
+    &::-webkit-scrollbar {
+      width: 6px;                // Schön schmal und elegant
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;   // Kein blockiger Hintergrund
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba($brand-primary, 0.2); // Zartes Werkstatt-Grün
+      border-radius: 10px;
+      
+      &:hover {
+        background: rgba($brand-primary, 0.4); // Wird beim Drüberfahren etwas dunkler
+      }
+    }
 
     p { margin-bottom: 10px; }
     a {
