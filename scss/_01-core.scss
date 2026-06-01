@@ -4,4 +4,5 @@
 
 @forward '01-variables';
 @forward '01-typography';
-@forward '01-mixins';
+@forward '01-container';
+@forward 'mixins'; // <--- Sucht vollautomatisch nach der Datei '_mixins.scss'!
