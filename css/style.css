@@ -989,7 +989,7 @@ body .calendar-sheet .calendar-navigation {
   z-index: 50;
 }
 body .calendar-sheet .calendar-navigation #calendar-month-title {
-  font-family: "Lora", serif;
+  font-family: "Alice", serif;
   color: #4a5d4e;
   font-size: 1.7rem;
   margin: 0;
