@@ -1661,16 +1661,16 @@ body .calendar-sheet #calendar-grid .calendar-day.is-today .day-number {
 
 @keyframes pulse-green {
   0% {
+    opacity: 1;
     transform: scale(1);
-    box-shadow: 0 0 8px rgba(91, 124, 51, 0.4);
   }
   50% {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(91, 124, 51, 0.8);
+    opacity: 0.6;
+    transform: scale(0.92);
   }
   100% {
+    opacity: 1;
     transform: scale(1);
-    box-shadow: 0 0 8px rgba(91, 124, 51, 0.4);
   }
 }
 .mission-grid {
