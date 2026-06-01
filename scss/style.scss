@@ -5,7 +5,6 @@
 @use '01-typography' as *;
 @use '01-container' as *;
 @use 'mixins' as *;
-@use 'media-query-mixin' as *;
 
 // 2. Basis-Styles (Formatiert den Body, Standard-Links und globale Container)
 @use '01-base' as *;
