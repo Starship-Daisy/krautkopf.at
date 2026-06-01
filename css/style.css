@@ -1084,7 +1084,7 @@ body .calendar-sheet #calendar-grid .calendar-day .day-number {
   font-family: "Alice", serif;
   box-sizing: border-box;
   grid-column: 1;
-  grid-row: 1/span 20;
+  grid-row: 1;
   align-self: start;
   background-color: rgba(74, 93, 78, 0.08);
   color: #4a5d4e;
