@@ -1,6 +1,6 @@
 @use '01-variables' as *;
 @use '01-typography' as *;
-@use 'media-query-mixin' as *;
+@use 'mixins' as *;
 
 .main-header {
   padding: 20px 0 40px;

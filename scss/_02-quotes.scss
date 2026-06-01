@@ -4,6 +4,7 @@
 
 @use 'sass:color'; // 1. Das Sass-Werkzeug laden
 @use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
+@use 'mixins' as *;
 
 .quote-section {
   padding: $space-xl 0;
