@@ -1,62 +1,68 @@
 // ========================================================
-// 03-CALENDAR.SCSS (Kariertes Kalenderblatt- & Popup-Design)
+// 03-CALENDAR.SCSS (Mobile-First mit hauseigenem Mixin)
 // ========================================================
 
 @use 'sass:color'; 
 @use '01-variables' as *; 
 @use '01-typography' as *;
+@use 'media-query-mixin' as *; // Lädt dein responsives Werkzeug 🛠️
 
-// Lokale Farbvariable für die rote Heftlinie
 $marginal-red: #c94c4c;
 
-// 1. SEITEN-WRAPPER
+// ========================================================
+// 1. SEITEN-WRAPPER & BASIS-ZETTEL (HANDY-LOOK FIRST)
+// ========================================================
 .calendar-page-wrapper {
   max-width: $container-width;
-  margin: $space-xl auto;
+  margin: $space-m auto; // Kompakt auf Mobile
   padding: 0 $space-l;
-  min-height: 80vh;
+  min-height: auto; // Nimmt auf Mobile nur den Platz ein, den es braucht 🎯
   box-sizing: border-box;
+
+  @include respond-to('medium') {
+    margin: $space-xl auto;
+    min-height: 80vh; // Schöne Streckung auf Desktop
+  }
 }
 
-// 2. DAS KALENDERBLATT (Notizblock-Optik)
 .calendar-sheet {
   background-color: $brand-paper !important; 
   width: 100%;
   margin: 0 auto;
-  padding: 40px 40px 40px 65px; 
+  padding: 15px 15px 15px 45px; // Enges, knackiges Padding für Mobile Liste
   position: relative;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); 
   border-radius: $border-radius;
   box-sizing: border-box;
 
-  // 🧩 BLAUES KARO-MUSTER
   background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), 
                     linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
   background-size: 24px 24px !important;
 
-  @media (max-width: 768px) {
-    // Auf Mobile etwas weniger Links-Abstand, damit mehr Platz für den Text ist
-    padding: 30px 20px 30px 50px;
+  @include respond-to('medium') {
+    padding: 40px 40px 40px 65px; // Großzügiges Zettel-Padding auf Desktop
   }
 
-  // 🔴 ROTE MARGINAL-LINIE (Heftrand)
+  // 🔴 ROTE MARGINAL-LINIE
   &::before {
     content: '';
     position: absolute;
-    left: 45px; 
+    left: 35px; // Schick platziert auf Mobile
     top: 0;
     bottom: 0;
     width: 1.5px;
     background-color: rgba($marginal-red, 0.5) !important;
     z-index: 10;
 
-    @media (max-width: 768px) {
-      left: 35px; // Rückt auf Mobile synchron mit dem Padding mit
+    @include respond-to('medium') {
+      left: 45px; // Wandert auf Desktop mit dem größeren Padding nach rechts
     }
   }
 }
 
-// 3. DIE MONATS-NAVIGATION
+// ========================================================
+// 2. DIE MONATS-NAVIGATION
+// ========================================================
 .calendar-navigation {
   display: flex;
   align-items: center;
@@ -95,95 +101,93 @@ $marginal-red: #c94c4c;
       color: $brand-light;
       border-color: $brand-primary;
     }
-    
-    &:focus {
-      outline: 2px solid $brand-accent;
-      outline-offset: 2px;
-    }
   }
 }
 
-// 4. DAS KALENDER-GRID
+// ========================================================
+// 3. DAS RASTER (GRID) & WOCHENTAGE
+// ========================================================
 #calendar-grid {
   position: relative;
   z-index: 2; 
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr)); 
-  gap: 1px; 
+  grid-template-columns: 1fr; // Mobile Standard: 1 glatte Spalte untereinander
+  gap: 0; 
 
-  // transformiert das Raster auf Smartphones in eine saubere 1-spaltige Liste
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr; 
-    gap: 0; // Keine Lücken auf Mobile, da wir feine Trennlinien nutzen
+  @include respond-to('medium') {
+    grid-template-columns: repeat(7, minmax(0, 1fr)); // Desktop: Echtes 7-Tage-Raster
+    gap: 1px; 
   }
 }
 
-// 👑 DIE WOCHENTAGE (Kopfzeile)
 .weekday-label {
-  background-color: $brand-primary;
-  padding: 10px 0;
-  text-align: center;
-  font-family: $font-heading; 
-  color: $brand-paper;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+  display: none; // Auf dem Handy blenden wir die Wochentags-Kopfzeile aus
 
-  @media (max-width: 768px) { 
-    display: none; // Auf Mobile blenden wir Mo, Di, Mi komplett aus
+  @include respond-to('medium') {
+    display: block; // Auf Desktop wieder wunderschön als Tabellenkopf anzeigen
+    background-color: $brand-primary;
+    padding: 10px 0;
+    text-align: center;
+    font-family: $font-heading; 
+    color: $brand-paper;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
   }
 }
 
-// 📅 DIE EINZELNEN TAGE
+// ========================================================
+// 4. TAGE & TERMINE (Das Herzstück der Transformation)
+// ========================================================
 .calendar-day {
   background: transparent;
-  min-height: 115px; 
-  overflow: visible; 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 6px;
   box-sizing: border-box;
-  
-  border-bottom: 1px solid rgba($brand-primary, 0.06);
-  border-right: 1px solid rgba($brand-primary, 0.06);
 
-  &:nth-child(7n) { 
-    border-right: none; 
-  } 
+  // --- MOBILE LIST-MODE (Basis-Styles) ---
+  border-right: none;
+  border-bottom: none;
+  
+  &:not(:has(.event-item)) {
+    display: none; // Leere Tage verschwinden komplett vom Handybildschirm
+  }
+
+  &:has(.event-item) {
+    display: grid;
+    grid-template-columns: 45px 1fr; // Links das Datum, rechts die Termine gestapelt
+    gap: 10px 15px;
+    min-height: auto;
+    padding: 15px 0;
+    border-bottom: 1px dashed rgba($brand-primary, 0.15); // Diskrete Trennlinie im Heft
+  }
 
   &.empty {
-    visibility: hidden;        
-    height: 0 !important;  
-    padding: 0 !important;     
-    margin: 0 !important;
+    display: none; // Verhindert Geister-Abstände am Monatsanfang/-ende
   }
 
-  // Heutigen Tag auf Desktop markieren
-  &.is-today .day-number {
-    color: $brand-primary;
-    font-weight: 700;
-    text-decoration: underline dashed $brand-accent 2px;
-  }
+  // --- DESKTOP RASTER-MODE (Überschreibungen) ---
+  @include respond-to('medium') {
+    display: flex !important; // Zurück zum Flexbox-Kastl
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 115px; // Die Zelle ist flexibel, aber mindestens 115px hoch
+    padding: 6px;
+    border-bottom: 1px solid rgba($brand-primary, 0.06);
+    border-right: 1px solid rgba($brand-primary, 0.06);
 
-  // 📱 === ULTRA-CLEANER MOBILE LIST-MODE ===
-  @media (max-width: 768px) {
-    border-right: none !important;
-    border-bottom: none !important;
-    
-    // UNSICHTBAR-SCHALTEN: Wenn ein Tag KEIN Event enthält, verschwindet er komplett vom Handybildschirm
-    &:not(:has(.event-item)) {
-      display: none !important;
+    &:nth-child(7n) { 
+      border-right: none; 
+    } 
+
+    &.empty {
+      display: flex !important;
+      visibility: hidden; // Nimmt auf Desktop den Platz weg, ist aber unsichtbar
+      height: 0 !important;  
+      padding: 0 !important;     
+      margin: 0 !important;
     }
 
-    // SICHTBAR-SCHALTEN: Nur Tage mit echten Terminen werden zu einer Listenzeile geformt
-    &:has(.event-item) {
-      display: grid !important;
-      grid-template-columns: 45px 1fr; // Links das Datum, rechts die Termine
-      gap: 10px 15px;
-      min-height: auto !important;
-      padding: 15px 0;
-      border-bottom: 1px dashed rgba($brand-primary, 0.15) !important; // Schöne, abtrennte Notizblock-Linie
+    &:not(:has(.event-item)) {
+      display: flex !important; // Leere Tage auf Desktop natürlich anzeigen
     }
   }
 }
@@ -191,33 +195,42 @@ $marginal-red: #c94c4c;
 // Datumszahlen
 .day-number {
   font-family: $font-sub; 
-  color: color.adjust($text-muted, $lightness: 5%);
-  font-size: 0.9rem;
-  padding: 2px 4px;
-  margin-bottom: 2px;
+  box-sizing: border-box;
+  
+  // Mobile Style: Ein schicker, quadratischer Datums-Stempel links
+  grid-column: 1;
+  grid-row: 1 / span 20; 
+  align-self: start;
+  background-color: rgba($brand-primary, 0.08);
+  color: $brand-primary !important;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
 
-  @media (max-width: 768px) {
-    // Verwandelt die Zahl auf Mobile in einen hübschen Datums-Badge links
-    grid-column: 1;
-    grid-row: 1 / span 20; // Hält die Zahl links, selbst wenn am selben Tag 3 Termine untereinander stehen
-    align-self: start;
-    background-color: rgba($brand-primary, 0.08);
-    color: $brand-primary !important;
-    text-decoration: none !important; // Unterstreichung von "heute" auf Mobile entfernen
-    border-radius: 4px;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 0;
-    padding: 0;
+  @include respond-to('medium') {
+    // Desktop Style: Wandert unauffällig rechts nach oben
+    grid-column: auto;
+    grid-row: auto;
+    align-self: flex-end;
+    background-color: transparent;
+    color: color.adjust($text-muted, $lightness: 5%) !important;
+    width: auto;
+    height: auto;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 2px;
+    padding: 2px 4px;
   }
 }
 
-// ✒️ DIE TERMINE (Königsblaue Tinte & Mehrzeilig)
+// Die Termine (Event-Items)
 .event-item {
   background: transparent;
   border: none;
@@ -234,21 +247,24 @@ $marginal-red: #c94c4c;
   color: $text-ink2;         
   font-size: 1.1rem; 
   line-height: 1.25; 
-  padding: 4px;
-  margin: 6px 0;
   
   white-space: normal !important; 
   overflow: visible !important; 
   text-overflow: clip !important;
 
+  // Mobile Spalten-Zuweisung
+  grid-column: 2; 
+  margin: 0;
+  padding: 2px 0;
+
   &:hover {
-    color: $brand-primary; // Steht jetzt völlig wackelfrei und ruhig!
+    color: $brand-primary;
   }
 
-  @media (max-width: 768px) {
-    grid-column: 2; // Drückt den Termin in die rechte Spalte, neben das Datum
-    margin: 0;
-    padding: 2px 0;
+  @include respond-to('medium') {
+    grid-column: auto; // Auf Desktop wieder normaler Fluss im Kasten
+    margin: 6px 0;
+    padding: 4px;
   }
 
   .event-time {
@@ -273,27 +289,35 @@ $marginal-red: #c94c4c;
   }
 }
 
-// ⚪️ DER HEUTE-KREIS (NUR FÜR DESKTOP)
-@media (min-width: 769px) {
+// ========================================================
+// 5. HEUTE-MARKIERUNGEN (Getrennt nach Device)
+// ========================================================
+
+// 📱 Mobile Heute-Markierung (Voller grüner Kreis ums Datum)
+.calendar-day.is-today {
+  .day-number {
+    background-color: $brand-primary !important;
+    color: $brand-paper !important;
+  }
+}
+
+// ⚪️ Desktop Heute-Markierung (Angeschnittener weißer Kreis)
+@include respond-to('medium') {
   .calendar-day.is-today {
     background-image: radial-gradient(circle 120px at 100% 100%, #ffffff 0%, #ffffff 99%, transparent 100%) !important;
     border: 1px solid rgba($brand-primary, 0.2) !important;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.01);
-  }
-}
 
-// 📱 HEUTE-MARKIERUNG AUF MOBILE
-@media (max-width: 768px) {
-  .calendar-day.is-today {
     .day-number {
-      background-color: $brand-primary !important;
-      color: $brand-paper !important; // Macht den Datums-Badge am heutigen Tag vollfarbig grün
+      background-color: transparent !important;
+      color: $brand-primary !important;
+      text-decoration: underline dashed $brand-accent 2px;
     }
   }
 }
 
 // ========================================================
-// 5. DIE DETAIL-POPUPS (Mit Unschärfe & Screen-Abstand)
+// 6. DIE DETAIL-POPUPS (MODAL)
 // ========================================================
 .modal {
   display: none;
@@ -399,10 +423,4 @@ $marginal-red: #c94c4c;
 
     &:hover { color: $marginal-red; }
   }
-}
-
-// 6. ANIMATIONEN
-@keyframes modalPopIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
 }
