@@ -929,14 +929,17 @@ html body .blog-grid .blog-card.is-draft .card-content,
   margin: 1rem auto;
   padding: 0 2rem;
   box-sizing: border-box;
+  display: block;
+  height: auto;
 }
 @media (min-width: 768px) {
   .calendar-page-wrapper {
     margin: 4rem auto;
-    min-height: 80vh;
+    display: block;
   }
 }
-.calendar-page-wrapper .calendar-sheet {
+
+.calendar-sheet {
   background-color: #f7f4e9;
   width: 100%;
   margin: 0 auto;
@@ -945,15 +948,28 @@ html body .blog-grid .blog-card.is-draft .card-content,
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
   box-sizing: border-box;
+  height: max-content;
+  align-self: start;
   background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 @media (min-width: 768px) {
-  .calendar-page-wrapper .calendar-sheet {
+  .calendar-sheet {
+    padding: 40px 40px 40px 65px;
+    height: auto;
+    align-self: auto;
+  }
+}
+.calendar-sheet {
+  background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+@media (min-width: 768px) {
+  .calendar-sheet {
     padding: 40px 40px 40px 65px;
   }
 }
-.calendar-page-wrapper .calendar-sheet::before {
+.calendar-sheet::before {
   content: "";
   position: absolute;
   left: 35px;
@@ -964,30 +980,73 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 10;
 }
 @media (min-width: 768px) {
-  .calendar-page-wrapper .calendar-sheet::before {
+  .calendar-sheet::before {
     left: 45px;
   }
 }
-.calendar-page-wrapper #calendar-grid {
+.calendar-sheet .calendar-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 35px;
+  position: relative;
+  z-index: 50;
+}
+.calendar-sheet .calendar-navigation #calendar-month-title {
+  font-family: "Lora", serif;
+  color: #4a5d4e;
+  font-size: 1.7rem;
+  margin: 0;
+  text-align: center;
+  min-width: 220px;
+}
+.calendar-sheet .calendar-navigation .calendar-btn {
+  background: transparent;
+  border: 1px solid rgba(74, 93, 78, 0.15);
+  color: #4a5d4e;
+  font-size: 1.2rem;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.calendar-sheet .calendar-navigation .calendar-btn:hover {
+  background-color: #4a5d4e;
+  color: #fdfcf8;
+  border-color: #4a5d4e;
+}
+.calendar-sheet #calendar-wrapper {
+  width: 100%;
+  height: auto;
+}
+.calendar-sheet #calendar-wrapper #calendar-grid {
   position: relative;
   z-index: 2;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
   align-content: start;
+  height: auto;
+  min-height: 0;
 }
 @media (min-width: 768px) {
-  .calendar-page-wrapper #calendar-grid {
+  .calendar-sheet #calendar-wrapper #calendar-grid {
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 1px;
     align-content: stretch;
+    min-height: auto;
   }
 }
-.calendar-page-wrapper .weekday-label {
+.calendar-sheet #calendar-wrapper #calendar-grid .weekday-label {
   display: none;
 }
 @media (min-width: 768px) {
-  .calendar-page-wrapper .weekday-label {
+  .calendar-sheet #calendar-wrapper #calendar-grid .weekday-label {
     display: block;
     background-color: #4a5d4e;
     padding: 10px 0;
@@ -999,29 +1058,28 @@ html body .blog-grid .blog-card.is-draft .card-content,
     letter-spacing: 1px;
   }
 }
-.calendar-page-wrapper .calendar-day {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day {
   background: transparent;
   box-sizing: border-box;
-  border-right: none;
-  border-bottom: none;
+  border: none;
   height: auto;
   min-height: auto;
 }
-.calendar-page-wrapper .calendar-day:not(:has(.event-item)) {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:not(:has(.event-item)) {
   display: none;
 }
-.calendar-page-wrapper .calendar-day:has(.event-item) {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:has(.event-item) {
   display: grid;
   grid-template-columns: 45px 1fr;
   gap: 10px 15px;
   padding: 15px 0;
   border-bottom: 1px dashed rgba(74, 93, 78, 0.15);
 }
-.calendar-page-wrapper .calendar-day.empty {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.empty {
   display: none;
 }
 @media (min-width: 768px) {
-  .calendar-page-wrapper .calendar-day {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1030,21 +1088,21 @@ html body .blog-grid .blog-card.is-draft .card-content,
     border-bottom: 1px solid rgba(74, 93, 78, 0.06);
     border-right: 1px solid rgba(74, 93, 78, 0.06);
   }
-  .calendar-page-wrapper .calendar-day:nth-child(7n) {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:nth-child(7n) {
     border-right: none;
   }
-  .calendar-page-wrapper .calendar-day.empty {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.empty {
     display: flex;
     visibility: hidden;
     height: 0;
     padding: 0;
     margin: 0;
   }
-  .calendar-page-wrapper .calendar-day:not(:has(.event-item)) {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:not(:has(.event-item)) {
     display: flex;
   }
 }
-.calendar-page-wrapper .day-number {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .day-number {
   font-family: "Alice", serif;
   box-sizing: border-box;
   grid-column: 1;
@@ -1064,7 +1122,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   padding: 0;
 }
 @media (min-width: 768px) {
-  .calendar-page-wrapper .day-number {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .day-number {
     grid-column: auto;
     grid-row: auto;
     align-self: flex-end;
@@ -1078,7 +1136,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
     padding: 2px 4px;
   }
 }
-.calendar-page-wrapper .event-item {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item {
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1100,17 +1158,17 @@ html body .blog-grid .blog-card.is-draft .card-content,
   margin: 0;
   padding: 2px 0;
 }
-.calendar-page-wrapper .event-item:hover {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item:hover {
   color: #4a5d4e;
 }
 @media (min-width: 768px) {
-  .calendar-page-wrapper .event-item {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item {
     grid-column: auto;
     margin: 6px 0;
     padding: 4px;
   }
 }
-.calendar-page-wrapper .event-item .event-time {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item .event-time {
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
@@ -1121,7 +1179,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   flex-shrink: 0;
   display: inline-block;
 }
-.calendar-page-wrapper .event-item .event-title {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item .event-title {
   font-family: "Open Sans", sans-serif;
   font-size: 1.05rem;
   color: #67a6bd;
@@ -1129,24 +1187,23 @@ html body .blog-grid .blog-card.is-draft .card-content,
   overflow: visible;
   text-overflow: clip;
 }
-
-.calendar-page-wrapper .calendar-day.is-today .day-number {
+.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.is-today .day-number {
   background-color: #4a5d4e;
   color: #f7f4e9;
 }
-
 @media (min-width: 768px) {
-  .calendar-page-wrapper .calendar-day.is-today {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.is-today {
     background-image: radial-gradient(circle 120px at 100% 100%, #ffffff 0%, #ffffff 99%, transparent 100%);
     border: 1px solid rgba(74, 93, 78, 0.2);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.01);
   }
-  .calendar-page-wrapper .calendar-day.is-today .day-number {
+  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.is-today .day-number {
     background-color: transparent;
     color: #4a5d4e;
     text-decoration: underline dashed #8b9d83 2px;
   }
 }
+
 .modal {
   display: none;
   position: fixed;
