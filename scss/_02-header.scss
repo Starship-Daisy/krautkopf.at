@@ -4,30 +4,16 @@
 // Nutzt das neue Media-Query-Mixin System
 // ==========================================
 
-@use '01-core.scss' as *;
+// Ganz oben in scss/_02-header.scss
 
-// 1. MEDIA QUERY SYSTEM (MIXINS)
-$breakpoints: (
-  "medium": 768px,
-  "large":  1024px,
-  "xlarge": 1440px
-);
+@use '01-core' as *; // Lädt Variablen, Schriften, Container UND das funktionierende Mixin!
 
-@mixin respond-to($breakpoint) {
-  $value: map.get($breakpoints, $breakpoint);
-  
-  @if $value {
-    @media (min-width: $value) {
-      @content;
-    }
-  } @else {
-    @warn "Breakpoint #{$breakpoint} existiert nicht.";
-  }
-}
+// Ab hier folgt dein ganz normaler Header-Style...
+.header {
+  background-color: $brand-primary;
 
-@mixin landscape-mobile {
-  @media screen and (max-device-width: 932px) and (orientation: landscape) {
-    @content;
+  @include respond-to('medium') {
+    // Das funktioniert jetzt blind, weil 01-core es im Hintergrund füttert!
   }
 }
 
