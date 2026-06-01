@@ -2,6 +2,8 @@
 // 03-CALENDAR.SCSS (Clean Architecture - Ohne !important)
 // ========================================================
 
+// GANZ OBEN IN scss/_03-calendar.scss
+@use 'sass:color'; // 🎨 FIX 1: Das Farbmodul exakt hier für diese Datei laden!
 @use '01-core' as *; 
 
 $marginal-red: #c94c4c;
@@ -177,7 +179,7 @@ $marginal-red: #c94c4c;
       grid-row: auto;
       align-self: flex-end;
       background-color: transparent;
-      color: color.adjust($text-muted, $lightness: 5—);
+      color: color.adjust($text-muted, $lightness: 5%);
       width: auto;
       height: auto;
       font-size: 0.9rem;
