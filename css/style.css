@@ -353,13 +353,12 @@ h4.back-to-home:hover,
   opacity: 0.6;
 }
 
-.header {
-  background-color: #4a5d4e;
-}
 .main-header {
   padding: 30px 0;
   background-color: transparent;
   width: 100%;
+  position: relative;
+  z-index: 100;
 }
 .main-header .container {
   max-width: 1200px;
@@ -386,12 +385,53 @@ h4.back-to-home:hover,
   }
 }
 
+.header-left {
+  width: 100%;
+  margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .header-left {
+    flex: 1;
+    width: auto;
+    margin-bottom: 0;
+  }
+}
+
+.header-center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .header-center {
+    width: auto;
+  }
+}
+
+.header-right {
+  display: none;
+}
+@media (min-width: 768px) {
+  .header-right {
+    display: block;
+    flex: 1;
+  }
+}
+
 .brand-wrapper {
   display: flex;
   align-items: center;
   text-align: left;
   margin: 0;
   gap: 0;
+}
+.brand-wrapper:empty {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .brand-wrapper .kraut-logo-icon {
   display: none;
@@ -438,27 +478,15 @@ h4.back-to-home:hover,
   }
 }
 
-.header-left, .header-right {
-  flex: 1;
-}
-@media (max-width: 767px) {
-  .header-left, .header-right {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 767px) {
-  .header-right {
-    display: none;
-  }
-}
-
 .back-to-home a {
   font-family: "Permanent Marker", cursive;
   text-decoration: none;
   color: #4a5d4e;
   font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+.back-to-home a:hover {
+  color: #8b9d83;
 }
 
 .quote-section {
