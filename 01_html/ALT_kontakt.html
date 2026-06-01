@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="b8c1b257-c6f9-4816-9e2d-eae8342a8885"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kontakt</title>
+            <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+            <link rel="stylesheet" href="../css/style.css"> 
+</head>
+
+<body>
+
+<header class="main-header">
+    <div class="container header-grid">
+        <div class="header-left">
+            <div class="back-to-home">
+                <a href="../index.html">krautkopf.at</a>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="brand-wrapper">
+                <div class="kraut-logo-icon"></div> 
+                <div class="header-text">
+                    <h1>Kontakt</h1>
+                    <p>Inspiration, Fokus & Aktion</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            </div>
+    </div>
+</header>
+
+    <main class="main-wrapper">
+        
+        <section class="contact-section">
+            <div class="contact-grid">
+                
+                <div class="contact-info">
+                    <h1>Schreib mir.</h1>
+                    <p>Jeder Tastenschlag zählt. Ich freue mich auf deine Nachricht in meiner digitalen Werkstatt.</p>
+                    <div style="margin-top: 40px; font-family: 'Courier Prime', monospace; font-size: 0.8rem; color: #999; display: flex; align-items: center; gap: 10px;">
+                        <span style="width: 10px; height: 10px; background: #556b2f; border-radius: 50%; display: inline-block;"></span>
+                        Schreibmaschinen-Sound aktiv
+                    </div>
+                </div>
+
+        <div class="contact-form-container">
+            <!-- Nur noch die Marginal-Linie nötig, Löcher kommen aus SCSS -->
+            <div class="margin-line"></div>
+
+            <form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
+                <div style="display:none;">
+                    <input type="text" name="_gotcha" value="" />
+                    <input type="hidden" name="_subject" value="Neue Nachricht von Krautkopf.at">
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="name" name="Name" required autocomplete="off" />
+                    <label for="name">Dein Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" name="Email" required autocomplete="off" />
+                    <label for="email">Deine E-Mail</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="message" name="Nachricht" required></textarea>
+                    <label for="message">Deine Nachricht</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Abschicken!</button>
+            </form>
+        </div>
+
+        </section>
+
+        <footer class="main-footer">
+            <nav class="footer-nav">
+                <a href="datenschutz.html">Datenschutz</a>
+                <a href="impressum.html">Impressum</a>
+                
+                <a href="kontakt.html">Kontakt | Krautkop</a>
+            </nav>
+            <p class="copyright">
+                <p class="copyright">&copy; 2026 krautkopf.at</p>
+            </p>
+        </footer>
+    </main>
+
+<!-- Integration der iPhone-Soundlogik -->
+    <script src="../js/clicksound.js"></script>
+    
+</body>
+</html>
+
+<!-- ### Damit der Sound funktioniert, prüfe kurz dein Formular-Tag:
+Das JavaScript in der `clicksound.js` sucht nach einem Element mit der ID `typewriter-form`. 
+Dein Formular-Code sollte also so aussehen:
+
+```html -->
+
+<form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
+    <!-- Deine Eingabefelder -->
+</form>
