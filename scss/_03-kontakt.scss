@@ -1,187 +1,94 @@
-// ==========================================
-// _04-KONTAKT.SCSS
-// Upgrade: Breiter Notizblock (700px) 
-// Symmetrische Lochung via CSS-Gradient
-// ==========================================
+<!DOCTYPE html>
+<html lang="de">
 
-@use '01-core' as *;
+<head>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="b8c1b257-c6f9-4816-9e2d-eae8342a8885"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Home-Werkstatt</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../css/style.css"> 
+</head>
 
-.contact-section {
-    padding: 80px 20px;
-    max-width: 1300px;
-    margin: 0 auto;
-}
+<body>
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr; 
-    gap: 80px;
-    align-items: start;
+<header class="main-header">
+    <div class="container header-grid">
+        <div class="header-left">
+            <div class="back-to-home">
+                <a href="../index.html">krautkopf.at</a>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="brand-wrapper">
+                <div class="kraut-logo-icon"></div> 
+                <div class="header-text">
+                    <h1>Kontakt</h1>
+                    <p>Inspiration, Fokus & Aktion</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-right"></div>
+    </div>
+</header>
 
-    @media (max-width: 1024px) {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-}
+<main class="main-wrapper">
+    <section class="contact-section">
+        <div class="contact-grid">
+            
+            <div class="contact-info">
+                <h1>Schreib mir.</h1>
+                <p>Jeder Tastenschlag zählt. Ich freue mich auf deine Nachricht in meiner digitalen Werkstatt.</p>
+                
+                <div class="sound-status">
+                    <span class="status-dot"></span>
+                    Schreibmaschinen-Sound aktiv
+                </div>
+            </div>
 
-// 1. TEXTBEREICH LINKS
-.contact-info {
-    h1 {
-        font-family: $font-heading;
-        font-size: 3.5rem;
-        color: $brand-primary;
-        margin-bottom: 25px;
-        line-height: 1.1;
-    }
+            <div class="contact-form-container">
+                <div class="margin-line"></div>
 
-    p {
-        font-family: $font-copy;
-        font-size: 1.15rem;
-        color: $text-ink;
-        line-height: 1.7;
-    }
+                <form action="https://form.taxi/s/ne7rlnub" method="POST" class="contact-form" id="typewriter-form">
+                    <div style="display:none;">
+                        <input type="text" name="_gotcha" value="" />
+                        <input type="hidden" name="_subject" value="Neue Nachricht von Krautkopf.at">
+                    </div>
 
-    .sound-status {
-        margin-top: 50px;
-        font-family: 'Courier Prime', monospace;
-        font-size: 0.85rem;
-        color: #888;
-        display: flex;
-        align-items: center;
-        gap: 12px;
+                    <div class="input-group">
+                        <input type="text" id="name" name="Name" required autocomplete="off" />
+                        <label for="name">Dein Name</label>
+                    </div>
 
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            background: #5b7c33; 
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 8px rgba(91, 124, 51, 0.4);
-            animation: pulse-green 2s infinite;
-        }
-    }
-}
+                    <div class="input-group">
+                        <input type="email" id="email" name="Email" required autocomplete="off" />
+                        <label for="email">Deine E-Mail</label>
+                    </div>
 
-// 2. DER BREITE ZETTEL (RECHTS)
-.contact-form-container {
-    background-color: $brand-paper;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    padding: 130px 60px 60px 60px;
-    position: relative;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-    max-width: 700px; 
-    margin: 0 auto;
-    width: 100%;
+                    <div class="input-group">
+                        <textarea id="message" name="Nachricht" required></textarea>
+                        <label for="message">Deine Nachricht</label>
+                    </div>
 
-    // Kariertes Papier & Symmetrische Löcher via Gradient
-    background-image: 
-        radial-gradient(circle, #f0f0f0 12px, transparent 13px), // Loch links
-        radial-gradient(circle, #f0f0f0 12px, transparent 13px), // Loch rechts
-        linear-gradient(rgba(173, 216, 230, 0.3) 1px, transparent 1px), 
-        linear-gradient(90deg, rgba(173, 216, 230, 0.3) 1px, transparent 1px);
+                    <p style="font-family: sans-serif; font-size: 0.75rem; color: #777; margin-bottom: 20px; line-height: 1.4; text-align: left;">
+                        Mit dem Absenden erklärst du dich mit der Verarbeitung deiner Daten gemäß der 
+                        <a href="datenschutz.html" style="color: inherit; text-decoration: underline;">Datenschutzerklärung</a> einverstanden.
+                    </p>
+
+                    <button type="submit" class="submit-btn">Abschicken!</button>
+                </form>
+            </div>
+
+        </div> </section>
+</main> <footer class="main-footer">
+    <nav class="footer-nav">
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <p class="copyright">&copy; 2026 krautkopf.at</p> </footer>
+
+<script src="../js/clicksound.js"></script>
     
-    background-position: 
-        80px 40px,                   
-        calc(100% - 80px) 40px,      
-        0 0, 
-        0 0;
-    
-    background-repeat: no-repeat, no-repeat, repeat, repeat;
-    background-size: 26px 26px, 26px 26px, 25px 25px, 25px 25px;
-
-    // Perforation
-    &::after {
-        content: '';
-        position: absolute;
-        top: 95px; 
-        left: 0;
-        right: 0;
-        height: 1px;
-        border-top: 2px dashed rgba(0, 0, 0, 0.1);
-        z-index: 5;
-    }
-
-    // Rote Linie
-    .margin-line {
-        position: absolute;
-        left: 45px;
-        top: 0;
-        bottom: 0;
-        width: 1px;
-        background-color: rgba(255, 0, 0, 0.2);
-        z-index: 1;
-    }
-}
-
-// 3. DAS FORMULAR
-.contact-form {
-    position: relative;
-    z-index: 2;
-    padding-left: 20px;
-
-    .input-group {
-        position: relative;
-        margin-bottom: 45px;
-
-        label {
-            position: absolute;
-            left: 0;
-            top: 10px;
-            font-family: 'Courier Prime', monospace;
-            font-size: 0.95rem;
-            color: #999;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        input, textarea {
-            width: 100%;
-            border: none;
-            border-bottom: 1px solid #e0e0e0;
-            background: transparent;
-            padding: 12px 0;
-            font-family: 'Courier Prime', monospace;
-            font-size: 1.2rem;
-            color: $brand-primary;
-            outline: none;
-
-            &:focus + label,
-            &:valid + label {
-                top: -24px;
-                font-size: 0.75rem;
-                color: $brand-primary;
-                letter-spacing: 2px;
-            }
-        }
-
-        textarea {
-            resize: none;
-            min-height: 250px;
-            line-height: 25px;
-        }
-    }
-
-    .submit-btn {
-        background-color: $brand-primary;
-        color: white;
-        border: none;
-        padding: 18px 50px;
-        font-family: 'Courier Prime', monospace;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background-color: #333;
-            transform: translateY(-2px);
-        }
-    }
-}
-
-@keyframes pulse-green {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(0.92); }
-    100% { opacity: 1; transform: scale(1); }
-}
+</body>
+</html>
