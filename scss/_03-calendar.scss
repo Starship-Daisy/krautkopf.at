@@ -1,156 +1,372 @@
 // ========================================================
-// _02-HEADER.SCSS
-// Fokus: Flexibles Header-System mit Mobile-First-Optimierung
-// BEHOBEN: Phantom-Overlay-Bug ohne unprofessionelle !important-Befehle
+// 03-CALENDAR.SCSS (Mechanisch kollabierendes Mobile-First-Design)
 // ========================================================
 
-@use '01-core' as *; // Lädt Variablen, Schriften, Container und Mixins
+@use 'sass:color'; 
+@use '01-core' as *; 
 
-// ========================================================
-// DIE HEADER-ARCHITEKTUR (Perfekt nach HTML-Baum verschachtelt)
-// ========================================================
-.main-header {
-    padding: 30px 0;
-    background-color: transparent;
-    width: 100%;
-    position: relative;
-    z-index: 100;
+// 1. DER HAUPT-ZETTEL
+body .calendar-sheet {
+  background-color: $brand-paper; 
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 15px 15px 45px; 
+  position: relative;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); 
+  border-radius: $border-radius;
+  box-sizing: border-box;
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+  // Das karierte Papier zieht sich auf Mobile wie ein Gummiband zusammen 🎯
+  height: auto;
+  
+  background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), 
+                    linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
+
+  @include respond-to('medium') {
+    padding: 40px 40px 40px 65px; 
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 35px; 
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background-color: rgba($marginal-red, 0.5);
+    z-index: 10;
 
     @include respond-to('medium') {
-        padding: 40px 0;
+      left: 45px; 
+    }
+  }
+
+  // 2. DIE NAVI
+  .calendar-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 24px;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 50; 
+
+    #calendar-month-title {
+      font-family: $font-heading; 
+      color: $brand-primary;
+      font-size: 1.7rem;
+      margin: 0;
+      text-align: center;
+      min-width: 220px; 
     }
 
-    // Das Flex-Grid innerhalb des Headers
-    .header-grid {
-        display: flex;
+    .calendar-btn {
+      background: transparent;
+      border: 1px solid rgba($brand-primary, 0.15);
+      color: $brand-primary;
+      font-size: 1.2rem;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50%; 
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: $brand-primary;
+        color: $brand-light;
+        border-color: $brand-primary;
+      }
+    }
+  }
+
+  // 3. DAS RASTER (Wird auf Mobile zur kollabierenden Flex-Spalte)
+  #calendar-grid {
+    position: relative;
+    z-index: 2; 
+    display: flex;             // 💡 KNIFF 1: Flexbox statt Grid auf dem Smartphone!
+    flex-direction: column;    // Stapelt die aktiven Tage sauber untereinander
+    height: auto;
+    min-height: 0;
+
+    @include respond-to('medium') {
+      display: grid;           // Erst auf Desktop wird es wieder zum echten 7-Spalten-Raster
+      grid-template-columns: repeat(7, minmax(0, 1fr)); 
+      gap: 1px; 
+    }
+
+    // Wochentage auf Mobile ausblenden
+    .weekday-label {
+      display: none; 
+
+      @include respond-to('medium') {
+        display: block; 
+        background-color: $brand-primary;
+        padding: 10px 0;
+        text-align: center;
+        font-family: $font-heading; 
+        color: $brand-paper;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+    }
+
+    // 4. DIE EINZELNEN TAGE
+    .calendar-day {
+      // --- MOBILE-FIRST LOGIK ---
+      display: none;           // 💡 KNIFF 2: Jeder Tag ist auf Mobile im Keim ERSTMAL UNSICHTBAR!
+      background: transparent;
+      box-sizing: border-box;
+      height: auto;
+
+      // Nur Tage, die einen echten Termin im Bauch haben, erwachen zum Leben:
+      &:has(.event-item) {
+        display: grid;         // Wird zu einer schicken zweiseitigen Zeile
+        grid-template-columns: 45px 1fr; 
+        gap: 10px 15px;
+        padding: 15px 0;
+        border-bottom: 1px dashed rgba($brand-primary, 0.15); 
+      }
+
+      // --- DESKTOP-ÜBERSCHREIBUNGEN ---
+      @include respond-to('medium') {
+        display: flex;         // Auf Desktop MÜSSEN natürlich alle Tage sichtbar sein
         flex-direction: column;
-        align-items: flex-start; 
-        position: relative;
+        align-items: flex-start;
+        min-height: 115px; 
+        padding: 6px;
+        border-bottom: 1px solid rgba($brand-primary, 0.06);
+        border-right: 1px solid rgba($brand-primary, 0.06);
+
+        &:nth-child(7n) { 
+          border-right: none; 
+        } 
+
+        &.empty {
+          display: flex;
+          visibility: hidden; // Schafft unsichtbare Platzhalter auf Desktop
+          height: 0;  
+          padding: 0;     
+          margin: 0;
+        }
+      }
+
+      // Datumszahlen
+      .day-number {
+        font-family: $font-sub; 
+        box-sizing: border-box;
+        
+        // Mobile Badge links
+        grid-column: 1;
+        grid-row: 1 / span 20; 
+        align-self: start;
+        background-color: rgba($brand-primary, 0.08);
+        color: $brand-primary;
+        border-radius: 4px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
 
         @include respond-to('medium') {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
+          // Desktop Reset oben rechts
+          grid-column: auto;
+          grid-row: auto;
+          align-self: flex-end;
+          background-color: transparent;
+          color: color.adjust($text-muted, $lightness: 5%);
+          width: auto;
+          height: auto;
+          font-size: 0.9rem;
+          font-weight: 400;
+          margin-bottom: 2px;
+          padding: 2px 4px;
+        }
+      }
+
+      // Termine (Events)
+      .event-item {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        text-align: left;
+        cursor: pointer;
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 4px; 
+
+        font-family: $font-copy; 
+        color: $text-ink2;         
+        font-size: 1.1rem; 
+        line-height: 1.25; 
+        white-space: normal; 
+        overflow: visible; 
+        text-overflow: clip;
+
+        grid-column: 2; // Drückt den Inhalt nach rechts neben die Zahl
+        margin: 0;
+        padding: 2px 0;
+
+        &:hover {
+          color: $brand-primary;
         }
 
-        // --- 1. LINKE SPALTE (krautkopf.at) ---
-        .header-left {
-            width: 100%;
-            margin-bottom: 15px;
-
-            @include respond-to('medium') {
-                flex: 1;
-                width: auto;
-                margin-bottom: 0;
-            }
-
-            .back-to-home a {
-                font-family: 'Permanent Marker', cursive;
-                text-decoration: none;
-                color: $brand-primary;
-                font-size: 1.1rem;
-                transition: color 0.2s ease;
-
-                &:hover {
-                    color: $brand-accent;
-                }
-            }
+        @include respond-to('medium') {
+          grid-column: auto; 
+          margin: 6px 0;
+          padding: 4px;
         }
 
-        // --- 2. MITTLERE SPALTE (Zentrum für Logo & Text) ---
-        .header-center {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            width: 100%;
-
-            @include respond-to('medium') {
-                width: auto;
-            }
-
-            // Der Brand-Wrapper innerhalb der geordneten Kaskade
-            .brand-wrapper {
-                display: flex;
-                align-items: center;
-                text-align: left;
-                margin: 0;
-                gap: 0;
-
-                // 🎯 DIE REINE NATÜRLICHE KASKADE:
-                // Durch die tiefe Verschachtelung ist diese Regel so stark,
-                // dass sie jegliche Flex- oder Gap-Vorgaben ohne !important bricht!
-                &:empty {
-                    display: none;
-                    height: 0;
-                    width: 0;
-                    margin: 0;
-                    padding: 0;
-                }
-
-                // Das Logo-Icon
-                .kraut-logo-icon {
-                    display: none; 
-                    width: 40px;
-                    height: 40px;
-                    background-color: $brand-primary;
-                    mask: url('../assets/icons/logo.svg') no-repeat center;
-                    mask-size: contain;
-
-                    @include respond-to('medium') {
-                        display: block;
-                    }
-                }
-
-                // Die Text-Gruppe
-                .header-text {
-                    h1 {
-                        font-family: $font-heading;
-                        font-size: 2rem;
-                        margin: 0;
-                        line-height: 1;
-                        color: $brand-primary;
-
-                        @include respond-to('medium') {
-                            font-size: 2.5rem;
-                        }
-                    }
-
-                    p {
-                        font-family: 'Comforter Brush', cursive;
-                        font-size: 1rem;
-                        margin: 2px 0 0 0;
-                        color: $brand-accent;
-
-                        @include respond-to('medium') {
-                            font-size: 1.2rem;
-                            margin-top: 5px;
-                        }
-                    }
-                }
-
-                @include respond-to('medium') {
-                    margin: 0 auto;
-                    text-align: center;
-                    gap: 20px;
-                }
-            }
+        .event-time {
+          font-family: $font-main;
+          font-size: 0.75rem;
+          font-weight: 700;
+          color: $brand-primary; 
+          background-color: rgba($brand-primary, 0.08); 
+          padding: 2px 6px;
+          border-radius: 3px;
+          flex-shrink: 0;
+          display: inline-block;
         }
 
-        // --- 3. RECHTE SPALTE (Standard-Platzhalter) ---
-        .header-right {
-            display: none;
+        .event-title {
+          font-family: $font-copy;
+          font-size: 1.05rem; 
+          color: $text-ink2;
+          white-space: normal; 
+          overflow: visible;
+          text-overflow: clip;
+        }
+      }
 
-            @include respond-to('medium') {
-                display: block;
-                flex: 1;
-            }
+      // Heute-Markierung (Mobile Badge)
+      &.is-today {
+        .day-number {
+          background-color: $brand-primary;
+          color: $brand-paper;
         }
 
-    } // Ende .header-grid
-} // Ende .main-header
+        @include respond-to('medium') {
+          // Heute-Markierung (Desktop-Kreis)
+          background-image: radial-gradient(circle 120px at 100% 100%, #ffffff 0%, #ffffff 99%, transparent 100%);
+          border: 1px solid rgba($brand-primary, 0.2);
+          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.01);
+
+          .day-number {
+            background-color: transparent;
+            color: $brand-primary;
+            text-decoration: underline dashed $brand-accent 2px;
+          }
+        }
+      }
+
+    } // Ende .calendar-day
+  } // Ende #calendar-grid
+} // Ende .calendar-sheet
+
+
+// ========================================================
+// 5. DETAIL-POPUPS (Modals)
+// ========================================================
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($brand-ink, 0.35); 
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+
+  &.modal--open { display: flex; }
+
+  .modal-content {
+    background-color: $brand-paper; 
+    width: 90%; 
+    max-width: 540px; 
+    padding: 40px 30px 40px 65px; 
+    border: 1px solid rgba($brand-primary, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    position: relative;
+    box-sizing: border-box;
+
+    background-image: linear-gradient(rgba(173, 216, 230, 0.25) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(173, 216, 230, 0.25) 1px, transparent 1px);
+    background-size: 24px 24px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 45px;
+      top: 0;
+      bottom: 0;
+      width: 1.5px;
+      background-color: rgba($marginal-red, 0.5);
+      z-index: 10;
+    }
+  }
+
+  #modalTitle {
+    margin-top: 0;
+    font-family: $font-heading;
+    color: $brand-primary;
+    border-bottom: 1px solid rgba($marginal-red, 0.3);
+    padding-bottom: 8px;
+    font-size: 1.4rem;
+  }
+
+  #modalBody {
+    font-family: $font-copy;
+    color: $text-dark;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 15px;
+    max-height: 50vh;            
+    overflow-y: auto;            
+    padding-right: 12px;         
+
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+      background: rgba($brand-primary, 0.2); 
+      border-radius: 10px;
+      &:hover { background: rgba($brand-primary, 0.4); }
+    }
+
+    p { margin-bottom: 10px; }
+    a {
+      color: $brand-primary;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+  }
+
+  .close-modal {
+    color: $text-muted;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    background: transparent;
+    border: none;
+    z-index: 11;
+    cursor: pointer;
+    &:hover { color: $marginal-red; }
+  }
+}
