@@ -4,7 +4,6 @@
 
 @use 'sass:color'; // 1. Das Sass-Werkzeug laden
 @use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden@use '01-typography' as *;
-@use 'media-query-mixin' as *;
 @use 'mixins' as *;
 
 // Nur wenn der Header die Klasse .legal-header hat, gelten diese Regeln
