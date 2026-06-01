@@ -4,6 +4,7 @@
 @use '01-variables' as *;
 @use '01-typography' as *;
 @use '01-container' as *;
+@use '01-core.scss' as *;
 @use 'mixins' as *;
 
 // 2. Basis-Styles (Formatiert den Body, Standard-Links und globale Container)

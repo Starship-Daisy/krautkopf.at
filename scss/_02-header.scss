@@ -4,11 +4,7 @@
 // Nutzt das neue Media-Query-Mixin System
 // ==========================================
 
-@use 'sass:map';
-@use 'sass:color'; // 1. Das Sass-Werkzeug laden
-@use '01-variables' as *;
-@use '01-typography' as *;
-@use 'mixins' as *;
+@use '01-core.scss' as *;
 
 // 1. MEDIA QUERY SYSTEM (MIXINS)
 $breakpoints: (

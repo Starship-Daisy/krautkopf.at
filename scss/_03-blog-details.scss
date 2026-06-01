@@ -3,10 +3,7 @@
 // ==========================================
 
 
-@use 'sass:color';
-@use '01-variables' as *;
-@use '01-typography' as *;
-@use 'mixins' as *;
+@use '01-core.scss' as *;
 
 // 1. HAUPT-LAYOUT
 .blog-detail {

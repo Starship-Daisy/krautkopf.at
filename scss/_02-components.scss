@@ -1,6 +1,12 @@
-@use '01-variables' as *;
+// ==========================================
+// _03-COMPONENTS.SCSS
+// ==========================================
+
+
+@use 'sass:color'; 
+@use '01-variables' as *; 
 @use '01-typography' as *;
-@use 'mixins' as *;
+@use '01-mixins' as *;
 
 .main-header {
   padding: 20px 0 40px;

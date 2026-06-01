@@ -2,9 +2,7 @@
 // 02-QUOTES.SCSS (Freischwebend & Einheitlich)
 // ==========================================
 
-@use 'sass:color'; // 1. Das Sass-Werkzeug laden
-@use '01-variables' as *; // 2. Deine eigenen Werkzeuge laden
-@use 'mixins' as *;
+@use '01-core.scss' as *;
 
 .quote-section {
   padding: $space-xl 0;

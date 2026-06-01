@@ -1,324 +1,280 @@
 // ========================================================
-// 03-CALENDAR.SCSS (Mobile-First mit hauseigenem Mixin)
+// 03-CALENDAR.SCSS (Clean Architecture - Ohne !important)
 // ========================================================
 
 @use 'sass:color'; 
 @use '01-variables' as *; 
 @use '01-typography' as *;
-@use 'mixins.scss' as *; // Lädt dein responsives Werkzeug 🛠️
+@use '01-mixins' as *; 
 
 $marginal-red: #c94c4c;
 
-// ========================================================
-// 1. SEITEN-WRAPPER & BASIS-ZETTEL (HANDY-LOOK FIRST)
-// ========================================================
+// 1. DER SEITEN-WRAPPER
 .calendar-page-wrapper {
   max-width: $container-width;
-  margin: $space-m auto; // Kompakt auf Mobile
+  margin: $space-m auto; 
   padding: 0 $space-l;
-  min-height: auto; // Nimmt auf Mobile nur den Platz ein, den es braucht 🎯
   box-sizing: border-box;
 
   @include respond-to('medium') {
     margin: $space-xl auto;
-    min-height: 80vh; // Schöne Streckung auf Desktop
-  }
-}
-
-.calendar-sheet {
-  background-color: $brand-paper !important; 
-  width: 100%;
-  margin: 0 auto;
-  padding: 15px 15px 15px 45px; // Enges, knackiges Padding für Mobile Liste
-  position: relative;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); 
-  border-radius: $border-radius;
-  box-sizing: border-box;
-
-  background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), 
-                    linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px) !important;
-  background-size: 24px 24px !important;
-
-  @include respond-to('medium') {
-    padding: 40px 40px 40px 65px; // Großzügiges Zettel-Padding auf Desktop
+    min-height: 80vh; // Großzügige Höhe nur auf Desktop
   }
 
-  // 🔴 ROTE MARGINAL-LINIE
-  &::before {
-    content: '';
-    position: absolute;
-    left: 35px; // Schick platziert auf Mobile
-    top: 0;
-    bottom: 0;
-    width: 1.5px;
-    background-color: rgba($marginal-red, 0.5) !important;
-    z-index: 10;
+  // ========================================================
+  // 2. DAS KALENDERBLATT (Sauber verschachtelt für hohe Spezifität)
+  // ========================================================
+  .calendar-sheet {
+    background-color: $brand-paper; 
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 15px 15px 45px; // Kompakt auf Mobile
+    position: relative;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); 
+    border-radius: $border-radius;
+    box-sizing: border-box;
+
+    background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px);
+    background-size: 24px 24px;
 
     @include respond-to('medium') {
-      left: 45px; // Wandert auf Desktop mit dem größeren Padding nach rechts
+      padding: 40px 40px 40px 65px; 
+    }
+
+    // Rote Marginal-Linie
+    &::before {
+      content: '';
+      position: absolute;
+      left: 35px; 
+      top: 0;
+      bottom: 0;
+      width: 1.5px;
+      background-color: rgba($marginal-red, 0.5);
+      z-index: 10;
+
+      @include respond-to('medium') {
+        left: 45px; 
+      }
     }
   }
-}
 
-// ========================================================
-// 2. DIE MONATS-NAVIGATION
-// ========================================================
-.calendar-navigation {
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  gap: 24px;
-  margin-bottom: 35px;
-  position: relative;
-  z-index: 50; 
+  // ========================================================
+  // 3. DAS RASTER (GRID)
+  // ========================================================
+  #calendar-grid {
+    position: relative;
+    z-index: 2; 
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 0; 
+    
+    // 💡 DIE PROFI-RETTUNG: Zwingt die Grid-Zeilen auf Mobile dazu,
+    // nur so hoch zu sein wie ihr nackter Inhalt (kein automatisches Strecken!)
+    align-content: start; 
 
-  #calendar-month-title {
-    font-family: $font-heading; 
-    color: $brand-primary;
-    font-size: 1.7rem;
-    margin: 0;
-    text-align: center;
-    min-width: 220px; 
+    @include respond-to('medium') {
+      grid-template-columns: repeat(7, minmax(0, 1fr)); 
+      gap: 1px; 
+      align-content: stretch; // Auf Desktop dürfen die Zellen wieder symmetrisch mitskalieren
+    }
   }
 
-  .calendar-btn {
+  .weekday-label {
+    display: none; 
+
+    @include respond-to('medium') {
+      display: block; 
+      background-color: $brand-primary;
+      padding: 10px 0;
+      text-align: center;
+      font-family: $font-heading; 
+      color: $brand-paper;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  // ========================================================
+  // 4. DIE EINZELNEN TAGE (Zellen)
+  // ========================================================
+  .calendar-day {
     background: transparent;
-    border: 1px solid rgba($brand-primary, 0.15);
+    box-sizing: border-box;
+    border-right: none;
+    border-bottom: none;
+    height: auto;
+    min-height: auto;
+
+    // Mobile Listen-Logik
+    &:not(:has(.event-item)) {
+      display: none; 
+    }
+
+    &:has(.event-item) {
+      display: grid;
+      grid-template-columns: 45px 1fr; 
+      gap: 10px 15px;
+      padding: 15px 0;
+      border-bottom: 1px dashed rgba($brand-primary, 0.15); 
+    }
+
+    &.empty {
+      display: none; 
+    }
+
+    // Desktop-Rasterüberschreibung via natürlicher Kaskade
+    @include respond-to('medium') {
+      display: flex; 
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 115px; 
+      padding: 6px;
+      border-bottom: 1px solid rgba($brand-primary, 0.06);
+      border-right: 1px solid rgba($brand-primary, 0.06);
+
+      &:nth-child(7n) { 
+        border-right: none; 
+      } 
+
+      &.empty {
+        display: flex;
+        visibility: hidden; 
+        height: 0;  
+        padding: 0;     
+        margin: 0;
+      }
+
+      &:not(:has(.event-item)) {
+        display: flex; 
+      }
+    }
+  }
+
+  // Datumszahlen
+  .day-number {
+    font-family: $font-sub; 
+    box-sizing: border-box;
+    
+    // Mobile Badge
+    grid-column: 1;
+    grid-row: 1 / span 20; 
+    align-self: start;
+    background-color: rgba($brand-primary, 0.08);
     color: $brand-primary;
-    font-size: 1.2rem;
-    width: 38px;
-    height: 38px;
+    border-radius: 4px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+
+    @include respond-to('medium') {
+      // Desktop Reset
+      grid-column: auto;
+      grid-row: auto;
+      align-self: flex-end;
+      background-color: transparent;
+      color: color.adjust($text-muted, $lightness: 5—);
+      width: auto;
+      height: auto;
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-bottom: 2px;
+      padding: 2px 4px;
+    }
+  }
+
+  // Termine (Events)
+  .event-item {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    text-align: left;
     cursor: pointer;
-    border-radius: 50%; 
-    transition: all 0.2s ease;
-    font-family: $font-copy;
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 4px; 
+
+    font-family: $font-copy; 
+    color: $text-ink2;         
+    font-size: 1.1rem; 
+    line-height: 1.25; 
+    
+    white-space: normal; 
+    overflow: visible; 
+    text-overflow: clip;
+
+    grid-column: 2; 
+    margin: 0;
+    padding: 2px 0;
 
     &:hover {
-      background-color: $brand-primary;
-      color: $brand-light;
-      border-color: $brand-primary;
+      color: $brand-primary;
+    }
+
+    @include respond-to('medium') {
+      grid-column: auto; 
+      margin: 6px 0;
+      padding: 4px;
+    }
+
+    .event-time {
+      font-family: $font-main;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: $brand-primary; 
+      background-color: rgba($brand-primary, 0.08); 
+      padding: 2px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    .event-title {
+      font-family: $font-copy;
+      font-size: 1.05rem; 
+      color: $text-ink2;
+      white-space: normal; 
+      overflow: visible;
+      text-overflow: clip;
     }
   }
 }
 
 // ========================================================
-// 3. DAS RASTER (GRID) & WOCHENTAGE
-// ========================================================
-#calendar-grid {
-  position: relative;
-  z-index: 2; 
-  display: grid;
-  grid-template-columns: 1fr; // Mobile Standard: 1 glatte Spalte untereinander
-  gap: 0; 
-
-  @include respond-to('medium') {
-    grid-template-columns: repeat(7, minmax(0, 1fr)); // Desktop: Echtes 7-Tage-Raster
-    gap: 1px; 
-  }
-}
-
-.weekday-label {
-  display: none; // Auf dem Handy blenden wir die Wochentags-Kopfzeile aus
-
-  @include respond-to('medium') {
-    display: block; // Auf Desktop wieder wunderschön als Tabellenkopf anzeigen
-    background-color: $brand-primary;
-    padding: 10px 0;
-    text-align: center;
-    font-family: $font-heading; 
-    color: $brand-paper;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-  }
-}
-
-// ========================================================
-// 4. TAGE & TERMINE (Das Herzstück der Transformation)
-// ========================================================
-.calendar-day {
-  background: transparent;
-  box-sizing: border-box;
-
-  // --- MOBILE LIST-MODE (Basis-Styles) ---
-  border-right: none;
-  border-bottom: none;
-  
-  &:not(:has(.event-item)) {
-    display: none; // Leere Tage verschwinden komplett vom Handybildschirm
-  }
-
-  &:has(.event-item) {
-    display: grid;
-    grid-template-columns: 45px 1fr; // Links das Datum, rechts die Termine gestapelt
-    gap: 10px 15px;
-    min-height: auto;
-    padding: 15px 0;
-    border-bottom: 1px dashed rgba($brand-primary, 0.15); // Diskrete Trennlinie im Heft
-  }
-
-  &.empty {
-    display: none; // Verhindert Geister-Abstände am Monatsanfang/-ende
-  }
-
-  // --- DESKTOP RASTER-MODE (Überschreibungen) ---
-  @include respond-to('medium') {
-    display: flex !important; // Zurück zum Flexbox-Kastl
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 115px; // Die Zelle ist flexibel, aber mindestens 115px hoch
-    padding: 6px;
-    border-bottom: 1px solid rgba($brand-primary, 0.06);
-    border-right: 1px solid rgba($brand-primary, 0.06);
-
-    &:nth-child(7n) { 
-      border-right: none; 
-    } 
-
-    &.empty {
-      display: flex !important;
-      visibility: hidden; // Nimmt auf Desktop den Platz weg, ist aber unsichtbar
-      height: 0 !important;  
-      padding: 0 !important;     
-      margin: 0 !important;
-    }
-
-    &:not(:has(.event-item)) {
-      display: flex !important; // Leere Tage auf Desktop natürlich anzeigen
-    }
-  }
-}
-
-// Datumszahlen
-.day-number {
-  font-family: $font-sub; 
-  box-sizing: border-box;
-  
-  // Mobile Style: Ein schicker, quadratischer Datums-Stempel links
-  grid-column: 1;
-  grid-row: 1 / span 20; 
-  align-self: start;
-  background-color: rgba($brand-primary, 0.08);
-  color: $brand-primary !important;
-  border-radius: 4px;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-
-  @include respond-to('medium') {
-    // Desktop Style: Wandert unauffällig rechts nach oben
-    grid-column: auto;
-    grid-row: auto;
-    align-self: flex-end;
-    background-color: transparent;
-    color: color.adjust($text-muted, $lightness: 5%) !important;
-    width: auto;
-    height: auto;
-    font-size: 0.9rem;
-    font-weight: 400;
-    margin-bottom: 2px;
-    padding: 2px 4px;
-  }
-}
-
-// Die Termine (Event-Items)
-.event-item {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  text-align: left;
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start;
-  gap: 4px; 
-
-  font-family: $font-copy; 
-  color: $text-ink2;         
-  font-size: 1.1rem; 
-  line-height: 1.25; 
-  
-  white-space: normal !important; 
-  overflow: visible !important; 
-  text-overflow: clip !important;
-
-  // Mobile Spalten-Zuweisung
-  grid-column: 2; 
-  margin: 0;
-  padding: 2px 0;
-
-  &:hover {
-    color: $brand-primary;
-  }
-
-  @include respond-to('medium') {
-    grid-column: auto; // Auf Desktop wieder normaler Fluss im Kasten
-    margin: 6px 0;
-    padding: 4px;
-  }
-
-  .event-time {
-    font-family: $font-main;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: $brand-primary; 
-    background-color: rgba($brand-primary, 0.08); 
-    padding: 2px 6px;
-    border-radius: 3px;
-    flex-shrink: 0;
-    display: inline-block;
-  }
-
-  .event-title {
-    font-family: $font-copy;
-    font-size: 1.05rem; 
-    color: $text-ink2;
-    white-space: normal !important; 
-    overflow: visible !important;
-    text-overflow: clip !important;
-  }
-}
-
-// ========================================================
-// 5. HEUTE-MARKIERUNGEN (Getrennt nach Device)
+// 5. SEPARATE AUSSERHALB-STYLES (Heute & Popups)
 // ========================================================
 
-// 📱 Mobile Heute-Markierung (Voller grüner Kreis ums Datum)
-.calendar-day.is-today {
-  .day-number {
-    background-color: $brand-primary !important;
-    color: $brand-paper !important;
-  }
+// Mobile Heute-Zahl
+.calendar-page-wrapper .calendar-day.is-today .day-number {
+  background-color: $brand-primary;
+  color: $brand-paper;
 }
 
-// ⚪️ Desktop Heute-Markierung (Angeschnittener weißer Kreis)
+// Desktop Heute-Kreis
 @include respond-to('medium') {
-  .calendar-day.is-today {
-    background-image: radial-gradient(circle 120px at 100% 100%, #ffffff 0%, #ffffff 99%, transparent 100%) !important;
-    border: 1px solid rgba($brand-primary, 0.2) !important;
+  .calendar-page-wrapper .calendar-day.is-today {
+    background-image: radial-gradient(circle 120px at 100% 100%, #ffffff 0%, #ffffff 99%, transparent 100%);
+    border: 1px solid rgba($brand-primary, 0.2);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.01);
 
     .day-number {
-      background-color: transparent !important;
-      color: $brand-primary !important;
+      background-color: transparent;
+      color: $brand-primary;
       text-decoration: underline dashed $brand-accent 2px;
     }
   }
 }
 
-// ========================================================
-// 6. DIE DETAIL-POPUPS (MODAL)
-// ========================================================
+// Die Detail-Popups (Modal)
 .modal {
   display: none;
   position: fixed;
@@ -328,10 +284,8 @@ $marginal-red: #c94c4c;
   width: 100vw;
   height: 100vh;
   background-color: rgba($brand-ink, 0.35); 
-
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  
   justify-content: center;
   align-items: center;
 
@@ -340,7 +294,7 @@ $marginal-red: #c94c4c;
   }
 
   .modal-content {
-    background-color: $brand-paper !important; 
+    background-color: $brand-paper; 
     width: 90%; 
     max-width: 540px; 
     padding: 40px 30px 40px 65px; 
@@ -351,8 +305,8 @@ $marginal-red: #c94c4c;
     box-sizing: border-box;
 
     background-image: linear-gradient(rgba(173, 216, 230, 0.25) 1px, transparent 1px), 
-                      linear-gradient(90deg, rgba(173, 216, 230, 0.25) 1px, transparent 1px) !important;
-    background-size: 24px 24px !important;
+                      linear-gradient(90deg, rgba(173, 216, 230, 0.25) 1px, transparent 1px);
+    background-size: 24px 24px;
 
     &::before {
       content: '';
@@ -361,7 +315,7 @@ $marginal-red: #c94c4c;
       top: 0;
       bottom: 0;
       width: 1.5px;
-      background-color: rgba($marginal-red, 0.5) !important;
+      background-color: rgba($marginal-red, 0.5);
       z-index: 10;
     }
   }
@@ -381,24 +335,16 @@ $marginal-red: #c94c4c;
     font-size: 0.95rem;
     line-height: 1.6;
     margin-top: 15px;
-
     max-height: 50vh;            
     overflow-y: auto;            
     padding-right: 12px;         
 
-    &::-webkit-scrollbar {
-      width: 6px;                
-    }
-    &::-webkit-scrollbar-track {
-      background: transparent;   
-    }
+    &::-webkit-scrollbar { width: 6px; }
+    &::-webkit-scrollbar-track { background: transparent; }
     &::-webkit-scrollbar-thumb {
       background: rgba($brand-primary, 0.2); 
       border-radius: 10px;
-      
-      &:hover {
-        background: rgba($brand-primary, 0.4); 
-      }
+      &:hover { background: rgba($brand-primary, 0.4); }
     }
 
     p { margin-bottom: 10px; }
@@ -419,8 +365,6 @@ $marginal-red: #c94c4c;
     border: none;
     z-index: 11;
     cursor: pointer;
-    transition: color 0.2s ease;
-
     &:hover { color: $marginal-red; }
   }
 }
