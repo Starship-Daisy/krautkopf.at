@@ -1,20 +1,20 @@
 // ========================================================
 // _02-HEADER.SCSS
 // Fokus: Flexibles Header-System mit Mobile-First-Optimierung
-// BEHOBEN: Phantom-Overlay-Bug durch leere Layout-Elemente
+// BEHOBEN: Phantom-Overlay-Bug ohne unprofessionelle !important-Befehle
 // ========================================================
 
-@use '01-core' as *; // Lädt Variablen, Schriften, Container und dein Mixin-System 🛠️
+@use '01-core' as *; // Lädt Variablen, Schriften, Container und Mixins
 
 // ========================================================
-// 1. HAUPT-CONTAINER (GERÜST)
+// DIE HEADER-ARCHITEKTUR (Perfekt nach HTML-Baum verschachtelt)
 // ========================================================
 .main-header {
     padding: 30px 0;
     background-color: transparent;
     width: 100%;
     position: relative;
-    z-index: 100; // Hält den echten Header sauber über dem Content
+    z-index: 100;
 
     .container {
         max-width: 1200px;
@@ -25,138 +25,132 @@
     @include respond-to('medium') {
         padding: 40px 0;
     }
-}
 
-.header-grid {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; // Mobile Standard: Alles untereinander stapeln
-    position: relative;
-
-    @include respond-to('medium') {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-// ========================================================
-// 2. DIE DREI KLASSISCHEN LAYOUT-SPALTEN
-// ========================================================
-
-// Linke Spalte (krautkopf.at Link)
-.header-left {
-    width: 100%;
-    margin-bottom: 15px;
-
-    @include respond-to('medium') {
-        flex: 1;
-        width: auto;
-        margin-bottom: 0;
-    }
-}
-
-// Mittlere Spalte (Schaltzentrale für das Logo-System)
-.header-center {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-
-    @include respond-to('medium') {
-        width: auto;
-    }
-}
-
-// Rechte Spalte (Standardmäßig auf Mobile unsichtbar)
-.header-right {
-    display: none;
-
-    @include respond-to('medium') {
-        display: block;
-        flex: 1;
-    }
-}
-
-// ========================================================
-// 3. BRANDING & BRAND-WRAPPER (LOGO & TEXT)
-// ========================================================
-.brand-wrapper {
-    display: flex;
-    align-items: center;
-    text-align: left;
-    margin: 0;
-    gap: 0;
-
-    // 🎯 DER PHANTOM-SCHUTZ: Wenn das Element im HTML komplett leer ist (wie beim Kalender),
-    // wird es unsichtbar geschaltet und verbraucht absolut keinen Platz auf dem Bildschirm!
-    &:empty {
-        display: none !important;
-        height: 0 !important;
-        width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    // Das optionale Logo-Icon
-    .kraut-logo-icon {
-        display: none; 
-        width: 40px;
-        height: 40px;
-        background-color: $brand-primary;
-        mask: url('../assets/icons/logo.svg') no-repeat center;
-        mask-size: contain;
+    // Das Flex-Grid innerhalb des Headers
+    .header-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        position: relative;
 
         @include respond-to('medium') {
-            display: block;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
         }
-    }
 
-    // Die Text-Gruppe (H1 & Subline)
-    .header-text {
-        h1 {
-            font-family: $font-heading;
-            font-size: 2rem;
-            margin: 0;
-            line-height: 1;
-            color: $brand-primary;
+        // --- 1. LINKE SPALTE (krautkopf.at) ---
+        .header-left {
+            width: 100%;
+            margin-bottom: 15px;
 
             @include respond-to('medium') {
-                font-size: 2.5rem;
+                flex: 1;
+                width: auto;
+                margin-bottom: 0;
+            }
+
+            .back-to-home a {
+                font-family: 'Permanent Marker', cursive;
+                text-decoration: none;
+                color: $brand-primary;
+                font-size: 1.1rem;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: $brand-accent;
+                }
             }
         }
 
-        p {
-            font-family: 'Comforter Brush', cursive;
-            font-size: 1rem;
-            margin: 2px 0 0 0;
-            color: $brand-accent;
+        // --- 2. MITTLERE SPALTE (Zentrum für Logo & Text) ---
+        .header-center {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
 
             @include respond-to('medium') {
-                font-size: 1.2rem;
-                margin-top: 5px;
+                width: auto;
+            }
+
+            // Der Brand-Wrapper innerhalb der geordneten Kaskade
+            .brand-wrapper {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                margin: 0;
+                gap: 0;
+
+                // 🎯 DIE REINE NATÜRLICHE KASKADE:
+                // Durch die tiefe Verschachtelung ist diese Regel so stark,
+                // dass sie jegliche Flex- oder Gap-Vorgaben ohne !important bricht!
+                &:empty {
+                    display: none;
+                    height: 0;
+                    width: 0;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                // Das Logo-Icon
+                .kraut-logo-icon {
+                    display: none; 
+                    width: 40px;
+                    height: 40px;
+                    background-color: $brand-primary;
+                    mask: url('../assets/icons/logo.svg') no-repeat center;
+                    mask-size: contain;
+
+                    @include respond-to('medium') {
+                        display: block;
+                    }
+                }
+
+                // Die Text-Gruppe
+                .header-text {
+                    h1 {
+                        font-family: $font-heading;
+                        font-size: 2rem;
+                        margin: 0;
+                        line-height: 1;
+                        color: $brand-primary;
+
+                        @include respond-to('medium') {
+                            font-size: 2.5rem;
+                        }
+                    }
+
+                    p {
+                        font-family: 'Comforter Brush', cursive;
+                        font-size: 1rem;
+                        margin: 2px 0 0 0;
+                        color: $brand-accent;
+
+                        @include respond-to('medium') {
+                            font-size: 1.2rem;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+
+                @include respond-to('medium') {
+                    margin: 0 auto;
+                    text-align: center;
+                    gap: 20px;
+                }
             }
         }
-    }
 
-    @include respond-to('medium') {
-        margin: 0 auto;
-        text-align: center;
-        gap: 20px;
-    }
-}
+        // --- 3. RECHTE SPALTE (Standard-Platzhalter) ---
+        .header-right {
+            display: none;
 
-// ========================================================
-// 4. DESIGN-ELEMENTE (LINKS & LOGOS)
-// ========================================================
-.back-to-home a {
-    font-family: 'Permanent Marker', cursive;
-    text-decoration: none;
-    color: $brand-primary;
-    font-size: 1.1rem;
-    transition: color 0.2s ease;
+            @include respond-to('medium') {
+                display: block;
+                flex: 1;
+            }
+        }
 
-    &:hover {
-        color: $brand-accent;
-    }
-}
+    } // Ende .header-grid
+} // Ende .main-header
