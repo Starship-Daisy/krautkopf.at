@@ -924,22 +924,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   opacity: 0.3;
 }
 
-.calendar-page-wrapper {
-  max-width: 1100px;
-  margin: 1rem auto;
-  padding: 0 2rem;
-  box-sizing: border-box;
-  display: block;
-  height: auto;
-}
-@media (min-width: 768px) {
-  .calendar-page-wrapper {
-    margin: 4rem auto;
-    display: block;
-  }
-}
-
-.calendar-sheet {
+body .calendar-sheet {
   background-color: #f7f4e9;
   width: 100%;
   margin: 0 auto;
@@ -948,28 +933,16 @@ html body .blog-grid .blog-card.is-draft .card-content,
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
   box-sizing: border-box;
-  height: max-content;
-  align-self: start;
+  height: auto;
   background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 @media (min-width: 768px) {
-  .calendar-sheet {
-    padding: 40px 40px 40px 65px;
-    height: auto;
-    align-self: auto;
-  }
-}
-.calendar-sheet {
-  background-image: linear-gradient(rgba(173, 216, 230, 0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(173, 216, 230, 0.35) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-@media (min-width: 768px) {
-  .calendar-sheet {
+  body .calendar-sheet {
     padding: 40px 40px 40px 65px;
   }
 }
-.calendar-sheet::before {
+body .calendar-sheet::before {
   content: "";
   position: absolute;
   left: 35px;
@@ -980,11 +953,11 @@ html body .blog-grid .blog-card.is-draft .card-content,
   z-index: 10;
 }
 @media (min-width: 768px) {
-  .calendar-sheet::before {
+  body .calendar-sheet::before {
     left: 45px;
   }
 }
-.calendar-sheet .calendar-navigation {
+body .calendar-sheet .calendar-navigation {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -993,7 +966,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   position: relative;
   z-index: 50;
 }
-.calendar-sheet .calendar-navigation #calendar-month-title {
+body .calendar-sheet .calendar-navigation #calendar-month-title {
   font-family: "Lora", serif;
   color: #4a5d4e;
   font-size: 1.7rem;
@@ -1001,7 +974,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   text-align: center;
   min-width: 220px;
 }
-.calendar-sheet .calendar-navigation .calendar-btn {
+body .calendar-sheet .calendar-navigation .calendar-btn {
   background: transparent;
   border: 1px solid rgba(74, 93, 78, 0.15);
   color: #4a5d4e;
@@ -1015,38 +988,31 @@ html body .blog-grid .blog-card.is-draft .card-content,
   border-radius: 50%;
   transition: all 0.2s ease;
 }
-.calendar-sheet .calendar-navigation .calendar-btn:hover {
+body .calendar-sheet .calendar-navigation .calendar-btn:hover {
   background-color: #4a5d4e;
   color: #fdfcf8;
   border-color: #4a5d4e;
 }
-.calendar-sheet #calendar-wrapper {
-  width: 100%;
-  height: auto;
-}
-.calendar-sheet #calendar-wrapper #calendar-grid {
+body .calendar-sheet #calendar-grid {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
   height: auto;
   min-height: 0;
 }
 @media (min-width: 768px) {
-  .calendar-sheet #calendar-wrapper #calendar-grid {
+  body .calendar-sheet #calendar-grid {
+    display: grid;
     grid-template-columns: repeat(7, minmax(0, 1fr));
     gap: 1px;
-    align-content: stretch;
-    min-height: auto;
   }
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .weekday-label {
+body .calendar-sheet #calendar-grid .weekday-label {
   display: none;
 }
 @media (min-width: 768px) {
-  .calendar-sheet #calendar-wrapper #calendar-grid .weekday-label {
+  body .calendar-sheet #calendar-grid .weekday-label {
     display: block;
     background-color: #4a5d4e;
     padding: 10px 0;
@@ -1058,28 +1024,21 @@ html body .blog-grid .blog-card.is-draft .card-content,
     letter-spacing: 1px;
   }
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day {
+body .calendar-sheet #calendar-grid .calendar-day {
+  display: none;
   background: transparent;
   box-sizing: border-box;
-  border: none;
   height: auto;
-  min-height: auto;
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:not(:has(.event-item)) {
-  display: none;
-}
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:has(.event-item) {
+body .calendar-sheet #calendar-grid .calendar-day:has(.event-item) {
   display: grid;
   grid-template-columns: 45px 1fr;
   gap: 10px 15px;
   padding: 15px 0;
   border-bottom: 1px dashed rgba(74, 93, 78, 0.15);
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.empty {
-  display: none;
-}
 @media (min-width: 768px) {
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day {
+  body .calendar-sheet #calendar-grid .calendar-day {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1088,21 +1047,18 @@ html body .blog-grid .blog-card.is-draft .card-content,
     border-bottom: 1px solid rgba(74, 93, 78, 0.06);
     border-right: 1px solid rgba(74, 93, 78, 0.06);
   }
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:nth-child(7n) {
+  body .calendar-sheet #calendar-grid .calendar-day:nth-child(7n) {
     border-right: none;
   }
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.empty {
+  body .calendar-sheet #calendar-grid .calendar-day.empty {
     display: flex;
     visibility: hidden;
     height: 0;
     padding: 0;
     margin: 0;
   }
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day:not(:has(.event-item)) {
-    display: flex;
-  }
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .day-number {
+body .calendar-sheet #calendar-grid .calendar-day .day-number {
   font-family: "Alice", serif;
   box-sizing: border-box;
   grid-column: 1;
@@ -1122,7 +1078,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   padding: 0;
 }
 @media (min-width: 768px) {
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .day-number {
+  body .calendar-sheet #calendar-grid .calendar-day .day-number {
     grid-column: auto;
     grid-row: auto;
     align-self: flex-end;
@@ -1136,7 +1092,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
     padding: 2px 4px;
   }
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item {
+body .calendar-sheet #calendar-grid .calendar-day .event-item {
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1158,17 +1114,17 @@ html body .blog-grid .blog-card.is-draft .card-content,
   margin: 0;
   padding: 2px 0;
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item:hover {
+body .calendar-sheet #calendar-grid .calendar-day .event-item:hover {
   color: #4a5d4e;
 }
 @media (min-width: 768px) {
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item {
+  body .calendar-sheet #calendar-grid .calendar-day .event-item {
     grid-column: auto;
     margin: 6px 0;
     padding: 4px;
   }
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item .event-time {
+body .calendar-sheet #calendar-grid .calendar-day .event-item .event-time {
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
@@ -1179,7 +1135,7 @@ html body .blog-grid .blog-card.is-draft .card-content,
   flex-shrink: 0;
   display: inline-block;
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day .event-item .event-title {
+body .calendar-sheet #calendar-grid .calendar-day .event-item .event-title {
   font-family: "Open Sans", sans-serif;
   font-size: 1.05rem;
   color: #67a6bd;
@@ -1187,17 +1143,17 @@ html body .blog-grid .blog-card.is-draft .card-content,
   overflow: visible;
   text-overflow: clip;
 }
-.calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.is-today .day-number {
+body .calendar-sheet #calendar-grid .calendar-day.is-today .day-number {
   background-color: #4a5d4e;
   color: #f7f4e9;
 }
 @media (min-width: 768px) {
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.is-today {
+  body .calendar-sheet #calendar-grid .calendar-day.is-today {
     background-image: radial-gradient(circle 120px at 100% 100%, #ffffff 0%, #ffffff 99%, transparent 100%);
     border: 1px solid rgba(74, 93, 78, 0.2);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.01);
   }
-  .calendar-sheet #calendar-wrapper #calendar-grid .calendar-day.is-today .day-number {
+  body .calendar-sheet #calendar-grid .calendar-day.is-today .day-number {
     background-color: transparent;
     color: #4a5d4e;
     text-decoration: underline dashed #8b9d83 2px;
