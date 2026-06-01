@@ -162,7 +162,7 @@ body .calendar-sheet {
         
         // Mobile Badge links
         grid-column: 1;
-        grid-row: 1 / span 20; 
+        grid-row: 1; // 🎯 FIX: Nur noch Zeile 1 besetzen! Keine 20 künstlichen Zeilen-Gaps mehr erzeugen. 
         align-self: start;
         background-color: rgba($brand-primary, 0.08);
         color: $brand-primary;
