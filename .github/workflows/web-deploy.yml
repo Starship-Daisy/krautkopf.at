@@ -18,6 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     
+    # 🔒 ZUKUNFTSSICHER FÜR 2026: Aktiviert Node 24 und schaltet die Deprecation-Warnungen ab
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       - name: 📂 Code von GitHub holen
         uses: actions/checkout@v4
@@ -29,7 +33,7 @@ jobs:
           mkdir -p js
           curl -sLf "https://calendar.google.com/calendar/ical/c_268e04bf05f785c1db7f1707aa4e018cd77c1288da6b9a52e5f47cd95d1a8383%40group.calendar.google.com/public/basic.ics" -o js/werkstatt.ics
 
-      - name: 📤 Alle Dateien (inkl. Kalender) per FTP übertragen
+      - name: 📤 Alle Dateien (inkl. Kalender) verschlüsselt per FTPS übertragen
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -38,5 +42,4 @@ jobs:
           server-dir: ./www/
           protocol: ftps
           port: 21
-          force-ipv4: true
-          security: strict
+          security: strict           # Verschlüsselte TLS-Verbindung erzwingen (Ohne ungültiges force-ipv4)
