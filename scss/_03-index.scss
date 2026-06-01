@@ -2,7 +2,7 @@
 // 03-INDEX.SCSS
 // ==========================================
 
-@use '01-mixins' as *;
+@use '01-core' as *;
 
 .main-header {
   padding: $space-xl 0; // Nutzt jetzt die 64px aus den Variablen 📏

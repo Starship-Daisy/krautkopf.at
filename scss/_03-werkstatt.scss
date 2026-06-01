@@ -2,7 +2,7 @@
 // LAYOUT DER GARTEN-WERKSTATT
 // ==========================================
 
-@use '01-mixins' as *;
+@use '01-core' as *;
 
 .blog-layout-wrapper {
   display: grid;

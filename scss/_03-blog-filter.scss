@@ -2,7 +2,7 @@
 // _03-BLOG-FILTER.SCSS (Nur noch die Mechanik)
 // ==========================================
 
-@use '01-mixins' as *;
+@use '01-core' as *;
 
 // Die Suchbox passt sich jetzt flexibel an den karierten Innenteil der Karte auf
 .search-box {

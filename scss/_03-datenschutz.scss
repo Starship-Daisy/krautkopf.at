@@ -2,7 +2,7 @@
 // LAYOUT FÜR RECHTLICHE INHALTE (Datenschutz/Impressum)
 // ==========================================
 
-@use '01-mixins' as *;
+@use '01-core' as *;
 
 // Nur wenn der Header die Klasse .legal-header hat, gelten diese Regeln
 header.legal-header {
