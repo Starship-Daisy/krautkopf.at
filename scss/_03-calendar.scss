@@ -5,7 +5,7 @@
 @use 'sass:color'; 
 @use '01-variables' as *; 
 @use '01-typography' as *;
-@use 'media-query-mixin' as *; // Lädt dein responsives Werkzeug 🛠️
+@use 'mixins.scss' as *; // Lädt dein responsives Werkzeug 🛠️
 
 $marginal-red: #c94c4c;
 

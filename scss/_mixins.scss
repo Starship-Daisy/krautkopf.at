@@ -1,23 +1,34 @@
-// _01-mixins.scss
-@use "sass:map";
+// ========================================================
+// _01-MIXINS.SCSS (Die verschmolzene responsive Schaltzentrale)
+// ========================================================
 
-// ==========================================
+@use "sass:map";
+@use "sass:color";
+@use '01-variables' as *; // Lädt deine globalen Variablen
+
+// ========================================================
 // BREAKPOINT REGISTER
-// Hier definieren wir die Schwellenwerte für die Geräte
-// ==========================================
+// Unterstützt jetzt Namen ("tablet") und Aliase ("medium"),
+// damit im Projekt kein einziger Code-Block bricht!
+// ========================================================
 $breakpoints: (
   "mobile-large": 480px,
-  "tablet":       768px,   // Medium
-  "desktop":      1024px,  // Large
-  "desktop-wide": 1440px   // XLarge
+  
+  "tablet":       768px,
+  "medium":       768px,   // Alias (wichtig für deinen Kalender!)
+  
+  "desktop":      1024px,
+  "large":        1024px,  // Alias
+  
+  "desktop-wide": 1440px,
+  "xlarge":       1440px   // Alias
 );
 
-// ==========================================
+// ========================================================
 // DAS HAUPT-WERKZEUG: respond-to
 // Anwendung: @include respond-to("tablet") { ... }
-// ==========================================
+// ========================================================
 @mixin respond-to($name) {
-  // Wir holen den Pixel-Wert aus dem Register oben
   $value: map.get($breakpoints, $name);
   
   @if $value {
@@ -29,10 +40,10 @@ $breakpoints: (
   }
 }
 
-// ==========================================
+// ========================================================
 // SPEZIAL-MIXIN: Handy Querformat
 // Anwendung: @include landscape-mobile { ... }
-// ==========================================
+// ========================================================
 @mixin landscape-mobile {
   @media screen and (max-device-width: 932px) and (orientation: landscape) {
     @content;
