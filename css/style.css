@@ -370,70 +370,66 @@ h4.back-to-home:hover,
     padding: 40px 0;
   }
 }
-
-.header-grid {
+.main-header .header-grid {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
 }
 @media (min-width: 768px) {
-  .header-grid {
+  .main-header .header-grid {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
 }
-
-.header-left {
+.main-header .header-grid .header-left {
   width: 100%;
   margin-bottom: 15px;
 }
 @media (min-width: 768px) {
-  .header-left {
+  .main-header .header-grid .header-left {
     flex: 1;
     width: auto;
     margin-bottom: 0;
   }
 }
-
-.header-center {
+.main-header .header-grid .header-left .back-to-home a {
+  font-family: "Permanent Marker", cursive;
+  text-decoration: none;
+  color: #4a5d4e;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+}
+.main-header .header-grid .header-left .back-to-home a:hover {
+  color: #8b9d83;
+}
+.main-header .header-grid .header-center {
   display: flex;
   justify-content: center;
   text-align: center;
   width: 100%;
 }
 @media (min-width: 768px) {
-  .header-center {
+  .main-header .header-grid .header-center {
     width: auto;
   }
 }
-
-.header-right {
-  display: none;
-}
-@media (min-width: 768px) {
-  .header-right {
-    display: block;
-    flex: 1;
-  }
-}
-
-.brand-wrapper {
+.main-header .header-grid .header-center .brand-wrapper {
   display: flex;
   align-items: center;
   text-align: left;
   margin: 0;
   gap: 0;
 }
-.brand-wrapper:empty {
-  display: none !important;
-  height: 0 !important;
-  width: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
+.main-header .header-grid .header-center .brand-wrapper:empty {
+  display: none;
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
 }
-.brand-wrapper .kraut-logo-icon {
+.main-header .header-grid .header-center .brand-wrapper .kraut-logo-icon {
   display: none;
   width: 40px;
   height: 40px;
@@ -442,11 +438,11 @@ h4.back-to-home:hover,
   mask-size: contain;
 }
 @media (min-width: 768px) {
-  .brand-wrapper .kraut-logo-icon {
+  .main-header .header-grid .header-center .brand-wrapper .kraut-logo-icon {
     display: block;
   }
 }
-.brand-wrapper .header-text h1 {
+.main-header .header-grid .header-center .brand-wrapper .header-text h1 {
   font-family: "Lora", serif;
   font-size: 2rem;
   margin: 0;
@@ -454,39 +450,37 @@ h4.back-to-home:hover,
   color: #4a5d4e;
 }
 @media (min-width: 768px) {
-  .brand-wrapper .header-text h1 {
+  .main-header .header-grid .header-center .brand-wrapper .header-text h1 {
     font-size: 2.5rem;
   }
 }
-.brand-wrapper .header-text p {
+.main-header .header-grid .header-center .brand-wrapper .header-text p {
   font-family: "Comforter Brush", cursive;
   font-size: 1rem;
   margin: 2px 0 0 0;
   color: #8b9d83;
 }
 @media (min-width: 768px) {
-  .brand-wrapper .header-text p {
+  .main-header .header-grid .header-center .brand-wrapper .header-text p {
     font-size: 1.2rem;
     margin-top: 5px;
   }
 }
 @media (min-width: 768px) {
-  .brand-wrapper {
+  .main-header .header-grid .header-center .brand-wrapper {
     margin: 0 auto;
     text-align: center;
     gap: 20px;
   }
 }
-
-.back-to-home a {
-  font-family: "Permanent Marker", cursive;
-  text-decoration: none;
-  color: #4a5d4e;
-  font-size: 1.1rem;
-  transition: color 0.2s ease;
+.main-header .header-grid .header-right {
+  display: none;
 }
-.back-to-home a:hover {
-  color: #8b9d83;
+@media (min-width: 768px) {
+  .main-header .header-grid .header-right {
+    display: block;
+    flex: 1;
+  }
 }
 
 .quote-section {
