@@ -9,77 +9,9 @@ X-WR-CALDESC:Events & Spektakel\nist ein Kalender für Freunde\, die mit mir
   gemeinsam schöne Sachen unternehmen wollen.\nEs ist ein Kalender\, auf dem
   ein reger Austausch stattfinden soll.
 BEGIN:VEVENT
-DTSTART:20260725T180000Z
-DTEND:20260725T200000Z
-DTSTAMP:20260610T095320Z
-UID:6dmscbv2c1h1ecdfqt9r2buev7@google.com
-CREATED:20260526T094738Z
-DESCRIPTION:<u></u><h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p>L
- ESUNG des Krimiautors Roman Klementovic aus seinem aktuellen Buch „Splitter
- schreie„. Anschließende Frage- und Signierstunde.</p><p><br>Der gebürtige M
- archfelder kam über Umwege zum Schreiben. Genauer gesagt über Hawaii!<br><b
- r>Klementovic studierte und war mehrere Jahre im Marketing tätig\, bevor er
-  2015 sein erstes Buch veröffentlichte. Mehr als 10 Jahre später wird er im
-  Herbst 2026 sein mittlerweile 10. Buch in die Regale der Krimi-Liebhaber s
- tellen. Die fesselnden Cliffhanger-Geschichten fesseln mittlerweile eine st
- ändig steigende Zahl von LeserInnen im Deutschsprachigen Raum\, sodass es n
- icht verwundert\, dass bereits zwei seiner Bücher verfilmt wurden.<br><br>W
- ir sind gespannt\, ob der sympathische Krimi-Autodidakt das Rätsel um den U
- mweg nach Hawaii an diesem Abend auf der Ruine Markgrafneusiedl lösen wird…
- <br><br>In Kooperation mit der Öffentlichen Bibliothek Raasdorf</p><u></u>
-LAST-MODIFIED:20260526T151046Z
-LOCATION:Am Gelände der Ruine in Markgrafneusiedl
-SEQUENCE:1
-STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, Roman Klementovic | „Splitterschrei
- e„
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260808T170000Z
-DTEND:20260808T190000Z
-DTSTAMP:20260610T095320Z
-UID:0c5bom19qhrdar3sdroapq789v@google.com
-CREATED:20260526T152454Z
-DESCRIPTION:<br><h3><b>Buntgemüse-Sommerkino</b></h3><br><p>am 8. August 20
- 26 gibt es im Burghof von Sachsengang wieder ein Sommerkino\, erstmals von 
- uns selbst veranstaltet! Details folgen an dieser Stelle. Herzlich willkomm
- en! </p>
-LAST-MODIFIED:20260526T152454Z
-LOCATION:Burg von Sachsengang
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Buntgemüse-Sommerkino
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260710T180000Z
-DTEND:20260710T200000Z
-DTSTAMP:20260610T095320Z
-UID:4iobjvbt7bs7al0mmtsfk2tv1k@google.com
-CREATED:20260526T090155Z
-DESCRIPTION:<h2><strong><b>Freitag\, 10.7.2026</b></strong></h2><p>Sommerki
- no Marchfeld 2026</p><h4><em><i>DJ Ahmet</i></em></h4><p>MK 2025\, 99min</p
- ><p><a href="https://www.youtube.com/watch?v=ZWtp3wt7j0c">Trailer</a></p><p
- >Der 15-jährige <em><i>Ahmet</i></em> lebt in einem Dorf in Nordmazedonien.
-  Nach dem Tod seiner Mutter ist sein Leben von harter Arbeit und den streng
- en Regeln seines Vaters bestimmt. Bei einer illegalen Techno-Party im Wald 
- gefällt ihm die Musik sofort und er lernt <em><i>Aya</i></em> kennen – ein 
- mutiges Mädchen in seinem Alter. Gemeinsam träumen sie davon\, beim Dorffes
- t heimlich Musik zu machen. Eine Geschichte der Flucht in die Musik\, zwisc
- hen Elternerwartungen und verbotener Liebe zu einem versprochenen Mädchen.<
- /p>
-LAST-MODIFIED:20260526T151137Z
-LOCATION:Am Gelände der Ruine in Markgrafneusiedl
-SEQUENCE:1
-STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, DJ Ahmet
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20260724T180000Z
 DTEND:20260724T200000Z
-DTSTAMP:20260610T095320Z
+DTSTAMP:20260610T152650Z
 UID:7bvcp6j3hec3ld5ha75r8mo05i@google.com
 CREATED:20260526T094556Z
 DESCRIPTION:<section><br><h2><strong><b>Freitag\, 24.7 2026</b></strong></h
@@ -105,66 +37,99 @@ SUMMARY:360° Marchfelder Kultursommer\, „Calle Málage – Ein Zuhause in Tan
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260704T180000Z
-DTEND:20260704T200000Z
-DTSTAMP:20260610T095320Z
-UID:4kmr2l9rfi7avfscb1jgbjbt4g@google.com
-CREATED:20260526T093735Z
-DESCRIPTION:<h2><strong><b>Samstag\, 4.7.2026</b></strong></h2><p>INSPIRATI
- ONS-TALK des Glücksforschers <a href="https://www.rauchensteiner.at/"><em><
- i>Manfred Rauchensteiner</i></em></a></p><p>Seine Hauptaufgabe sieht der Gl
- ücksforscher <em><i>Manfred Rauchensteiner</i></em>darin\, Menschen „aufzuw
- ecken“ aus ihrem Tiefschlaf des Alltags. Menschen zu erinnern und zu beschr
- eiben\, welch wunderbare\, schöpferische Wesen wir sind. Durch das Erklären
-  und Erkennen vieler anerlernter „Programme und Verhaltensmuster“\, die uns
-  scheinbar nicht glücklich gemacht haben. Als Experte für Glaubenssätze und
-  Denkmuster beschreibt er Möglichkeiten\, wie du wieder Verantwortung für d
- eine Gedanken und Empfindungen übernehmen kannst und mit wenig Aufwand Gros
- sartiges bewirkst. Denn Glücklichsein ist eine Entscheidung!</p><p>Seiner B
- erufung folgend veranstaltet er als ausgebildeter Emotionstrainer\, Glücksf
- orscher\, Autor und Wissensentwickler zahlreiche Workshops\, Seminare\, Ein
- zeltrainings und Vorträge. Nach 10 Jahren kommt er endlich wieder ins March
- feld!</p>
-LAST-MODIFIED:20260526T151201Z
+DTSTART:20260725T180000Z
+DTEND:20260725T200000Z
+DTSTAMP:20260610T152650Z
+UID:6dmscbv2c1h1ecdfqt9r2buev7@google.com
+CREATED:20260526T094738Z
+DESCRIPTION:<u></u><h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p>L
+ ESUNG des Krimiautors Roman Klementovic aus seinem aktuellen Buch „Splitter
+ schreie„. Anschließende Frage- und Signierstunde.</p><p><br>Der gebürtige M
+ archfelder kam über Umwege zum Schreiben. Genauer gesagt über Hawaii!<br><b
+ r>Klementovic studierte und war mehrere Jahre im Marketing tätig\, bevor er
+  2015 sein erstes Buch veröffentlichte. Mehr als 10 Jahre später wird er im
+  Herbst 2026 sein mittlerweile 10. Buch in die Regale der Krimi-Liebhaber s
+ tellen. Die fesselnden Cliffhanger-Geschichten fesseln mittlerweile eine st
+ ändig steigende Zahl von LeserInnen im Deutschsprachigen Raum\, sodass es n
+ icht verwundert\, dass bereits zwei seiner Bücher verfilmt wurden.<br><br>W
+ ir sind gespannt\, ob der sympathische Krimi-Autodidakt das Rätsel um den U
+ mweg nach Hawaii an diesem Abend auf der Ruine Markgrafneusiedl lösen wird…
+ <br><br>In Kooperation mit der Öffentlichen Bibliothek Raasdorf</p><u></u>
+LAST-MODIFIED:20260526T151046Z
 LOCATION:Am Gelände der Ruine in Markgrafneusiedl
-SEQUENCE:0
+SEQUENCE:1
 STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, INSPIRATIONS-TALK des Glücksforsche
- rs Manfred Rauchensteiner
+SUMMARY:360° Marchfelder Kultursommer\, Roman Klementovic | „Splitterschrei
+ e„
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260703T180000Z
-DTEND:20260703T200000Z
-DTSTAMP:20260610T095320Z
-UID:6e0vprvvnf1noprg36dn5n9k94@google.com
-CREATED:20260526T093645Z
-DESCRIPTION:<section><br><h2><strong><b>Freitag\, 3.7.2026</b></strong></h2
- ><p>Sommerkino Marchfeld 2026</p><h4><em><i>The Life of Chuck</i></em></h4>
- <p>US&amp\;A 2024\, 110min</p><p><a href="https://www.youtube.com/watch?v=D
- i5nN4q8rA8">Trailer</a></p><p>Wer ist Chuck? Die Welt geht unter\, Kaliforn
- ien versinkt im Meer\, das Internet bricht zusammen – doch in einer amerika
- nischen Kleinstadt herrscht vor allem Dankbarkeit gegenüber <em><i>Charles 
- „Chuck“ Krantz</i></em>\, einem gewöhnlichen Buchhalter\, dessen Gesicht al
- len freundlich von Plakatwänden und aus dem Fernsehen zulächelt. Wer ist di
- eser Mann\, den niemand wirklich zu kennen scheint? Ein Rätsel\, das weit z
- urückreicht\, bis in dessen Kindheit bei seiner Großmutter\, die ihre unend
- liche Liebe fürs Tanzen an ihn weitergab\, und seinem Großvater\, der ihn i
- n die Geheimnisse der Buchhaltung einweihte und unbedingt vor der verschlos
- senen Dachkammer bewahren wollte. Ein Rätsel\, das vor allem eine Frage auf
- wirft: Kann das Schicksal eines Einzelnen die ganze Welt beeinflussen?</p><
- /section>
-LAST-MODIFIED:20260526T151210Z
+DTSTART:20260527T163000Z
+DTEND:20260527T190000Z
+DTSTAMP:20260610T152650Z
+UID:3njgtm8jfp795bellblc4h6tmg@google.com
+CREATED:20260526T100615Z
+DESCRIPTION:<u></u><p>MITTWOCH 27. Mai 2026<br>Beziehungen<br>“Viele Lieben
+ \, klare Absprachen – Zwischen Eifersucht und Mitfreude in polyamoren Bezie
+ hungen” lädt dich ein\, einen Blick hinter die Kulissen nicht‑monogamer Bez
+ iehungen zu werfen. Ein Paar\, das seit zehn Jahren polyamor unterwegs ist 
+ und ein lebendiges Beziehungs‑Rhizom mit verschiedenen\, teils langjährigen
+  Partnerschaften lebt\, erzählt von seinem Alltag: von ersten Schritten und
+  Fehltritten\, von schwierigen Gesprächen\, von Grenzen\, die gehalten werd
+ en wollen – und von Momenten echter Mitfreude\, wenn der geliebte Mensch mi
+ t jemand anderem strahlt.<br><br>An diesem Abend geht es um mehr als “offen
+ e Beziehungen”: Wir sprechen über Sprache und Begriffe\, über Eifersucht un
+ d Sicherheit\, über Compersion (Mitfreude) als vielleicht ungewohntes Gefüh
+ l und darüber\, wie Polyamorie zu einem Weg des Loslassens\, der inneren Ar
+ beit und der Beziehungs‑Spiritualität werden kann. Du musst selbst nicht po
+ ly sein (oder es werden wollen)\, um etwas mitzunehmen – wenn dich die Frag
+ en nach Vertrauen\, Freiheit\, Verbundenheit und Wachstum in Beziehungen be
+ wegen\, bist du hier genau richtig.<br><br>Start: 18.30 (Einlass: 18.00)<br
+ ><br>Ort: Yella Yella in der Seestadt Wien <a href="http://www.yellayella.a
+ t" target="_blank">www.yellayella.at</a><br><br>Kosten: Pay what you wish</
+ p><p></p><u></u><u></u>
+LAST-MODIFIED:20260526T182153Z
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Kapazündler | Beziehungen
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260717T180000Z
+DTEND:20260717T200000Z
+DTSTAMP:20260610T152650Z
+UID:46bqffkm1unaqefvgb4lb35edk@google.com
+CREATED:20260526T094221Z
+DESCRIPTION:<u></u><section><br><h2><strong><b>Freitag\, 17.7.2026</b></str
+ ong></h2><p>Sommerkino Marchfeld:</p><h4>Dokumentation <a href="https://www
+ .youtube.com/watch?v=5Vb-BCXQovE"><em><i>Renate</i></em></a></h4><p>A 2025\
+ , 82min</p><p><a href="https://www.youtube.com/watch?v=5Vb-BCXQovE">Trailer
+ </a></p><p>Mit über 90 Werken zählt die 87-jährige <strong><b><em><i>Renate
+  Welsh</i></em></b></strong> zu den prägendsten Autorinnen der österreichis
+ chen Kinder- und Jugendliteratur. Der Film „Renate“ folgt ihrem bewegten Le
+ ben – von ihrer Kindheit voller Schuldgefühle bis zu ihrer literarischen Ar
+ beit mit <em><i>Christine Nöstlinger </i></em>und <em><i>Mira Lobe </i></em
+ >für sprachlose Außenseiter:innen. In ihren Schreibwerkstätten leitet sie s
+ chreibferne Menschen wie Obdachlose oder Bergbäuerinnen an\, ihre eigene St
+ imme zu finden. Doch ein plötzlicher Schlaganfall raubt ihr selbst Stimme u
+ nd Mobilität.</p><p>Ein berührendes Porträt über eine außergewöhnliche Auto
+ rin\, die die fremde und eigene Sprachlosigkeit überwindet und nie aufgehör
+ t hat\, Geschichten zu erzählen.</p><p>Dieser Vorführung wird der Filmprodu
+ zent <em><i>Peter Janecek</i></em> beiwohnen. Der Gross-Enzersdorfer hat be
+ reits zahlreiche Dokumentarfilme ermöglicht\, <em><i>Renate</i></em> ist da
+ s dritte Werk\, das wir im Rahmen des <em><i>Sommerkino Marchfeld</i></em> 
+ zeigen.</p></section><br><u></u>
+LAST-MODIFIED:20260526T151119Z
 LOCATION:Am Gelände der Ruine in Markgrafneusiedl
 SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, The Life of Chuck
+SUMMARY:360° Marchfelder Kultursommer\, Dokumentation „Renate“
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260614T080000Z
 DTEND:20260614T110000Z
-DTSTAMP:20260610T095320Z
+DTSTAMP:20260610T152650Z
 UID:5sttenlpnentjof1sd1lr9qmr7@google.com
 CREATED:20260526T114740Z
 DESCRIPTION:<h3>Jazz-Picknick im Bank Austria Park - eine Matinee mit den W
@@ -188,9 +153,62 @@ SUMMARY:Jazz-Picknick im Bank Austria Park
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+DTSTART:20260711T180000Z
+DTEND:20260711T200000Z
+DTSTAMP:20260610T152650Z
+UID:17qqipe9ap6nk7happja970b64@google.com
+CREATED:20260526T093843Z
+DESCRIPTION:<h2><strong><b>Samstag\, 11.7.2026</b></strong></h2><p>Illusion
+ s-Show des Mentalisten <em><i>Philipp Oberlohr</i></em><em><i> „<a href="ht
+ tps://tabula-rasa-project.com/udbt-show" target="_blank">Das undeckbare Tun
+ </a>„.</i></em></p><p>An der Schnittstelle zwischen Theater und Illusions-S
+ how schafft Oberlohr sinnvolle Begegnungen mit dem Publikum und lässt es sp
+ ielerisch und leicht an der Realität zweifeln. Die Performance vereint Game
+  Theatre\, mind-reading und funky Ideen zu bewusstseinserweiternden interak
+ tiven Erlebnissen.</p><p>Illusionist und Mentalist <em><i>Philipp Oberlohr<
+ /i></em> sprengt Kategorien und macht seine Shows zu Erlebnissen\, die verb
+ inden. <em><i>The Irish Times</i></em> nennt ihn<strong><b> </b></strong>“ü
+ ber-natürlich”<strong><b>\,</b></strong> doch das ist er auf keinen Fall. <
+ em><i>Metropole Vienna</i></em> sagt “Mentalist Philipp Oberlohr knows ever
+ ything about you”\; stimmt glücklicherweise auch nicht.</p><p>Was stimmt nu
+ n? Seine Bühnenshows\, Keynotes und Workshops ziehen Menschen den Teppich u
+ nter den Füßen weg und bewegen sie nachhaltig. Doch machen Sie sich selbst 
+ ein Bild.</p><p>Trauen Sie sich. Und trauen Sie ihm.</p><p>Der studierte Th
+ eologe ist mittlerweile mit seinen Shows international gefragt. Im Rahmen d
+ es <em><i>360° Marchfelder Kultursommers</i></em> kommt er zum ersten Mal i
+ ns Marchfeld!</p>
+LAST-MODIFIED:20260526T151129Z
+LOCATION:Am Gelände der Ruine in Markgrafneusiedl
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:360° Marchfelder Kultursommer\, Philipp Oberlohr „Das undeckbare Tu
+ n“.
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260726T130000Z
+DTEND:20260726T190000Z
+DTSTAMP:20260610T152650Z
+UID:3i2bt2iv0kujuarh1kckrn3rmj@google.com
+CREATED:20260526T152256Z
+DESCRIPTION:Hofjause 2026\nAm 26. Juli 2026 von 15 bis 21 Uhr findet wieder
+  unsere beliebte Hofjause statt.\n\nJedes Jahr freuen wir uns\, diese mit v
+ ielen lieben Gästen zu feiern  - meist bei bestem Wetter und angenehmen Tem
+ peraturen und begleitet von wunderbarer südamerikanischer Livemusik. Belieb
+ t sind die Führungen durch die Gärtnerei und in die Burg Sachsengang.\n\nKi
+ nder haben nicht nur Spaß in der Hüpfburg\, sondern interessieren sich auch
+  für die Isländer des Islandpferdehofs nebenan.
+LAST-MODIFIED:20260526T152312Z
+LOCATION:Burg Sachsengang
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Hofjause 27.7.2025
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 DTSTART:20260718T180000Z
 DTEND:20260718T200000Z
-DTSTAMP:20260610T095320Z
+DTSTAMP:20260610T152650Z
 UID:0ef4h67ustchuinpdjt3e6p0i0@google.com
 CREATED:20260526T094404Z
 DESCRIPTION:<u></u><h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p><
@@ -223,74 +241,38 @@ SUMMARY:360° Marchfelder Kultursommer\, KONZERT des Duo „Diknu Schneeberger
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260711T180000Z
-DTEND:20260711T200000Z
-DTSTAMP:20260610T095320Z
-UID:17qqipe9ap6nk7happja970b64@google.com
-CREATED:20260526T093843Z
-DESCRIPTION:<h2><strong><b>Samstag\, 11.7.2026</b></strong></h2><p>Illusion
- s-Show des Mentalisten <em><i>Philipp Oberlohr</i></em><em><i> „<a href="ht
- tps://tabula-rasa-project.com/udbt-show" target="_blank">Das undeckbare Tun
- </a>„.</i></em></p><p>An der Schnittstelle zwischen Theater und Illusions-S
- how schafft Oberlohr sinnvolle Begegnungen mit dem Publikum und lässt es sp
- ielerisch und leicht an der Realität zweifeln. Die Performance vereint Game
-  Theatre\, mind-reading und funky Ideen zu bewusstseinserweiternden interak
- tiven Erlebnissen.</p><p>Illusionist und Mentalist <em><i>Philipp Oberlohr<
- /i></em> sprengt Kategorien und macht seine Shows zu Erlebnissen\, die verb
- inden. <em><i>The Irish Times</i></em> nennt ihn<strong><b> </b></strong>“ü
- ber-natürlich”<strong><b>\,</b></strong> doch das ist er auf keinen Fall. <
- em><i>Metropole Vienna</i></em> sagt “Mentalist Philipp Oberlohr knows ever
- ything about you”\; stimmt glücklicherweise auch nicht.</p><p>Was stimmt nu
- n? Seine Bühnenshows\, Keynotes und Workshops ziehen Menschen den Teppich u
- nter den Füßen weg und bewegen sie nachhaltig. Doch machen Sie sich selbst 
- ein Bild.</p><p>Trauen Sie sich. Und trauen Sie ihm.</p><p>Der studierte Th
- eologe ist mittlerweile mit seinen Shows international gefragt. Im Rahmen d
- es <em><i>360° Marchfelder Kultursommers</i></em> kommt er zum ersten Mal i
- ns Marchfeld!</p>
-LAST-MODIFIED:20260526T151129Z
-LOCATION:Am Gelände der Ruine in Markgrafneusiedl
-SEQUENCE:1
-STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, Philipp Oberlohr „Das undeckbare Tu
- n“.
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260717T180000Z
-DTEND:20260717T200000Z
-DTSTAMP:20260610T095320Z
-UID:46bqffkm1unaqefvgb4lb35edk@google.com
-CREATED:20260526T094221Z
-DESCRIPTION:<u></u><section><br><h2><strong><b>Freitag\, 17.7.2026</b></str
- ong></h2><p>Sommerkino Marchfeld:</p><h4>Dokumentation <a href="https://www
- .youtube.com/watch?v=5Vb-BCXQovE"><em><i>Renate</i></em></a></h4><p>A 2025\
- , 82min</p><p><a href="https://www.youtube.com/watch?v=5Vb-BCXQovE">Trailer
- </a></p><p>Mit über 90 Werken zählt die 87-jährige <strong><b><em><i>Renate
-  Welsh</i></em></b></strong> zu den prägendsten Autorinnen der österreichis
- chen Kinder- und Jugendliteratur. Der Film „Renate“ folgt ihrem bewegten Le
- ben – von ihrer Kindheit voller Schuldgefühle bis zu ihrer literarischen Ar
- beit mit <em><i>Christine Nöstlinger </i></em>und <em><i>Mira Lobe </i></em
- >für sprachlose Außenseiter:innen. In ihren Schreibwerkstätten leitet sie s
- chreibferne Menschen wie Obdachlose oder Bergbäuerinnen an\, ihre eigene St
- imme zu finden. Doch ein plötzlicher Schlaganfall raubt ihr selbst Stimme u
- nd Mobilität.</p><p>Ein berührendes Porträt über eine außergewöhnliche Auto
- rin\, die die fremde und eigene Sprachlosigkeit überwindet und nie aufgehör
- t hat\, Geschichten zu erzählen.</p><p>Dieser Vorführung wird der Filmprodu
- zent <em><i>Peter Janecek</i></em> beiwohnen. Der Gross-Enzersdorfer hat be
- reits zahlreiche Dokumentarfilme ermöglicht\, <em><i>Renate</i></em> ist da
- s dritte Werk\, das wir im Rahmen des <em><i>Sommerkino Marchfeld</i></em> 
- zeigen.</p></section><br><u></u>
-LAST-MODIFIED:20260526T151119Z
+DTSTART:20260704T180000Z
+DTEND:20260704T200000Z
+DTSTAMP:20260610T152650Z
+UID:4kmr2l9rfi7avfscb1jgbjbt4g@google.com
+CREATED:20260526T093735Z
+DESCRIPTION:<h2><strong><b>Samstag\, 4.7.2026</b></strong></h2><p>INSPIRATI
+ ONS-TALK des Glücksforschers <a href="https://www.rauchensteiner.at/"><em><
+ i>Manfred Rauchensteiner</i></em></a></p><p>Seine Hauptaufgabe sieht der Gl
+ ücksforscher <em><i>Manfred Rauchensteiner</i></em>darin\, Menschen „aufzuw
+ ecken“ aus ihrem Tiefschlaf des Alltags. Menschen zu erinnern und zu beschr
+ eiben\, welch wunderbare\, schöpferische Wesen wir sind. Durch das Erklären
+  und Erkennen vieler anerlernter „Programme und Verhaltensmuster“\, die uns
+  scheinbar nicht glücklich gemacht haben. Als Experte für Glaubenssätze und
+  Denkmuster beschreibt er Möglichkeiten\, wie du wieder Verantwortung für d
+ eine Gedanken und Empfindungen übernehmen kannst und mit wenig Aufwand Gros
+ sartiges bewirkst. Denn Glücklichsein ist eine Entscheidung!</p><p>Seiner B
+ erufung folgend veranstaltet er als ausgebildeter Emotionstrainer\, Glücksf
+ orscher\, Autor und Wissensentwickler zahlreiche Workshops\, Seminare\, Ein
+ zeltrainings und Vorträge. Nach 10 Jahren kommt er endlich wieder ins March
+ feld!</p>
+LAST-MODIFIED:20260526T151201Z
 LOCATION:Am Gelände der Ruine in Markgrafneusiedl
 SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:360° Marchfelder Kultursommer\, Dokumentation „Renate“
+SUMMARY:360° Marchfelder Kultursommer\, INSPIRATIONS-TALK des Glücksforsche
+ rs Manfred Rauchensteiner
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260616T163000Z
 DTEND:20260616T183000Z
-DTSTAMP:20260610T095320Z
+DTSTAMP:20260610T152650Z
 UID:7i9inmi07i42gkl0483m6eb205@google.com
 CREATED:20260526T095123Z
 DESCRIPTION:<u></u><br><u></u><h3>DIENSTAG 16. Juni 2026</h3><u></u><u></u>
@@ -325,9 +307,78 @@ SUMMARY:kapazündler\, jenseitsbilder
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+DTSTART:20260703T180000Z
+DTEND:20260703T200000Z
+DTSTAMP:20260610T152650Z
+UID:6e0vprvvnf1noprg36dn5n9k94@google.com
+CREATED:20260526T093645Z
+DESCRIPTION:<section><br><h2><strong><b>Freitag\, 3.7.2026</b></strong></h2
+ ><p>Sommerkino Marchfeld 2026</p><h4><em><i>The Life of Chuck</i></em></h4>
+ <p>US&amp\;A 2024\, 110min</p><p><a href="https://www.youtube.com/watch?v=D
+ i5nN4q8rA8">Trailer</a></p><p>Wer ist Chuck? Die Welt geht unter\, Kaliforn
+ ien versinkt im Meer\, das Internet bricht zusammen – doch in einer amerika
+ nischen Kleinstadt herrscht vor allem Dankbarkeit gegenüber <em><i>Charles 
+ „Chuck“ Krantz</i></em>\, einem gewöhnlichen Buchhalter\, dessen Gesicht al
+ len freundlich von Plakatwänden und aus dem Fernsehen zulächelt. Wer ist di
+ eser Mann\, den niemand wirklich zu kennen scheint? Ein Rätsel\, das weit z
+ urückreicht\, bis in dessen Kindheit bei seiner Großmutter\, die ihre unend
+ liche Liebe fürs Tanzen an ihn weitergab\, und seinem Großvater\, der ihn i
+ n die Geheimnisse der Buchhaltung einweihte und unbedingt vor der verschlos
+ senen Dachkammer bewahren wollte. Ein Rätsel\, das vor allem eine Frage auf
+ wirft: Kann das Schicksal eines Einzelnen die ganze Welt beeinflussen?</p><
+ /section>
+LAST-MODIFIED:20260526T151210Z
+LOCATION:Am Gelände der Ruine in Markgrafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:360° Marchfelder Kultursommer\, The Life of Chuck
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260808T170000Z
+DTEND:20260808T190000Z
+DTSTAMP:20260610T152650Z
+UID:0c5bom19qhrdar3sdroapq789v@google.com
+CREATED:20260526T152454Z
+DESCRIPTION:<br><h3><b>Buntgemüse-Sommerkino</b></h3><br><p>am 8. August 20
+ 26 gibt es im Burghof von Sachsengang wieder ein Sommerkino\, erstmals von 
+ uns selbst veranstaltet! Details folgen an dieser Stelle. Herzlich willkomm
+ en! </p>
+LAST-MODIFIED:20260526T152454Z
+LOCATION:Burg von Sachsengang
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Buntgemüse-Sommerkino
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260710T180000Z
+DTEND:20260710T200000Z
+DTSTAMP:20260610T152650Z
+UID:4iobjvbt7bs7al0mmtsfk2tv1k@google.com
+CREATED:20260526T090155Z
+DESCRIPTION:<h2><strong><b>Freitag\, 10.7.2026</b></strong></h2><p>Sommerki
+ no Marchfeld 2026</p><h4><em><i>DJ Ahmet</i></em></h4><p>MK 2025\, 99min</p
+ ><p><a href="https://www.youtube.com/watch?v=ZWtp3wt7j0c">Trailer</a></p><p
+ >Der 15-jährige <em><i>Ahmet</i></em> lebt in einem Dorf in Nordmazedonien.
+  Nach dem Tod seiner Mutter ist sein Leben von harter Arbeit und den streng
+ en Regeln seines Vaters bestimmt. Bei einer illegalen Techno-Party im Wald 
+ gefällt ihm die Musik sofort und er lernt <em><i>Aya</i></em> kennen – ein 
+ mutiges Mädchen in seinem Alter. Gemeinsam träumen sie davon\, beim Dorffes
+ t heimlich Musik zu machen. Eine Geschichte der Flucht in die Musik\, zwisc
+ hen Elternerwartungen und verbotener Liebe zu einem versprochenen Mädchen.<
+ /p>
+LAST-MODIFIED:20260526T151137Z
+LOCATION:Am Gelände der Ruine in Markgrafneusiedl
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:360° Marchfelder Kultursommer\, DJ Ahmet
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 DTSTART:20260529T173000Z
 DTEND:20260529T200000Z
-DTSTAMP:20260610T095320Z
+DTSTAMP:20260610T152650Z
 UID:6j64puua528rqk6s7p269a982c@google.com
 CREATED:20260526T090328Z
 DESCRIPTION:<h1>Eine Dokumentation</h1><br><p>Erstmalige öffentliche Auffüh
@@ -371,57 +422,6 @@ LAST-MODIFIED:20260529T125749Z
 SEQUENCE:1
 STATUS:CONFIRMED
 SUMMARY:Finding Sir David
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260527T163000Z
-DTEND:20260527T190000Z
-DTSTAMP:20260610T095320Z
-UID:3njgtm8jfp795bellblc4h6tmg@google.com
-CREATED:20260526T100615Z
-DESCRIPTION:<u></u><p>MITTWOCH 27. Mai 2026<br>Beziehungen<br>“Viele Lieben
- \, klare Absprachen – Zwischen Eifersucht und Mitfreude in polyamoren Bezie
- hungen” lädt dich ein\, einen Blick hinter die Kulissen nicht‑monogamer Bez
- iehungen zu werfen. Ein Paar\, das seit zehn Jahren polyamor unterwegs ist 
- und ein lebendiges Beziehungs‑Rhizom mit verschiedenen\, teils langjährigen
-  Partnerschaften lebt\, erzählt von seinem Alltag: von ersten Schritten und
-  Fehltritten\, von schwierigen Gesprächen\, von Grenzen\, die gehalten werd
- en wollen – und von Momenten echter Mitfreude\, wenn der geliebte Mensch mi
- t jemand anderem strahlt.<br><br>An diesem Abend geht es um mehr als “offen
- e Beziehungen”: Wir sprechen über Sprache und Begriffe\, über Eifersucht un
- d Sicherheit\, über Compersion (Mitfreude) als vielleicht ungewohntes Gefüh
- l und darüber\, wie Polyamorie zu einem Weg des Loslassens\, der inneren Ar
- beit und der Beziehungs‑Spiritualität werden kann. Du musst selbst nicht po
- ly sein (oder es werden wollen)\, um etwas mitzunehmen – wenn dich die Frag
- en nach Vertrauen\, Freiheit\, Verbundenheit und Wachstum in Beziehungen be
- wegen\, bist du hier genau richtig.<br><br>Start: 18.30 (Einlass: 18.00)<br
- ><br>Ort: Yella Yella in der Seestadt Wien <a href="http://www.yellayella.a
- t" target="_blank">www.yellayella.at</a><br><br>Kosten: Pay what you wish</
- p><p></p><u></u><u></u>
-LAST-MODIFIED:20260526T182153Z
-SEQUENCE:1
-STATUS:CONFIRMED
-SUMMARY:Kapazündler | Beziehungen
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260726T130000Z
-DTEND:20260726T190000Z
-DTSTAMP:20260610T095320Z
-UID:3i2bt2iv0kujuarh1kckrn3rmj@google.com
-CREATED:20260526T152256Z
-DESCRIPTION:Hofjause 2026\nAm 26. Juli 2026 von 15 bis 21 Uhr findet wieder
-  unsere beliebte Hofjause statt.\n\nJedes Jahr freuen wir uns\, diese mit v
- ielen lieben Gästen zu feiern  - meist bei bestem Wetter und angenehmen Tem
- peraturen und begleitet von wunderbarer südamerikanischer Livemusik. Belieb
- t sind die Führungen durch die Gärtnerei und in die Burg Sachsengang.\n\nKi
- nder haben nicht nur Spaß in der Hüpfburg\, sondern interessieren sich auch
-  für die Isländer des Islandpferdehofs nebenan.
-LAST-MODIFIED:20260526T152312Z
-LOCATION:Burg Sachsengang
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Hofjause 27.7.2025
 TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR
