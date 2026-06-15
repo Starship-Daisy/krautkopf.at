@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Dashboard</title>
+</head>
+<body>
+
+<h1>Mein Portfolio</h1>
+
+<pre id="output">Lade Daten...</pre>
+
+<script>
+fetch("https://raw.githubusercontent.com/DEIN_USER/portfolio-system/main/py-data/portfolio.json")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("output").innerText =
+            JSON.stringify(data, null, 2);
+    });
+</script>
+
+</body>
+</html>
