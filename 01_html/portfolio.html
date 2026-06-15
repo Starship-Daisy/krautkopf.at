@@ -9,32 +9,57 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<canvas id="portfolioChart"></canvas>
+<canvas id="historyChart"></canvas>
 
 <pre id="output">Lade Daten...</pre>
 
 <script>
-fetch("https://krautkopf.at/01_html/portfolio.html")
-    .then(res => res.json())
-    .then(data => {
+fetch("https://raw.githubusercontent.com/DEIN_USER/portfolio-system/main/py-data/history.json")
+  .then(res => res.json())
+  .then(data => {
 
-        console.log("DATA:", data);
+    const labels = data.map(entry => entry.date);
 
-        const ctx = document.getElementById("portfolioChart");
+    const depotA = data.map(entry => entry.DepotA);
+    const depotB = data.map(entry => entry.DepotB);
+    const depotC = data.map(entry => entry.DepotC);
 
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: Object.keys(data.depots),
-                datasets: [{
-                    label: "Portfolio",
-                    data: Object.values(data.depots).map(d => d.value)
-                }]
-            }
-        });
+    new Chart(document.getElementById("historyChart"), {
+      type: "line",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Depot A (ESG)",
+            data: depotA,
+            borderWidth: 2,
+            fill: false
+          },
+          {
+            label: "Depot B (Clean Energy)",
+            data: depotB,
+            borderWidth: 2,
+            fill: false
+          },
+          {
+            label: "Depot C (World)",
+            data: depotC,
+            borderWidth: 2,
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      }
+    });
 
-    })
-    .catch(err => console.error("ERROR:", err));
+  });
 </script>
 
 </body>
