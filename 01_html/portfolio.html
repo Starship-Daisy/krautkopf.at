@@ -13,54 +13,47 @@
 
 <pre id="output">Lade Daten...</pre>
 
-<script>
 fetch("https://raw.githubusercontent.com/Starship-Daisy/portfolio-system/main/py-data/history.json")
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) {
+      throw new Error("Daten konnten nicht von GitHub geladen werden (404).");
+    }
+    return res.json();
+  })
   .then(data => {
+    // Falls die Historie noch komplett leer ist
+    if (!data || data.length === 0) {
+      document.getElementById("output").innerText = "Keine historischen Daten vorhanden. Warte auf das erste Skript-Update.";
+      return;
+    }
+
+    document.getElementById("output").innerText = "Daten erfolgreich geladen.";
 
     const labels = data.map(entry => entry.date);
-
-    const depotA = data.map(entry => entry.DepotA);
-    const depotB = data.map(entry => entry.DepotB);
-    const depotC = data.map(entry => entry.DepotC);
+    const depotA = data.map(entry => entry.DepotA || 0);
+    const depotB = data.map(entry => entry.DepotB || 0);
+    const depotC = data.map(entry => entry.DepotC || 0);
 
     new Chart(document.getElementById("historyChart"), {
       type: "line",
       data: {
         labels: labels,
         datasets: [
-          {
-            label: "Depot A (ESG)",
-            data: depotA,
-            borderWidth: 2,
-            fill: false
-          },
-          {
-            label: "Depot B (Clean Energy)",
-            data: depotB,
-            borderWidth: 2,
-            fill: false
-          },
-          {
-            label: "Depot C (World)",
-            data: depotC,
-            borderWidth: 2,
-            fill: false
-          }
+          { label: "Depot A (ESG)", data: depotA, borderWidth: 2, fill: false },
+          { label: "Depot B (Clean Energy)", data: depotB, borderWidth: 2, fill: false },
+          { label: "Depot C (World)", data: depotC, borderWidth: 2, fill: false }
         ]
       },
       options: {
         responsive: true,
-        scales: {
-          y: {
-            beginAtZero: false
-          }
-        }
+        scales: { y: { beginAtZero: false } }
       }
     });
-
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("output").innerText = "Fehler: " + err.message;
   });
-</script>
 
 </body>
 </html>
