@@ -44,3 +44,26 @@ with open("py-data/portfolio.json", "w") as f:
     json.dump(portfolio, f, indent=2)
 
 print(portfolio)
+
+import os
+
+history_file = "py-data/history.json"
+
+# 1. bestehende Historie laden
+if os.path.exists(history_file):
+    with open(history_file, "r") as f:
+        history = json.load(f)
+else:
+    history = []
+
+# 2. aktuellen Snapshot anhängen
+history.append({
+    "date": str(datetime.now().date()),
+    "DepotA": portfolio["depots"]["DepotA"]["value"],
+    "DepotB": portfolio["depots"]["DepotB"]["value"],
+    "DepotC": portfolio["depots"]["DepotC"]["value"]
+})
+
+# 3. zurück speichern
+with open(history_file, "w") as f:
+    json.dump(history, f, indent=2)
