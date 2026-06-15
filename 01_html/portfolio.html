@@ -15,8 +15,8 @@
 <pre id="output">Lade Daten...</pre>
 
 <script>
-fetch("https://raw.githubusercontent.com/Starship-Daisy/portfolio-system/main/py-data/history.json")
-  .then(res => {
+fetch("py-data/history.json")
+<  .then(res => {
     if (!res.ok) {
       throw new Error("Daten konnten nicht von GitHub geladen werden (404).");
     }
