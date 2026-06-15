@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Portfolio Dashboard</title>
 </head>
 <body>
@@ -13,6 +14,7 @@
 
 <pre id="output">Lade Daten...</pre>
 
+<script>
 fetch("https://raw.githubusercontent.com/Starship-Daisy/portfolio-system/main/py-data/history.json")
   .then(res => {
     if (!res.ok) {
@@ -54,6 +56,6 @@ fetch("https://raw.githubusercontent.com/Starship-Daisy/portfolio-system/main/py
     console.error(err);
     document.getElementById("output").innerText = "Fehler: " + err.message;
   });
-
+</script>
 </body>
 </html>
