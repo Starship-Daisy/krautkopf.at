@@ -74,3 +74,8 @@ history.append({
 # 4. speichern
 with open(history_file, "w") as f:
     json.dump(history, f, indent=2)
+
+
+print("DEBUG: Script reached history section")
+print("DEBUG: history loaded =", history)
+print("DEBUG: history after append =", history)
