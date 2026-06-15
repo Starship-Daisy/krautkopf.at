@@ -36,8 +36,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
-          # Sicherstellen, dass die Dateien existieren, bevor sie hinzugefügt werden
-          git add py-data/portfolio.json py-data/history.json || true
+          # Hier sagen wir dem Bot, dass die Dateien im Unterordner liegen:
+          git add portfolio-system/py-data/portfolio.json portfolio-system/py-data/history.json || true
           
           # Nur committen, wenn sich auch wirklich etwas geändert hat
-          git diff --quiet && git diff --staged --quiet || (git commit -m "update" && git push origin main)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "update data" && git push origin main)
