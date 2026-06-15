@@ -68,9 +68,9 @@ if not isinstance(history, list):
 # 3. neuer Eintrag
 new_entry = {
     "date": str(datetime.now().date()),
-    "DepotA": portfolio["depots"]["DepotA"]["value"],
-    "DepotB": portfolio["depots"]["DepotB"]["value"],
-    "DepotC": portfolio["depots"]["DepotC"]["value"]
+    "DepotA": portfolio["DepotA"],
+    "DepotB": portfolio["DepotB"],
+    "DepotC": portfolio["DepotC"]
 }
 
 history.append(new_entry)
