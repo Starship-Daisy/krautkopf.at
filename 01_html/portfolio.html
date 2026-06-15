@@ -7,14 +7,36 @@
 
 <h1>Mein Portfolio</h1>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="portfolioChart"></canvas>
+
 <pre id="output">Lade Daten...</pre>
 
 <script>
 fetch("https://raw.githubusercontent.com/DEIN_USER/portfolio-system/main/py-data/portfolio.json")
     .then(res => res.json())
     .then(data => {
-        document.getElementById("output").innerText =
-            JSON.stringify(data, null, 2);
+
+        const labels = ["DepotA", "DepotB", "DepotC"];
+
+        const values = [
+            data.depots.DepotA.value,
+            data.depots.DepotB.value,
+            data.depots.DepotC.value
+        ];
+
+        new Chart(document.getElementById("portfolioChart"), {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Portfolio Wert (€)",
+                    data: values
+                }]
+            }
+        });
+
     });
 </script>
 
