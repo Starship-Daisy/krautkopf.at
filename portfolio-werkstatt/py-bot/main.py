@@ -49,14 +49,21 @@ import os
 
 history_file = "py-data/history.json"
 
-# 1. bestehende Historie laden
+# 1. laden (oder neu erstellen)
 if os.path.exists(history_file):
     with open(history_file, "r") as f:
-        history = json.load(f)
+        try:
+            history = json.load(f)
+        except:
+            history = []
 else:
     history = []
 
-# 2. aktuellen Snapshot anhängen
+# 2. sicherstellen, dass es Liste ist
+if not isinstance(history, list):
+    history = []
+
+# 3. neuen Eintrag anhängen
 history.append({
     "date": str(datetime.now().date()),
     "DepotA": portfolio["depots"]["DepotA"]["value"],
@@ -64,6 +71,6 @@ history.append({
     "DepotC": portfolio["depots"]["DepotC"]["value"]
 })
 
-# 3. zurück speichern
+# 4. speichern
 with open(history_file, "w") as f:
     json.dump(history, f, indent=2)
