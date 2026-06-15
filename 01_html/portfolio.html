@@ -14,30 +14,27 @@
 <pre id="output">Lade Daten...</pre>
 
 <script>
-fetch("https://raw.githubusercontent.com/DEIN_USER/portfolio-system/main/py-data/portfolio.json")
+fetch("https://krautkopf.at/01_html/portfolio.html")
     .then(res => res.json())
     .then(data => {
 
-        const labels = ["DepotA", "DepotB", "DepotC"];
+        console.log("DATA:", data);
 
-        const values = [
-            data.depots.DepotA.value,
-            data.depots.DepotB.value,
-            data.depots.DepotC.value
-        ];
+        const ctx = document.getElementById("portfolioChart");
 
-        new Chart(document.getElementById("portfolioChart"), {
+        new Chart(ctx, {
             type: "bar",
             data: {
-                labels: labels,
+                labels: Object.keys(data.depots),
                 datasets: [{
-                    label: "Portfolio Wert (€)",
-                    data: values
+                    label: "Portfolio",
+                    data: Object.values(data.depots).map(d => d.value)
                 }]
             }
         });
 
-    });
+    })
+    .catch(err => console.error("ERROR:", err));
 </script>
 
 </body>
