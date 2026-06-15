@@ -27,7 +27,8 @@ jobs:
         run: pip install yfinance
 
       - name: Run portfolio script
-        run: python portfolio-system/py-bot/main.py
+        working-directory: portfolio-system
+        run: python py-bot/main.py
 
       # Korrigierte Push-Logik, damit GitHub Actions nicht blockiert
       - name: Commit updated data
