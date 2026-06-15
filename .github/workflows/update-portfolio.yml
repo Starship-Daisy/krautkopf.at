@@ -1,0 +1,33 @@
+name: Update Portfolio
+
+on:
+  schedule:
+    - cron: "0 18 * * *"  # täglich 18:00 UTC
+  workflow_dispatch:      # manuell startbar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install yfinance
+
+      - name: Run portfolio script
+        run: python py-bot/main.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add py-data/portfolio.json
+          git commit -m "update portfolio data" || echo "No changes"
+          git push
