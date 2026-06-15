@@ -1,8 +1,5 @@
 name: Update Portfolio
 
-
-name: Update Portfolio
-
 on:
   schedule:
     - cron: "0 18 * * *"
