@@ -46,10 +46,12 @@ with open("py-data/portfolio.json", "w") as f:
 print(portfolio)
 
 import os
+import json
+from datetime import datetime
 
 history_file = "py-data/history.json"
 
-# 1. laden (oder neu erstellen)
+# 1. laden oder initialisieren
 if os.path.exists(history_file):
     with open(history_file, "r") as f:
         try:
@@ -59,23 +61,23 @@ if os.path.exists(history_file):
 else:
     history = []
 
-# 2. sicherstellen, dass es Liste ist
+# 2. Sicherheitscheck
 if not isinstance(history, list):
     history = []
 
-# 3. neuen Eintrag anhängen
-history.append({
+# 3. neuer Eintrag
+new_entry = {
     "date": str(datetime.now().date()),
     "DepotA": portfolio["depots"]["DepotA"]["value"],
     "DepotB": portfolio["depots"]["DepotB"]["value"],
     "DepotC": portfolio["depots"]["DepotC"]["value"]
-})
+}
+
+history.append(new_entry)
+
+print("DEBUG NEW ENTRY:", new_entry)
+print("DEBUG HISTORY LENGTH:", len(history))
 
 # 4. speichern
 with open(history_file, "w") as f:
     json.dump(history, f, indent=2)
-
-
-print("DEBUG: Script reached history section")
-print("DEBUG: history loaded =", history)
-print("DEBUG: history after append =", history)
