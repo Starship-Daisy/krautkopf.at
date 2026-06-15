@@ -15,8 +15,10 @@
 <pre id="output">Lade Daten...</pre>
 
 <script>
-fetch("py-data/history.json")
-  .then(res => {
+
+fetch("/portfolio-system/py-data/history.json")
+
+.then(res => {
     if (!res.ok) {
       throw new Error("Daten konnten nicht von GitHub geladen werden (404).");
     }
