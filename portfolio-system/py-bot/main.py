@@ -1,57 +1,64 @@
 import yfinance as yf
 from datetime import datetime
 import json
+import os
 
-# ETFs
+# HIER DEINE ANTEILE EINTRAGEN (Beispiel-Werte):
 ETFS = {
-    "DepotA": "ESG.DE",
-    "DepotB": "INRG.L",
-    "DepotC": "VWCE.DE"
+    "DepotA": {"ticker": "ESG.DE", "shares": 12.5},
+    "DepotB": {"ticker": "INRG.L", "shares": 45.2},
+    "DepotC": {"ticker": "VWCE.DE", "shares": 4.8}
 }
 
-START_CAPITAL = 500
-
 def get_price(ticker):
-    data = yf.Ticker(ticker)
-    return data.history(period="1d")["Close"].iloc[-1]
+    try:
+        data = yf.Ticker(ticker)
+        return data.history(period="1d")["Close"].iloc[-1]
+    except Exception as e:
+        print(f"Fehler beim Laden von {ticker}: {e}")
+        return 0
 
+# Basis-Struktur für das aktuelle Portfolio
 portfolio = {
     "date": str(datetime.now().date()),
     "depots": {}
 }
 
-for name, ticker in ETFS.items():
+# Schleife berechnet den aktuellen Wert basierend auf deinen Anteilen
+for name, info in ETFS.items():
+    ticker = info["ticker"]
+    shares = info["shares"]
+    
+    # Aktuellen Preis live abfragen
+    current_price = get_price(ticker)
+    
+    # Aktueller Gesamtwert = Anzahl der Anteile * aktueller Preis
+    current_value = shares * current_price
 
-    price = get_price(ticker)
-
-    # echte Stückzahl beim Kauf
-    shares = START_CAPITAL / price
-
-    # aktueller Wert
-    value = shares * price
-
+    # Daten im Dictionary speichern
     portfolio["depots"][name] = {
         "ticker": ticker,
-        "buy_price": price,
         "shares": shares,
-        "current_price": price,
-        "value": value,
-        "profit": value - START_CAPITAL
+        "current_price": current_price,
+        "value": current_value
     }
 
-# speichern
+# Ordner erstellen, falls er noch nicht existiert
+os.makedirs("py-data", exist_ok=True)
+
+# 1. Aktuelles Portfolio speichern (portfolio.json)
 with open("py-data/portfolio.json", "w") as f:
     json.dump(portfolio, f, indent=2)
 
-print(portfolio)
+print("Aktuelles Portfolio gespeichert:", portfolio)
 
-import os
-import json
-from datetime import datetime
 
+# ==========================================
+# HISTORIE SPEICHERN (für den Chart)
+# ==========================================
 history_file = "py-data/history.json"
 
-# 1. laden oder initialisieren
+# Historie laden oder neu erstellen
 if os.path.exists(history_file):
     with open(history_file, "r") as f:
         try:
@@ -61,23 +68,21 @@ if os.path.exists(history_file):
 else:
     history = []
 
-# 2. Sicherheitscheck
 if not isinstance(history, list):
     history = []
 
-# 3. neuer Eintrag
+# Neuer Eintrag für den Chart (holt die echten Werte aus der Schleife oben)
 new_entry = {
     "date": str(datetime.now().date()),
-    "DepotA": portfolio["DepotA"],
-    "DepotB": portfolio["DepotB"],
-    "DepotC": portfolio["DepotC"]
+    "DepotA": portfolio["depots"]["DepotA"]["value"],
+    "DepotB": portfolio["depots"]["DepotB"]["value"],
+    "DepotC": portfolio["depots"]["DepotC"]["value"]
 }
 
 history.append(new_entry)
 
-print("DEBUG NEW ENTRY:", new_entry)
-print("DEBUG HISTORY LENGTH:", len(history))
+print("DEBUG NEUER HISTORIE-EINTRAG:", new_entry)
 
-# 4. speichern
+# Historie abspeichern
 with open(history_file, "w") as f:
     json.dump(history, f, indent=2)

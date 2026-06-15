@@ -1,13 +1,20 @@
 name: Update Portfolio
 
+
+name: Update Portfolio
+
 on:
   schedule:
-    - cron: "0 18 * * *"  # täglich 18:00 UTC
-  workflow_dispatch:      # manuell startbar
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Erlaubt dem Bot das Pushen von Änderungen
 
 jobs:
   build:
     runs-on: ubuntu-latest
+# ... Rest des Workflows bleibt gleich
 
     steps:
       - name: Checkout repo
@@ -36,8 +43,3 @@ jobs:
           git add py-data/portfolio.json py-data/history.json
           git commit -m "update"
           git push origin main
-          
-          
-         
-
-
