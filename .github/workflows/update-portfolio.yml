@@ -31,16 +31,22 @@ jobs:
         run: python py-bot/main.py
 
       # Korrigierte Push-Logik, damit GitHub Actions nicht blockiert
-      - name: Commit updated data
+      # NACHHER (Neu und flexibel):
+      - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Hier sagen wir dem Bot, dass die Dateien im Unterordner liegen:
-          git add portfolio-system/py-data/portfolio.json portfolio-system/py-data/history.json || true
-          
-          # Nur committen, wenn sich auch wirklich etwas geändert hat
-          git diff --quiet && git diff --staged --quiet || (git commit -m "update data" && git push origin main)
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    
+      # Hier sagen wir Git, dass es ALLE Dateien im py-data Ordner einpacken soll:
+        git add portfolio-system/py-data/* || true
+    
+      # Nur committen und pushen, wenn sich wirklich etwas geändert hat
+        if ! git diff --cached --quiet; then
+        git commit -m "update portfolio data"
+        git push origin main
+        else
+        echo "Keine Änderungen vorhanden."
+        fi
 
       
       - name: Install Dependencies
