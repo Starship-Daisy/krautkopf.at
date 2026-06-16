@@ -6,51 +6,85 @@
 </head>
 <body>
 
-<h1>Mein Portfolio</h1>
+<h1>Mein KI-Musterportfolio</h1>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<canvas id="historyChart"></canvas>
+<div style="width: 85%; margin: auto; max-width: 1000px; padding-top: 20px;">
+    <canvas id="historyChart"></canvas>
+</div>
 
-<pre id="output">Lade Daten...</pre>
+<pre id="output" style="text-align: center; margin-top: 20px; font-family: monospace; color: #666;">Lade Daten...</pre>
 
 <script>
-
-fetch("/portfolio-system/py-data/history.json")
-
-.then(res => {
+// Wir laden die Historien-Datei aus dem richtigen Unterordner
+fetch("./py-data/portfolio_history.json")
+  .then(res => {
     if (!res.ok) {
-      throw new Error("Daten konnten nicht von GitHub geladen werden (404).");
+      throw new Error("Daten konnten nicht geladen werden. Wurde das Python-Skript bereits einmal erfolgreich ausgeführt?");
     }
     return res.json();
   })
   .then(data => {
-    // Falls die Historie noch komplett leer ist
     if (!data || data.length === 0) {
-      document.getElementById("output").innerText = "Keine historischen Daten vorhanden. Warte auf das erste Skript-Update.";
+      document.getElementById("output").innerText = "Keine historischen Daten vorhanden.";
       return;
     }
 
-    document.getElementById("output").innerText = "Daten erfolgreich geladen.";
+    document.getElementById("output").innerText = "Musterdepot-Daten erfolgreich geladen.";
 
+    // 1. Die X-Achse: Alle Datums-Einträge heraussuchen
     const labels = data.map(entry => entry.date);
-    const depotA = data.map(entry => entry.DepotA || 0);
-    const depotB = data.map(entry => entry.DepotB || 0);
-    const depotC = data.map(entry => entry.DepotC || 0);
 
+    // 2. Automatisch alle Spaltennamen herausfinden (außer 'date' und 'Total')
+    const allKeys = Object.keys(data[0]);
+    const assetNames = allKeys.filter(key => key !== 'date' && key !== 'Total');
+
+    // Schöne, moderne Farben für die Linien im Chart
+    const colors = [
+      '#36a2eb', // Blau (z.B. für MSCI World)
+      '#ff6384', // Rosa/Rot (z.B. für Clean Energy)
+      '#ffcd56', // Gelb (z.B. für Vanguard)
+      '#4bc0c0', // Türkis (z.B. für Cash)
+      '#9966ff'  // Lila
+    ];
+
+    // 3. Für jeden ETF (und Cash) eine eigene Linie (Dataset) bauen
+    const datasets = assetNames.map((name, index) => {
+      return {
+        label: name,
+        data: data.map(entry => entry[name] || 0),
+        borderColor: colors[index % colors.length],
+        backgroundColor: colors[index % colors.length],
+        borderWidth: 3,
+        fill: false,
+        tension: 0.15
+      };
+    });
+
+    // 4. Den Chart zeichnen
     new Chart(document.getElementById("historyChart"), {
       type: "line",
       data: {
         labels: labels,
-        datasets: [
-          { label: "Depot A (ESG)", data: depotA, borderWidth: 2, fill: false },
-          { label: "Depot B (Clean Energy)", data: depotB, borderWidth: 2, fill: false },
-          { label: "Depot C (World)", data: depotC, borderWidth: 2, fill: false }
-        ]
+        datasets: datasets
       },
       options: {
         responsive: true,
-        scales: { y: { beginAtZero: false } }
+        plugins: {
+          legend: {
+            position: 'top',
+          }
+        },
+        scales: { 
+          y: { 
+            beginAtZero: false,
+            title: { display: true, text: 'Wert in Euro (€)', font: { weight: 'bold' } }
+          },
+          x: {
+            title: { display: true, text: 'Datum', font: { weight: 'bold' } }
+          }
+        }
       }
     });
   })
