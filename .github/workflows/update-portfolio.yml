@@ -2,61 +2,44 @@ name: Update Portfolio
 
 on:
   schedule:
-    - cron: "0 18 * * *"  # täglich 18:00 UTC
-  workflow_dispatch:      # manuell startbar
-
-# Ganz wichtig: Das gibt dem GitHub-Bot die Erlaubnis, 
-# die neuen Daten in dein Repository hochzuladen!
-permissions:
-  contents: write
+    # Läuft jeden Tag um 0:00 Uhr automatisch
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Erlaubt es dir, den Bot jederzeit per Hand im Browser zu starten
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: 'pip'
 
-      - name: Install dependencies
-        run: pip install yfinance
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install openai
 
-      - name: Run portfolio script
-        working-directory: portfolio-system
-        run: python py-bot/main.py
+    - name: Run Live-Kurse (Main)
+      run: |
+        python portfolio-system/py-bot/main.py
 
-      # Korrigierte Push-Logik, damit GitHub Actions nicht blockiert
-      # NACHHER (Neu und flexibel):
-      - name: Commit and push changes
-        run: |
+    - name: Run KI-Aufsichtsrat (Mechanik)
+      env:
+        OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      run: |
+        python portfolio-system/py-bot/mechanik.py
+
+    - name: Commit and push changes
+      run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
-        # 1. Alle neuen und geänderten Dateien im Datenordner hinzufügen
         git add portfolio-system/py-data/*
-        
-        # 2. Dem Bot erlauben zu speichern. Wenn nichts neu ist, einfach überspringen (|| true)
         git commit -m "update portfolio data" || echo "Keine Änderungen zum Speichern"
-        
-        # 3. Die Daten hochladen
-        git push origin main    
-
-      
-      - name: Install Dependencies
-        run: |
-          pip install yfinance openai
-
-      - name: Run portfolio script
-        working-directory: portfolio-system
-        run: python py-bot/main.py
-
-      - name: Run KI Mechanik (Claude via OpenRouter)
-        working-directory: portfolio-system
-        env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: python py-bot/mechanik.py          
+        git push origin main  
