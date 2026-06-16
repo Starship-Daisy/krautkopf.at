@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-15",
+  "date": "2026-06-16",
   "depots": {
     "DepotA": {
       "ticker": "ESG.DE",
@@ -10,14 +10,14 @@
     "DepotB": {
       "ticker": "INRG.L",
       "shares": 45.2,
-      "current_price": 898.5,
-      "value": 40612.200000000004
+      "current_price": 907.5,
+      "value": 41019.0
     },
     "DepotC": {
       "ticker": "VWCE.DE",
       "shares": 4.8,
-      "current_price": 164.60000610351562,
-      "value": 790.080029296875
+      "current_price": 164.16000366210938,
+      "value": 787.968017578125
     }
   }
 }
