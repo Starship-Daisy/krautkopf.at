@@ -136,3 +136,4 @@ if __name__ == "__main__":
         daten_speichern(finaler_score)
     except Exception as e:
         print(f"KRITISCHER FEHLER IM BOT-ABLAUF: {str(e)}")
+        
