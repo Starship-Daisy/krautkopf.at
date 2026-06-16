@@ -34,19 +34,17 @@ jobs:
       # NACHHER (Neu und flexibel):
       - name: Commit and push changes
         run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-    
-      # Hier sagen wir Git, dass es ALLE Dateien im py-data Ordner einpacken soll:
-        git add portfolio-system/py-data/* || true
-    
-      # Nur committen und pushen, wenn sich wirklich etwas geändert hat
-        if ! git diff --cached --quiet; then
-        git commit -m "update portfolio data"
-        git push origin main
-        else
-        echo "Keine Änderungen vorhanden."
-        fi
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        
+        # 1. Alle neuen und geänderten Dateien im Datenordner hinzufügen
+        git add portfolio-system/py-data/*
+        
+        # 2. Dem Bot erlauben zu speichern. Wenn nichts neu ist, einfach überspringen (|| true)
+        git commit -m "update portfolio data" || echo "Keine Änderungen zum Speichern"
+        
+        # 3. Die Daten hochladen
+        git push origin main    
 
       
       - name: Install Dependencies
