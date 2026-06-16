@@ -41,3 +41,26 @@ jobs:
           
           # Nur committen, wenn sich auch wirklich etwas geändert hat
           git diff --quiet && git diff --staged --quiet || (git commit -m "update data" && git push origin main)
+
+      
+          - name: Run portfolio script
+        working-directory: portfolio-system
+        run: python py-bot/main.py
+
+      - name: Run KI Mechanik (Personas)
+        working-directory: portfolio-system
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # Falls du eine API nutzt
+        run: python py-bot/mechanik.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Jetzt fügen wir BEIDE JSON-Dateien dem Upload hinzu:
+          git add portfolio-system/py-data/portfolio.json \
+                  portfolio-system/py-data/history.json \
+                  portfolio-system/py-data/strategy_history.json || true
+          
+          git diff --quiet && git diff --staged --quiet || (git commit -m "update data and strategy" && git push origin main)          
