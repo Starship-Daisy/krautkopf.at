@@ -19,7 +19,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-        cache: 'pip'
+        # Cache entfernt, damit das Skript nicht nach einer requirements.txt sucht
 
     - name: Install dependencies
       run: |
@@ -42,4 +42,4 @@ jobs:
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add portfolio-system/py-data/*
         git commit -m "update portfolio data" || echo "Keine Änderungen zum Speichern"
-        git push origin main  
+        git push origin main
