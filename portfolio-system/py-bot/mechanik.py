@@ -10,8 +10,8 @@ client = OpenAI(
     api_key=os.environ.get("OPENROUTER_API_KEY"),
 )
 
-# MODELL-AUSWAHL
-MODEL_NAME = "anthropic/claude-sonnet-4.6"
+# MODELL-AUSWAHL (Hier steht jetzt dein funktionierendes Modell!)
+MODEL_NAME = "anthropic/claude-4.6-sonnet"
 
 # -------------------------------------------------------------------
 # PERSONA-PROMPTS
@@ -48,7 +48,7 @@ def diskussion_fuehren():
         "X-Title": "Portfolio Mechanik Bot"
     }
 
-    # SCHRITT 1: Persona 1 generiert These
+    # SCHRITT 1: Persona 1
     print("Rufe Persona 1 (Tech) ab...")
     res_1 = client.chat.completions.create(
         model=MODEL_NAME,
@@ -58,7 +58,7 @@ def diskussion_fuehren():
     p1_text = res_1.choices[0].message.content
     print(f"\n[Persona 1 - Tech]: {p1_text}\n" + "-"*40)
 
-    # SCHRITT 2: Persona 2 reagiert
+    # SCHRITT 2: Persona 2
     print("Rufe Persona 2 (Value) ab...")
     res_2 = client.chat.completions.create(
         model=MODEL_NAME,
@@ -71,7 +71,7 @@ def diskussion_fuehren():
     p2_text = res_2.choices[0].message.content
     print(f"\n[Persona 2 - Value]: {p2_text}\n" + "-"*40)
 
-    # SCHRITT 3: Persona 3 entscheidet
+    # SCHRITT 3: Persona 3
     print("Rufe Persona 3 (Mediator) ab...")
     debatte = f"Zusammenfassung der Debatte:\n\nTech-Investor:\n{p1_text}\n\nValue-Investor:\n{p2_text}"
     res_3 = client.chat.completions.create(
@@ -88,7 +88,6 @@ def diskussion_fuehren():
     return p3_text
 
 def score_extrahieren(text):
-    """Extrahiert die Zahl aus [[STRATEGY_SCORE: X]] per Regex"""
     match = re.search(r"\[\[STRATEGY_SCORE:\s*(\d+)\]\]", text)
     if match:
         score = int(match.group(1))
@@ -104,8 +103,47 @@ def score_extrahieren(text):
             
     return 50 
 
+def transaktionen_berechnen(ziel_quote_prozent):
+    """Berechnet die notwendigen Käufe/Verkäufe basierend auf dem IST-Zustand"""
+    ist_path = "py-data/ist_portfolio.json"
+    
+    if not os.path.exists(ist_path):
+        print(f"\nHINWEIS: '{ist_path}' nicht gefunden. Transaktionsberechnung übersprungen.")
+        return
+
+    with open(ist_path, "r") as f:
+        ist_daten = json.load(f)
+        
+    cash = ist_daten.get("cash_euro", 0.0)
+    assets = ist_daten.get("risk_assets_euro", 0.0)
+    gesamtvermoegen = cash + assets
+    
+    if gesamtvermoegen == 0:
+        print("\nFehler: Gesamtvermögen ist 0. Keine Berechnung möglich.")
+        return
+
+    aktuelle_quote = (assets / gesamtvermoegen) * 100
+    ziel_assets_wert = gesamtvermoegen * (ziel_quote_prozent / 100.0)
+    differenz = ziel_assets_wert - assets
+
+    print("\n" + " TRANSAKTIONS-BERECHNUNG ".center(40, "="))
+    print(f"Gesamtvermögen: {gesamtvermoegen:,.2f} €")
+    print(f"Aktuelle Risiko-Quote: {aktuelle_quote:.1f}% ({assets:,.2f} €)")
+    print(f"KI-Ziel-Quote:        {ziel_quote_prozent:.1f}% ({ziel_assets_wert:,.2f} €)")
+    print("-" * 40)
+
+    if round(differenz, 2) > 0:
+        print(f" 🛒 AKTION: KAUFEN")
+        print(f" Schichte {differenz:,.2f} € von CASH in AKTIEN/KRYPTO um.")
+    elif round(differenz, 2) < 0:
+        print(f" 💰 AKTION: VERKAUFEN")
+        print(f" Schichte {abs(differenz):,.2f} € von AKTIEN/KRYPTO in CASH um.")
+    else:
+        print(" 🤝 AKTION: KEINE")
+        print(" Dein Portfolio entspricht bereits exakt der KI-Vorgabe.")
+    print("=" * 40 + "\n")
+
 def daten_speichern(score):
-    """Schreibt den Datenpunkt sauber in die strategy_history.json"""
     json_path = "py-data/strategy_history.json"
     os.makedirs(os.path.dirname(json_path), exist_ok=True)
     
@@ -132,7 +170,8 @@ def daten_speichern(score):
 if __name__ == "__main__":
     try:
         ki_antwort = diskussion_fuehren()
-        finaler_score = score_extrahieren(ki_antwort) # Korrigierte Übergabe
+        finaler_score = score_extrahieren(ki_antwort)
+        transaktionen_berechnen(finaler_score) # <-- NEU: Hier wird gerechnet!
         daten_speichern(finaler_score)
     except Exception as e:
         print(f"KRITISCHER FEHLER IM BOT-ABLAUF: {str(e)}")
