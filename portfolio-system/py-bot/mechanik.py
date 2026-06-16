@@ -105,7 +105,8 @@ def score_extrahieren(text):
 
 def transaktionen_berechnen(ziel_quote_prozent):
     """Berechnet die notwendigen Käufe/Verkäufe basierend auf dem IST-Zustand"""
-    ist_path = "py-data/ist_portfolio.json"
+    # VORHER: ist_path = "py-data/ist_portfolio.json"
+    ist_path = "portfolio-system/py-data/ist_portfolio.json" # <-- JETZT RECHTSKONFORM
     
     if not os.path.exists(ist_path):
         print(f"\nHINWEIS: '{ist_path}' nicht gefunden. Transaktionsberechnung übersprungen.")
@@ -144,8 +145,8 @@ def transaktionen_berechnen(ziel_quote_prozent):
     print("=" * 40 + "\n")
 
 def daten_speichern(score):
-    json_path = "py-data/strategy_history.json"
-    os.makedirs(os.path.dirname(json_path), exist_ok=True)
+    # VORHER: json_path = "py-data/strategy_history.json"
+    json_path = "portfolio-system/py-data/strategy_history.json" # <-- JETZT RECHTSKONFORM
     
     if os.path.exists(json_path):
         try:
