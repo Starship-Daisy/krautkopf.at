@@ -11,7 +11,7 @@ client = OpenAI(
 )
 
 # MODELL-AUSWAHL
-MODEL_NAME = "anthropic/claude-3.5-sonnet"
+MODEL_NAME = "anthropic/claude-sonnet-4.6"
 
 # -------------------------------------------------------------------
 # PERSONA-PROMPTS
@@ -136,4 +136,3 @@ if __name__ == "__main__":
         daten_speichern(finaler_score)
     except Exception as e:
         print(f"KRITISCHER FEHLER IM BOT-ABLAUF: {str(e)}")
-        
