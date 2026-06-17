@@ -41,11 +41,13 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         
-        # Das '--all' zwingt Git, JEDE neue Datei im Ordner radikal einzupacken
-        git add --all portfolio-system/py-data/
+        # Das '-f' (Force) bricht JEDE Sperre oder .gitignore auf:
+        git add -f portfolio-system/py-data/portfolio_history.json || true
+        git add -f portfolio-system/py-data/ist_portfolio.json || true
+        git add -f portfolio-system/py-data/strategy_history.json || true
         
         # Speichern und hochladen
-        git commit -m "update portfolio data" || echo "Keine Änderungen zum Speichern"
+        git commit -m "update portfolio data FORCE" || echo "Keine Änderungen zum Speichern"
         git push origin main
 
         
