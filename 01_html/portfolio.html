@@ -18,7 +18,7 @@
 
 <script>
 // Wir laden die Historien-Datei aus dem richtigen Unterordner
-fetch("./py-data/portfolio_history.json")
+fetch("./portfolio-system/py-data/portfolio_history.json")
   .then(res => {
     if (!res.ok) {
       throw new Error("Daten konnten nicht geladen werden. Wurde das Python-Skript bereits einmal erfolgreich ausgeführt?");
