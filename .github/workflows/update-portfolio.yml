@@ -40,6 +40,12 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add portfolio-system/py-data/*
+        
+        # Das '--all' zwingt Git, JEDE neue Datei im Ordner radikal einzupacken
+        git add --all portfolio-system/py-data/
+        
+        # Speichern und hochladen
         git commit -m "update portfolio data" || echo "Keine Änderungen zum Speichern"
         git push origin main
+
+        
