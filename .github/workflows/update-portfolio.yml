@@ -22,32 +22,29 @@ jobs:
         # Cache entfernt, damit das Skript nicht nach einer requirements.txt sucht
 
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install openai
+       run:|
+       python -m pip install --upgrade pip
+       pip install openai
 
     - name: Run Live-Kurse (Main)
-      run: |
+        run:|
         python portfolio-system/py-bot/main.py
 
     - name: Run KI-Aufsichtsrat (Mechanik)
       env:
         OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-      run: |
-        python portfolio-system/py-bot/mechanik.py
+         run:|
+         python portfolio-system/py-bot/mechanik.py
 
     - name: Commit and push changes
-      run: |
+        run:|
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
-        # Das '-f' (Force) bricht JEDE Sperre oder .gitignore auf:
+        echo "=== INHALT DES DATA-ORDNERS ==="
+        ls -la portfolio-system/py-data/
+        echo "==============================="
         git add -f portfolio-system/py-data/portfolio_history.json || true
         git add -f portfolio-system/py-data/ist_portfolio.json || true
         git add -f portfolio-system/py-data/strategy_history.json || true
-        
-        # Speichern und hochladen
         git commit -m "update portfolio data FORCE" || echo "Keine Änderungen zum Speichern"
         git push origin main
-
-        
