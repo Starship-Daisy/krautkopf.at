@@ -17,11 +17,14 @@
 <pre id="output" style="text-align: center; margin-top: 20px; font-family: monospace; color: #666;">Lade Daten...</pre>
 
 <script>
-// Wir laden die Historien-Datei aus dem richtigen Unterordner
-fetch("./portfolio-system/py-data/portfolio_history.json")
+// Cache-Buster, damit der Browser IMMER frisch vom Server lädt
+const cacheBuster = "?v=" + new Date().getTime();
+
+// Wir nutzen einen flexiblen Pfad, der auf GitHub Pages IMMER funktioniert
+fetch("portfolio-system/py-data/portfolio_history.json" + cacheBuster)
   .then(res => {
     if (!res.ok) {
-      throw new Error("Daten konnten nicht geladen werden. Wurde das Python-Skript bereits einmal erfolgreich ausgeführt?");
+      throw new Error("Server meldet Fehler " + res.status + " (" + res.statusText + "). Datei nicht gefunden oder Pfad falsch.");
     }
     return res.json();
   })
@@ -42,10 +45,10 @@ fetch("./portfolio-system/py-data/portfolio_history.json")
 
     // Schöne, moderne Farben für die Linien im Chart
     const colors = [
-      '#36a2eb', // Blau (z.B. für MSCI World)
-      '#ff6384', // Rosa/Rot (z.B. für Clean Energy)
-      '#ffcd56', // Gelb (z.B. für Vanguard)
-      '#4bc0c0', // Türkis (z.B. für Cash)
+      '#36a2eb', // Blau
+      '#ff6384', // Rosa/Rot
+      '#ffcd56', // Gelb
+      '#4bc0c0', // Türkis
       '#9966ff'  // Lila
     ];
 
@@ -93,5 +96,6 @@ fetch("./portfolio-system/py-data/portfolio_history.json")
     document.getElementById("output").innerText = "Fehler: " + err.message;
   });
 </script>
+
 </body>
 </html>
