@@ -51,7 +51,7 @@ function verarbeiteDaten(data) {
   });
 
   // Extra dicke Linie für den Gesamtwert hinzufügen
-  datasets.push({
+  /*datasets.push({
     label: 'GESAMTWERT (Total)',
     data: data.map(entry => entry.Total),
     borderColor: '#2ecc71',
@@ -59,7 +59,7 @@ function verarbeiteDaten(data) {
     borderWidth: 4,
     fill: false,
     tension: 0.1
-  });
+  });*/
 
   // SPERRE GEGEN GEISTER-LINIEN: Falls bereits ein Chart existiert, zerstören wir ihn!
   if (window.myPortfolioChart instanceof Chart) {
