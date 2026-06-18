@@ -50,7 +50,36 @@ fetch("/portfolio-system/py-data/history.json")
       },
       options: {
         responsive: true,
-        scales: { y: { beginAtZero: false } }
+
+
+
+        scales: { 
+  y: { 
+    type: 'linear',
+    display: true,
+    position: 'left',
+    // Keine festen Min/Max-Werte vorgeben – Chart.js berechnet das jetzt komplett selbst!
+    beginAtZero: false, 
+    ticks: {
+      # Fügt das €-Zeichen an die Achsenbeschriftung an
+      callback: function(value) {
+        return value.toLocaleString('de-DE') + ' €';
+      }
+    },
+    title: { 
+      display: true, 
+      text: 'Wert in Euro (€)', 
+      font: { weight: 'bold' } 
+    } 
+  },
+  x: { 
+    title: { 
+      display: true, 
+      text: 'Datum', 
+      font: { weight: 'bold' } 
+    } 
+  }
+}
       }
     });
   })
