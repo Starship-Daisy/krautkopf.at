@@ -34,7 +34,13 @@ function verarbeiteDaten(data) {
   const allKeys = Object.keys(data[0]);
   
   // WIR FILTERN HIER 'date', 'Total' UND JETZT AUCH 'Cash' RAUS!
-  const assetNames = allKeys.filter(key => key !== 'date' && key !== 'Total' && key !== 'Cash');
+
+  // Wir wandeln beim Filtern alles in Kleinbuchstaben um (toLowerCase())
+  // Dadurch blockieren wir 'cash', 'Cash', 'CASH' und alles dazwischen zu 100%
+    const assetNames = allKeys.filter(key => {
+    const k = key.toLowerCase();
+    return k !== 'date' && k !== 'total' && k !== 'cash';
+  });
 
   const colors = ['#36a2eb', '#ff6384', '#ffcd56', '#4bc0c0'];
   const datasets = assetNames.map((name, index) => {
