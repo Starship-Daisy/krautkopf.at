@@ -11,15 +11,13 @@ function verarbeiteDaten(data) {
     return;
   }
 
-  // --- GEWINN- UND VERLUST-BERECHNUNG (Letzter Datensatz) ---
+  // --- GEWINN- UND VERLUST-BERECHNUNG ---
   const aktuellerStand = data[data.length - 1];
   const aktuellerGesamtwert = aktuellerStand.Total;
   const guvEuro = aktuellerGesamtwert - STARTKAPITAL;
   const guvProzent = (guvEuro / STARTKAPITAL) * 100;
 
-  // Text-Aufstellung über dem Chart formatieren
   const vorzeichen = guvEuro >= 0 ? "+" : "";
-  const farbKlasse = guvEuro >= 0 ? "text-success" : "text-danger"; // Falls du CSS nutzt
   
   document.getElementById("output").innerHTML = `
     <strong>Musterdepot-Status:</strong> <br>
@@ -33,11 +31,8 @@ function verarbeiteDaten(data) {
   const labels = data.map(entry => entry.date);
   const allKeys = Object.keys(data[0]);
   
-  // WIR FILTERN HIER 'date', 'Total' UND JETZT AUCH 'Cash' RAUS!
-
-  // Wir wandeln beim Filtern alles in Kleinbuchstaben um (toLowerCase())
-  // Dadurch blockieren wir 'cash', 'Cash', 'CASH' und alles dazwischen zu 100%
-    const assetNames = allKeys.filter(key => {
+  // Filtere 'date', 'Total' und 'Cash' (Egal ob Groß- oder Kleinschreibung)
+  const assetNames = allKeys.filter(key => {
     const k = key.toLowerCase();
     return k !== 'date' && k !== 'total' && k !== 'cash';
   });
@@ -55,18 +50,24 @@ function verarbeiteDaten(data) {
     };
   });
 
-  // Wir fügen eine extra Linie für die Gesamt-Entwicklung hinzu
+  // Extra dicke Linie für den Gesamtwert hinzufügen
   datasets.push({
     label: 'GESAMTWERT (Total)',
     data: data.map(entry => entry.Total),
-    borderColor: '#2ecc71', // Schönes Grün für das Gesamtdepot
+    borderColor: '#2ecc71',
     backgroundColor: '#2ecc71',
-    borderWidth: 4,         // Dickere Linie, damit sie sich abhebt
+    borderWidth: 4,
     fill: false,
     tension: 0.1
   });
 
-  new Chart(document.getElementById("historyChart"), {
+  // SPERRE GEGEN GEISTER-LINIEN: Falls bereits ein Chart existiert, zerstören wir ihn!
+  if (window.myPortfolioChart instanceof Chart) {
+    window.myPortfolioChart.destroy();
+  }
+
+  // Chart neu erstellen und in der globalen Variable speichern
+  window.myPortfolioChart = new Chart(document.getElementById("historyChart"), {
     type: "line",
     data: { labels: labels, datasets: datasets },
     options: {
