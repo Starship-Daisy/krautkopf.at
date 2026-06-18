@@ -18,9 +18,11 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Install dependencies
+    - name: Upgrade Pip
       run: python -m pip install --upgrade pip
-           pip install openai yfinance
+
+    - name: Install Packages
+      run: pip install openai yfinance
 
     - name: Run Live-Kurse
       run: python portfolio-system/py-bot/main.py
