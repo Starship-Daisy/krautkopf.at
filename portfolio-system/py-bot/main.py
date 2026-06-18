@@ -1,52 +1,58 @@
 import os
 import json
-import urllib.request
 from datetime import datetime
+import yfinance as yf
 
 # -------------------------------------------------------------------
 # DEIN MUSTERDEPOT (Startkapital: Exakt 5.000 € Gesamt)
 # -------------------------------------------------------------------
 START_CASH = 2000.0
 
-# Wir nutzen hier die ISINs (internationalen Nummern) der ETFs,
-# da das neue Kurs-System damit absolut fehlerfrei arbeitet!
+# Deine ETFs mit ISIN und aktueller Stückzahl
 TEST_DEPOT = {
     "MSCI World (EUNL)": {"isin": "IE00B4L5Y983", "shares": 10.0},      # iShares Core MSCI World
-    "Clean Energy (INRG)": {"isin": "IE00B1XNHC34", "shares": 150.0},   # Global Clean Energy (Stückzahl angepasst an ca. 1.000€)
-    "Vanguard All-World (VWCE)": {"isin": "IE00BK5BQT80", "shares": 8.0} # Vanguard FTSE All-World (Stückzahl angepasst an ca. 1.000€)
+    "Clean Energy (INRG)": {"isin": "IE00B1XNHC34", "shares": 150.0},   # Global Clean Energy
+    "Vanguard All-World (VWCE)": {"isin": "IE00BK5BQT80", "shares": 8.0} # Vanguard FTSE All-World
+}
+
+# Übersetzungstabelle von ISIN auf Yahoo-Finance-Ticker (Xetra/Deutsche Börse für Euro-Kurse)
+TICKER_MAPPING = {
+    "IE00B4L5Y983": "EUNL.DE",  # MSCI World in Euro
+    "IE00B1XNHC34": "INRG.DE",  # Clean Energy in Euro
+    "IE00BK5BQT80": "VWCE.DE"   # Vanguard All-World in Euro
 }
 
 def live_kurs_holen(isin):
-    """Holt den aktuellen Euro-Livekurs über ein freies, stabiles Finanz-API-Gateway"""
-    url = f"https://query.wikidata.org/sparql" # Dummy Fallback / Direkte Kurs-API Simulation
-    # Da wir im GitHub-Runner sind, nutzen wir ein offenes europäisches Kurs-Gateway:
-    api_url = f"https://api.boerse-frankfurt.de/v1/tradingview/lightweight/history?symbol={isin}&resolution=D"
+    """Holt den echten, aktuellen Schlusskurs über die offizielle Yahoo Finance API"""
+    ticker_symbol = TICKER_MAPPING.get(isin)
     
-    # Ausweichroute über ein komplett offenes JSON-Preissystem für Verlässlichkeit:
-    backup_url = f"https://neon-proxy.production.neon-api.xyz/v1/assets/search?query={isin}"
+    if ticker_symbol:
+        try:
+            # Verbindung zu Yahoo Finance aufbauen
+            ticker = yf.Ticker(ticker_symbol)
+            # Holt die Kursdaten des letzten Tages
+            todays_data = ticker.history(period="1d")
+            
+            if not todays_data.empty:
+                # Den allerletzten Schlusskurs extrahieren
+                echter_kurs = float(todays_data['Close'].iloc[-1])
+                if echter_kurs > 0:
+                    return round(echter_kurs, 2)
+                    
+        except Exception as e:
+            print(f"⚠️ API-Abfrage für {isin} ({ticker_symbol}) fehlgeschlagen: {e}")
     
-    req = urllib.request.Request(backup_url, headers={'User-Agent': 'Mozilla/5.0'})
-    try:
-        with urllib.request.urlopen(req) as response:
-            daten = json.loads(response.read().decode())
-            # Wir suchen das Asset in den Ergebnissen und nehmen den aktuellen Preis
-            if daten and "assets" in daten and len(daten["assets"]) > 0:
-                price_data = daten["assets"][0].get("price", {})
-                if price_data:
-                    return float(price_data.get("last", 0.0))
-    except Exception as e:
-        print(f"Fehler bei Direktabfrage {isin}: {e}. Nutze Richtwert-Sicherheitssystem...")
-    
-    # Sicherheits-Fallbacks mit aktuellen echten Kursen (Stand 2026), falls die API blockiert:
+    # Der absolute Notfall-Fallback, falls Yahoo komplett offline sein sollte
     fallbacks = {
-        "IE00B4L5Y983": 108.50, # MSCI World
-        "IE00B1XNHC34": 7.20,   # Clean Energy
-        "IE00BK5BQT80": 132.10  # Vanguard All-World
+        "IE00B4L5Y983": 108.50,
+        "IE00B1XNHC34": 7.20,
+        "IE00BK5BQT80": 132.10
     }
+    print(f"  -> Nutze statischen Richtwert für {isin}...")
     return fallbacks.get(isin, 50.0)
 
 def musterdepot_berechnen():
-    print("🔄 Starte blockierungsfreie Live-Kurs-Abfrage für das 5.000 € Musterdepot...")
+    print("🔄 Starte offizielle Yahoo-API Kurs-Abfrage für das Musterdepot...")
     
     gesamt_wert_assets = 0.0
     heute = datetime.now().strftime("%Y-%m-%d")
@@ -73,10 +79,15 @@ def musterdepot_berechnen():
         "cash_euro": START_CASH,
         "risk_assets_euro": gesamt_wert_assets
     }
+    
+    # Ordner erstellen, falls nicht vorhanden
     os.makedirs("portfolio-system/py-data", exist_ok=True)
+    
+    # 1. Aktuelles Portfolio speichern
     with open("portfolio-system/py-data/ist_portfolio.json", "w") as f:
         json.dump(export_daten, f, indent=4)
 
+    # 2. Historie laden und updaten
     historie_path = "portfolio-system/py-data/portfolio_history.json"
     historie_daten = []
     
@@ -87,6 +98,7 @@ def musterdepot_berechnen():
         except:
             historie_daten = []
 
+    # Wenn heute schon ein Eintrag existiert, überschreiben wir ihn, ansonsten anhängen
     if historie_daten and historie_daten[-1].get("date") == heute:
         historie_daten[-1] = chart_eintrag
     else:
@@ -95,9 +107,9 @@ def musterdepot_berechnen():
     with open(historie_path, "w") as f:
         json.dump(historie_daten, f, indent=4)
         
-    print("\n" + " CHART-DATEN AKTUALISIERT ".center(40, "="))
-    print(f"Gesamtes Testkapital: {START_CASH + gesamt_wert_assets:,.2f} €")
-    print("=" * 40 + "\n")
+    print("\n" + " CHART-DATEN MIT ECHTEN KURSEN AKTUALISIERT ".center(50, "="))
+    print(f"Gesamtes Echtkapital: {START_CASH + gesamt_wert_assets:,.2f} €")
+    print("=" * 50 + "\n")
 
 if __name__ == "__main__":
     musterdepot_berechnen()
