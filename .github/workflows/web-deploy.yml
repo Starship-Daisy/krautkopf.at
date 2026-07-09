@@ -31,7 +31,7 @@ jobs:
       - name: 📅 .ics von Google abholen und speichern
         run: |
           mkdir -p js
-          curl -sLf "https://calendar.google.com/calendar/ical/0d2gvcidqr09gja90ocscabg3g%40group.calendar.google.com/private-923dfb8548d16f59b766971af545e9b5/basic.ics
+          curl -sLf https://calendar.google.com/calendar/ical/0d2gvcidqr09gja90ocscabg3g%40group.calendar.google.com/private-923dfb8548d16f59b766971af545e9b5/basic.ics
 
       - name: 📤 Alle Dateien (inkl. Kalender) verschlüsselt per FTPS übertragen
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
