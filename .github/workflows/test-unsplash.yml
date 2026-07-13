@@ -37,7 +37,7 @@ jobs:
           data = response.json()
 
           print("Status:", response.status_code)
-          print("Bild-ID:", data["id"])
+          print(data)
           print("Fotograf:", data["user"]["name"])
           print("Profil:", data["user"]["links"]["html"])
           print("Bild:", data["links"]["html"])
