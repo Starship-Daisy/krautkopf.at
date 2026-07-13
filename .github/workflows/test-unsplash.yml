@@ -27,7 +27,7 @@ jobs:
           import os
           import requests
 
-          key = os.environ["UNSPLASH"]
+          key = os.environ["UNSPLASH_ACCESS_KEY"]
 
           response = requests.get(
               "https://api.unsplash.com/photos/random",
