@@ -3,6 +3,8 @@ import re
 
 pattern = r'https://images\.unsplash\.com/([^"\']+)'
 
+found = []
+
 for root, dirs, files in os.walk("."):
     for file in files:
         if file.endswith(".html"):
@@ -14,6 +16,14 @@ for root, dirs, files in os.walk("."):
             matches = re.findall(pattern, content)
 
             for image in matches:
-                print(path)
-                print(image)
-                print("---")
+                found.append({
+                    "file": path,
+                    "image": image
+                })
+
+for item in found:
+    print("Datei:", item["file"])
+    print("Bild:", item["image"])
+    print("---")
+
+print("Gefundene Bilder:", len(found))
