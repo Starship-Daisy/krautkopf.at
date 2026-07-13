@@ -1,0 +1,41 @@
+name: Test Unsplash API
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-unsplash:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Unsplash API testen
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: |
+          python - <<'PY'
+          import os
+          import requests
+
+          key = os.environ["UNSPLASH_ACCESS_KEY"]
+
+          response = requests.get(
+              "https://api.unsplash.com/photos/random",
+              params={"client_id": key}
+          )
+
+          data = response.json()
+
+          print("Status:", response.status_code)
+          print("Bild-ID:", data["id"])
+          print("Fotograf:", data["user"]["name"])
+          print("Profil:", data["user"]["links"]["html"])
+          print("Bild:", data["links"]["html"])
+          PY
