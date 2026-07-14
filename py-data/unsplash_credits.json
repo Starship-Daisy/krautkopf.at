@@ -1,26 +1,18 @@
 [
   {
     "file": "./01_html/gedanken-werkstatt.html",
-    "image_id": "photo-1487023312653-e9014cce469c",
-    "photographer": "nicht gefunden",
-    "profile": "",
-    "image_url": "",
-    "thumbnail": ""
-  },
-  {
-    "file": "./01_html/gedanken-werkstatt.html",
-    "image_id": "photo-1776033370092-889f6b90d7e1",
-    "photographer": "nicht gefunden",
-    "profile": "",
-    "image_url": "",
-    "thumbnail": ""
+    "image_id": "xmT8hjjTg5I",
+    "photographer": "Kai Gradert",
+    "profile": "https://unsplash.com/@kai",
+    "image_url": "https://unsplash.com/photos/01414-captcha-xmT8hjjTg5I",
+    "thumbnail": "https://images.unsplash.com/photo-1511383026976-d80cd33706b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5OTI2NzV8MHwxfHNlYXJjaHwxfHxwaG90by0xNDg3MDIzMzEyNjUzLWU5MDE0Y2NlNDY5Y3xlbnwwfHx8fDE3ODQwNTgwMjl8MA&ixlib=rb-4.1.0&q=80&w=200"
   },
   {
     "file": "./01_html/_garten-werkstatt.html",
-    "image_id": "photo-1567244401854-5f3a2619804d",
-    "photographer": "nicht gefunden",
-    "profile": "",
-    "image_url": "",
-    "thumbnail": ""
+    "image_id": "xHlCH7UpbZk",
+    "photographer": "Erik Mclean",
+    "profile": "https://unsplash.com/@introspectivedsgn",
+    "image_url": "https://unsplash.com/photos/a-sign-on-a-building-xHlCH7UpbZk",
+    "thumbnail": "https://images.unsplash.com/photo-1652031558959-5fb58e972fd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5OTI2NzV8MHwxfHNlYXJjaHwxfHxwaG90by0xNTY3MjQ0NDAxODU0LTVmM2EyNjE5ODA0ZHxlbnwwfHx8fDE3ODQwNTgwMjl8MA&ixlib=rb-4.1.0&q=80&w=200"
   }
 ]
