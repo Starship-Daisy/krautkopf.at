@@ -39,37 +39,38 @@ for root, dirs, files in os.walk("."):
 
         for image in matches:
 
-            # Parameter entfernen (?q=80&w=...)
-            image_id = image.split("?")[0]
+    # Parameter entfernen (?q=80&w=...)
+    image_id = image.split("?")[0]
 
-            # Doppelte Bilder ignorieren
-            if image_id in seen_images:
-                continue
+    # Doppelte Bilder ignorieren
+    if image_id in seen_images:
+        continue
 
-            seen_images.add(image_id)
+    seen_images.add(image_id)
 
-        found.append({
-            "file": path,
-            "image_id": image_id
-            })
-
-            # Unsplash Daten abrufen
-        response = requests.get(
-        f"https://api.unsplash.com/photos/{image_id}",
-        params={
-        "client_id": API_KEY
+    found.append({
+        "file": path,
+        "image_id": image_id
     })
 
-if response.status_code == 200:
-    data = response.json()
+    # Unsplash Daten abrufen
+    response = requests.get(
+        f"https://api.unsplash.com/photos/{image_id}",
+        params={
+            "client_id": API_KEY
+        }
+    )
 
-    print("Fotograf:", data["user"]["name"])
-    print("Profil:", data["user"]["links"]["html"])
-    print("Bild:", data["links"]["html"])
-    print("---")
+    if response.status_code == 200:
+        data = response.json()
 
-else:
-    print("Fehler bei Unsplash:", response.status_code)
+        print("Fotograf:", data["user"]["name"])
+        print("Profil:", data["user"]["links"]["html"])
+        print("Bild:", data["links"]["html"])
+        print("---")
+
+    else:
+        print("Fehler bei Unsplash:", response.status_code)
 
 
 # Ausgabe
