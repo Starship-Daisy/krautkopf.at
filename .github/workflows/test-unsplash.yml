@@ -1,44 +1,37 @@
-name: Test Unsplash API
+name: Scan Unsplash Bilder
 
 on:
   workflow_dispatch:
 
 jobs:
-  test-unsplash:
+  scan:
     runs-on: ubuntu-latest
 
     steps:
       - name: Repository laden
         uses: actions/checkout@v4
 
-      - name: Python einrichten
+      - name: Python vorbereiten
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      
+
       - name: Requests installieren
         run: pip install requests
-      
-      - name: Unsplash API testen
+
+      - name: Python Scan starten
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: |
-          python - <<'PY'
-          import os
-          import requests
+          python py-data/find_unsplash.py
 
-          key = os.environ["UNSPLASH_ACCESS_KEY"]
+      - name: Credits JSON speichern
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
 
-          response = requests.get(
-              "https://api.unsplash.com/photos/random",
-              params={"client_id": key}
-          )
+          git add py-data/unsplash_credits.json
 
-          data = response.json()
+          git commit -m "Update Unsplash Credits" || echo "Keine Änderungen"
 
-          print("Status:", response.status_code)
-          print(data)
-          print("Fotograf:", data["user"]["name"])
-          print("Profil:", data["user"]["links"]["html"])
-          print("Bild:", data["links"]["html"])
-          PY
+          git push
