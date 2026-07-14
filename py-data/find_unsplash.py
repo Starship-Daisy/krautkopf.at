@@ -1,6 +1,11 @@
 import os
 import re
 
+import requests
+
+API_KEY = os.environ["UNSPLASH_ACCESS_KEY"]
+
+
 # Sucht nach direkten Unsplash-Bild-URLs
 pattern = r'https://images\.unsplash\.com/([^"\']+)'
 
