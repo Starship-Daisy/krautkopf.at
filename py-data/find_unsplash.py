@@ -2,9 +2,8 @@ import os
 import re
 
 # Dateien, die nicht gescannt werden sollen
-EXCLUDED_FILES = {
-    "credits.html"
-}
+if "credits" in file.lower():
+    continue
 
 # Unsplash-URLs finden
 pattern = r'https://images\.unsplash\.com/([^"\']+)'
