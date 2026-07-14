@@ -1,4 +1,4 @@
-name: Scan Unsplash Bilder
+name: test-unsplash
 
 on:
   workflow_dispatch:
