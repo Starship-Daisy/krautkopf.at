@@ -1,61 +1,63 @@
 import os
 import re
 
-# Dateien, die nicht gescannt werden sollen
-if "credits" in file.lower():
-    continue
-
-# Unsplash-URLs finden
+# Sucht nach direkten Unsplash-Bild-URLs
 pattern = r'https://images\.unsplash\.com/([^"\']+)'
 
-# Bereits gefundene Bilder speichern
+# Hier speichern wir bereits gefundene Bilder
 seen_images = set()
 
-# Gefundene Bilder sammeln
+# Ergebnisse
 found = []
 
+# Alle Dateien im Repository durchsuchen
 for root, dirs, files in os.walk("."):
+
     for file in files:
 
-        # Nur HTML-Dateien
+        # Nur HTML-Dateien prüfen
         if not file.endswith(".html"):
             continue
 
-        # Ausgeschlossene Dateien überspringen
-        if file in EXCLUDED_FILES:
+        # Credits-Seiten ignorieren
+        if "credits" in file.lower():
             continue
 
         path = os.path.join(root, file)
 
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                content = f.read()
+        # HTML-Datei lesen
+        with open(path, "r", encoding="utf-8") as f:
+            content = f.read()
 
-            matches = re.findall(pattern, content)
+        # Unsplash URLs finden
+        matches = re.findall(pattern, content)
 
-            for image in matches:
+        for image in matches:
 
-                # Query-Parameter entfernen
-                image_id = image.split("?")[0]
+            # Parameter entfernen (?q=80&w=...)
+            image_id = image.split("?")[0]
 
-                # Duplikate vermeiden
-                if image_id in seen_images:
-                    continue
+            # Doppelte Bilder ignorieren
+            if image_id in seen_images:
+                continue
 
-                seen_images.add(image_id)
+            seen_images.add(image_id)
 
-                found.append({
-                    "file": path,
-                    "image_id": image_id
-                })
+            found.append({
+                "file": path,
+                "image_id": image_id
+            })
 
-        except Exception as e:
-            print(f"Fehler beim Lesen von {path}: {e}")
 
 # Ausgabe
+print("")
+print("=== Gefundene Unsplash Bilder ===")
+print("")
+
 for item in found:
     print("Datei:", item["file"])
     print("Unsplash ID:", item["image_id"])
     print("---")
 
-print(f"Einzigartige Bilder gefunden: {len(found)}")
+print("")
+print("Einzigartige Bilder gefunden:", len(found))
