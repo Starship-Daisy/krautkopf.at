@@ -48,10 +48,28 @@ for root, dirs, files in os.walk("."):
 
             seen_images.add(image_id)
 
-            found.append({
-                "file": path,
-                "image_id": image_id
+        found.append({
+            "file": path,
+            "image_id": image_id
             })
+
+            # Unsplash Daten abrufen
+        response = requests.get(
+        f"https://api.unsplash.com/photos/{image_id}",
+        params={
+        "client_id": API_KEY
+    })
+
+if response.status_code == 200:
+    data = response.json()
+
+    print("Fotograf:", data["user"]["name"])
+    print("Profil:", data["user"]["links"]["html"])
+    print("Bild:", data["links"]["html"])
+    print("---")
+
+else:
+    print("Fehler bei Unsplash:", response.status_code)
 
 
 # Ausgabe
