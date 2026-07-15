@@ -1,0 +1,41 @@
+name: Test Image Scanner
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan-images:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+
+      - name: Python vorbereiten
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+
+      - name: Scanner starten
+        run: |
+          python py-data/find_images.py
+
+
+      - name: JSON speichern
+        run: |
+
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+          git add py-data/images_found.json
+
+          git commit -m "Update image list" || echo "Keine Änderungen"
+
+          git push
