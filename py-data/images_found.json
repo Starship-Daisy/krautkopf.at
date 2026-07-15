@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "source": "unsplash",
+    "file": "./01_html/_credits.html",
+    "image_url": "https://images.unsplash.com/photo-1448375240586-882707db888b",
+    "alt_text": "",
+    "status": "needs_review"
+  },
+  {
+    "source": "unsplash",
+    "file": "./01_html/_credits.html",
+    "image_url": "https://images.unsplash.com/photo-1469827160215-9d29e96e72f4",
+    "alt_text": "",
+    "status": "needs_review"
+  },
+  {
+    "source": "unsplash",
+    "file": "./01_html/_credits.html",
+    "image_url": "https://images.unsplash.com/photo-1487023312653-e9014cce469c",
+    "alt_text": "",
+    "status": "needs_review"
+  },
+  {
+    "source": "unsplash",
+    "file": "./01_html/gedanken-werkstatt.html",
+    "image_url": "https://images.unsplash.com/photo-1776033370092-889f6b90d7e1",
+    "alt_text": "",
+    "status": "needs_review"
+  },
+  {
+    "source": "unsplash",
+    "file": "./01_html/_garten-werkstatt.html",
+    "image_url": "https://images.unsplash.com/photo-1567244401854-5f3a2619804d",
+    "alt_text": "",
+    "status": "needs_review"
+  }
+]
