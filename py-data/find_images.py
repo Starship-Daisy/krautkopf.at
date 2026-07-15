@@ -20,8 +20,8 @@ for root, dirs, files in os.walk("."):
             continue
 
 
-        # credits.html nicht durchsuchen
-        if file.lower() == "credits.html":
+        # alle Credits-Seiten nicht durchsuchen
+        if "credits" in file.lower():
             continue
 
 
