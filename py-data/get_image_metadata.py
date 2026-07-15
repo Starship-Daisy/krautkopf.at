@@ -4,7 +4,7 @@ import requests
 
 
 # --------------------------------------------------
-# Unsplash API Key aus GitHub Secret
+# Unsplash API Key
 # --------------------------------------------------
 
 API_KEY = os.environ["UNSPLASH_ACCESS_KEY"]
@@ -21,7 +21,7 @@ OUTPUT_FILE = "py-data/images_metadata.json"
 
 
 # --------------------------------------------------
-# Bilder laden
+# Eingabe laden
 # --------------------------------------------------
 
 with open(
@@ -39,7 +39,64 @@ results = []
 
 
 # --------------------------------------------------
-# Unsplash Daten abrufen
+# Unsplash API Funktionen
+# --------------------------------------------------
+
+def get_photo_data(photo_id):
+
+    response = requests.get(
+
+        f"https://api.unsplash.com/photos/{photo_id}",
+
+        params={
+            "client_id": API_KEY
+        }
+
+    )
+
+    if response.status_code == 200:
+        return response.json()
+
+    return None
+
+
+
+def search_photo(search_term):
+
+    response = requests.get(
+
+        "https://api.unsplash.com/search/photos",
+
+        params={
+
+            "client_id": API_KEY,
+
+            "query": search_term,
+
+            "per_page": 5
+
+        }
+
+    )
+
+
+    if response.status_code != 200:
+        return None
+
+
+    data = response.json()
+
+
+    if len(data["results"]) == 0:
+        return None
+
+
+    return data["results"][0]
+
+
+
+# --------------------------------------------------
+# Bilder verarbeiten
 # --------------------------------------------------
 
 for image in images:
@@ -55,40 +112,17 @@ for image in images:
 
 
 
-    # --------------------------------------------------
-    # Unsplash ID aus CDN URL holen
-    # --------------------------------------------------
-
-    filename = image_url.split("/")[-1]
-
-    photo_id = filename
-
-
-
-    # --------------------------------------------------
-    # API Anfrage
-    # --------------------------------------------------
-
-    response = requests.get(
-
-        f"https://api.unsplash.com/photos/{photo_id}",
-
-        params={
-            "client_id": API_KEY
-        }
-
-    )
-
-
-
     entry = {
 
 
-        "source": image["source"],
+        "source": "unsplash",
 
         "file": image["file"],
 
         "image_url": image_url,
+
+
+        "unsplash_id": "",
 
 
         "photographer": "",
@@ -115,42 +149,98 @@ for image in images:
 
 
 
-    if response.status_code == 200:
+    photo = None
 
 
-        data = response.json()
 
+    # --------------------------------------------------
+    # Möglichkeit 1:
+    # zukünftige manuelle ID
+    # --------------------------------------------------
+
+    if "unsplash_id" in image and image["unsplash_id"]:
+
+
+        print(
+            "Nutze vorhandene ID:",
+            image["unsplash_id"]
+        )
+
+
+        photo = get_photo_data(
+            image["unsplash_id"]
+        )
+
+
+
+    # --------------------------------------------------
+    # Möglichkeit 2:
+    # Suche über CDN-Datei
+    # --------------------------------------------------
+
+    if photo is None:
+
+
+        filename = image_url.split("/")[-1]
+
+
+        print(
+            "Suche:",
+            filename
+        )
+
+
+        photo = search_photo(
+            filename
+        )
+
+
+
+    # --------------------------------------------------
+    # Daten übernehmen
+    # --------------------------------------------------
+
+    if photo:
+
+
+        entry["unsplash_id"] = photo["id"]
 
 
         entry["photographer"] = (
-            data["user"]["name"]
+            photo["user"]["name"]
         )
 
 
         entry["profile"] = (
-            data["user"]["links"]["html"]
+            photo["user"]["links"]["html"]
         )
 
 
         entry["unsplash_page"] = (
-            data["links"]["html"]
+            photo["links"]["html"]
         )
 
 
         entry["description"] = (
-            data.get("description") or ""
+            photo.get("description") or ""
         )
 
 
         entry["alt_description"] = (
-            data.get("alt_description") or ""
+            photo.get("alt_description") or ""
         )
 
 
         entry["thumbnail"] = (
-            data["urls"]["thumb"]
+            photo["urls"]["thumb"]
         )
 
+
+
+        print(
+            "ID:",
+            entry["unsplash_id"]
+        )
 
 
         print(
@@ -170,15 +260,11 @@ for image in images:
 
 
         print(
-            "API Fehler:",
-            response.status_code
+            "Kein Unsplash Treffer gefunden"
         )
 
 
-        print(
-            "ID:",
-            photo_id
-        )
+        entry["status"] = "not_found"
 
 
 
@@ -187,7 +273,7 @@ for image in images:
 
 
 # --------------------------------------------------
-# JSON speichern
+# Ergebnis speichern
 # --------------------------------------------------
 
 with open(
@@ -214,6 +300,7 @@ with open(
 print("")
 print("==========================")
 print("Fertig")
+
 print(
     "Einträge:",
     len(results)
