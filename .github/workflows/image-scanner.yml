@@ -30,6 +30,12 @@ jobs:
 
 
 
+      - name: Python Pakete installieren
+        run: |
+          pip install requests
+
+
+
       - name: Bilder finden
         run: |
           python py-data/find_images.py
