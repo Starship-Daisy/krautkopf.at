@@ -3,16 +3,15 @@ import re
 import json
 
 
-# Welche Bildquellen kennen wir?
-SUPPORTED_SOURCES = [
-    "unsplash"
-]
-
-
 found = []
 
+seen = set()
 
-# sucht alle HTML Dateien
+
+# --------------------------------------------------
+# HTML-Dateien durchsuchen
+# --------------------------------------------------
+
 for root, dirs, files in os.walk("."):
 
     for file in files:
@@ -21,7 +20,7 @@ for root, dirs, files in os.walk("."):
             continue
 
 
-        # credits.html auslassen
+        # credits.html nicht durchsuchen
         if file.lower() == "credits.html":
             continue
 
@@ -38,8 +37,12 @@ for root, dirs, files in os.walk("."):
             html = f.read()
 
 
-        # Bilder mit Quelle finden
-        pattern = r'<img[^>]+data-image-source="([^"]+)"[^>]+src="([^"]+)"'
+
+        # --------------------------------------------------
+        # Unsplash Bilder finden
+        # --------------------------------------------------
+
+        pattern = r'https://images\.unsplash\.com/[^"\']+'
 
 
         images = re.findall(
@@ -48,22 +51,33 @@ for root, dirs, files in os.walk("."):
         )
 
 
-        for source, url in images:
+        for url in images:
 
 
-            if source not in SUPPORTED_SOURCES:
+            # URL ohne Parameter
+            clean_url = url.split("?")[0]
+
+
+            # doppelte Bilder vermeiden
+            if clean_url in seen:
                 continue
+
+
+            seen.add(clean_url)
+
 
 
             entry = {
 
+                "source": "unsplash",
+
                 "file": path,
 
-                "source": source,
+                "image_url": clean_url,
 
-                "image_url": url,
+                "alt_text": "",
 
-                "alt_text": ""
+                "status": "needs_review"
 
             }
 
@@ -72,14 +86,17 @@ for root, dirs, files in os.walk("."):
 
 
             print("")
-            print("Bild gefunden:")
+            print("--------------------------")
+            print("Bild gefunden")
             print("Datei:", path)
-            print("Quelle:", source)
-            print("URL:", url)
+            print("Quelle:", entry["source"])
+            print("URL:", clean_url)
 
 
 
-# Ergebnis speichern
+# --------------------------------------------------
+# JSON schreiben
+# --------------------------------------------------
 
 output = "py-data/images_found.json"
 
@@ -99,7 +116,7 @@ with open(
 
 
 print("")
-print("====================")
+print("==========================")
 print("Fertig")
 print("Gefundene Bilder:", len(found))
-print("Datei:", output)
+print("Gespeichert:", output)
