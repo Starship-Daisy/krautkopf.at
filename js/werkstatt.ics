@@ -6,60 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Wolfgang_Events
 X-WR-TIMEZONE:Europe/Vienna
 BEGIN:VEVENT
-DTSTART:20260726T130000Z
-DTEND:20260726T190000Z
-DTSTAMP:20260717T022216Z
-UID:6qtghultkhtfd9bo5tlp790smh@google.com
-CREATED:20260709T205556Z
-DESCRIPTION:<br><br><br><h3><b>Hofjause 2026</b></h3><br><p>Am 26. Juli 202
- 6 von 15 bis 21 Uhr findet wieder unsere beliebte Hofjause statt.</p><p>Jed
- es Jahr freuen wir uns\, diese mit vielen lieben Gästen zu feiern  - meist 
- bei bestem Wetter und angenehmen Temperaturen und begleitet von wunderbarer
-  südamerikanischer Livemusik. Beliebt sind die Führungen durch die Gärtnere
- i und in die Burg Sachsengang.</p><p>Kinder haben nicht nur Spaß in der Hüp
- fburg\, sondern interessieren sich auch für die Isländer des <a href="https
- ://www.reitzentrum-sachsengang.at/" target="_blank">Islandpferdehofs</a> ne
- benan.</p>
-LAST-MODIFIED:20260709T205556Z
-LOCATION:Am Hof 2/4\, 2301 Oberhausen
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Buntgemüse Hofjause
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260711T183000Z
-DTEND:20260711T200000Z
-DTSTAMP:20260717T022216Z
-UID:5n9i1koh6mupo0m491ppl1d7jl@google.com
-CREATED:20260709T210547Z
-DESCRIPTION:<h2><strong><b>Samstag\, 11.7.2026</b></strong></h2><p><em><i>„
- <a href="https://tabula-rasa-project.com/udbt-show" target="_blank">Das und
- eckbare Tun</a>„: </i></em>Die One-Man-Show zwischen Illusion und Realität 
- von Illusionist\, Mentalist und Ex-Theologe <em><i>Philipp Oberlohr</i></em
- ></p><p>Illusionisten sind selten ehrlich. Doch an diesem Abend ist alles a
- nders. <em><i>Philipp Oberlohr</i></em> – Illusionist\, Mentalist und Ex-Th
- eologe – teilt sein persönlichstes Geheimnis und gibt eine Antwort auf die 
- Frage\, die ihm am häufigsten gestellt wird: <em><i>Wie machst du das?</i><
- /em></p><p>Mit Illusionen\, persönlichen Geschichten und interaktivem Story
- telling führt er das Publikum vom tiefsten Tirol nach London. Dabei erzählt
-  er von Wegen und Umwegen\, Scheitern und dem Mut\, neue Perspektiven zu en
- tdecken. Und es geschehen Dinge\, die eigentlich unmöglich sind: Gedanken w
- erden gelesen\, Metall verbiegt sich und der Zufall wird vorhersehbar.</p><
- p>Ein Abend zum Staunen\, Lachen und Nachdenken – und vielleicht mit einer 
- Antwort\, von der man noch nicht wusste\, dass man sie sucht.</p><p>DAUER c
- a. 80min (+Pause)</p>
-LAST-MODIFIED:20260709T210547Z
-LOCATION:Ruine Markgrafneusiedl
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Marchfelder Kultursommer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20260717T183000Z
 DTEND:20260717T200000Z
-DTSTAMP:20260717T022216Z
+DTSTAMP:20260717T061504Z
 UID:7b68ssc6ko0decjklbg9gbh05l@google.com
 CREATED:20260709T210949Z
 DESCRIPTION:<h2><strong><b>Freitag\, 17.7.2026</b></strong></h2><p>Sommerki
@@ -88,65 +37,31 @@ SUMMARY:Marchfelder Kultursommer
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260724T183000Z
-DTEND:20260724T200000Z
-DTSTAMP:20260717T022216Z
-UID:214vguja4ounpo8kimnsc55rg1@google.com
-CREATED:20260709T211455Z
-DESCRIPTION:<h2><strong><b>Freitag\, 24.7 2026</b></strong></h2><p>Sommerki
- no Marchfeld 2026</p><h4>Calle Málaga – Ein Zuhause in Tanger</h4><p>ES 202
- 5\, 116min</p><p><a href="https://www.youtube.com/watch?v=trqzu9i1aiI">Trai
- ler</a></p><br><br>María Ángeles lebt seit Jahrzehnten im spanischen Vierte
- l von Tanger. Ihre Wohnung in der Calle Málaga\, gefüllt mit Erinnerungen\,
-  Blumen und alten Möbelstücken\, ist für sie weit mehr als ein Zuhause. Vom
-  Balkon aus verfolgt sie das geschäftige Leben der Straßen\, in denen Verga
- ngenheit und Gegenwart ineinanderfließen. Als ihre Tochter Clara jedoch den
-  Entschluss fasst\, die Wohnung zu verkaufen\, steht María Ángeles vor eine
- r entscheidenden Veränderung. Ein Umzug in ein Seniorenheim kommt für sie n
- icht infrage. Mit Einfallsreichtum und unbeirrbarem Willen setzt sie alles 
- daran\, ihre vier Wände zu bewahren. Unerwartet eröffnet dieser Widerstand 
- neue Begegnungen\, weckt Lebensfreude und bringt eine Liebe zurück\, die lä
- ngst verloren schien.
-LAST-MODIFIED:20260709T211455Z
-LOCATION:Ruine Markgtafneusiedl
+DTSTART:20260726T130000Z
+DTEND:20260726T190000Z
+DTSTAMP:20260717T061504Z
+UID:6qtghultkhtfd9bo5tlp790smh@google.com
+CREATED:20260709T205556Z
+DESCRIPTION:<br><br><br><h3><b>Hofjause 2026</b></h3><br><p>Am 26. Juli 202
+ 6 von 15 bis 21 Uhr findet wieder unsere beliebte Hofjause statt.</p><p>Jed
+ es Jahr freuen wir uns\, diese mit vielen lieben Gästen zu feiern  - meist 
+ bei bestem Wetter und angenehmen Temperaturen und begleitet von wunderbarer
+  südamerikanischer Livemusik. Beliebt sind die Führungen durch die Gärtnere
+ i und in die Burg Sachsengang.</p><p>Kinder haben nicht nur Spaß in der Hüp
+ fburg\, sondern interessieren sich auch für die Isländer des <a href="https
+ ://www.reitzentrum-sachsengang.at/" target="_blank">Islandpferdehofs</a> ne
+ benan.</p>
+LAST-MODIFIED:20260709T205556Z
+LOCATION:Am Hof 2/4\, 2301 Oberhausen
 SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:Marchfelder Kutursommer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260801T180000Z
-DTEND:20260801T201500Z
-DTSTAMP:20260717T022216Z
-UID:072bnv51n6se3ah4tonfs9n47g@google.com
-CREATED:20260710T043103Z
-DESCRIPTION:Ghost – Nachricht von Sam\nFelsenbühne Staatz\n24. Juli 2026 – 
- 14. August 2026\nTickets\nMusical von Bruce Joel Rubin\, Dave Stewart und G
- len Ballard\n\nMit der Musicaladaption des oscarprämierten Hollywood-Blockb
- usters Ghost – Nachricht von Sam steht heuer eine der größten Liebesgeschic
- hten aller Zeiten auf dem Spielplan. Die Autoren Bruce J. Rubin\, Dave Stew
- art (Mastermind der Band Eurythmics) und Glen Ballard haben die berührende 
- und packende Filmstory in ein ebensolches Musical verwandelt\, in dem auch 
- der Hit „Unchained Melody“ nicht fehlen darf!\nSam Wheat führt mit seiner F
- reundin Molly Jensen ein glückliches Leben\, bis er bei einem Überfall tödl
- ich verletzt wird. Doch seine Seele bleibt in der Welt der Lebenden als Gei
- st zurück\, der nur über das zwielichtige Medium Oda Mae Brown mit Molly ko
- mmunizieren kann. Als Sam herausfindet\, dass sein Tod Teil eines Komplotts
-  war\, versucht er Molly mit Oda Maes Hilfe zu warnen und den wahren Täter 
- zu bestrafen …\nAufgrund der großen Nachfrage findet die Gala Musical unter
-  Sternen heuer zweimal statt!
-LAST-MODIFIED:20260710T043157Z
-LOCATION:Felsenbühne Staatz\, Felsenbühne 2134\, 2134 Staatz-Kautendorf\, Ö
- sterreich
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Ghost – Nachricht von Sam
+SUMMARY:Buntgemüse Hofjause
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260725T183000Z
 DTEND:20260725T200000Z
-DTSTAMP:20260717T022216Z
+DTSTAMP:20260717T061504Z
 UID:40un5rkd91und9j9v08gv8ji2v@google.com
 CREATED:20260709T211630Z
 DESCRIPTION:<h2><strong><b>Freitag\, 24.7 2026</b></strong></h2><p>Sommerki
@@ -171,9 +86,33 @@ SUMMARY:Marchfelder Kutursommer
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+DTSTART:20260808T180000Z
+DTEND:20260808T201500Z
+DTSTAMP:20260717T061504Z
+UID:tl9cvr9dfn32q2tfkkc8tpnuuk@google.com
+CREATED:20260710T040307Z
+DESCRIPTION:Buntgemüse-Sommerkino<br><p>KÖNIGE DES SOMMERS ist eine hinreiß
+ ende Komödie der französischen Regisseurin Louise Courvoisier. Ein Film übe
+ r die Liebe\, das Landleben in all seiner Schönheit\, aber auch all seiner 
+ Rauheit. Ohne kitschige Überhöhung und mit großer Empathie für seine wunder
+ baren Charaktere\, zeichnet KÖNIGE DES SOMMERS ein authentisches Bild vom L
+ eben auf dem Land – und den Tücken\, einen guten Käse herzustellen. </p><p>
+ Für ihren Debütfilm wurde Louise Courvoisier 2024 bei den Internationalen F
+ ilmfestspielen in Cannes mit dem "Prix de la jeunesse" in der Reihe Un Cert
+ ain Regard ausgezeichnet.<br>Trailer auf Youtube: <a href="https://www.yout
+ ube.com/watch?v=3sOFIAoc9hg" target="_blank"><u>https://www.youtube.com/wat
+ ch?v=3sOFIAoc9hg</u></a></p>
+LAST-MODIFIED:20260714T165858Z
+LOCATION:Schloss Sachsengang\, Am Hof 1\, 2301\, Österreich
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:Buntgemüse Sommerkino
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 DTSTART:20260718T183000Z
 DTEND:20260718T200000Z
-DTSTAMP:20260717T022216Z
+DTSTAMP:20260717T061504Z
 UID:1susal1k9t112ieu2si920gojp@google.com
 CREATED:20260709T211229Z
 DESCRIPTION:<h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p><strong>
@@ -205,33 +144,64 @@ SUMMARY:Marchfelder Kultursommer
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260808T180000Z
-DTEND:20260808T201500Z
-DTSTAMP:20260717T022216Z
-UID:tl9cvr9dfn32q2tfkkc8tpnuuk@google.com
-CREATED:20260710T040307Z
-DESCRIPTION:Buntgemüse-Sommerkino<br><p>KÖNIGE DES SOMMERS ist eine hinreiß
- ende Komödie der französischen Regisseurin Louise Courvoisier. Ein Film übe
- r die Liebe\, das Landleben in all seiner Schönheit\, aber auch all seiner 
- Rauheit. Ohne kitschige Überhöhung und mit großer Empathie für seine wunder
- baren Charaktere\, zeichnet KÖNIGE DES SOMMERS ein authentisches Bild vom L
- eben auf dem Land – und den Tücken\, einen guten Käse herzustellen. </p><p>
- Für ihren Debütfilm wurde Louise Courvoisier 2024 bei den Internationalen F
- ilmfestspielen in Cannes mit dem "Prix de la jeunesse" in der Reihe Un Cert
- ain Regard ausgezeichnet.<br>Trailer auf Youtube: <a href="https://www.yout
- ube.com/watch?v=3sOFIAoc9hg" target="_blank"><u>https://www.youtube.com/wat
- ch?v=3sOFIAoc9hg</u></a></p>
-LAST-MODIFIED:20260714T165858Z
-LOCATION:Schloss Sachsengang\, Am Hof 1\, 2301\, Österreich
-SEQUENCE:1
+DTSTART:20260731T180000Z
+DTEND:20260731T201500Z
+DTSTAMP:20260717T061504Z
+UID:uos31ecjhchkhki4p6ojc6sf0o@google.com
+CREATED:20260710T042146Z
+DESCRIPTION:Till Eulenspiegel\, wenn das Herz brennt – Theaterfest NÖ\n\nWe
+ ltliteratur zum Jubiläum!\nErneut lädt Intendant Alexander Paul Kubelka zu 
+ einem spartenübergreifenden Erlebnis: Inspiriert von Charles de Costers leg
+ endärem Roman\, verbinden sich in Till Eulenspiegel Spiel\, Musik und poeti
+ sche Bilder zu einem eindrücklichen Abenteuer. Unbequem und unbeugsam entwi
+ ckelt sich der jugendliche Schelm ebenso zu einem Freiheitshelden wie verst
+ ändnisvollen Freund. So unsterblich als literarische Figur\, so zeitlos sin
+ d viele der Geschichten aus dem Leben der Titelfigur dieser speziell zum 50
+ . Jubiläum der Sommerspiele Perchtoldsdorf entstandenen Neufassung\, die in
+  eine „verrückte“ Welt entführt. Mit Fabian Krüger in der Titelrolle darf m
+ an sich auf ein außergewöhnliches Gesamtkunstwerk vor fantastischer Kulisse
+  freuen!
+LAST-MODIFIED:20260710T043332Z
+LOCATION:Burg Perchtoldsdorf\, Paul-Katzberger-Platz 1\, 2380 Perchtoldsdor
+ f\, Österreich
+SEQUENCE:2
 STATUS:CONFIRMED
-SUMMARY:Buntgemüse Sommerkino
+SUMMARY:Till Eulenspiegel\, wenn das Herz brennt
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260711T183000Z
+DTEND:20260711T200000Z
+DTSTAMP:20260717T061504Z
+UID:5n9i1koh6mupo0m491ppl1d7jl@google.com
+CREATED:20260709T210547Z
+DESCRIPTION:<h2><strong><b>Samstag\, 11.7.2026</b></strong></h2><p><em><i>„
+ <a href="https://tabula-rasa-project.com/udbt-show" target="_blank">Das und
+ eckbare Tun</a>„: </i></em>Die One-Man-Show zwischen Illusion und Realität 
+ von Illusionist\, Mentalist und Ex-Theologe <em><i>Philipp Oberlohr</i></em
+ ></p><p>Illusionisten sind selten ehrlich. Doch an diesem Abend ist alles a
+ nders. <em><i>Philipp Oberlohr</i></em> – Illusionist\, Mentalist und Ex-Th
+ eologe – teilt sein persönlichstes Geheimnis und gibt eine Antwort auf die 
+ Frage\, die ihm am häufigsten gestellt wird: <em><i>Wie machst du das?</i><
+ /em></p><p>Mit Illusionen\, persönlichen Geschichten und interaktivem Story
+ telling führt er das Publikum vom tiefsten Tirol nach London. Dabei erzählt
+  er von Wegen und Umwegen\, Scheitern und dem Mut\, neue Perspektiven zu en
+ tdecken. Und es geschehen Dinge\, die eigentlich unmöglich sind: Gedanken w
+ erden gelesen\, Metall verbiegt sich und der Zufall wird vorhersehbar.</p><
+ p>Ein Abend zum Staunen\, Lachen und Nachdenken – und vielleicht mit einer 
+ Antwort\, von der man noch nicht wusste\, dass man sie sucht.</p><p>DAUER c
+ a. 80min (+Pause)</p>
+LAST-MODIFIED:20260709T210547Z
+LOCATION:Ruine Markgrafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Marchfelder Kultursommer
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260710T183000Z
 DTEND:20260710T200000Z
-DTSTAMP:20260717T022216Z
+DTSTAMP:20260717T061504Z
 UID:37hpsmc0hu7eepqoghnlaj1e1p@google.com
 CREATED:20260709T210229Z
 DESCRIPTION:<section><br><h2><strong><b>Freitag\, 10.7.2026</b></strong></h
@@ -253,29 +223,59 @@ SUMMARY:Marchfelder Kultursommer
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260731T180000Z
-DTEND:20260731T201500Z
-DTSTAMP:20260717T022216Z
-UID:uos31ecjhchkhki4p6ojc6sf0o@google.com
-CREATED:20260710T042146Z
-DESCRIPTION:Till Eulenspiegel\, wenn das Herz brennt – Theaterfest NÖ\n\nWe
- ltliteratur zum Jubiläum!\nErneut lädt Intendant Alexander Paul Kubelka zu 
- einem spartenübergreifenden Erlebnis: Inspiriert von Charles de Costers leg
- endärem Roman\, verbinden sich in Till Eulenspiegel Spiel\, Musik und poeti
- sche Bilder zu einem eindrücklichen Abenteuer. Unbequem und unbeugsam entwi
- ckelt sich der jugendliche Schelm ebenso zu einem Freiheitshelden wie verst
- ändnisvollen Freund. So unsterblich als literarische Figur\, so zeitlos sin
- d viele der Geschichten aus dem Leben der Titelfigur dieser speziell zum 50
- . Jubiläum der Sommerspiele Perchtoldsdorf entstandenen Neufassung\, die in
-  eine „verrückte“ Welt entführt. Mit Fabian Krüger in der Titelrolle darf m
- an sich auf ein außergewöhnliches Gesamtkunstwerk vor fantastischer Kulisse
-  freuen!
-LAST-MODIFIED:20260710T043332Z
-LOCATION:Burg Perchtoldsdorf\, Paul-Katzberger-Platz 1\, 2380 Perchtoldsdor
- f\, Österreich
-SEQUENCE:2
+DTSTART:20260801T180000Z
+DTEND:20260801T201500Z
+DTSTAMP:20260717T061504Z
+UID:072bnv51n6se3ah4tonfs9n47g@google.com
+CREATED:20260710T043103Z
+DESCRIPTION:Ghost – Nachricht von Sam\nFelsenbühne Staatz\n24. Juli 2026 – 
+ 14. August 2026\nTickets\nMusical von Bruce Joel Rubin\, Dave Stewart und G
+ len Ballard\n\nMit der Musicaladaption des oscarprämierten Hollywood-Blockb
+ usters Ghost – Nachricht von Sam steht heuer eine der größten Liebesgeschic
+ hten aller Zeiten auf dem Spielplan. Die Autoren Bruce J. Rubin\, Dave Stew
+ art (Mastermind der Band Eurythmics) und Glen Ballard haben die berührende 
+ und packende Filmstory in ein ebensolches Musical verwandelt\, in dem auch 
+ der Hit „Unchained Melody“ nicht fehlen darf!\nSam Wheat führt mit seiner F
+ reundin Molly Jensen ein glückliches Leben\, bis er bei einem Überfall tödl
+ ich verletzt wird. Doch seine Seele bleibt in der Welt der Lebenden als Gei
+ st zurück\, der nur über das zwielichtige Medium Oda Mae Brown mit Molly ko
+ mmunizieren kann. Als Sam herausfindet\, dass sein Tod Teil eines Komplotts
+  war\, versucht er Molly mit Oda Maes Hilfe zu warnen und den wahren Täter 
+ zu bestrafen …\nAufgrund der großen Nachfrage findet die Gala Musical unter
+  Sternen heuer zweimal statt!
+LAST-MODIFIED:20260710T043157Z
+LOCATION:Felsenbühne Staatz\, Felsenbühne 2134\, 2134 Staatz-Kautendorf\, Ö
+ sterreich
+SEQUENCE:0
 STATUS:CONFIRMED
-SUMMARY:Till Eulenspiegel\, wenn das Herz brennt
+SUMMARY:Ghost – Nachricht von Sam
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260724T183000Z
+DTEND:20260724T200000Z
+DTSTAMP:20260717T061504Z
+UID:214vguja4ounpo8kimnsc55rg1@google.com
+CREATED:20260709T211455Z
+DESCRIPTION:<h2><strong><b>Freitag\, 24.7 2026</b></strong></h2><p>Sommerki
+ no Marchfeld 2026</p><h4>Calle Málaga – Ein Zuhause in Tanger</h4><p>ES 202
+ 5\, 116min</p><p><a href="https://www.youtube.com/watch?v=trqzu9i1aiI">Trai
+ ler</a></p><br><br>María Ángeles lebt seit Jahrzehnten im spanischen Vierte
+ l von Tanger. Ihre Wohnung in der Calle Málaga\, gefüllt mit Erinnerungen\,
+  Blumen und alten Möbelstücken\, ist für sie weit mehr als ein Zuhause. Vom
+  Balkon aus verfolgt sie das geschäftige Leben der Straßen\, in denen Verga
+ ngenheit und Gegenwart ineinanderfließen. Als ihre Tochter Clara jedoch den
+  Entschluss fasst\, die Wohnung zu verkaufen\, steht María Ángeles vor eine
+ r entscheidenden Veränderung. Ein Umzug in ein Seniorenheim kommt für sie n
+ icht infrage. Mit Einfallsreichtum und unbeirrbarem Willen setzt sie alles 
+ daran\, ihre vier Wände zu bewahren. Unerwartet eröffnet dieser Widerstand 
+ neue Begegnungen\, weckt Lebensfreude und bringt eine Liebe zurück\, die lä
+ ngst verloren schien.
+LAST-MODIFIED:20260709T211455Z
+LOCATION:Ruine Markgtafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Marchfelder Kutursommer
 TRANSP:OPAQUE
 END:VEVENT
 END:VCALENDAR
