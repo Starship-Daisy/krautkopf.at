@@ -1,114 +1,217 @@
-import os
-import re
+from pathlib import Path
 import json
+import os
+import requests
 
 
-found = []
+# ==================================================
+# Pfade
+# ==================================================
 
-seen = set()
-
-
-# --------------------------------------------------
-# HTML-Dateien durchsuchen
-# --------------------------------------------------
-
-for root, dirs, files in os.walk("."):
-
-    for file in files:
-
-        if not file.endswith(".html"):
-            continue
+ROOT = Path(__file__).resolve().parents[2]
 
 
-        # alle Credits-Seiten nicht durchsuchen
-        if "credits" in file.lower():
-            continue
+INPUT = (
+    ROOT
+    / "image-credits"
+    / "py-data"
+    / "data"
+    / "images_found.json"
+)
 
 
-        path = os.path.join(root, file)
+OUTPUT = (
+    ROOT
+    / "image-credits"
+    / "py-data"
+    / "data"
+    / "images_metadata.json"
+)
 
 
-        with open(
-            path,
-            "r",
-            encoding="utf-8"
-        ) as f:
+# ==================================================
+# Unsplash API
+# ==================================================
 
-            html = f.read()
-
-
-
-        # --------------------------------------------------
-        # Unsplash Bilder finden
-        # --------------------------------------------------
-
-        pattern = r'https://images\.unsplash\.com/[^"\']+'
+API_KEY = os.environ.get(
+    "UNSPLASH_ACCESS_KEY"
+)
 
 
-        images = re.findall(
-            pattern,
-            html
+if not API_KEY:
+    raise Exception(
+        "UNSPLASH_ACCESS_KEY fehlt"
+    )
+
+
+headers = {
+
+    "Authorization":
+        f"Client-ID {API_KEY}"
+
+}
+
+
+# ==================================================
+# Unsplash ID aus URL holen
+# ==================================================
+
+def extract_photo_id(url):
+
+    """
+    Beispiel:
+
+    https://images.unsplash.com/photo-1567244401854-5f3a2619804d
+
+    """
+
+    return url.split("/")[-1]
+
+
+
+# ==================================================
+# Daten laden
+# ==================================================
+
+with open(
+    INPUT,
+    "r",
+    encoding="utf-8"
+) as f:
+
+    images = json.load(f)
+
+
+
+results = []
+
+
+# ==================================================
+# Metadaten holen
+# ==================================================
+
+for image in images:
+
+
+    url = image["image_url"]
+
+
+    print("")
+    print("--------------------------")
+    print("Verarbeite:")
+    print(url)
+
+
+    photo_id = extract_photo_id(url)
+
+
+    # --------------------------------------------------
+    # API Suche
+    # --------------------------------------------------
+
+    response = requests.get(
+
+        "https://api.unsplash.com/search/photos",
+
+        headers=headers,
+
+        params={
+            "query": photo_id,
+            "per_page": 1
+        }
+
+    )
+
+
+    if response.status_code != 200:
+
+        print(
+            "API Fehler:",
+            response.status_code
         )
 
+        image["status"] = "api_error"
 
-        for url in images:
+        results.append(image)
 
-
-            # URL ohne Parameter
-            clean_url = url.split("?")[0]
-
-
-            # doppelte Bilder vermeiden
-            if clean_url in seen:
-                continue
-
-
-            seen.add(clean_url)
+        continue
 
 
 
-            entry = {
-
-                "source": "unsplash",
-
-                "file": path,
-
-                "image_url": clean_url,
-
-                "alt_text": "",
-
-                "status": "needs_review"
-
-            }
-
-
-            found.append(entry)
-
-
-            print("")
-            print("--------------------------")
-            print("Bild gefunden")
-            print("Datei:", path)
-            print("Quelle:", entry["source"])
-            print("URL:", clean_url)
+    data = response.json()
 
 
 
-# --------------------------------------------------
-# JSON schreiben
-# --------------------------------------------------
+    if not data["results"]:
 
-output = "py-data/images_found.json"
+        print(
+            "Kein Treffer"
+        )
+
+        image["status"] = "not_found"
+
+        results.append(image)
+
+        continue
+
+
+
+    photo = data["results"][0]
+
+
+    user = photo["user"]
+
+
+
+    image.update({
+
+        "photographer":
+            user["name"],
+
+        "profile":
+            user["links"]["html"],
+
+        "unsplash_page":
+            photo["links"]["html"],
+
+        "description":
+            photo.get("description"),
+
+        "alt_description":
+            photo.get("alt_description"),
+
+        "thumbnail":
+            photo["urls"]["small"],
+
+        "status":
+            "completed"
+
+    })
+
+
+    results.append(image)
+
+
+
+# ==================================================
+# Speichern
+# ==================================================
+
+OUTPUT.parent.mkdir(
+    parents=True,
+    exist_ok=True
+)
 
 
 with open(
-    output,
+    OUTPUT,
     "w",
     encoding="utf-8"
 ) as f:
 
+
     json.dump(
-        found,
+        results,
         f,
         indent=2,
         ensure_ascii=False
@@ -118,5 +221,6 @@ with open(
 print("")
 print("==========================")
 print("Fertig")
-print("Gefundene Bilder:", len(found))
-print("Gespeichert:", output)
+print("Metadaten gespeichert:")
+print(OUTPUT)
+print("==========================")
