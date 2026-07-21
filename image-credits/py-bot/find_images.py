@@ -1,16 +1,28 @@
-import os
+from pathlib import Path
 import re
 import json
 
 
-found = []
+# ==================================================
+# Projektpfade
+# ==================================================
 
-seen = set()
+ROOT = Path(__file__).resolve().parents[2]
+
+HTML_DIR = ROOT
+
+OUTPUT = (
+    ROOT
+    / "image-credits"
+    / "py-data"
+    / "data"
+    / "images_found.json"
+)
 
 
-# --------------------------------------------------
+# ==================================================
 # Einstellungen
-# --------------------------------------------------
+# ==================================================
 
 excluded_files = [
     "credits.html",
@@ -18,136 +30,111 @@ excluded_files = [
 ]
 
 
-output = (
-    "image-credits/"
-    "py-data/"
-    "data/"
-    "images_found.json"
-)
+patterns = {
+
+    "unsplash":
+        r'https://images\.unsplash\.com/[^"\']+'
+
+}
 
 
-# --------------------------------------------------
+found = []
+
+seen = set()
+
+
+# ==================================================
 # HTML-Dateien durchsuchen
-# --------------------------------------------------
+# ==================================================
 
-for root, dirs, files in os.walk("."):
-
-    for file in files:
+for path in HTML_DIR.rglob("*.html"):
 
 
-        if not file.endswith(".html"):
-            continue
+    if path.name.lower() in excluded_files:
+        continue
 
 
-        # Credits-Seiten überspringen
-        if file.lower() in excluded_files:
-            continue
+    html = path.read_text(
+        encoding="utf-8"
+    )
 
 
-        path = os.path.join(root, file)
+    for source, pattern in patterns.items():
 
 
-        with open(
-            path,
-            "r",
-            encoding="utf-8"
-        ) as f:
-
-            html = f.read()
+        images = re.findall(
+            pattern,
+            html
+        )
 
 
-
-        # --------------------------------------------------
-        # Bildquellen erkennen
-        # --------------------------------------------------
-
-        patterns = {
-
-            "unsplash":
-                r'https://images\.unsplash\.com/[^"\']+'
-
-        }
+        for url in images:
 
 
-        for source, pattern in patterns.items():
+            clean_url = url.split("?")[0]
 
 
-            images = re.findall(
-                pattern,
-                html
-            )
+            if clean_url in seen:
+                continue
 
 
-            for url in images:
+            seen.add(clean_url)
 
 
-                clean_url = url.split("?")[0]
+            entry = {
+
+                "source": source,
+
+                "file": str(
+                    path.relative_to(ROOT)
+                ),
+
+                "image_url": clean_url,
+
+                "photographer": "",
+                "profile": "",
+                "unsplash_page": "",
+                "description": "",
+                "alt_description": "",
+                "thumbnail": "",
+
+                "alt_text": "",
+
+                "status": "needs_review"
+
+            }
 
 
-                if clean_url in seen:
-                    continue
+            found.append(entry)
 
 
-                seen.add(clean_url)
-
-
-
-                entry = {
-
-                    "source": source,
-
-                    "file": path,
-
-                    "image_url": clean_url,
-
-                    "alt_text": "",
-
-                    "status": "needs_review"
-
-                }
-
-
-                found.append(entry)
+            print("")
+            print("--------------------------")
+            print("Bild gefunden")
+            print("Datei:", entry["file"])
+            print("Quelle:", source)
+            print("URL:", clean_url)
 
 
 
-                print("")
-                print("--------------------------")
-                print("Bild gefunden")
-                print("Datei:", path)
-                print("Quelle:", source)
-                print("URL:", clean_url)
+# ==================================================
+# JSON speichern
+# ==================================================
 
-
-
-# --------------------------------------------------
-# Verzeichnis sicherstellen
-# --------------------------------------------------
-
-os.makedirs(
-    os.path.dirname(output),
+OUTPUT.parent.mkdir(
+    parents=True,
     exist_ok=True
 )
 
 
-
-# --------------------------------------------------
-# JSON schreiben
-# --------------------------------------------------
-
-with open(
-    output,
-    "w",
-    encoding="utf-8"
-) as f:
-
-
-    json.dump(
+OUTPUT.write_text(
+    json.dumps(
         found,
-        f,
         indent=2,
         ensure_ascii=False
-    )
+    ),
+    encoding="utf-8"
+)
 
 
 
@@ -155,4 +142,4 @@ print("")
 print("==========================")
 print("Fertig")
 print("Gefundene Bilder:", len(found))
-print("Gespeichert:", output)
+print("Gespeichert:", OUTPUT)
