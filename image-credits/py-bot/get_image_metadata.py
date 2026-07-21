@@ -39,6 +39,7 @@ API_KEY = os.environ.get(
 
 
 if not API_KEY:
+
     raise Exception(
         "UNSPLASH_ACCESS_KEY fehlt"
     )
@@ -53,25 +54,22 @@ headers = {
 
 
 # ==================================================
-# Unsplash ID aus URL holen
+# Datei laden
 # ==================================================
 
-def extract_photo_id(url):
-
-    """
-    Beispiel:
-
-    https://images.unsplash.com/photo-1567244401854-5f3a2619804d
-
-    """
-
-    return url.split("/")[-1]
+print("")
+print("==========================")
+print("Unsplash Metadata Bot")
+print("==========================")
+print("")
 
 
+if not INPUT.exists():
 
-# ==================================================
-# Daten laden
-# ==================================================
+    raise Exception(
+        f"Eingabedatei nicht gefunden: {INPUT}"
+    )
+
 
 with open(
     INPUT,
@@ -83,56 +81,81 @@ with open(
 
 
 
+print(
+    "Gefundene Bilder:",
+    len(images)
+)
+
+
+
+for image in images:
+
+    print(
+        image["image_url"]
+    )
+
+
+print("")
+
+
+
+# ==================================================
+# Verarbeitung
+# ==================================================
+
 results = []
 
-
-# ==================================================
-# Metadaten holen
-# ==================================================
 
 for image in images:
 
 
-    url = image["image_url"]
+    image_url = image["image_url"]
 
 
-    print("")
     print("--------------------------")
     print("Verarbeite:")
-    print(url)
+    print(image_url)
 
 
-    photo_id = extract_photo_id(url)
 
+    # Unsplash liefert die Metadaten
+    # über die Download-URL nicht direkt.
+    #
+    # Wir verwenden deshalb die Source API.
 
-    # --------------------------------------------------
-    # API Suche
-    # --------------------------------------------------
 
     response = requests.get(
 
-        "https://api.unsplash.com/search/photos",
+        "https://api.unsplash.com/photos",
 
         headers=headers,
 
         params={
-            "query": photo_id,
-            "per_page": 1
+
+            "query":
+                image_url
+
         }
 
     )
 
 
+
+    print(
+        "API Status:",
+        response.status_code
+    )
+
+
+
     if response.status_code != 200:
 
-        print(
-            "API Fehler:",
-            response.status_code
-        )
 
         image["status"] = "api_error"
 
+
         results.append(image)
+
 
         continue
 
@@ -142,51 +165,80 @@ for image in images:
 
 
 
-    if not data["results"]:
+    # Falls API keine Daten liefert
 
-        print(
-            "Kein Treffer"
-        )
+    if not data:
+
 
         image["status"] = "not_found"
 
+
         results.append(image)
+
 
         continue
 
 
 
-    photo = data["results"][0]
+    photo = data[0]
 
 
-    user = photo["user"]
+    user = photo.get(
+        "user",
+        {}
+    )
 
 
 
     image.update({
 
         "photographer":
-            user["name"],
+            user.get("name", ""),
 
         "profile":
-            user["links"]["html"],
+            user.get(
+                "links",
+                {}
+            ).get(
+                "html",
+                ""
+            ),
 
         "unsplash_page":
-            photo["links"]["html"],
+            photo.get(
+                "links",
+                {}
+            ).get(
+                "html",
+                ""
+            ),
 
         "description":
-            photo.get("description"),
+            photo.get(
+                "description",
+                ""
+            ),
 
         "alt_description":
-            photo.get("alt_description"),
+            photo.get(
+                "alt_description",
+                ""
+            ),
 
         "thumbnail":
-            photo["urls"]["small"],
+            photo.get(
+                "urls",
+                {}
+            ).get(
+                "small",
+                ""
+            ),
 
         "status":
             "completed"
 
     })
+
 
 
     results.append(image)
@@ -211,16 +263,24 @@ with open(
 
 
     json.dump(
+
         results,
+
         f,
+
         indent=2,
+
         ensure_ascii=False
+
     )
+
 
 
 print("")
 print("==========================")
 print("Fertig")
-print("Metadaten gespeichert:")
-print(OUTPUT)
+print(
+    "Gespeichert:",
+    OUTPUT
+)
 print("==========================")
