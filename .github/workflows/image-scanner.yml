@@ -38,7 +38,7 @@ jobs:
 
       - name: Bilder finden
         run: |
-          python py-data/find_images.py
+          python image-credits/py-bot/find_images.py
 
 
 
