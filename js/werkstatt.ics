@@ -6,31 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Wolfgang_Events
 X-WR-TIMEZONE:Europe/Vienna
 BEGIN:VEVENT
-DTSTART:20260726T130000Z
-DTEND:20260726T190000Z
-DTSTAMP:20260721T140559Z
-UID:6qtghultkhtfd9bo5tlp790smh@google.com
-CREATED:20260709T205556Z
-DESCRIPTION:<br><br><br><h3><b>Hofjause 2026</b></h3><br><p>Am 26. Juli 202
- 6 von 15 bis 21 Uhr findet wieder unsere beliebte Hofjause statt.</p><p>Jed
- es Jahr freuen wir uns\, diese mit vielen lieben Gästen zu feiern  - meist 
- bei bestem Wetter und angenehmen Temperaturen und begleitet von wunderbarer
-  südamerikanischer Livemusik. Beliebt sind die Führungen durch die Gärtnere
- i und in die Burg Sachsengang.</p><p>Kinder haben nicht nur Spaß in der Hüp
- fburg\, sondern interessieren sich auch für die Isländer des <a href="https
- ://www.reitzentrum-sachsengang.at/" target="_blank">Islandpferdehofs</a> ne
- benan.</p>
-LAST-MODIFIED:20260709T205556Z
-LOCATION:Am Hof 2/4\, 2301 Oberhausen
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Buntgemüse Hofjause
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20260808T180000Z
 DTEND:20260808T201500Z
-DTSTAMP:20260721T140559Z
+DTSTAMP:20260721T191532Z
 UID:tl9cvr9dfn32q2tfkkc8tpnuuk@google.com
 CREATED:20260710T040307Z
 DESCRIPTION:Buntgemüse-Sommerkino<br><p>KÖNIGE DES SOMMERS ist eine hinreiß
@@ -52,91 +30,9 @@ SUMMARY:Buntgemüse Sommerkino
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-DTSTART:20260724T183000Z
-DTEND:20260724T200000Z
-DTSTAMP:20260721T140559Z
-UID:214vguja4ounpo8kimnsc55rg1@google.com
-CREATED:20260709T211455Z
-DESCRIPTION:<h2><strong><b>Freitag\, 24.7 2026</b></strong></h2><p>Sommerki
- no Marchfeld 2026</p><h4>Calle Málaga – Ein Zuhause in Tanger</h4><p>ES 202
- 5\, 116min</p><p><a href="https://www.youtube.com/watch?v=trqzu9i1aiI">Trai
- ler</a></p><br><br>María Ángeles lebt seit Jahrzehnten im spanischen Vierte
- l von Tanger. Ihre Wohnung in der Calle Málaga\, gefüllt mit Erinnerungen\,
-  Blumen und alten Möbelstücken\, ist für sie weit mehr als ein Zuhause. Vom
-  Balkon aus verfolgt sie das geschäftige Leben der Straßen\, in denen Verga
- ngenheit und Gegenwart ineinanderfließen. Als ihre Tochter Clara jedoch den
-  Entschluss fasst\, die Wohnung zu verkaufen\, steht María Ángeles vor eine
- r entscheidenden Veränderung. Ein Umzug in ein Seniorenheim kommt für sie n
- icht infrage. Mit Einfallsreichtum und unbeirrbarem Willen setzt sie alles 
- daran\, ihre vier Wände zu bewahren. Unerwartet eröffnet dieser Widerstand 
- neue Begegnungen\, weckt Lebensfreude und bringt eine Liebe zurück\, die lä
- ngst verloren schien.
-LAST-MODIFIED:20260721T140242Z
-LOCATION:Ruine Markgtafneusiedl
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Marchfelder Kultursommer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260710T183000Z
-DTEND:20260710T200000Z
-DTSTAMP:20260721T140559Z
-UID:37hpsmc0hu7eepqoghnlaj1e1p@google.com
-CREATED:20260709T210229Z
-DESCRIPTION:<section><br><h2><strong><b>Freitag\, 10.7.2026</b></strong></h
- 2><p>Sommerkino Marchfeld 2026</p><h4><em><i>DJ Ahmet</i></em></h4><p>MK 20
- 25\, 99min</p><p><a href="https://www.youtube.com/watch?v=ZWtp3wt7j0c">Trai
- ler</a></p><p>Der 15-jährige <em><i>Ahmet</i></em> lebt in einem Dorf in No
- rdmazedonien. Nach dem Tod seiner Mutter ist sein Leben von harter Arbeit u
- nd den strengen Regeln seines Vaters bestimmt. Bei einer illegalen Techno-P
- arty im Wald gefällt ihm die Musik sofort und er lernt <em><i>Aya</i></em> 
- kennen – ein mutiges Mädchen in seinem Alter. Gemeinsam träumen sie davon\,
-  beim Dorffest heimlich Musik zu machen. Eine Geschichte der Flucht in die 
- Musik\, zwischen Elternerwartungen und verbotener Liebe zu einem versproche
- nen Mädchen.</p></section>
-LAST-MODIFIED:20260709T210653Z
-LOCATION:Ruine Markgrafneusiedl
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Marchfelder Kultursommer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-DTSTART:20260717T183000Z
-DTEND:20260717T200000Z
-DTSTAMP:20260721T140559Z
-UID:7b68ssc6ko0decjklbg9gbh05l@google.com
-CREATED:20260709T210949Z
-DESCRIPTION:<h2><strong><b>Freitag\, 17.7.2026</b></strong></h2><p>Sommerki
- no Marchfeld:</p><h4>Dokumentation <a href="https://www.youtube.com/watch?v
- =5Vb-BCXQovE"><em><i>Renate</i></em></a></h4><p>A 2025\, 82min</p><p><a hre
- f="https://www.youtube.com/watch?v=5Vb-BCXQovE">Trailer</a></p><p>Mit über 
- 90 Werken zählt die 87-jährige <strong><b><em><i>Renate Welsh</i></em></b><
- /strong> zu den prägendsten Autorinnen der österreichischen Kinder- und Jug
- endliteratur. Der Film „Renate“ folgt ihrem bewegten Leben – von ihrer Kind
- heit voller Schuldgefühle bis zu ihrer literarischen Arbeit mit <em><i>Chri
- stine Nöstlinger </i></em>und <em><i>Mira Lobe </i></em>für sprachlose Auße
- nseiter:innen. In ihren Schreibwerkstätten leitet sie schreibferne Menschen
-  wie Obdachlose oder Bergbäuerinnen an\, ihre eigene Stimme zu finden. Doch
-  ein plötzlicher Schlaganfall raubt ihr selbst Stimme und Mobilität.</p><p>
- Ein berührendes Porträt über eine außergewöhnliche Autorin\, die die fremde
-  und eigene Sprachlosigkeit überwindet und nie aufgehört hat\, Geschichten 
- zu erzählen.</p><p>Dieser Vorführung wird der Filmproduzent <em><i>Peter Ja
- necek</i></em> beiwohnen. Der Gross-Enzersdorfer hat bereits zahlreiche Dok
- umentarfilme ermöglicht\, <em><i>Renate</i></em> ist das dritte Werk\, das 
- wir im Rahmen des <em><i>Sommerkino Marchfeld</i></em> zeigen.</p>
-LAST-MODIFIED:20260709T211014Z
-LOCATION:Ruine Markgrafneusiedl
-SEQUENCE:0
-STATUS:CONFIRMED
-SUMMARY:Marchfelder Kultursommer
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20260711T183000Z
 DTEND:20260711T200000Z
-DTSTAMP:20260721T140559Z
+DTSTAMP:20260721T191532Z
 UID:5n9i1koh6mupo0m491ppl1d7jl@google.com
 CREATED:20260709T210547Z
 DESCRIPTION:<h2><strong><b>Samstag\, 11.7.2026</b></strong></h2><p><em><i>„
@@ -165,7 +61,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260801T180000Z
 DTEND:20260801T201500Z
-DTSTAMP:20260721T140559Z
+DTSTAMP:20260721T191532Z
 UID:072bnv51n6se3ah4tonfs9n47g@google.com
 CREATED:20260710T043103Z
 DESCRIPTION:Ghost – Nachricht von Sam\nFelsenbühne Staatz\n24. Juli 2026 – 
@@ -192,9 +88,82 @@ SUMMARY:Ghost – Nachricht von Sam
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+DTSTART:20260710T183000Z
+DTEND:20260710T200000Z
+DTSTAMP:20260721T191532Z
+UID:37hpsmc0hu7eepqoghnlaj1e1p@google.com
+CREATED:20260709T210229Z
+DESCRIPTION:<section><br><h2><strong><b>Freitag\, 10.7.2026</b></strong></h
+ 2><p>Sommerkino Marchfeld 2026</p><h4><em><i>DJ Ahmet</i></em></h4><p>MK 20
+ 25\, 99min</p><p><a href="https://www.youtube.com/watch?v=ZWtp3wt7j0c">Trai
+ ler</a></p><p>Der 15-jährige <em><i>Ahmet</i></em> lebt in einem Dorf in No
+ rdmazedonien. Nach dem Tod seiner Mutter ist sein Leben von harter Arbeit u
+ nd den strengen Regeln seines Vaters bestimmt. Bei einer illegalen Techno-P
+ arty im Wald gefällt ihm die Musik sofort und er lernt <em><i>Aya</i></em> 
+ kennen – ein mutiges Mädchen in seinem Alter. Gemeinsam träumen sie davon\,
+  beim Dorffest heimlich Musik zu machen. Eine Geschichte der Flucht in die 
+ Musik\, zwischen Elternerwartungen und verbotener Liebe zu einem versproche
+ nen Mädchen.</p></section>
+LAST-MODIFIED:20260709T210653Z
+LOCATION:Ruine Markgrafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Marchfelder Kultursommer
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260726T130000Z
+DTEND:20260726T190000Z
+DTSTAMP:20260721T191532Z
+UID:6qtghultkhtfd9bo5tlp790smh@google.com
+CREATED:20260709T205556Z
+DESCRIPTION:<br><br><br><h3><b>Hofjause 2026</b></h3><br><p>Am 26. Juli 202
+ 6 von 15 bis 21 Uhr findet wieder unsere beliebte Hofjause statt.</p><p>Jed
+ es Jahr freuen wir uns\, diese mit vielen lieben Gästen zu feiern  - meist 
+ bei bestem Wetter und angenehmen Temperaturen und begleitet von wunderbarer
+  südamerikanischer Livemusik. Beliebt sind die Führungen durch die Gärtnere
+ i und in die Burg Sachsengang.</p><p>Kinder haben nicht nur Spaß in der Hüp
+ fburg\, sondern interessieren sich auch für die Isländer des <a href="https
+ ://www.reitzentrum-sachsengang.at/" target="_blank">Islandpferdehofs</a> ne
+ benan.</p>
+LAST-MODIFIED:20260709T205556Z
+LOCATION:Am Hof 2/4\, 2301 Oberhausen
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Buntgemüse Hofjause
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260724T183000Z
+DTEND:20260724T200000Z
+DTSTAMP:20260721T191532Z
+UID:214vguja4ounpo8kimnsc55rg1@google.com
+CREATED:20260709T211455Z
+DESCRIPTION:<h2><strong><b>Freitag\, 24.7 2026</b></strong></h2><p>Sommerki
+ no Marchfeld 2026</p><h4>Calle Málaga – Ein Zuhause in Tanger</h4><p>ES 202
+ 5\, 116min</p><p><a href="https://www.youtube.com/watch?v=trqzu9i1aiI">Trai
+ ler</a></p><br><br>María Ángeles lebt seit Jahrzehnten im spanischen Vierte
+ l von Tanger. Ihre Wohnung in der Calle Málaga\, gefüllt mit Erinnerungen\,
+  Blumen und alten Möbelstücken\, ist für sie weit mehr als ein Zuhause. Vom
+  Balkon aus verfolgt sie das geschäftige Leben der Straßen\, in denen Verga
+ ngenheit und Gegenwart ineinanderfließen. Als ihre Tochter Clara jedoch den
+  Entschluss fasst\, die Wohnung zu verkaufen\, steht María Ángeles vor eine
+ r entscheidenden Veränderung. Ein Umzug in ein Seniorenheim kommt für sie n
+ icht infrage. Mit Einfallsreichtum und unbeirrbarem Willen setzt sie alles 
+ daran\, ihre vier Wände zu bewahren. Unerwartet eröffnet dieser Widerstand 
+ neue Begegnungen\, weckt Lebensfreude und bringt eine Liebe zurück\, die lä
+ ngst verloren schien.
+LAST-MODIFIED:20260721T140242Z
+LOCATION:Ruine Markgtafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Marchfelder Kultursommer
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 DTSTART:20260718T183000Z
 DTEND:20260718T200000Z
-DTSTAMP:20260721T140559Z
+DTSTAMP:20260721T191532Z
 UID:1susal1k9t112ieu2si920gojp@google.com
 CREATED:20260709T211229Z
 DESCRIPTION:<h2><strong><b>Samstag\, 18.7.2026</b></strong></h2><p><strong>
@@ -226,9 +195,40 @@ SUMMARY:Marchfelder Kultursommer
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+DTSTART:20260717T183000Z
+DTEND:20260717T200000Z
+DTSTAMP:20260721T191532Z
+UID:7b68ssc6ko0decjklbg9gbh05l@google.com
+CREATED:20260709T210949Z
+DESCRIPTION:<h2><strong><b>Freitag\, 17.7.2026</b></strong></h2><p>Sommerki
+ no Marchfeld:</p><h4>Dokumentation <a href="https://www.youtube.com/watch?v
+ =5Vb-BCXQovE"><em><i>Renate</i></em></a></h4><p>A 2025\, 82min</p><p><a hre
+ f="https://www.youtube.com/watch?v=5Vb-BCXQovE">Trailer</a></p><p>Mit über 
+ 90 Werken zählt die 87-jährige <strong><b><em><i>Renate Welsh</i></em></b><
+ /strong> zu den prägendsten Autorinnen der österreichischen Kinder- und Jug
+ endliteratur. Der Film „Renate“ folgt ihrem bewegten Leben – von ihrer Kind
+ heit voller Schuldgefühle bis zu ihrer literarischen Arbeit mit <em><i>Chri
+ stine Nöstlinger </i></em>und <em><i>Mira Lobe </i></em>für sprachlose Auße
+ nseiter:innen. In ihren Schreibwerkstätten leitet sie schreibferne Menschen
+  wie Obdachlose oder Bergbäuerinnen an\, ihre eigene Stimme zu finden. Doch
+  ein plötzlicher Schlaganfall raubt ihr selbst Stimme und Mobilität.</p><p>
+ Ein berührendes Porträt über eine außergewöhnliche Autorin\, die die fremde
+  und eigene Sprachlosigkeit überwindet und nie aufgehört hat\, Geschichten 
+ zu erzählen.</p><p>Dieser Vorführung wird der Filmproduzent <em><i>Peter Ja
+ necek</i></em> beiwohnen. Der Gross-Enzersdorfer hat bereits zahlreiche Dok
+ umentarfilme ermöglicht\, <em><i>Renate</i></em> ist das dritte Werk\, das 
+ wir im Rahmen des <em><i>Sommerkino Marchfeld</i></em> zeigen.</p>
+LAST-MODIFIED:20260709T211014Z
+LOCATION:Ruine Markgrafneusiedl
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Marchfelder Kultursommer
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 DTSTART:20260731T180000Z
 DTEND:20260731T201500Z
-DTSTAMP:20260721T140559Z
+DTSTAMP:20260721T191532Z
 UID:uos31ecjhchkhki4p6ojc6sf0o@google.com
 CREATED:20260710T042146Z
 DESCRIPTION:Till Eulenspiegel\, wenn das Herz brennt – Theaterfest NÖ\n\nWe
@@ -254,7 +254,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260725T183000Z
 DTEND:20260725T200000Z
-DTSTAMP:20260721T140559Z
+DTSTAMP:20260721T191532Z
 UID:40un5rkd91und9j9v08gv8ji2v@google.com
 CREATED:20260709T211630Z
 DESCRIPTION:<h2><strong><b>Freitag\, 24.7 2026</b></strong></h2><p>Sommerki
