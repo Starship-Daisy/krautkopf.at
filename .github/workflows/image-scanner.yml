@@ -6,66 +6,44 @@ on:
 permissions:
   contents: write
 
-
 jobs:
 
   scan-images:
 
     runs-on: ubuntu-latest
 
-
     steps:
-
 
       - name: Repository laden
         uses: actions/checkout@v4
 
-
-
       - name: Python vorbereiten
         uses: actions/setup-python@v5
-
         with:
           python-version: "3.x"
-
-
 
       - name: Python Pakete installieren
         run: |
           pip install requests
 
-
-
       - name: Bilder finden
         run: |
           python image-credits/py-bot/find_images.py
 
-
-
       - name: Unsplash Metadaten holen
         env:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-
         run: |
-          python py-data/get_image_metadata.py
-
-
+          python image-credits/py-bot/get_image_metadata.py
 
       - name: JSON Dateien speichern
-
         run: |
-
           git config --global user.name "github-actions"
-
           git config --global user.email "github-actions@github.com"
 
-
-          git add py-data/images_found.json
-
-          git add py-data/images_metadata.json
-
+          git add image-credits/py-data/data/images_found.json
+          git add image-credits/py-data/data/images_metadata.json
 
           git commit -m "Update image metadata" || echo "Keine Änderungen"
-
 
           git push
