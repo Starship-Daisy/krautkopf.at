@@ -30,22 +30,36 @@ excluded_files = [
 ]
 
 
-patterns = {
-
-    "unsplash":
-        r'https://images\.unsplash\.com/[^"\']+'
-
-}
-
-
 # ==================================================
-# Vorbereitung
+# Speicher
 # ==================================================
 
 found = []
 
 seen = set()
 
+
+# ==================================================
+# Regex
+# ==================================================
+
+# Unsplash Bild-URL
+image_pattern = (
+    r'https://images\.unsplash\.com/[^"\'> ]+'
+)
+
+
+# Kommentar:
+# <!-- unsplash:F3Dde_9thd8 -->
+
+id_pattern = (
+    r'<!--\s*unsplash:([A-Za-z0-9_-]+)\s*-->'
+)
+
+
+# ==================================================
+# Start
+# ==================================================
 
 print("")
 print("==========================")
@@ -55,102 +69,112 @@ print("")
 
 
 # ==================================================
-# HTML Dateien durchsuchen
+# HTML durchsuchen
 # ==================================================
 
-for path in HTML_DIR.rglob("*.html"):
+for html_file in HTML_DIR.rglob("*.html"):
 
 
-    if path.name.lower() in excluded_files:
+    if html_file.name.lower() in excluded_files:
         continue
 
 
 
-    html = path.read_text(
+    content = html_file.read_text(
         encoding="utf-8"
     )
 
 
 
-    for source, pattern in patterns.items():
+    # alle Unsplash IDs aus Kommentaren holen
+
+    ids = re.findall(
+        id_pattern,
+        content
+    )
 
 
-        images = re.findall(
-            pattern,
-            html
-        )
+    photo_id = ""
 
 
+    if ids:
 
-        for url in images:
-
-
-            # URL Parameter entfernen
-            clean_url = url.split("?")[0]
-
-
-
-            # doppelte Bilder verhindern
-            if clean_url in seen:
-                continue
-
-
-            seen.add(clean_url)
+        photo_id = ids[0]
 
 
 
-            # Unsplash ID extrahieren
-            photo_id = clean_url.split("/")[-1]
+    # alle Bilder finden
+
+    images = re.findall(
+        image_pattern,
+        content
+    )
 
 
 
-            entry = {
+    for image_url in images:
 
-                "source": source,
 
-                "file": str(
-                    path.relative_to(ROOT)
-                ),
-
-                "image_url": clean_url,
-
-                "photo_id": photo_id,
-
-                "photographer": "",
-
-                "profile": "",
-
-                "unsplash_page": "",
-
-                "description": "",
-
-                "alt_description": "",
-
-                "thumbnail": "",
-
-                "alt_text": "",
-
-                "status": "needs_review"
-
-            }
+        clean_url = image_url.split("?")[0]
 
 
 
-            found.append(entry)
+        if clean_url in seen:
+            continue
 
 
 
-            print("")
-            print("--------------------------")
-            print("Bild gefunden")
-            print("Datei:", entry["file"])
-            print("Photo ID:", photo_id)
-            print("URL:", clean_url)
+        seen.add(clean_url)
+
+
+
+        entry = {
+
+            "source": "unsplash",
+
+            "file": str(
+                html_file.relative_to(ROOT)
+            ),
+
+            "image_url": clean_url,
+
+            "photo_id": photo_id,
+
+            "photographer": "",
+
+            "profile": "",
+
+            "unsplash_page": "",
+
+            "description": "",
+
+            "alt_description": "",
+
+            "thumbnail": "",
+
+            "alt_text": "",
+
+            "status": "needs_review"
+
+        }
+
+
+
+        found.append(entry)
+
+
+
+        print("")
+        print("--------------------------")
+        print("Bild gefunden")
+        print("Datei:", entry["file"])
+        print("URL:", clean_url)
+        print("Unsplash ID:", photo_id)
 
 
 
 # ==================================================
-# JSON speichern
+# JSON schreiben
 # ==================================================
 
 OUTPUT.parent.mkdir(
