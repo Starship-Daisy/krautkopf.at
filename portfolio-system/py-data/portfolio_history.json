@@ -630,5 +630,13 @@
         "Clean Energy (INRG)": 1080.0,
         "Vanguard All-World (VWCE)": 1332.96,
         "Total": 5678.86
+    },
+    {
+        "date": "2026-09-03",
+        "Cash": 2000.0,
+        "MSCI World (EUNL)": 1268.2,
+        "Clean Energy (INRG)": 1080.0,
+        "Vanguard All-World (VWCE)": 1334.56,
+        "Total": 5682.76
     }
 ]
