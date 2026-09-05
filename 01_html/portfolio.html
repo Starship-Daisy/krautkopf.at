@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio Dashboard</title>
+  <meta charset="UTF-8">
+  <title>Portfolio Dashboard</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+    h1 { text-align: center; color: #333; }
+    .chart-block {
+      width: 85%;
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .guv {
+      text-align: center;
+      margin: 10px 0 18px;
+      font-family: monospace;
+      color: #444;
+      font-size: 0.95em;
+    }
+  </style>
 </head>
 <body>
 
 <h1>Mein KI-Musterportfolio</h1>
 
-<div style="width: 85%; margin: auto; max-width: 1000px; padding-top: 20px;">
-    <canvas id="historyChart"></canvas>
+<!-- Chart 1: ETF-Musterdepot -->
+<div class="chart-block">
+  <pre id="output-etf" class="guv">Lade ETF-Daten...</pre>
+  <canvas id="historyChart"></canvas>
 </div>
 
-<pre id="output" style="text-align: center; margin-top: 20px; font-family: monospace; color: #666;">Lade Daten...</pre>
+<!-- Chart 2: Depot A/B/C/D -->
+<div class="chart-block">
+  <pre id="output-depot" class="guv">Lade Depot-Daten...</pre>
+  <canvas id="depotChart"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../js/portfolio.js?v=999"></script>
