@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publisher – krautkopf.at</title>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="b8c1b257-c6f9-4816-9e2d-eae8342a8885"></script>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ===== PUBLISHER SEITE STILE ===== */
+        
+        .publisher-header .header-text h1 {
+            font-size: 1.8rem;
+        }
+        
+        .publisher-header .header-text p {
+            font-size: 1rem;
+        }
+        
+        .publisher-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .publisher-section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .publisher-section h2 {
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #2563eb;
+        }
+        
+        /* Navigation Tabs */
+        .publisher-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+        }
+        
+        .nav-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6b7280;
+            transition: all 0.2s;
+        }
+        
+        .nav-tab:hover {
+            color: #2563eb;
+        }
+        
+        .nav-tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-section {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-section h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="url"],
+        .form-group input[type="datetime-local"],
+        .form-group input[type="number"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group .hint {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        /* Image Preview */
+        .image-preview-container {
+            margin-top: 1rem;
+            border: 2px dashed #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            background: #f9fafb;
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+        
+        .image-preview-placeholder {
+            color: #9ca3af;
+            padding: 2rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+        
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .btn-warning {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-group-right {
+            justify-content: flex-end;
+        }
+        
+        /* Article List */
+        .article-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .article-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.2s;
+            background: white;
+        }
+        
+        .article-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-card h3 {
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .article-card .meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-card .content {
+            color: #4b5563;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            max-height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+        
+        .article-card .actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .article-card .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+        
+        /* Status Badges */
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .status-draft { background: #fef3c7; color: #92400e; }
+        .status-scheduled { background: #dbeafe; color: #1e40af; }
+        .status-published { background: #d1fae5; color: #065f46; }
+        .status-expired { background: #fee2e2; color: #991b1b; }
+        
+        /* Target Pages Selection */
+        .target-pages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .page-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f3f4f6;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .page-tag:hover {
+            background: #e5e7eb;
+        }
+        
+        .page-tag.selected {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .page-tag input {
+            display: none;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .toast.hidden {
+            display: none;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        /* Loading Spinner */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Export/Import Section */
+        .export-import-section {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .export-import-section h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        .export-import-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Sync Status */
+        .sync-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+        
+        .sync-status.connected {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .sync-status.disconnected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .publisher-container {
+                padding: 1rem;
+            }
+            
+            .publisher-nav {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .article-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header publisher-header">
+        <div class="container header-grid">
+            <div class="header-left">
+                <div class="back-to-home">
+                    <a href="../index.html">krautkopf.at</a>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="brand-wrapper">
+                    <div class="kraut-logo-icon"></div> 
+                    <div class="header-text">
+                        <h1>Publisher</h1>
+                        <p>Inhalte verwalten & veröffentlichen</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="sync-status disconnected" id="syncStatus">
+                    <span class="loading"></span> Offline
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <div class="body-limiter">
+        <main class="page-wrapper">
+            <div class="publisher-container">
+                
+                <!-- Navigation Tabs -->
+                <div class="publisher-nav">
+                    <button class="nav-tab active" onclick="switchTab('articles')">📰 Artikel</button>
+                    <button class="nav-tab" onclick="switchTab('pages')">📄 Seiten</button>
+                    <button class="nav-tab" onclick="switchTab('settings')">⚙️ Einstellungen</button>
+                </div>
+                
+                <!-- Articles Tab -->
+                <div id="articles-tab" class="tab-content active">
+                    <div class="publisher-section">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h2>Artikel verwalten</h2>
+                            <div>
+                                <button class="btn btn-warning" onclick="importArticles()">
+                                    <span>📥</span> Importieren
+                                </button>
+                                <button class="btn btn-primary" onclick="exportArticles()">
+                                    <span>📤</span> Exportieren
+                                </button>
+                                <button class="btn btn-primary" onclick="openCreateModal()">
+                                    <span>➕</span> Neuer Artikel
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="article-list" id="articleList">
+                            <p style="color: #6b7280; text-align: center; padding: 2rem;">
+                                Keine Artikel vorhanden. Erstelle deinen ersten Artikel!
+                            </p>
+                        </div>
+                        
+                        <!-- Export/Import Section -->
+                        <div class="export-import-section">
+                            <h3>🔄 Synchronisation mit GitHub</h3>
+                            <p style="color: #6b7280; margin-bottom: 1rem;">
+                                Diese Seite speichert Artikel lokal im Browser. 
+                                Nutze die Export/Import-Funktionen, um Artikel mit deinem GitHub-Repo zu synchronisieren.
+                            </p>
+                            <div class="export-import-buttons">
+                                <button class="btn btn-secondary" onclick="downloadJson()">
+                                    <span>💾</span> JSON herunterladen
+                                </button>
+                                <button class="btn btn-secondary" onclick="copyJsonToClipboard()">
+                                    <span>📋</span> JSON kopieren
+                                </button>
+                                <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()">
+                                    <span>📁</span> JSON-Datei auswählen
+                                </button>
+                                <input type="file" id="importFile" accept=".json" style="display: none;" onchange="handleFileImport(event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pages Tab -->
+                <div id="pages-tab" class="tab-content">
+                    <div class="publisher-section">
+                        <h2>Seiten verwalten</h2>
+                        <p style="color: #6b7280;">
+                            Hier kannst du in Zukunft weitere Seiten (z. B. Hirn-Werkstatt, Garten-Werkstatt) verwalten.
+                        </p>
+                        <div style="margin-top: 1rem;">
+                            <button class="btn btn-secondary" onclick="alert('Diese Funktion kommt bald!')">
+                                ⚡ Seiten-Modul aktivieren
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Settings Tab -->
+                <div id="settings-tab" class="tab-content">
+                    <div class="publisher-section">
+                        <h2>Einstellungen</h2>
+                        <div class="form-group">
+                            <label>JSON-Datei-Pfad (für GitHub)</label>
+                            <input type="text" id="jsonPath" value="data/articles.json" style="margin-bottom: 0.5rem;">
+                            <span class="hint">Pfad zur JSON-Datei in deinem GitHub-Repo.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>HTML-Ausgabe-Verzeichnis (für GitHub)</label>
+                            <input type="text" id="htmlDir" value="static/blog" style="margin-bottom: 0.5rem;">
+                            <span class="hint">Verzeichnis für generierte HTML-Dateien.</span>
+                        </div>
+                        <div class="form-group">
+                            <label>GitHub Repo URL (optional)</label>
+                            <input type="url" id="githubRepo" placeholder="https://github.com/dein-benutzername/dein-repo" style="margin-bottom: 0.5rem;">
+                            <span class="hint">Für direkte GitHub-Integration (zukünftig).</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveSettings()">
+                            <span>💾</span> Einstellungen speichern
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-contact">
+                <a href="mailto:wolfgang@krautkopf.at">wolfgang@krautkopf.at</a>
+            </div>
+            <nav class="footer-nav">
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutz.html">Datenschutz</a>
+                <a href="../hirn-werkstatt.html">Hirnwerkstatt</a>
+                <a href="../garten-werkstatt.html">Garten Werkstatt</a>
+                <a href="../kontakt.html">Kontakt</a>
+                <a href="../gedanken-werkstatt.html">Gedanken-Werkstatt</a>
+            </nav>
+            <p class="copyright">&copy; 2026 krautkopf</p>
+        </div>
+    </footer>
+    
+    <!-- ===== MODALS ===== -->
+    
+    <!-- Neuer Artikel Modal -->
+    <div class="modal hidden" id="createModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Neuer Artikel</h2>
+                <button class="close-btn" onclick="closeCreateModal()">&times;</button>
+            </div>
+            <form id="createForm" class="form-grid">
+                <div class="form-section">
+                    <h3>📝 Grunddaten</h3>
+                    <div class="form-group">
+                        <label for="articleTitle">Titel *</label>
+                        <input type="text" id="articleTitle" required placeholder="z.B. Ge(h)danken">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleSubtitle">Untertitel</label>
+                        <input type="text" id="articleSubtitle" placeholder="z.B. Warum uns manche Gedanken erst zwischen zwei Schritten begegnen">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleLead">Lead-Text *</label>
+                        <textarea id="articleLead" required placeholder="z.B. Gehen heißt Ge(h)danken in Bewegung setzen."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>🖼️ Bild</h3>
+                    <div class="form-group">
+                        <label for="articleImage">Bild-URL *</label>
+                        <input type="url" id="articleImage" required placeholder="z.B. https://images.unsplash.com/photo-123456789">
+                        <span class="hint">URL von Unsplash, Pexels oder deinem eigenen Server.</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="articleImageAlt">Bild-Beschreibung (Alt-Text) *</label>
+                        <input type="text" id="articleImageAlt" required placeholder="z.B. Gehen und Denken">
+                    </div>
+                    <div class="form-group">
+                        <label for="articleImageCaption">Bild-Untertitel</label>
+                        <input type="text" id="articleImageCaption" placeholder="z.B. Der Rhythmus des Pfades">
+                    </div>
+                    <div class="image-preview-container">
+                        <p class="image-preview-placeholder" id="imagePreviewPlaceholder">Bild-Vorschau erscheint hier</p>
+                        <img id="imagePreview" class="image-preview hidden" alt="Vorschau">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>📄 Inhalt</h3>
+                    <div class="form-group">
+                        <label for="articleContent">Haupttext *</label>
+                        <textarea id="articleContent" required rows="10" placeholder="Hier den vollständigen Artikeltext eingeben...">
+                        </textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="articleReferences">Querverweise (optional)</label>
+                        <textarea id="articleReferences" rows="4" placeholder="Jede Zeile wird ein Listeneintrag.&#10;z.B. Walden – Natur, Rückzug und Denken&#10;Søren Kierkegaard – Spaziergänge">
+                        </textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>⏰ Veröffentlichung</h3>
+                    <div class="form-group">
+                        <label for="publishDate">Veröffentlichungsdatum *</label>
+                        <input type="datetime-local" id="publishDate" required>
+                        <span class="hint">Wann soll der Artikel live gehen?</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryDate">Ablaufdatum (optional)</label>
+                        <input type="datetime-local" id="expiryDate">
+                        <span class="hint">Falls gesetzt, wird der Artikel nach diesem Datum automatisch deaktiviert.</span>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>🎯 Zielseiten & Metadaten</h3>
+                    <div class="form-group">
+                        <label>Auf welchen Seiten soll dieser Artikel erscheinen?</label>
+                        <div class="target-pages">
+                            <label class="page-tag selected">
+                                <input type="checkbox" name="targetPage" value="gedanken-werkstatt" checked>
+                                Gedanken-Werkstatt
+                            </label>
+                            <label class="page-tag">
+                                <input type="checkbox" name="targetPage" value="hirn-werkstatt">
+                                Hirn-Werkstatt
+                            </label>
+                            <label class="page-tag">
+                                <input type="checkbox" name="targetPage" value="garten-werkstatt">
+                                Garten-Werkstatt
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="articleFile">Dateiname *</label>
+                        <input type="text" id="articleFile" required placeholder="z.B. blog-04-fokus-im-chaos.html">
+                        <span class="hint">Der Name der HTML-Datei (wird in static/blog/ gespeichert).</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="articleTags">Tags (optional, kommasepariert)</label>
+                        <input type="text" id="articleTags" placeholder="z.B. gehen, denken, inspiration">
+                    </div>
+                </div>
+                
+                <div class="btn-group btn-group-right">
+                    <button type="button" class="btn btn-secondary" onclick="closeCreateModal()">Abbrechen</button>
+                    <button type="submit" class="btn btn-success" id="submitBtn">
+                        <span>✓</span> Artikel speichern
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Bearbeiten Modal -->
+    <div class="modal hidden" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Artikel bearbeiten</h2>
+                <button class="close-btn" onclick="closeEditModal()">&times;</button>
+            </div>
+            <form id="editForm" class="form-grid">
+                <input type="hidden" id="editArticleId">
+                
+                <div class="form-section">
+                    <h3>📝 Grunddaten</h3>
+                    <div class="form-group">
+                        <label for="editTitle">Titel *</label>
+                        <input type="text" id="editTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editSubtitle">Untertitel</label>
+                        <input type="text" id="editSubtitle">
+                    </div>
+                    <div class="form-group">
+                        <label for="editLead">Lead-Text *</label>
+                        <textarea id="editLead" required></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>🖼️ Bild</h3>
+                    <div class="form-group">
+                        <label for="editImage">Bild-URL *</label>
+                        <input type="url" id="editImage" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editImageAlt">Bild-Beschreibung (Alt-Text) *</label>
+                        <input type="text" id="editImageAlt" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editImageCaption">Bild-Untertitel</label>
+                        <input type="text" id="editImageCaption">
+                    </div>
+                    <div class="image-preview-container">
+                        <p class="image-preview-placeholder" id="editImagePreviewPlaceholder">Bild-Vorschau erscheint hier</p>
+                        <img id="editImagePreview" class="image-preview hidden" alt="Vorschau">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>📄 Inhalt</h3>
+                    <div class="form-group">
+                        <label for="editContent">Haupttext *</label>
+                        <textarea id="editContent" required rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editReferences">Querverweise</label>
+                        <textarea id="editReferences" rows="4"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>⏰ Veröffentlichung</h3>
+                    <div class="form-group">
+                        <label for="editPublishDate">Veröffentlichungsdatum *</label>
+                        <input type="datetime-local" id="editPublishDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editExpiryDate">Ablaufdatum</label>
+                        <input type="datetime-local" id="editExpiryDate">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>🎯 Zielseiten & Metadaten</h3>
+                    <div class="form-group">
+                        <label>Auf welchen Seiten soll dieser Artikel erscheinen?</label>
+                        <div class="target-pages" id="editTargetPages">
+                            <!-- Wird dynamisch gefüllt -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editFile">Dateiname *</label>
+                        <input type="text" id="editFile" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editTags">Tags</label>
+                        <input type="text" id="editTags">
+                    </div>
+                </div>
+                
+                <div class="btn-group btn-group-right">
+                    <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Abbrechen</button>
+                    <button type="submit" class="btn btn-success" id="editSubmitBtn">
+                        <span>✓</span> Änderungen speichern
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div class="toast hidden" id="toast"></div>
+    
+    <!-- Modal Styles -->
+    <style>
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .modal.hidden {
+            display: none;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .modal-header h2 {
+            color: #2563eb;
+            margin: 0;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        
+        .close-btn:hover {
+            color: #1f2937;
+        }
+    </style>
+
+    <script>
+        // ==================== KONFIGURATION ====================
+        // Standard-Pfade
+        let JSON_PATH = 'data/articles.json';
+        let HTML_DIR = 'static/blog';
+        
+        // ==================== STORAGE ====================
+        // Artikel aus localStorage laden
+        function loadArticles() {
+            const stored = localStorage.getItem('publisher_articles');
+            return stored ? JSON.parse(stored) : [];
+        }
+        
+        // Artikel in localStorage speichern
+        function saveArticles(articles) {
+            localStorage.setItem('publisher_articles', JSON.stringify(articles, null, 2));
+            updateSyncStatus();
+        }
+        
+        // ==================== ARTIKEL VERWALTUNG ====================
+        
+        function createArticle(article) {
+            const articles = loadArticles();
+            const newId = articles.length > 0 ? Math.max(...articles.map(a => a.id)) + 1 : 1;
+            article.id = newId;
+            article.status = 'draft';
+            articles.push(article);
+            saveArticles(articles);
+            return article;
+        }
+        
+        function updateArticle(id, updates) {
+            const articles = loadArticles();
+            const index = articles.findIndex(a => a.id === id);
+            if (index !== -1) {
+                articles[index] = { ...articles[index], ...updates };
+                saveArticles(articles);
+                return articles[index];
+            }
+            return null;
+        }
+        
+        function deleteArticle(id) {
+            const articles = loadArticles().filter(a => a.id !== id);
+            saveArticles(articles);
+        }
+        
+        // ==================== SYNC STATUS ====================
+        
+        function updateSyncStatus() {
+            const status = document.getElementById('syncStatus');
+            const articles = loadArticles();
+            
+            if (articles.length > 0) {
+                status.textContent = `${articles.length} Artikel (lokal)`;
+                status.className = 'sync-status connected';
+            } else {
+                status.textContent = 'Keine Artikel (lokal)';
+                status.className = 'sync-status disconnected';
+            }
+        }
+        
+        // ==================== MODAL FUNKTIONEN ====================
+        
+        function openCreateModal() {
+            const now = new Date();
+            const later = new Date(now.getTime() + 60 * 60 * 1000); // +1 Stunde
+            document.getElementById('publishDate').value = later.toISOString().slice(0, 16);
+            document.getElementById('createModal').classList.remove('hidden');
+        }
+        
+        function closeCreateModal() {
+            document.getElementById('createModal').classList.add('hidden');
+            document.getElementById('createForm').reset();
+            document.getElementById('imagePreview').classList.add('hidden');
+            document.getElementById('imagePreviewPlaceholder').classList.remove('hidden');
+        }
+        
+        function openEditModal(article) {
+            document.getElementById('editArticleId').value = article.id;
+            document.getElementById('editTitle').value = article.title || '';
+            document.getElementById('editSubtitle').value = article.subtitle || '';
+            document.getElementById('editLead').value = article.lead || '';
+            document.getElementById('editContent').value = article.content || '';
+            document.getElementById('editReferences').value = article.references || '';
+            document.getElementById('editImage').value = article.image_url || '';
+            document.getElementById('editImageAlt').value = article.image_alt || '';
+            document.getElementById('editImageCaption').value = article.image_caption || '';
+            document.getElementById('editPublishDate').value = formatDateForInput(article.publish_date);
+            document.getElementById('editExpiryDate').value = article.expiry_date ? formatDateForInput(article.expiry_date) : '';
+            document.getElementById('editFile').value = article.file || '';
+            document.getElementById('editTags').value = article.tags || '';
+            
+            // Zielseiten auswählen
+            const targetPages = article.target_pages || ['gedanken-werkstatt'];
+            const pagesContainer = document.getElementById('editTargetPages');
+            pagesContainer.innerHTML = `
+                <label class="page-tag ${targetPages.includes('gedanken-werkstatt') ? 'selected' : ''}">
+                    <input type="checkbox" name="editTargetPage" value="gedanken-werkstatt" ${targetPages.includes('gedanken-werkstatt') ? 'checked' : ''}>
+                    Gedanken-Werkstatt
+                </label>
+                <label class="page-tag ${targetPages.includes('hirn-werkstatt') ? 'selected' : ''}">
+                    <input type="checkbox" name="editTargetPage" value="hirn-werkstatt" ${targetPages.includes('hirn-werkstatt') ? 'checked' : ''}>
+                    Hirn-Werkstatt
+                </label>
+                <label class="page-tag ${targetPages.includes('garten-werkstatt') ? 'selected' : ''}">
+                    <input type="checkbox" name="editTargetPage" value="garten-werkstatt" ${targetPages.includes('garten-werkstatt') ? 'checked' : ''}>
+                    Garten-Werkstatt
+                </label>
+            `;
+            
+            updateEditImagePreview();
+            document.getElementById('editModal').classList.remove('hidden');
+        }
+        
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+        }
+        
+        // ==================== BILD-VORSCHAU ====================
+        
+        document.getElementById('articleImage').addEventListener('input', function() {
+            const url = this.value;
+            const preview = document.getElementById('imagePreview');
+            const placeholder = document.getElementById('imagePreviewPlaceholder');
+            
+            if (url) {
+                preview.src = url;
+                preview.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+            } else {
+                preview.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+            }
+        });
+        
+        function updateEditImagePreview() {
+            const url = document.getElementById('editImage').value;
+            const preview = document.getElementById('editImagePreview');
+            const placeholder = document.getElementById('editImagePreviewPlaceholder');
+            
+            if (url) {
+                preview.src = url;
+                preview.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+            } else {
+                preview.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+            }
+        }
+        
+        document.getElementById('editImage').addEventListener('input', updateEditImagePreview);
+        
+        // ==================== TAB NAVIGATION ====================
+        
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (tabName === 'articles') {
+                loadAndRenderArticles();
+            }
+        }
+        
+        // ==================== ARTIKEL RENDERN ====================
+        
+        function renderArticleList(articles) {
+            const list = document.getElementById('articleList');
+            
+            if (articles.length === 0) {
+                list.innerHTML = `
+                    <p style="color: #6b7280; text-align: center; padding: 2rem;">
+                        Keine Artikel vorhanden. Erstelle deinen ersten Artikel!
+                    </p>
+                `;
+                return;
+            }
+            
+            list.innerHTML = articles.map(article => {
+                const statusClass = `status-${article.status || 'draft'}`;
+                const statusText = {
+                    draft: 'Entwurf',
+                    scheduled: 'Geplant',
+                    published: 'Veröffentlicht',
+                    expired: 'Abgelaufen'
+                }[article.status || 'draft'];
+                
+                const publishDate = new Date(article.publish_date).toLocaleString('de-DE');
+                const targetPages = article.target_pages ? article.target_pages.join(', ') : 'Gedanken-Werkstatt';
+                
+                return `
+                    <div class="article-card">
+                        <h3>${escapeHtml(article.title)}</h3>
+                        <div class="meta">
+                            <span>${publishDate}</span>
+                            <span class="status ${statusClass}">${statusText}</span>
+                        </div>
+                        <div class="content">${escapeHtml((article.lead || article.content || '').substring(0, 200))}...</div>
+                        <div style="margin-bottom: 0.5rem; font-size: 0.8rem; color: #6b7280;">
+                            <strong>Zielseiten:</strong> ${targetPages}
+                        </div>
+                        <div class="actions">
+                            <button class="btn btn-primary" onclick='openEditModal(${JSON.stringify(article).replace(/</g, '&lt;').replace(/>/g, '&gt;')})' style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                                Bearbeiten
+                            </button>
+                            <button class="btn btn-danger" onclick="confirmDelete(${article.id})" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+                                Löschen
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function loadAndRenderArticles() {
+            const articles = loadArticles();
+            renderArticleList(articles);
+            updateSyncStatus();
+        }
+        
+        // ==================== FORMULAR HANDLING ====================
+        
+        document.getElementById('createForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="loading"></span> Speichern...';
+            submitBtn.disabled = true;
+            
+            // Zielseiten sammeln
+            const targetPages = [];
+            document.querySelectorAll('input[name="targetPage"]:checked').forEach(checkbox => {
+                targetPages.push(checkbox.value);
+            });
+            
+            const article = {
+                title: document.getElementById('articleTitle').value,
+                subtitle: document.getElementById('articleSubtitle').value || null,
+                lead: document.getElementById('articleLead').value,
+                content: document.getElementById('articleContent').value,
+                references: document.getElementById('articleReferences').value || null,
+                image_url: document.getElementById('articleImage').value,
+                image_alt: document.getElementById('articleImageAlt').value,
+                image_caption: document.getElementById('articleImageCaption').value || null,
+                publish_date: document.getElementById('publishDate').value,
+                expiry_date: document.getElementById('expiryDate').value || null,
+                file: document.getElementById('articleFile').value,
+                tags: document.getElementById('articleTags').value || null,
+                target_pages: targetPages.length > 0 ? targetPages : ['gedanken-werkstatt']
+            };
+            
+            // Validierung
+            if (!article.title || !article.lead || !article.content || !article.image_url || !article.file || !article.publish_date) {
+                showToast('Bitte fülle alle Pflichtfelder aus!', 'error');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+            
+            try {
+                createArticle(article);
+                closeCreateModal();
+                loadAndRenderArticles();
+                showToast('Artikel erfolgreich gespeichert!', 'success');
+            } catch (error) {
+                showToast(`Fehler: ${error.message}`, 'error');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        document.getElementById('editForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('editSubmitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="loading"></span> Speichern...';
+            submitBtn.disabled = true;
+            
+            // Zielseiten sammeln
+            const targetPages = [];
+            document.querySelectorAll('input[name="editTargetPage"]:checked').forEach(checkbox => {
+                targetPages.push(checkbox.value);
+            });
+            
+            const id = parseInt(document.getElementById('editArticleId').value);
+            const article = {
+                title: document.getElementById('editTitle').value,
+                subtitle: document.getElementById('editSubtitle').value || null,
+                lead: document.getElementById('editLead').value,
+                content: document.getElementById('editContent').value,
+                references: document.getElementById('editReferences').value || null,
+                image_url: document.getElementById('editImage').value,
+                image_alt: document.getElementById('editImageAlt').value,
+                image_caption: document.getElementById('editImageCaption').value || null,
+                publish_date: document.getElementById('editPublishDate').value,
+                expiry_date: document.getElementById('editExpiryDate').value || null,
+                file: document.getElementById('editFile').value,
+                tags: document.getElementById('editTags').value || null,
+                target_pages: targetPages.length > 0 ? targetPages : ['gedanken-werkstatt']
+            };
+            
+            // Validierung
+            if (!article.title || !article.lead || !article.content || !article.image_url || !article.file || !article.publish_date) {
+                showToast('Bitte fülle alle Pflichtfelder aus!', 'error');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+            
+            try {
+                updateArticle(id, article);
+                closeEditModal();
+                loadAndRenderArticles();
+                showToast('Artikel erfolgreich aktualisiert!', 'success');
+            } catch (error) {
+                showToast(`Fehler: ${error.message}`, 'error');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        function confirmDelete(articleId) {
+            if (confirm('Möchtest du diesen Artikel wirklich löschen?')) {
+                try {
+                    deleteArticle(articleId);
+                    loadAndRenderArticles();
+                    showToast('Artikel gelöscht!', 'success');
+                } catch (error) {
+                    showToast(`Fehler: ${error.message}`, 'error');
+                }
+            }
+        }
+        
+        // ==================== EXPORT / IMPORT ====================
+        
+        // Artikel als JSON exportieren (Download)
+        function downloadJson() {
+            const articles = loadArticles();
+            const json = JSON.stringify(articles, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'articles.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('JSON-Datei heruntergeladen!', 'success');
+        }
+        
+        // JSON in Zwischenablage kopieren
+        function copyJsonToClipboard() {
+            const articles = loadArticles();
+            const json = JSON.stringify(articles, null, 2);
+            navigator.clipboard.writeText(json).then(() => {
+                showToast('JSON in Zwischenablage kopiert!', 'success');
+            }).catch(error => {
+                showToast('Fehler beim Kopieren: ' + error, 'error');
+            });
+        }
+        
+        // JSON-Datei importieren (File Upload)
+        function handleFileImport(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const articles = JSON.parse(e.target.result);
+                    saveArticles(articles);
+                    loadAndRenderArticles();
+                    showToast('Artikel erfolgreich importiert!', 'success');
+                } catch (error) {
+                    showToast('Fehler beim Import: Ungültiges JSON', 'error');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; // Reset, damit das gleiche File wieder ausgewählt werden kann
+        }
+        
+        // Artikel exportieren (für GitHub)
+        function exportArticles() {
+            const articles = loadArticles();
+            const json = JSON.stringify(articles, null, 2);
+            
+            // Speichere in localStorage für den Fall, dass der User die Seite verlässt
+            localStorage.setItem('publisher_last_export', json);
+            
+            // Zeige Anleitung an
+            const instructions = `
+                📥 Export erfolgreich!
+                
+                1. Lade die JSON-Datei herunter (Button "💾 JSON herunterladen")
+                2. Benenne sie in "articles.json" um
+                3. Lege sie in deinem GitHub-Repo unter "data/articles.json" ab
+                4. Commit & Push die Datei
+                5. GitHub Actions generiert automatisch die HTML-Dateien!
+            `;
+            alert(instructions);
+        }
+        
+        // Artikel importieren (von GitHub)
+        function importArticles() {
+            const instructions = `
+                📤 Import-Anleitung:
+                
+                1. Lade die "articles.json" aus deinem GitHub-Repo herunter
+                   (Pfad: data/articles.json)
+                2. Klicke auf "📁 JSON-Datei auswählen" und wähle die Datei aus
+                3. Die Artikel werden geladen und können bearbeitet werden
+            `;
+            alert(instructions);
+        }
+        
+        // ==================== EINSTELLUNGEN ====================
+        
+        function saveSettings() {
+            JSON_PATH = document.getElementById('jsonPath').value;
+            HTML_DIR = document.getElementById('htmlDir').value;
+            const githubRepo = document.getElementById('githubRepo').value;
+            
+            localStorage.setItem('publisher_json_path', JSON_PATH);
+            localStorage.setItem('publisher_html_dir', HTML_DIR);
+            localStorage.setItem('publisher_github_repo', githubRepo);
+            
+            showToast('Einstellungen gespeichert!', 'success');
+        }
+        
+        // ==================== INIT ====================
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            // Einstellungen laden
+            const savedJsonPath = localStorage.getItem('publisher_json_path');
+            const savedHtmlDir = localStorage.getItem('publisher_html_dir');
+            const savedGithubRepo = localStorage.getItem('publisher_github_repo');
+            
+            if (savedJsonPath) {
+                JSON_PATH = savedJsonPath;
+                document.getElementById('jsonPath').value = savedJsonPath;
+            }
+            if (savedHtmlDir) {
+                HTML_DIR = savedHtmlDir;
+                document.getElementById('htmlDir').value = savedHtmlDir;
+            }
+            if (savedGithubRepo) {
+                document.getElementById('githubRepo').value = savedGithubRepo;
+            }
+            
+            // Artikel laden
+            loadAndRenderArticles();
+            
+            // Standard-Veröffentlichungsdatum setzen
+            const now = new Date();
+            const later = new Date(now.getTime() + 60 * 60 * 1000); // +1 Stunde
+            document.getElementById('publishDate').value = later.toISOString().slice(0, 16);
+            
+            // Sync-Status aktualisieren
+            updateSyncStatus();
+        });
+        
+        // ==================== HILFSFUNKTIONEN ====================
+        
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function formatDateForInput(isoString) {
+            if (!isoString) return '';
+            const date = new Date(isoString);
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `${year}-${month}-${day}T${hours}:${minutes}`;
+        }
+        
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.remove('hidden');
+            
+            if (type === 'success') {
+                toast.style.background = '#10b981';
+                toast.style.color = 'white';
+            } else if (type === 'error') {
+                toast.style.background = '#ef4444';
+                toast.style.color = 'white';
+            } else {
+                toast.style.background = '#1f2937';
+                toast.style.color = 'white';
+            }
+            
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
