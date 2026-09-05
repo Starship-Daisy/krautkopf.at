@@ -12,14 +12,18 @@ START_CASH = 2000.0
 TEST_DEPOT = {
     "MSCI World (EUNL)": {"isin": "IE00B4L5Y983", "shares": 10.0},      # iShares Core MSCI World
     "Clean Energy (INRG)": {"isin": "IE00B1XNHC34", "shares": 150.0},   # Global Clean Energy
-    "Vanguard All-World (VWCE)": {"isin": "IE00BK5BQT80", "shares": 8.0} # Vanguard FTSE All-World
+    "Vanguard All-World (VWCE)": {"isin": "IE00BK5BQT80", "shares": 8.0}, # Vanguard FTSE All-World
+    "Gold (ZGLD)":   {"isin": "IE00B4ND3602", "shares": 5.0},
+    "Silber (ZSIL)": {"isin": "IE00B4NCWG09", "shares": 20.0},
 }
 
 # Übersetzungstabelle von ISIN auf Yahoo-Finance-Ticker (Xetra/Deutsche Börse für Euro-Kurse)
 TICKER_MAPPING = {
     "IE00B4L5Y983": "EUNL.DE",  # MSCI World in Euro
     "IE00B1XNHC34": "INRG.DE",  # Clean Energy in Euro
-    "IE00BK5BQT80": "VWCE.DE"   # Vanguard All-World in Euro
+    "IE00BK5BQT80": "VWCE.DE",   # Vanguard All-World in Euro
+    "IE00B4ND3602": "ZGLD.DE",   # iShares Physical Gold ETC
+    "IE00B4NCWG09": "ZSIL.DE",   # iShares Physical Silver ETC
 }
 
 def live_kurs_holen(isin):
