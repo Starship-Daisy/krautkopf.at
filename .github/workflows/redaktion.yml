@@ -1,0 +1,39 @@
+name: Redaktion Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Testartikel erzeugen
+        run: |
+          mkdir -p content/test
+
+          cat > content/test/test-artikel.json <<'EOF'
+          {
+            "title": "Mein erster KRAUTKOPF-Testartikel",
+            "status": "test",
+            "created": "2026-09-09"
+          }
+          EOF
+
+      - name: Datei in GitHub speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add content/test/test-artikel.json
+
+          git diff --cached --quiet || \
+            git commit -m "Redaktion: Testartikel gespeichert"
+
+          git push
