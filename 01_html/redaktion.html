@@ -1,0 +1,1562 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KRAUTKOPF – Redaktion</title>
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* =========================================
+           KRAUTKOPF REDAKTION – V1
+           Nur Grundlayout für den Editor.
+           Das endgültige Styling kommt später ins SCSS.
+           ========================================= */
+
+        .editor-page {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+
+        .editor-intro {
+            margin-bottom: 40px;
+        }
+
+        .editor-intro h2 {
+            margin-bottom: 10px;
+        }
+
+        .editor-field {
+            margin-bottom: 24px;
+        }
+
+        .editor-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .editor-field input,
+        .editor-field textarea,
+        .editor-field select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            font: inherit;
+            border: 1px solid #999;
+            border-radius: 4px;
+        }
+
+        .editor-field textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .editor-blocks {
+            margin-top: 40px;
+        }
+
+        .editor-block {
+            border: 1px solid #bbb;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        .editor-block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .editor-block-header strong {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .editor-remove {
+            border: 0;
+            background: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .editor-add {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0 40px;
+        }
+
+        .editor-add button,
+        .editor-actions button {
+            padding: 10px 16px;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ccc;
+        }
+
+        .editor-status {
+            margin-top: 20px;
+            padding: 15px;
+            display: none;
+        }
+
+        .editor-preview {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #ccc;
+        }
+
+        .preview-content {
+            margin-top: 20px;
+        }
+
+        .preview-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .preview-quote {
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid currentColor;
+        }
+
+        .preview-links {
+            margin-top: 30px;
+        }
+
+        .preview-links li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="main-header">
+    <div class="container header-grid">
+
+        <div class="header-left">
+            <div class="back-to-home">
+                <a href="../index.html">krautkopf.at</a>
+            </div>
+        </div>
+
+        <div class="header-center">
+            <div class="brand-wrapper">
+
+                <div class="kraut-logo-icon"></div>
+
+                <div class="header-text">
+                    <h1>Redaktion</h1>
+                    <p>KRAUTKOPF</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-right"></div>
+
+    </div>
+</header>
+
+
+<main class="editor-page">
+
+    <div class="editor-intro">
+        <h2>Artikel bearbeiten</h2>
+        <p>
+            Inhalte werden strukturiert erfasst und später automatisch
+            als KRAUTKOPF-Artikel veröffentlicht.
+        </p>
+    </div>
+
+
+    <!-- =========================================
+         ARTIKELDATEN
+         ========================================= -->
+
+    <section>
+
+        <div class="editor-field">
+            <label for="title">Titel</label>
+            <input
+                type="text"
+                id="title"
+                value="Ge(h)danken"
+            >
+        </div>
+
+
+        <div class="editor-field">
+            <label for="slug">Slug</label>
+            <input
+                type="text"
+                id="slug"
+                value="gehdanken"
+            >
+        </div>
+
+
+        <div class="editor-field">
+            <label for="workshop">Werkstatt</label>
+
+            <select id="workshop">
+                <option value="gedanken">Gedanken-Werkstatt</option>
+                <option value="hirn">Hirn-Werkstatt</option>
+            </select>
+        </div>
+
+
+        <div class="editor-field">
+            <label for="subtitle">Untertitel</label>
+
+            <input
+                type="text"
+                id="subtitle"
+                value="Inspiration, Fokus & Aktion"
+            >
+        </div>
+
+
+        <div class="editor-field">
+            <label for="teaser">Teaser</label>
+
+            <textarea id="teaser">Warum uns manche Gedanken erst zwischen zwei Schritten begegnen.</textarea>
+        </div>
+
+
+        <div class="editor-field">
+            <label for="lead">Lead</label>
+
+            <textarea id="lead">Gehen heißt Ge(h)danken in Bewegung setzen.</textarea>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         BILD
+         ========================================= -->
+
+    <section>
+
+        <h3>Bild</h3>
+
+        <div class="editor-field">
+            <label for="image-src">Bild-URL</label>
+
+            <input
+                type="url"
+                id="image-src"
+                value="https://images.unsplash.com/photo-1487023312653-e9014cce469c?q=80&w=1472"
+            >
+        </div>
+
+
+        <div class="editor-field">
+            <label for="image-alt">Alternativtext</label>
+
+            <input
+                type="text"
+                id="image-alt"
+                value="Gehen und Denken"
+            >
+        </div>
+
+
+        <div class="editor-field">
+            <label for="image-caption">Bildbeschreibung</label>
+
+            <textarea id="image-caption">„Der Rhythmus des Pfades“ – Der Moment, in dem sich Gedanken beim Gehen ordnen.</textarea>
+        </div>
+
+
+        <div class="editor-field">
+            <label for="image-credit">Bildnachweis</label>
+
+            <input
+                type="text"
+                id="image-credit"
+                value="Unsplash"
+            >
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         VERÖFFENTLICHUNG
+         ========================================= -->
+
+    <section>
+
+        <h3>Veröffentlichung</h3>
+
+        <div class="editor-field">
+            <label for="publication-date">Datum</label>
+
+            <input
+                type="date"
+                id="publication-date"
+                value="2026-09-10"
+            >
+        </div>
+
+
+        <div class="editor-field">
+            <label for="publication-time">Uhrzeit</label>
+
+            <input
+                type="time"
+                id="publication-time"
+                value="08:00"
+            >
+        </div>
+
+
+        <div class="editor-field">
+            <label for="publication-status">Status</label>
+
+            <select id="publication-status">
+                <option value="draft">Entwurf</option>
+                <option value="scheduled">Geplant</option>
+                <option value="published">Veröffentlicht</option>
+            </select>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         INHALTSBLÖCKE
+         ========================================= -->
+
+    <section class="editor-blocks">
+
+        <h3>Inhalt</h3>
+
+        <div id="blocks"></div>
+
+
+        <div class="editor-add">
+
+            <button type="button" onclick="addTextBlock()">
+                + Text
+            </button>
+
+            <button type="button" onclick="addHeadingBlock()">
+                + Überschrift
+            </button>
+
+            <button type="button" onclick="addImageBlock()">
+                + Bild
+            </button>
+
+            <button type="button" onclick="addQuoteBlock()">
+                + Zitat
+            </button>
+
+            <button type="button" onclick="addListBlock()">
+                + Liste
+            </button>
+
+            <button type="button" onclick="addLinksBlock()">
+                + Querverweise
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         AKTIONEN
+         ========================================= -->
+
+    <section class="editor-actions">
+
+        <button type="button" onclick="saveArticle()">
+            Artikel speichern
+        </button>
+
+        <button type="button" onclick="previewArticle()">
+            Vorschau
+        </button>
+
+        <button type="button" onclick="downloadJSON()">
+            JSON herunterladen
+        </button>
+
+    </section>
+
+
+    <div
+        id="editor-status"
+        class="editor-status">
+    </div>
+
+
+    <!-- =========================================
+         VORSCHAU
+         ========================================= -->
+
+    <section class="editor-preview">
+
+        <h3>Vorschau</h3>
+
+        <div
+            id="preview"
+            class="preview-content">
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <div class="container">
+
+        <div class="footer-contact">
+            <a href="mailto:wolfgang@krautkopf.at">
+                wolfgang@krautkopf.at
+            </a>
+        </div>
+
+        <nav class="footer-nav">
+
+            <a href="gedanken-werkstatt.html">
+                Gedanken-Werkstatt
+            </a>
+
+            <a href="hirn-werkstatt.html">
+                Hirn-Werkstatt
+            </a>
+
+            <a href="datenschutz.html">
+                Datenschutz
+            </a>
+
+            <a href="impressum.html">
+                Impressum
+            </a>
+
+            <a href="kontakt.html">
+                Kontakt
+            </a>
+
+        </nav>
+
+        <p class="copyright">
+            &copy; 2026 krautkopf
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /*
+     * =========================================
+     * KRAUTKOPF REDAKTION
+     * V1
+     * =========================================
+     */
+
+
+    const blocksContainer =
+        document.getElementById("blocks");
+
+
+    /*
+     * -----------------------------------------
+     * TEXT
+     * -----------------------------------------
+     */
+
+    function addTextBlock(data = {}) {
+
+        const block =
+            document.createElement("div");
+
+        block.className =
+            "editor-block";
+
+        block.dataset.type =
+            "text";
+
+        const paragraphs =
+            data.paragraphs || [""];
+
+        block.innerHTML = `
+
+            <div class="editor-block-header">
+
+                <strong>Text</strong>
+
+                <button
+                    type="button"
+                    class="editor-remove"
+                    onclick="this.closest('.editor-block').remove()">
+
+                    ✕ entfernen
+
+                </button>
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>Text</label>
+
+                <textarea
+                    class="block-text"
+                    rows="8">${escapeHTML(
+                        paragraphs.join("\n\n")
+                    )}</textarea>
+
+            </div>
+        `;
+
+        blocksContainer.appendChild(block);
+    }
+
+
+    /*
+     * -----------------------------------------
+     * ÜBERSCHRIFT
+     * -----------------------------------------
+     */
+
+    function addHeadingBlock(data = {}) {
+
+        const block =
+            document.createElement("div");
+
+        block.className =
+            "editor-block";
+
+        block.dataset.type =
+            "heading";
+
+        block.innerHTML = `
+
+            <div class="editor-block-header">
+
+                <strong>Überschrift</strong>
+
+                <button
+                    type="button"
+                    class="editor-remove"
+                    onclick="this.closest('.editor-block').remove()">
+
+                    ✕ entfernen
+
+                </button>
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>Überschrift</label>
+
+                <input
+                    type="text"
+                    class="block-heading"
+                    value="${escapeAttribute(
+                        data.content || ""
+                    )}">
+
+            </div>
+        `;
+
+        blocksContainer.appendChild(block);
+    }
+
+
+    /*
+     * -----------------------------------------
+     * BILD
+     * -----------------------------------------
+     */
+
+    function addImageBlock(data = {}) {
+
+        const block =
+            document.createElement("div");
+
+        block.className =
+            "editor-block";
+
+        block.dataset.type =
+            "image";
+
+        block.innerHTML = `
+
+            <div class="editor-block-header">
+
+                <strong>Bild</strong>
+
+                <button
+                    type="button"
+                    class="editor-remove"
+                    onclick="this.closest('.editor-block').remove()">
+
+                    ✕ entfernen
+
+                </button>
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>Bild-URL</label>
+
+                <input
+                    type="url"
+                    class="block-image-src"
+                    value="${escapeAttribute(
+                        data.src || ""
+                    )}">
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>Alternativtext</label>
+
+                <input
+                    type="text"
+                    class="block-image-alt"
+                    value="${escapeAttribute(
+                        data.alt || ""
+                    )}">
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>Bildbeschreibung</label>
+
+                <input
+                    type="text"
+                    class="block-image-caption"
+                    value="${escapeAttribute(
+                        data.caption || ""
+                    )}">
+
+            </div>
+        `;
+
+        blocksContainer.appendChild(block);
+    }
+
+
+    /*
+     * -----------------------------------------
+     * ZITAT
+     * -----------------------------------------
+     */
+
+    function addQuoteBlock(data = {}) {
+
+        const block =
+            document.createElement("div");
+
+        block.className =
+            "editor-block";
+
+        block.dataset.type =
+            "quote";
+
+        block.innerHTML = `
+
+            <div class="editor-block-header">
+
+                <strong>Zitat</strong>
+
+                <button
+                    type="button"
+                    class="editor-remove"
+                    onclick="this.closest('.editor-block').remove()">
+
+                    ✕ entfernen
+
+                </button>
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>Zitat</label>
+
+                <textarea
+                    class="block-quote"
+                    rows="4">${escapeHTML(
+                        data.content || ""
+                    )}</textarea>
+
+            </div>
+        `;
+
+        blocksContainer.appendChild(block);
+    }
+
+
+    /*
+     * -----------------------------------------
+     * LISTE
+     * -----------------------------------------
+     */
+
+    function addListBlock(data = {}) {
+
+        const block =
+            document.createElement("div");
+
+        block.className =
+            "editor-block";
+
+        block.dataset.type =
+            "list";
+
+        const items =
+            data.items || [
+                {
+                    title: "",
+                    text: ""
+                }
+            ];
+
+        block.innerHTML = `
+
+            <div class="editor-block-header">
+
+                <strong>Liste</strong>
+
+                <button
+                    type="button"
+                    class="editor-remove"
+                    onclick="this.closest('.editor-block').remove()">
+
+                    ✕ entfernen
+
+                </button>
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>
+                    Listenpunkte
+                </label>
+
+                <textarea
+                    class="block-list"
+                    rows="10"
+                    placeholder="Titel | Erklärung">${escapeHTML(
+                        items
+                            .map(item =>
+                                `${item.title || ""} | ${item.text || ""}`
+                            )
+                            .join("\n")
+                    )}</textarea>
+
+                <small>
+                    Ein Punkt pro Zeile.
+                    Titel und Erklärung mit „|“ trennen.
+                </small>
+
+            </div>
+        `;
+
+        blocksContainer.appendChild(block);
+    }
+
+
+    /*
+     * -----------------------------------------
+     * QUERVERWEISE
+     * -----------------------------------------
+     */
+
+    function addLinksBlock(data = {}) {
+
+        const block =
+            document.createElement("div");
+
+        block.className =
+            "editor-block";
+
+        block.dataset.type =
+            "links";
+
+        const items =
+            data.items || [
+                {
+                    label: "",
+                    url: ""
+                }
+            ];
+
+        block.innerHTML = `
+
+            <div class="editor-block-header">
+
+                <strong>Querverweise</strong>
+
+                <button
+                    type="button"
+                    class="editor-remove"
+                    onclick="this.closest('.editor-block').remove()">
+
+                    ✕ entfernen
+
+                </button>
+
+            </div>
+
+            <div class="editor-field">
+
+                <label>
+                    Querverweise
+                </label>
+
+                <textarea
+                    class="block-links"
+                    rows="8"
+                    placeholder="Bezeichnung | URL">${escapeHTML(
+                        items
+                            .map(item =>
+                                `${item.label || ""} | ${item.url || ""}`
+                            )
+                            .join("\n")
+                    )}</textarea>
+
+                <small>
+                    Ein Querverweis pro Zeile.
+                </small>
+
+            </div>
+        `;
+
+        blocksContainer.appendChild(block);
+    }
+
+
+    /*
+     * =========================================
+     * ARTIKEL AUSLESEN
+     * =========================================
+     */
+
+    function collectArticle() {
+
+        const article = {
+
+            id: createArticleID(),
+
+            title:
+                document.getElementById("title").value.trim(),
+
+            slug:
+                document.getElementById("slug").value.trim(),
+
+            workshop:
+                document.getElementById("workshop").value,
+
+            category:
+                document.getElementById("workshop")
+                    .selectedOptions[0].text,
+
+            subtitle:
+                document.getElementById("subtitle").value.trim(),
+
+            teaser:
+                document.getElementById("teaser").value.trim(),
+
+            lead:
+                document.getElementById("lead").value.trim(),
+
+            image: {
+
+                src:
+                    document.getElementById("image-src").value.trim(),
+
+                alt:
+                    document.getElementById("image-alt").value.trim(),
+
+                caption:
+                    document.getElementById("image-caption").value.trim(),
+
+                credit:
+                    document.getElementById("image-credit").value.trim()
+
+            },
+
+            publication: {
+
+                date:
+                    document.getElementById(
+                        "publication-date"
+                    ).value,
+
+                time:
+                    document.getElementById(
+                        "publication-time"
+                    ).value,
+
+                status:
+                    document.getElementById(
+                        "publication-status"
+                    ).value
+
+            },
+
+            blocks:
+                collectBlocks()
+
+        };
+
+        return article;
+    }
+
+
+    /*
+     * =========================================
+     * BLÖCKE AUSLESEN
+     * =========================================
+     */
+
+    function collectBlocks() {
+
+        const result = [];
+
+        document
+            .querySelectorAll(".editor-block")
+            .forEach(block => {
+
+                const type =
+                    block.dataset.type;
+
+
+                if (type === "text") {
+
+                    const text =
+                        block
+                            .querySelector(".block-text")
+                            .value;
+
+                    result.push({
+
+                        type: "text",
+
+                        paragraphs:
+                            text
+                                .split(/\n\s*\n/)
+                                .map(p => p.trim())
+                                .filter(Boolean)
+
+                    });
+
+                }
+
+
+                if (type === "heading") {
+
+                    result.push({
+
+                        type: "heading",
+
+                        content:
+                            block
+                                .querySelector(".block-heading")
+                                .value
+                                .trim()
+
+                    });
+
+                }
+
+
+                if (type === "image") {
+
+                    result.push({
+
+                        type: "image",
+
+                        src:
+                            block
+                                .querySelector(".block-image-src")
+                                .value
+                                .trim(),
+
+                        alt:
+                            block
+                                .querySelector(".block-image-alt")
+                                .value
+                                .trim(),
+
+                        caption:
+                            block
+                                .querySelector(".block-image-caption")
+                                .value
+                                .trim()
+
+                    });
+
+                }
+
+
+                if (type === "quote") {
+
+                    result.push({
+
+                        type: "quote",
+
+                        content:
+                            block
+                                .querySelector(".block-quote")
+                                .value
+                                .trim()
+
+                    });
+
+                }
+
+
+                if (type === "list") {
+
+                    const text =
+                        block
+                            .querySelector(".block-list")
+                            .value;
+
+                    const items =
+                        text
+                            .split("\n")
+                            .map(line => {
+
+                                const parts =
+                                    line.split("|");
+
+                                return {
+
+                                    title:
+                                        (parts[0] || "").trim(),
+
+                                    text:
+                                        (parts.slice(1).join("|") || "")
+                                            .trim()
+
+                                };
+
+                            })
+                            .filter(item =>
+                                item.title || item.text
+                            );
+
+                    result.push({
+
+                        type: "list",
+
+                        items: items
+
+                    });
+
+                }
+
+
+                if (type === "links") {
+
+                    const text =
+                        block
+                            .querySelector(".block-links")
+                            .value;
+
+                    const items =
+                        text
+                            .split("\n")
+                            .map(line => {
+
+                                const parts =
+                                    line.split("|");
+
+                                return {
+
+                                    label:
+                                        (parts[0] || "").trim(),
+
+                                    url:
+                                        (parts.slice(1).join("|") || "")
+                                            .trim()
+
+                                };
+
+                            })
+                            .filter(item =>
+                                item.label || item.url
+                            );
+
+                    result.push({
+
+                        type: "links",
+
+                        title: "Querverweise",
+
+                        items: items
+
+                    });
+
+                }
+
+            });
+
+        return result;
+    }
+
+
+    /*
+     * =========================================
+     * SPEICHERN
+     * =========================================
+     */
+
+    function saveArticle() {
+
+        const article =
+            collectArticle();
+
+        localStorage.setItem(
+            "krautkopf-editor-article",
+            JSON.stringify(
+                article,
+                null,
+                2
+            )
+        );
+
+        showStatus(
+            "Artikel wurde im Browser gespeichert."
+        );
+    }
+
+
+    /*
+     * =========================================
+     * JSON DOWNLOAD
+     * =========================================
+     */
+
+    function downloadJSON() {
+
+        const article =
+            collectArticle();
+
+        const json =
+            JSON.stringify(
+                article,
+                null,
+                2
+            );
+
+        const blob =
+            new Blob(
+                [json],
+                {
+                    type: "application/json"
+                }
+            );
+
+        const url =
+            URL.createObjectURL(blob);
+
+        const link =
+            document.createElement("a");
+
+        link.href =
+            url;
+
+        link.download =
+            article.slug + ".json";
+
+        link.click();
+
+        URL.revokeObjectURL(url);
+
+        showStatus(
+            "JSON-Datei wurde erzeugt."
+        );
+    }
+
+
+    /*
+     * =========================================
+     * VORSCHAU
+     * =========================================
+     */
+
+    function previewArticle() {
+
+        const article =
+            collectArticle();
+
+        const preview =
+            document.getElementById("preview");
+
+        let html = "";
+
+        html += `
+            <h1>
+                ${escapeHTML(article.title)}
+            </h1>
+        `;
+
+        html += `
+            <p>
+                <strong>
+                    ${escapeHTML(article.subtitle)}
+                </strong>
+            </p>
+        `;
+
+        html += `
+            <p class="lead">
+                ${escapeHTML(article.lead)}
+            </p>
+        `;
+
+
+        if (article.image.src) {
+
+            html += `
+
+                <figure>
+
+                    <img
+                        src="${escapeAttribute(article.image.src)}"
+                        alt="${escapeAttribute(article.image.alt)}"
+                    >
+
+                    <figcaption>
+                        ${escapeHTML(article.image.caption)}
+                    </figcaption>
+
+                </figure>
+            `;
+        }
+
+
+        article.blocks.forEach(block => {
+
+            if (block.type === "text") {
+
+                block.paragraphs.forEach(paragraph => {
+
+                    html += `
+                        <p>
+                            ${escapeHTML(paragraph)}
+                        </p>
+                    `;
+
+                });
+
+            }
+
+
+            if (block.type === "heading") {
+
+                html += `
+                    <h3>
+                        ${escapeHTML(block.content)}
+                    </h3>
+                `;
+
+            }
+
+
+            if (block.type === "image") {
+
+                html += `
+
+                    <figure>
+
+                        <img
+                            src="${escapeAttribute(block.src)}"
+                            alt="${escapeAttribute(block.alt)}"
+                        >
+
+                        <figcaption>
+                            ${escapeHTML(block.caption)}
+                        </figcaption>
+
+                    </figure>
+
+                `;
+
+            }
+
+
+            if (block.type === "quote") {
+
+                html += `
+
+                    <blockquote class="preview-quote">
+                        ${escapeHTML(block.content)}
+                    </blockquote>
+
+                `;
+
+            }
+
+
+            if (block.type === "list") {
+
+                html += "<ul>";
+
+                block.items.forEach(item => {
+
+                    html += `
+                        <li>
+                            <strong>
+                                ${escapeHTML(item.title)}
+                            </strong>
+                            ${escapeHTML(item.text)}
+                        </li>
+                    `;
+
+                });
+
+                html += "</ul>";
+
+            }
+
+
+            if (block.type === "links") {
+
+                html += `
+
+                    <div class="preview-links">
+
+                        <h4>
+                            ${escapeHTML(block.title)}
+                        </h4>
+
+                        <ul>
+                `;
+
+                block.items.forEach(item => {
+
+                    html += `
+                        <li>
+                            <a
+                                href="${escapeAttribute(item.url)}"
+                            >
+                                ${escapeHTML(item.label)}
+                            </a>
+                        </li>
+                    `;
+
+                });
+
+                html += `
+                        </ul>
+
+                    </div>
+                `;
+
+            }
+
+        });
+
+
+        preview.innerHTML =
+            html;
+
+        preview.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+
+    /*
+     * =========================================
+     * ARTIKEL-ID
+     * =========================================
+     */
+
+    function createArticleID() {
+
+        const date =
+            document.getElementById(
+                "publication-date"
+            ).value
+            .replaceAll("-", "");
+
+        const slug =
+            document.getElementById(
+                "slug"
+            ).value
+            .trim();
+
+        return `${date}-${slug}`;
+    }
+
+
+    /*
+     * =========================================
+     * HILFSFUNKTIONEN
+     * =========================================
+     */
+
+    function showStatus(message) {
+
+        const status =
+            document.getElementById(
+                "editor-status"
+            );
+
+        status.textContent =
+            message;
+
+        status.style.display =
+            "block";
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+    }
+
+
+    function escapeAttribute(value) {
+
+        return escapeHTML(value);
+    }
+
+
+    /*
+     * =========================================
+     * TESTARTIKEL LADEN
+     * =========================================
+     */
+
+    addTextBlock({
+
+        paragraphs: [
+
+            "Warum uns manche Gedanken erst zwischen zwei Schritten begegnen. Gehen ist eine unterschätzte Form des Denkens. Nicht das angestrengte Denken am Schreibtisch, sondern jenes Denken, das sich mit jedem Schritt langsam ordnet. Während der Körper in Bewegung kommt, lösen sich innere Knoten oft von selbst. Gedanken, die zuvor schwer und fest wirkten, beginnen zu fließen.",
+
+            "Schon Friedrich Nietzsche schrieb, dass nur Gedanken Wert haben, „die man beim Gehen gehabt hat“. Auch Henry David Thoreau verstand Spaziergänge nicht als Freizeitbeschäftigung, sondern als geistige Praxis. Wer geht, verlässt nicht nur Räume, sondern oft auch festgefahrene Gedankenschleifen.",
+
+            "Interessant ist dabei, dass Gehen keinen klaren Zweck braucht. Gerade ziellose Wege öffnen einen besonderen Denkraum. Das Gehirn arbeitet anders, wenn der Blick wandert, Geräusche auftauchen und der Körper rhythmisch beschäftigt ist.",
+
+            "Besonders in Städten entsteht dabei ein eigenartiger Kontrast. Außen Bewegung, Verkehr, Menschen – innen Sammlung. Vielleicht ist genau das der Grund, warum Gehen seit Jahrhunderten mit Reflexion verbunden wird."
+        ]
+
+    });
+
+
+    addLinksBlock({
+
+        items: [
+
+            {
+                label: "Walden – Natur, Rückzug und Denken",
+                url: ""
+            },
+
+            {
+                label: "Søren Kierkegaard – Spaziergänge als philosophische Praxis",
+                url: ""
+            },
+
+            {
+                label: "Psychologie – Bewegung und kreative Prozesse",
+                url: ""
+            },
+
+            {
+                label: "Urbanes Flanieren und Wahrnehmung im Alltag",
+                url: ""
+            }
+
+        ]
+
+    });
+
+
+    addHeadingBlock({
+
+        content:
+            "Drei Wege zurück ins Denken in Bewegung"
+
+    });
+
+
+    addListBlock({
+
+        items: [
+
+            {
+                title: "Der erste Schritt zählt",
+                text: "Geh los, auch ohne Ziel. Nicht die Route ist entscheidend, sondern dass du den Körper überhaupt in Gang setzt – der Rest folgt oft von selbst."
+            },
+
+            {
+                title: "Gedanken nicht festhalten",
+                text: "Lass Ideen kommen und gehen wie Passanten auf der Straße. Nicht jede Erkenntnis muss sofort festgeschrieben oder bewertet werden."
+            },
+
+            {
+                title: "Tempo rausnehmen",
+                text: "Je langsamer du gehst, desto klarer wird oft das Denken. Nicht Beschleunigung bringt Lösung, sondern Rhythmus."
+            }
+
+        ]
+
+    });
+
+
+    addTextBlock({
+
+        paragraphs: [
+
+            "Am Ende ist Gehen keine Flucht aus dem Denken, sondern eine andere Form davon. Vielleicht sogar die ehrlichere: weniger kontrolliert, weniger laut – aber näher an dem, was sich wirklich klären will."
+
+        ]
+
+    });
+
+</script>
+
+</body>
+</html>
+```
