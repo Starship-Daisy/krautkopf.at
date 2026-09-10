@@ -1,0 +1,84 @@
+```json
+{
+  "id": "20260910-test-artikel",
+  "title": "Ein erster Gedanke",
+  "slug": "ein-erster-gedanke",
+
+  "category": "Gedanken-Werkstatt",
+
+  "teaser": "Ein kleiner Testartikel für die neue KRAUTKOPF-Redaktion.",
+
+  "image": {
+    "src": "",
+    "alt": "",
+    "caption": ""
+  },
+
+  "publication": {
+    "date": "2026-09-10",
+    "time": "08:00",
+    "status": "draft"
+  },
+
+  "blocks": [
+    {
+      "type": "text",
+      "content": [
+        "Das hier ist der erste Artikel, der nicht direkt als HTML geschrieben wird.",
+        "Der Inhalt liegt als strukturierte Daten vor. Die Gestaltung übernimmt später KRAUTKOPF."
+      ]
+    },
+
+    {
+      "type": "heading",
+      "content": "Warum diese Struktur?"
+    },
+
+    {
+      "type": "text",
+      "content": [
+        "Ein Artikel besteht aus einzelnen Bausteinen.",
+        "Dadurch kann die Redaktion später neue Inhalte erstellen, ohne HTML schreiben zu müssen."
+      ]
+    },
+
+    {
+      "type": "quote",
+      "content": "Beginnen ist eine Entscheidung – kein Gefühl."
+    },
+
+    {
+      "type": "list",
+      "items": [
+        "Text",
+        "Überschrift",
+        "Bild",
+        "Zitat",
+        "Liste",
+        "Querverweise"
+      ]
+    },
+
+    {
+      "type": "text",
+      "content": [
+        "Das ist zunächst nur ein Test. Aber genau auf dieser Struktur kann die eigentliche Redaktion aufbauen."
+      ]
+    },
+
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Gedanken-Werkstatt",
+          "url": "gedanken-werkstatt.html"
+        },
+        {
+          "label": "Hirn-Werkstatt",
+          "url": "hirn-werkstatt.html"
+        }
+      ]
+    }
+  ]
+}
+```
