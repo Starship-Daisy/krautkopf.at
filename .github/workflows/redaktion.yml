@@ -1,39 +1,54 @@
-name: Redaktion Test
+name: Redaktion
 
 on:
   workflow_dispatch:
+    inputs:
+      filename:
+        description: "Dateiname des Artikels"
+        required: true
+        type: string
+      content:
+        description: "Artikel als JSON"
+        required: true
+        type: string
 
 permissions:
   contents: write
 
 jobs:
-  test:
+  save:
+    name: Artikel speichern
     runs-on: ubuntu-latest
 
     steps:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
-      - name: Testartikel erzeugen
+      - name: Artikeldatei erzeugen
+        env:
+          ARTICLE_FILENAME: ${{ inputs.filename }}
+          ARTICLE_CONTENT: ${{ inputs.content }}
         run: |
-          mkdir -p content/test
+          mkdir -p 03_content/artikel
 
-          cat > content/test/test-artikel.json <<'EOF'
-          {
-            "title": "Mein erster KRAUTKOPF-Testartikel",
-            "status": "test",
-            "created": "2026-09-09"
-          }
-          EOF
+          printf '%s' "$ARTICLE_CONTENT" > "03_content/artikel/$ARTICLE_FILENAME"
 
-      - name: Datei in GitHub speichern
+      - name: Artikel pruefen
+        env:
+          ARTICLE_FILENAME: ${{ inputs.filename }}
+        run: |
+          python -m json.tool "03_content/artikel/$ARTICLE_FILENAME" > /dev/null
+
+      - name: Artikel in GitHub speichern
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add content/test/test-artikel.json
+          git add 03_content/artikel/
 
-          git diff --cached --quiet || \
-            git commit -m "Redaktion: Testartikel gespeichert"
-
-          git push
+          if git diff --cached --quiet; then
+            echo "Keine Aenderung vorhanden."
+          else
+            git commit -m "Redaktion: Artikel gespeichert"
+            git push
+          fi
