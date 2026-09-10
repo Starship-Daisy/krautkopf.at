@@ -4,11 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       filename:
-        description: "Dateiname des Artikels"
         required: true
         type: string
       content:
-        description: "Artikel als JSON"
         required: true
         type: string
 
@@ -30,21 +28,20 @@ jobs:
           ARTICLE_CONTENT: ${{ inputs.content }}
         run: |
           mkdir -p 03_content/artikel
-
           printf '%s' "$ARTICLE_CONTENT" > "03_content/artikel/$ARTICLE_FILENAME"
 
-      - name: Artikel pruefen
+      - name: JSON pruefen
         env:
           ARTICLE_FILENAME: ${{ inputs.filename }}
         run: |
           python -m json.tool "03_content/artikel/$ARTICLE_FILENAME" > /dev/null
 
-      - name: Artikel in GitHub speichern
+      - name: Artikel speichern
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add 03_content/artikel/
+          git add "03_content/artikel/$ARTICLE_FILENAME"
 
           if git diff --cached --quiet; then
             echo "Keine Aenderung vorhanden."
