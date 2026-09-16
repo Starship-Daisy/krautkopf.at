@@ -1,0 +1,32 @@
+{
+  "id": "20260916-37417268",
+  "title": "LINKS",
+  "slug": "links",
+  "category": "Gedanken-Werkstatt",
+  "teaser": "links",
+  "image": {
+    "src": "",
+    "alt": "",
+    "caption": ""
+  },
+  "publication": {
+    "date": "",
+    "time": "",
+    "status": "published"
+  },
+  "blocks": [
+    {
+      "type": "links",
+      "items": [
+        {
+          "label": "Gedankenwerkstatt",
+          "url": "gedanken-werkstatt.html"
+        },
+        {
+          "label": "Hirnwerkstatt",
+          "url": "hirn-werkstatt.html"
+        }
+      ]
+    }
+  ]
+}
