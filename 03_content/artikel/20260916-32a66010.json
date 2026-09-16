@@ -1,0 +1,29 @@
+{
+  "id": "20260916-32a66010",
+  "title": "creator test",
+  "slug": "creator-test",
+  "category": "Gedanken-Werkstatt",
+  "teaser": "wir wollen hier teasern",
+  "image": {
+    "src": "",
+    "alt": "",
+    "caption": ""
+  },
+  "publication": {
+    "date": "",
+    "time": "",
+    "status": "published"
+  },
+  "blocks": [
+    {
+      "type": "text",
+      "content": [
+        "das ist der teaser text"
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "das ist die headline"
+    }
+  ]
+}
