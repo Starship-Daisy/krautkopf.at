@@ -20,6 +20,10 @@
       "content": [
         "Das ist ein neuer Test."
       ]
+    },
+    {
+      "type": "heading",
+      "text": "HEADLINE 🙂"
     }
   ]
 }
