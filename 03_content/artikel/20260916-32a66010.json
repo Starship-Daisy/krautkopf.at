@@ -24,6 +24,10 @@
     {
       "type": "heading",
       "content": "das ist die headline"
+    },
+    {
+      "type": "quote",
+      "content": "das wird das zitat für den artikel"
     }
   ]
 }
