@@ -1,21 +1,13 @@
 {
   "test": true,
-  "title": "test",
-  "workshop": "hirn",
-  "teaser": "teaser",
+  "title": "UTF8 Test",
+  "workshop": "gedanken",
+  "teaser": "Test mit Umlauten: ä ö ü Ä Ö Ü und Gedankenstrich – funktioniert.",
   "blocks": [
     {
-      "type": "heading",
-      "text": "test Headline"
-    },
-    {
-      "type": "quote",
-      "text": "test text"
-    },
-    {
-      "type": "quote",
-      "text": "zitat"
+      "type": "text",
+      "text": "Das ist ein Test der KRAUTKOPF Redaktion.\nÄpfel, Öl, Überlegung – alles sollte korrekt in GitHub ankommen."
     }
   ],
-  "published_at": "2026-09-10T11:32:42.763Z"
+  "published_at": "2026-09-16T10:18:06.985Z"
 }
