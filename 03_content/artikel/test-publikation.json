@@ -1,13 +1,13 @@
 {
   "test": true,
-  "title": "UTF8 Test",
+  "title": "UTF-8 Test 2",
   "workshop": "gedanken",
-  "teaser": "Test mit Umlauten: ä ö ü Ä Ö Ü und Gedankenstrich – funktioniert.",
+  "teaser": "Ein Test für die neue Artikelstruktur.",
   "blocks": [
     {
       "type": "text",
-      "text": "Das ist ein Test der KRAUTKOPF Redaktion.\nÄpfel, Öl, Überlegung – alles sollte korrekt in GitHub ankommen."
+      "text": "Äpfel, Öl, Überlegung – jetzt testen wir die echte Publikation."
     }
   ],
-  "published_at": "2026-09-16T10:18:06.985Z"
+  "published_at": "2026-09-16T10:42:24.534Z"
 }
