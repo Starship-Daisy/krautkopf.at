@@ -1,0 +1,25 @@
+{
+  "id": "20260916-c855c08e",
+  "title": "neuer artikel",
+  "slug": "neuer-artikel",
+  "category": "Gedanken-Werkstatt",
+  "teaser": "Test der neuen Blockstruktur",
+  "image": {
+    "src": "",
+    "alt": "",
+    "caption": ""
+  },
+  "publication": {
+    "date": "",
+    "time": "",
+    "status": "published"
+  },
+  "blocks": [
+    {
+      "type": "text",
+      "content": [
+        "Das ist ein neuer Test."
+      ]
+    }
+  ]
+}
