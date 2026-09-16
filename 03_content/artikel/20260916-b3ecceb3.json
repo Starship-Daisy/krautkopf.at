@@ -1,0 +1,33 @@
+{
+  "id": "20260916-b3ecceb3",
+  "title": "verlinken",
+  "slug": "verlinken",
+  "category": "Gedanken-Werkstatt",
+  "teaser": "wir verlinken und machen den editor noch funktionaler",
+  "image": {
+    "src": "",
+    "alt": "",
+    "caption": ""
+  },
+  "publication": {
+    "date": "",
+    "time": "",
+    "status": "published"
+  },
+  "blocks": [
+    {
+      "type": "links",
+      "content": "https://krautkopf.at/01_html/gedanken-werkstatt.html"
+    },
+    {
+      "type": "text",
+      "content": [
+        "bin gespannt"
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "link"
+    }
+  ]
+}
