@@ -876,5 +876,15 @@
         "Gold (ZGLD)": 250.0,
         "Silber (ZSIL)": 1000.0,
         "Total": 6976.72
+    },
+    {
+        "date": "2026-09-29",
+        "Cash": 2000.0,
+        "MSCI World (EUNL)": 1285.6,
+        "Clean Energy (INRG)": 1080.0,
+        "Vanguard All-World (VWCE)": 1352.96,
+        "Gold (ZGLD)": 250.0,
+        "Silber (ZSIL)": 1000.0,
+        "Total": 6968.56
     }
 ]
